@@ -41,6 +41,9 @@ jobs:
       - name: Chômage
         run: node fetch-unemployment-data.js
 
+      - name: Taux directeur
+        run: node fetch-rates-data.js
+
       - name: Committer les fichiers mis à jour (si changement)
         run: |
           git config user.name "github-actions[bot]"
