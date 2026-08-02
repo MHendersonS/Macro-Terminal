@@ -1,0 +1,117 @@
+{
+  "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
+  "fetchedAt": "2026-08-02T15:14:54.955Z",
+  "failed": [],
+  "items": [
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "The reverse bridge: Crypto meets Wall Street using perps",
+      "summary": "Crypto exchanges built perpetual futures for digital assets. Now they are using them to offer 24/7 exposure to stocks, commodities and indexes.",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/business/2026/08/02/the-reverse-bridge-crypto-meets-wall-street-using-perps",
+      "publishedAt": "2026-08-02T13:00:00.000Z"
+    },
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "Unlike the FTX collapse, the $89 million Coldcard exploit has investors sending bitcoin back to exchanges",
+      "summary": "The Coldcard vulnerability has smaller bitcoin holders moving funds onto exchanges for safety, according to blockchain analytics firms. This is opposite of the trend seen following the FTX collapse in late 2022.",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/markets/2026/08/02/unlike-the-ftx-collapse-the-usd88-million-coldcard-exploit-has-investors-sending-bitcoin-back-to-exchanges",
+      "publishedAt": "2026-08-02T12:03:51.000Z"
+    },
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "Strategy holds STRC dividend at 12%",
+      "summary": "Customarily, Michael Saylor and team have lifted the STRC dividend when it trades sizably below par, but not this month.",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/markets/2026/08/01/strategy-holds-strc-dividend-at-12",
+      "publishedAt": "2026-08-01T22:01:57.000Z"
+    },
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "Bitcoin cold-wallet attack spreads to 4,500 addresses as losses near $89 million",
+      "summary": "Galaxy Research flagged a third wave of sweeps tied to weak Coldcard-generated keys, with the attacker now targeting smaller balances and changing how funds are collected onchain.",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/tech/2026/08/02/bitcoin-cold-wallet-attack-spreads-to-4-500-addresses-as-losses-near-usd89-million",
+      "publishedAt": "2026-08-01T20:10:54.000Z"
+    },
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "Tokenized stock trading surged 288% in July, but one QQQ token drove most of it",
+      "summary": "Without that QQQ token, QQQB, July volume for tokenized equities would be roughly $2.03 billion, about 30% below June’s total.",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/markets/2026/08/01/tokenized-stock-trading-surged-288-in-july-but-one-qqq-token-drove-most-of-it",
+      "publishedAt": "2026-08-01T16:51:35.000Z"
+    },
+    {
+      "country": "EU",
+      "flag": "🇪🇺",
+      "tag": "bank",
+      "tagLabel": "Banque centrale",
+      "title": "Digital euro app to incorporate highest accessibility standards",
+      "summary": "",
+      "source": "Banque centrale européenne",
+      "link": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260730~3b3bfbb565.en.html",
+      "publishedAt": "2026-07-30T08:00:00.000Z"
+    },
+    {
+      "country": "EU",
+      "flag": "🇪🇺",
+      "tag": "bank",
+      "tagLabel": "Banque centrale",
+      "title": "ECB wage tracker at 2.7% in Q1 2027, indicating stable negotiated wage pressures",
+      "summary": "",
+      "source": "Banque centrale européenne",
+      "link": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260729~4ad7508d8a.en.html",
+      "publishedAt": "2026-07-29T08:00:00.000Z"
+    },
+    {
+      "country": "EU",
+      "flag": "🇪🇺",
+      "tag": "bank",
+      "tagLabel": "Banque centrale",
+      "title": "Philip R. Lane: Outlook for the euro area economy",
+      "summary": "",
+      "source": "Banque centrale européenne",
+      "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260724~d484b483b9.en.pdf",
+      "publishedAt": "2026-07-24T15:30:00.000Z"
+    },
+    {
+      "country": "EU",
+      "flag": "🇪🇺",
+      "tag": "bank",
+      "tagLabel": "Banque centrale",
+      "title": "Decisions taken by the Governing Council of the ECB (in addition to decisions setting interest rates)",
+      "summary": "",
+      "source": "Banque centrale européenne",
+      "link": "https://www.ecb.europa.eu//press/govcdec/otherdec/2026/html/ecb.gc260724~eebbc30622.en.html",
+      "publishedAt": "2026-07-24T13:00:00.000Z"
+    },
+    {
+      "country": "EU",
+      "flag": "🇪🇺",
+      "tag": "bank",
+      "tagLabel": "Banque centrale",
+      "title": "ECB to extend use of climate factors in Eurosystem collateral framework to non-financial corporate credit claims",
+      "summary": "",
+      "source": "Banque centrale européenne",
+      "link": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260724_4~f082ce289d.en.html",
+      "publishedAt": "2026-07-24T10:00:00.000Z"
+    }
+  ]
+}
