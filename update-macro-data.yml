@@ -44,6 +44,9 @@ jobs:
       - name: Taux directeur
         run: node fetch-rates-data.js
 
+      - name: Fil d'actualité (RSS)
+        run: node fetch-news-feed.js
+
       - name: Committer les fichiers mis à jour (si changement)
         run: |
           git config user.name "github-actions[bot]"
