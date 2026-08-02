@@ -885,15 +885,17 @@ function tickClock(){
 }
 setInterval(tickClock,1000); tickClock();
 
-// ---------------- VRAIES DONNÉES (OCDE) — chargement + fusion avec le simulateur ----------------
+// ---------------- VRAIES DONNÉES (OCDE + FRED) — chargement + fusion avec le simulateur ----------------
 // Indicateurs 0=PIB, 1=Inflation, 2=Chômage, 3=Taux directeur (indicatorIdx dans indicators[])
-const REAL_DATA_KEYS = ['gdp', 'inflation', 'unemployment', null]; // 3 = pas encore de source réelle branchée
-let REAL_DATA = { gdp: null, inflation: null, unemployment: null };
+const REAL_DATA_KEYS = ['gdp', 'inflation', 'unemployment', 'rates'];
+let REAL_DATA = { gdp: null, inflation: null, unemployment: null, rates: null };
 
 const MONTH_NAMES_SHORT = ['Jan','Fév','Mar','Avr','Mai','Juin','Juil','Août','Sep','Oct','Nov','Déc'];
 function formatPeriodLabel(period){
   const q = period.match(/^(\d{4})-Q([1-4])$/);
   if(q) return `T${q[2]} ${q[1].slice(2)}`;
+  const full = period.match(/^(\d{4})-(\d{2})-\d{2}$/); // format FRED (YYYY-MM-DD)
+  if(full) return `${MONTH_NAMES_SHORT[parseInt(full[2],10)-1]} ${full[1].slice(2)}`;
   const m = period.match(/^(\d{4})-(\d{2})$/);
   if(m) return `${MONTH_NAMES_SHORT[parseInt(m[2],10)-1]} ${m[1].slice(2)}`;
   return period;
@@ -907,8 +909,16 @@ function getRealHistory(countryCode, indicatorIdx){
   return series.slice(-10); // les 10 derniers points connus, comme le simulateur
 }
 
+// Vrai pour AU/NZ/CH sur le taux directeur : un proxy (taux interbancaire) plutôt que
+// le taux officiel exact, faute de source ouverte fournissant celui-ci directement.
+function isProxySource(countryCode, indicatorIdx){
+  if(REAL_DATA_KEYS[indicatorIdx] !== 'rates') return false;
+  const info = REAL_DATA.rates && REAL_DATA.rates.sourcesUsed && REAL_DATA.rates.sourcesUsed[countryCode];
+  return !!(info && info.isProxy);
+}
+
 async function loadRealData(){
-  const sources = { gdp: 'data/gdp.json', inflation: 'data/inflation.json', unemployment: 'data/unemployment.json' };
+  const sources = { gdp: 'data/gdp.json', inflation: 'data/inflation.json', unemployment: 'data/unemployment.json', rates: 'data/rates.json' };
   await Promise.all(Object.entries(sources).map(async ([key, url])=>{
     try{
       const res = await fetch(url);
@@ -1053,7 +1063,8 @@ const DOT_PERIODS = ['2026','2027','2028','Long terme'];
 
 function genDotPlotData(countryCode){
   const rnd = seeded(countryCode.charCodeAt(0)*41 + 19);
-  const base = BASE_POLICY_RATE[countryCode] ?? 3.0;
+  const realRates = getRealHistory(countryCode, 3); // 3 = Taux directeur
+  const base = realRates ? realRates[realRates.length-1].value : (BASE_POLICY_RATE[countryCode] ?? 3.0);
   const neutral = Math.max(0.25, base - 1.4);
   const dots = [];
   const medianPoints = [];
@@ -1129,10 +1140,13 @@ function renderCards(){
     const delta = (last-prev).toFixed(2);
     const up = delta >= 0;
     const suffix = i===2 ? '%' : (i===3 ? '%' : '%');
+    const isProxy = isProxySource(activeCountry, i);
+    const srcLabel = i===3 ? 'FRED' : 'OCDE';
+    const sourceTitle = d.isReal ? `Données réelles (${srcLabel}${isProxy ? ', proxy' : ''})` : 'Données simulées';
     const card = document.createElement('div');
     card.className='stat-card';
     card.innerHTML = `
-      <div class="stat-card-source" title="${d.isReal ? 'Données réelles (OCDE)' : 'Données simulées'}">${d.isReal ? '🟢' : '🟡'}</div>
+      <div class="stat-card-source" title="${sourceTitle}">${d.isReal ? '🟢' : '🟡'}</div>
       <div class="label">${label}</div>
       <div class="value-row">
         <div class="value">${last}${suffix}</div>
@@ -2284,7 +2298,11 @@ function render(){
   document.getElementById('heroTitle').textContent = `${cName} — ${indicators[activeIndicator]}`;
   const badge = document.getElementById('dataSourceBadge');
   const isReal = !!getRealHistory(activeCountry, activeIndicator);
-  badge.textContent = isReal ? '🟢 Données réelles — OCDE' : '🟡 Données simulées (démo)';
+  const isProxy = isProxySource(activeCountry, activeIndicator);
+  const sourceLabel = activeIndicator===3 ? 'FRED' : 'OCDE';
+  badge.textContent = isReal
+    ? (isProxy ? `🟢 Données réelles — ${sourceLabel} (proxy)` : `🟢 Données réelles — ${sourceLabel}`)
+    : '🟡 Données simulées (démo)';
   badge.className = 'data-source-badge ' + (isReal ? 'real' : 'sim');
   renderChart();
   renderCards();
