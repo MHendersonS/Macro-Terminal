@@ -1,0 +1,434 @@
+{
+  "indicator": "policy_rate",
+  "unit": "%",
+  "source": "FRED (Fed de Saint-Louis) — voir \"sourcesUsed\" pour le détail par pays",
+  "fetchedAt": "2026-08-02T14:03:55.183Z",
+  "failed": [],
+  "sourcesUsed": {
+    "US": {
+      "series": "DFEDTARU",
+      "label": "Fed — taux cible (borne haute)",
+      "isProxy": false
+    },
+    "EU": {
+      "series": "ECBDFR",
+      "label": "BCE — taux de la facilité de dépôt",
+      "isProxy": false
+    },
+    "FR": {
+      "series": "ECBDFR",
+      "label": "BCE — taux de la facilité de dépôt (zone euro)",
+      "isProxy": false
+    },
+    "DE": {
+      "series": "ECBDFR",
+      "label": "BCE — taux de la facilité de dépôt (zone euro)",
+      "isProxy": false
+    },
+    "GB": {
+      "series": "BOERUKM",
+      "label": "Banque d'Angleterre — Bank Rate",
+      "isProxy": false
+    },
+    "JP": {
+      "series": "IRSTCB01JPM156N",
+      "label": "Banque du Japon — taux directeur",
+      "isProxy": false
+    },
+    "AU": {
+      "series": "IRSTCI01AUQ156N",
+      "label": "Taux interbancaire au jour le jour (proxy, OCDE)",
+      "isProxy": true
+    },
+    "NZ": {
+      "series": "IRSTCI01NZM156N",
+      "label": "Taux interbancaire au jour le jour (proxy, OCDE)",
+      "isProxy": true
+    },
+    "CH": {
+      "series": "IRSTCI01CHM156N",
+      "label": "Taux interbancaire au jour le jour (proxy, OCDE)",
+      "isProxy": true
+    }
+  },
+  "series": {
+    "US": [
+      {
+        "period": "2026-07-24",
+        "value": 3.75
+      },
+      {
+        "period": "2026-07-25",
+        "value": 3.75
+      },
+      {
+        "period": "2026-07-26",
+        "value": 3.75
+      },
+      {
+        "period": "2026-07-27",
+        "value": 3.75
+      },
+      {
+        "period": "2026-07-28",
+        "value": 3.75
+      },
+      {
+        "period": "2026-07-29",
+        "value": 3.75
+      },
+      {
+        "period": "2026-07-30",
+        "value": 3.75
+      },
+      {
+        "period": "2026-07-31",
+        "value": 3.75
+      },
+      {
+        "period": "2026-08-01",
+        "value": 3.75
+      },
+      {
+        "period": "2026-08-02",
+        "value": 3.75
+      }
+    ],
+    "EU": [
+      {
+        "period": "2026-07-22",
+        "value": 2.25
+      },
+      {
+        "period": "2026-07-23",
+        "value": 2.25
+      },
+      {
+        "period": "2026-07-24",
+        "value": 2.25
+      },
+      {
+        "period": "2026-07-25",
+        "value": 2.25
+      },
+      {
+        "period": "2026-07-26",
+        "value": 2.25
+      },
+      {
+        "period": "2026-07-27",
+        "value": 2.25
+      },
+      {
+        "period": "2026-07-28",
+        "value": 2.25
+      },
+      {
+        "period": "2026-07-29",
+        "value": 2.25
+      },
+      {
+        "period": "2026-07-30",
+        "value": 2.25
+      },
+      {
+        "period": "2026-07-31",
+        "value": 2.25
+      }
+    ],
+    "FR": [
+      {
+        "period": "2026-07-22",
+        "value": 2.25
+      },
+      {
+        "period": "2026-07-23",
+        "value": 2.25
+      },
+      {
+        "period": "2026-07-24",
+        "value": 2.25
+      },
+      {
+        "period": "2026-07-25",
+        "value": 2.25
+      },
+      {
+        "period": "2026-07-26",
+        "value": 2.25
+      },
+      {
+        "period": "2026-07-27",
+        "value": 2.25
+      },
+      {
+        "period": "2026-07-28",
+        "value": 2.25
+      },
+      {
+        "period": "2026-07-29",
+        "value": 2.25
+      },
+      {
+        "period": "2026-07-30",
+        "value": 2.25
+      },
+      {
+        "period": "2026-07-31",
+        "value": 2.25
+      }
+    ],
+    "DE": [
+      {
+        "period": "2026-07-22",
+        "value": 2.25
+      },
+      {
+        "period": "2026-07-23",
+        "value": 2.25
+      },
+      {
+        "period": "2026-07-24",
+        "value": 2.25
+      },
+      {
+        "period": "2026-07-25",
+        "value": 2.25
+      },
+      {
+        "period": "2026-07-26",
+        "value": 2.25
+      },
+      {
+        "period": "2026-07-27",
+        "value": 2.25
+      },
+      {
+        "period": "2026-07-28",
+        "value": 2.25
+      },
+      {
+        "period": "2026-07-29",
+        "value": 2.25
+      },
+      {
+        "period": "2026-07-30",
+        "value": 2.25
+      },
+      {
+        "period": "2026-07-31",
+        "value": 2.25
+      }
+    ],
+    "GB": [
+      {
+        "period": "2016-04-01",
+        "value": 0.5
+      },
+      {
+        "period": "2016-05-01",
+        "value": 0.5
+      },
+      {
+        "period": "2016-06-01",
+        "value": 0.5
+      },
+      {
+        "period": "2016-07-01",
+        "value": 0.5
+      },
+      {
+        "period": "2016-08-01",
+        "value": 0.25
+      },
+      {
+        "period": "2016-09-01",
+        "value": 0.25
+      },
+      {
+        "period": "2016-10-01",
+        "value": 0.25
+      },
+      {
+        "period": "2016-11-01",
+        "value": 0.25
+      },
+      {
+        "period": "2016-12-01",
+        "value": 0.25
+      },
+      {
+        "period": "2017-01-01",
+        "value": 0.25
+      }
+    ],
+    "JP": [
+      {
+        "period": "2023-03-01",
+        "value": 0.3
+      },
+      {
+        "period": "2023-04-01",
+        "value": 0.3
+      },
+      {
+        "period": "2023-05-01",
+        "value": 0.3
+      },
+      {
+        "period": "2023-06-01",
+        "value": 0.3
+      },
+      {
+        "period": "2023-07-01",
+        "value": 0.3
+      },
+      {
+        "period": "2023-08-01",
+        "value": 0.3
+      },
+      {
+        "period": "2023-09-01",
+        "value": 0.3
+      },
+      {
+        "period": "2023-10-01",
+        "value": 0.3
+      },
+      {
+        "period": "2023-11-01",
+        "value": 0.3
+      },
+      {
+        "period": "2023-12-01",
+        "value": 0.3
+      }
+    ],
+    "AU": [
+      {
+        "period": "2024-01-01",
+        "value": 4.35
+      },
+      {
+        "period": "2024-04-01",
+        "value": 4.35
+      },
+      {
+        "period": "2024-07-01",
+        "value": 4.35
+      },
+      {
+        "period": "2024-10-01",
+        "value": 4.35
+      },
+      {
+        "period": "2025-01-01",
+        "value": 4.1
+      },
+      {
+        "period": "2025-04-01",
+        "value": 3.85
+      },
+      {
+        "period": "2025-07-01",
+        "value": 3.6
+      },
+      {
+        "period": "2025-10-01",
+        "value": 3.6
+      },
+      {
+        "period": "2026-01-01",
+        "value": 3.96
+      },
+      {
+        "period": "2026-04-01",
+        "value": 4.35
+      }
+    ],
+    "NZ": [
+      {
+        "period": "2024-03-01",
+        "value": 5.38
+      },
+      {
+        "period": "2024-04-01",
+        "value": 5.47
+      },
+      {
+        "period": "2024-05-01",
+        "value": 5.5
+      },
+      {
+        "period": "2024-06-01",
+        "value": 5.52
+      },
+      {
+        "period": "2024-07-01",
+        "value": 5.49
+      },
+      {
+        "period": "2024-08-01",
+        "value": 5.45
+      },
+      {
+        "period": "2024-09-01",
+        "value": 5.21
+      },
+      {
+        "period": "2024-10-01",
+        "value": 4.77
+      },
+      {
+        "period": "2024-11-01",
+        "value": 4.79
+      },
+      {
+        "period": "2024-12-01",
+        "value": 4.33
+      }
+    ],
+    "CH": [
+      {
+        "period": "2023-06-01",
+        "value": 1.2
+      },
+      {
+        "period": "2023-07-01",
+        "value": 1.2
+      },
+      {
+        "period": "2023-08-01",
+        "value": 1.2
+      },
+      {
+        "period": "2023-09-01",
+        "value": 1.2
+      },
+      {
+        "period": "2023-10-01",
+        "value": 1.2
+      },
+      {
+        "period": "2023-11-01",
+        "value": 1.63
+      },
+      {
+        "period": "2023-12-01",
+        "value": 1.6
+      },
+      {
+        "period": "2024-01-01",
+        "value": 1.45
+      },
+      {
+        "period": "2024-02-01",
+        "value": 1.5
+      },
+      {
+        "period": "2024-03-01",
+        "value": 1.34
+      }
+    ]
+  }
+}
