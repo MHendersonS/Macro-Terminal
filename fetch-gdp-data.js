@@ -31,12 +31,7 @@ function buildUrl(iso) {
 async function fetchWithRetry(url, tries = 3) {
   for (let attempt = 1; attempt <= tries; attempt++) {
     try {
-      const res = await fetch(url, {
-        headers: {
-          'Accept': 'application/vnd.sdmx.data+csv; charset=utf-8',
-          'User-Agent': 'macro-terminal-data-fetcher/1.0',
-        },
-      });
+      const res = await fetch(url);
       if (res.ok) return await res.text();
       const body = await res.text().catch(() => '');
       console.warn(`  Tentative ${attempt}/${tries} échouée : ${res.status} ${res.statusText}${body ? ' — ' + body.slice(0, 200) : ''}`);
