@@ -622,13 +622,25 @@
 
         <div class="section-head">
           <div>
-            <div class="section-title">Calendrier — rivière des surprises</div>
-            <div class="section-sub">Passé (écart vs consensus) · Aujourd'hui · À venir (scénarios haussier / baissier)</div>
+            <div class="section-title">Calendrier économique</div>
+            <div class="section-sub">Données réelles — TradingView (mêmes événements que la page complète)</div>
           </div>
         </div>
-        <div class="feed-country-row" id="riverCountryRow"></div>
-        <div class="river">
-          <div class="river-track" id="riverTrack"></div>
+        <div class="tv-calendar-panel">
+          <div class="tradingview-widget-container" style="height:380px;">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
+            {
+              "colorTheme": "dark",
+              "isTransparent": true,
+              "width": "100%",
+              "height": "380",
+              "locale": "fr",
+              "importanceFilter": "0,1",
+              "countryFilter": "fr,us,de,gb,jp,au,nz,ch,eu"
+            }
+            </script>
+          </div>
         </div>
         <button class="see-all-btn" id="seeAllCalendarBtn">Voir tout le calendrier →</button>
 
@@ -745,11 +757,13 @@
      <div class="feed-page-head">
        <button class="back-btn" id="newsPageBack">← Retour au tableau de bord</button>
        <div class="feed-page-title">News — actualité financière mondiale</div>
-       <div class="feed-page-sub">Données réelles — fil fourni par TradingView (actions, crypto, forex, matières premières)</div>
+       <div class="feed-page-sub">Données réelles — fil fourni par TradingView</div>
      </div>
 
+     <div class="filter-row" id="newsMarketFilters"></div>
+
      <div class="tv-calendar-panel">
-       <div class="tradingview-widget-container" style="height:650px;">
+       <div class="tradingview-widget-container" id="newsWidgetContainer" style="height:650px;">
          <div class="tradingview-widget-container__widget"></div>
          <div class="tradingview-widget-copyright">
            <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Actualité des marchés</span></a> par TradingView
@@ -1241,82 +1255,9 @@ const calendarEvents = [
   {date:'25 Août', flag:'🇪🇺', country:'Europe', code:'EU', name:'Décision BCE (taux)', prev:'—', cons:'2.75%', hi:'3.00%', lo:'2.50%', type:'future', category:'Politique monétaire', detail:"La Banque centrale européenne doit statuer sur son taux de dépôt, en tenant compte d'une inflation proche de sa cible mais d'une croissance encore fragile dans plusieurs pays membres."},
 ];
 
-let riverCountries = new Set(); // vide = tous les pays
-
-function buildRiverCountryPills(){
-  const row = document.getElementById('riverCountryRow');
-  row.innerHTML = '';
-
-  const allPill = document.createElement('div');
-  allPill.className = 'feed-country-pill' + (riverCountries.size===0 ? ' active' : '');
-  allPill.textContent = '🗂️';
-  allPill.title = 'Tous les pays';
-  allPill.onclick = ()=>{ riverCountries.clear(); buildRiverCountryPills(); renderRiver(); };
-  row.appendChild(allPill);
-
-  countries.forEach(c=>{
-    const p = document.createElement('div');
-    p.className = 'feed-country-pill' + (riverCountries.has(c.code) ? ' active' : '');
-    p.innerHTML = flagHTML(c.code, 18);
-    p.title = c.name;
-    p.onclick = ()=>{ toggleSetValue(riverCountries, c.code); buildRiverCountryPills(); renderRiver(); };
-    row.appendChild(p);
-  });
-}
-
-function renderRiver(){
-  const track = document.getElementById('riverTrack');
-  track.innerHTML = '<div class="river-axis"></div>';
-
-  const items = riverCountries.size===0
-    ? calendarEvents
-    : calendarEvents.filter(e => riverCountries.has(e.code));
-
-  if(items.length === 0){
-    track.innerHTML += '<div class="river-empty">Aucun événement pour les pays sélectionnés.</div>';
-    return;
-  }
-
-  const nowIndex = items.findIndex(e=>e.type==='today');
-  if(nowIndex !== -1){
-    const nowPos = ((nowIndex+0.5) / items.length) * 100;
-    const marker = document.createElement('div');
-    marker.className='now-marker';
-    marker.style.left = nowPos+'%';
-    marker.innerHTML = `<div class="now-label">AUJOURD'HUI</div>`;
-    track.appendChild(marker);
-  }
-
-  items.forEach(e=>{
-    const div = document.createElement('div');
-    div.className = 'event' + (e.type==='today' ? ' today' : '');
-    let barHtml = '';
-    let scenarioHtml = '';
-    if(e.type==='hist'){
-      const a = parseFloat(e.act), c = parseFloat(e.cons);
-      const beat = a>=c;
-      const h = Math.min(60, Math.abs(a-c)*90 + 14);
-      barHtml = `<div class="bar hist ${beat?'beat':'miss'}" style="height:${h}px;"></div><div class="dot"></div>`;
-      scenarioHtml = `<div class="scenario">${beat?'Au-dessus du consensus':'En-dessous du consensus'}</div>`;
-    } else if(e.type==='today'){
-      barHtml = `<div class="bar hist beat" style="height:34px;"></div><div class="dot"></div>`;
-      scenarioHtml = `<div class="scenario">Publication en cours</div>`;
-    } else {
-      barHtml = `<div class="bar future" style="height:56px;"></div>`;
-      scenarioHtml = `<div class="scenario">↑ ${e.hi} · ↓ ${e.lo}</div>`;
-    }
-    div.innerHTML = `
-      <div class="bar-wrap">${barHtml}</div>
-      <div class="date">${e.date}</div>
-      <div class="flag">${flagHTML(e.code, 18)}</div>
-      <div class="name">${e.name}</div>
-      <div class="vals">${e.type==='future' ? `Cons. <b>${e.cons}</b>` : `Réel <b>${e.act||e.cons}</b> / Cons. ${e.cons}`}</div>
-      ${scenarioHtml}
-    `;
-    track.appendChild(div);
-    div.addEventListener('click', ()=> openEventModal(e));
-  });
-}
+// La rivière simulée a été remplacée par un vrai widget TradingView (voir le
+// HTML plus haut) — le code ci-dessous n'est donc plus utilisé pour l'affichage,
+// calendarEvents reste néanmoins disponible si besoin plus tard.
 
 // ---------------- FEED ----------------
 const feedItems = [
@@ -2003,6 +1944,52 @@ function renderOverviewPanels(){
 document.getElementById('overviewForexSeeAll').addEventListener('click', openForexPage);
 document.getElementById('overviewNewsSeeAll').addEventListener('click', openNewsPage);
 
+// ---------------- NEWS: FILTRES PAR MARCHÉ (rechargent le widget TradingView) ----------------
+const NEWS_MARKET_OPTIONS = [
+  {id:'all', label:'Tous les marchés', config:{feedMode:'all_symbols'}},
+  {id:'actions', label:'📈 Actions', config:{feedMode:'symbol', symbol:'AMEX:SPY'}},
+  {id:'obligations', label:'💵 Obligations', config:{feedMode:'symbol', symbol:'TVC:US10Y'}},
+  {id:'matieres', label:'🛢️ Matières premières', config:{feedMode:'symbol', symbol:'TVC:GOLD'}},
+  {id:'devises', label:'💱 Devises', config:{feedMode:'symbol', symbol:'FX:EURUSD'}},
+  {id:'crypto', label:'₿ Crypto', config:{feedMode:'symbol', symbol:'BITSTAMP:BTCUSD'}},
+];
+let newsActiveMarket = 'all';
+
+function reloadNewsWidget(config){
+  const container = document.getElementById('newsWidgetContainer');
+  container.innerHTML = `
+    <div class="tradingview-widget-container__widget"></div>
+    <div class="tradingview-widget-copyright">
+      <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Actualité des marchés</span></a> par TradingView
+    </div>
+  `;
+  const script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-timeline.js';
+  script.async = true;
+  script.text = JSON.stringify({
+    colorTheme: 'dark', isTransparent: true, displayMode: 'regular',
+    width: '100%', height: '650', locale: 'fr', ...config,
+  });
+  container.appendChild(script);
+}
+
+function buildNewsMarketFilters(){
+  const row = document.getElementById('newsMarketFilters');
+  row.innerHTML = '';
+  NEWS_MARKET_OPTIONS.forEach(m=>{
+    const p = document.createElement('div');
+    p.className = 'filter-pill' + (newsActiveMarket===m.id ? ' active' : '');
+    p.textContent = m.label;
+    p.onclick = ()=>{
+      newsActiveMarket = m.id;
+      buildNewsMarketFilters();
+      reloadNewsWidget(m.config);
+    };
+    row.appendChild(p);
+  });
+}
+
 function openNewsPage(){
   document.getElementById('dashboardView').style.display = 'none';
   document.getElementById('feedPageView').style.display = 'none';
@@ -2018,6 +2005,7 @@ function openNewsPage(){
   const navBtn = document.getElementById('navNewsBtn');
   navBtn.classList.add('active');
   navBtn.textContent = '← Retour au tableau de bord';
+  buildNewsMarketFilters();
   window.scrollTo(0,0);
 }
 function closeNewsPage(){
@@ -2239,10 +2227,8 @@ document.addEventListener('keydown', (e)=>{
   if(e.key === 'Escape'){ closeChartModal(); closeFeedModal(); closeEventModal(); closeForexModal(); }
 });
 
-buildRiverCountryPills();
 render();
-renderRiver();
-loadRealData(); // charge les vraies données OCDE en tâche de fond, puis ré-affiche automatiquement
+loadRealData(); // charge les vraies données OCDE/FRED en tâche de fond, puis ré-affiche automatiquement
 </script>
 </body>
 </html>
