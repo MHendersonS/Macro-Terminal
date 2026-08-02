@@ -2,7 +2,8 @@
 //
 // Va chercher le taux de chômage mensuel réel auprès de l'API gratuite de
 // l'OCDE, pour les pays de l'app, et écrit data/unemployment.json.
-// Même principe que fetch-macro-data.js (inflation) et fetch-gdp-data.js (PIB).
+//
+// Version robuste : un pays à la fois, avec réessais automatiques.
 
 import fs from 'fs';
 import path from 'path';
@@ -16,56 +17,33 @@ const COUNTRY_MAP = {
   NZL: 'NZ',
   AUS: 'AU',
   CHE: 'CH',
-  // EU : pas confirmé disponible dans ce jeu de données précis, à vérifier séparément
 };
 
-const OECD_CODES = Object.keys(COUNTRY_MAP);
-
-// Dataset OCDE : taux de chômage mensuel, population active 15 ans et plus,
-// données CVS (corrigées des variations saisonnières).
 const DATASET = 'OECD.SDD.TPS,DSD_LFS@DF_IALFS_UNE_M,1.0';
-const KEY = `${OECD_CODES.join('+')}..PT_LF_SUB._Z.Y._T.Y_GE15..M`;
-const URL = `https://sdmx.oecd.org/public/rest/data/${DATASET}/${KEY}/all?startPeriod=2023-01&format=csvfilewithlabels`;
 
-async function main() {
-  console.log('Requête OCDE :', URL);
-  const res = await fetch(URL);
-  if (!res.ok) {
-    throw new Error(`Réponse OCDE en erreur : ${res.status} ${res.statusText}`);
-  }
-  const csvText = await res.text();
-  const rows = parseCsv(csvText);
-  if (rows.length === 0) {
-    throw new Error('Aucune ligne reçue — vérifier la requête (clé/dimensions).');
-  }
+function buildUrl(iso3) {
+  const key = `${iso3}..PT_LF_SUB._Z.Y._T.Y_GE15..M`;
+  return `https://sdmx.oecd.org/public/rest/data/${DATASET}/${key}/all?startPeriod=2023-01&format=csvfilewithlabels`;
+}
 
-  const byCountry = {};
-  for (const row of rows) {
-    const iso = row.REF_AREA;
-    const appCode = COUNTRY_MAP[iso];
-    if (!appCode) continue;
-    if (!byCountry[appCode]) byCountry[appCode] = [];
-    byCountry[appCode].push({
-      period: row.TIME_PERIOD || row.obsTime,
-      value: parseFloat(row.OBS_VALUE || row.obsValue),
-    });
+async function fetchWithRetry(url, tries = 3) {
+  for (let attempt = 1; attempt <= tries; attempt++) {
+    try {
+      const res = await fetch(url, {
+        headers: {
+          'Accept': 'application/vnd.sdmx.data+csv; charset=utf-8',
+          'User-Agent': 'macro-terminal-data-fetcher/1.0',
+        },
+      });
+      if (res.ok) return await res.text();
+      const body = await res.text().catch(() => '');
+      console.warn(`  Tentative ${attempt}/${tries} échouée : ${res.status} ${res.statusText}${body ? ' — ' + body.slice(0, 200) : ''}`);
+    } catch (err) {
+      console.warn(`  Tentative ${attempt}/${tries} échouée (réseau) : ${err.message}`);
+    }
+    if (attempt < tries) await new Promise((r) => setTimeout(r, 3000 * attempt));
   }
-  for (const code of Object.keys(byCountry)) {
-    byCountry[code].sort((a, b) => a.period.localeCompare(b.period));
-  }
-
-  const output = {
-    indicator: 'unemployment_rate',
-    unit: '%',
-    source: 'OCDE — DF_IALFS_UNE_M (taux de chômage mensuel, 15 ans et plus)',
-    fetchedAt: new Date().toISOString(),
-    series: byCountry,
-  };
-
-  const outDir = path.join(process.cwd(), 'data');
-  fs.mkdirSync(outDir, { recursive: true });
-  fs.writeFileSync(path.join(outDir, 'unemployment.json'), JSON.stringify(output, null, 2));
-  console.log('OK — data/unemployment.json écrit avec', Object.keys(byCountry).length, 'pays.');
+  return null;
 }
 
 function parseCsv(text) {
@@ -77,6 +55,55 @@ function parseCsv(text) {
     headers.forEach((h, i) => { row[h] = cells[i]; });
     return row;
   });
+}
+
+async function main() {
+  const byCountry = {};
+  const failed = [];
+
+  for (const [iso3, appCode] of Object.entries(COUNTRY_MAP)) {
+    const url = buildUrl(iso3);
+    console.log(`Chômage — ${appCode} (${iso3})...`);
+    const csvText = await fetchWithRetry(url);
+
+    if (!csvText) {
+      console.warn(`  ⚠️  Abandon pour ${appCode} après plusieurs tentatives.`);
+      failed.push(appCode);
+      continue;
+    }
+
+    const rows = parseCsv(csvText);
+    byCountry[appCode] = rows
+      .map((row) => ({
+        period: row.TIME_PERIOD || row.obsTime,
+        value: parseFloat(row.OBS_VALUE || row.obsValue),
+      }))
+      .filter((d) => d.period && !Number.isNaN(d.value))
+      .sort((a, b) => a.period.localeCompare(b.period));
+
+    console.log(`  OK — ${byCountry[appCode].length} points reçus.`);
+    await new Promise((r) => setTimeout(r, 1000));
+  }
+
+  if (Object.keys(byCountry).length === 0) {
+    throw new Error('Aucun pays récupéré — l\'OCDE est probablement indisponible pour le moment.');
+  }
+
+  const output = {
+    indicator: 'unemployment_rate',
+    unit: '%',
+    source: 'OCDE — DF_IALFS_UNE_M (taux de chômage mensuel, 15 ans et plus)',
+    fetchedAt: new Date().toISOString(),
+    failed,
+    series: byCountry,
+  };
+
+  const outDir = path.join(process.cwd(), 'data');
+  fs.mkdirSync(outDir, { recursive: true });
+  fs.writeFileSync(path.join(outDir, 'unemployment.json'), JSON.stringify(output, null, 2));
+
+  console.log(`\nOK — data/unemployment.json écrit avec ${Object.keys(byCountry).length}/${Object.keys(COUNTRY_MAP).length} pays.`);
+  if (failed.length) console.log('Pays manquants ce coup-ci :', failed.join(', '));
 }
 
 main().catch((err) => {
