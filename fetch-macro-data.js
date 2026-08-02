@@ -51,11 +51,41 @@ async function fetchWithRetry(url, tries = 3) {
   return null;
 }
 
+// Vrai parseur CSV : gère les champs entre guillemets qui contiennent des
+// virgules (ex: "Croissance, glissement annuel"), ce qu'un simple split(',')
+// ne sait pas faire correctement.
+function parseCsvLine(line) {
+  const cells = [];
+  let cur = '';
+  let inQuotes = false;
+  for (let i = 0; i < line.length; i++) {
+    const c = line[i];
+    if (inQuotes) {
+      if (c === '"') {
+        if (line[i + 1] === '"') { cur += '"'; i++; }
+        else { inQuotes = false; }
+      } else {
+        cur += c;
+      }
+    } else if (c === '"') {
+      inQuotes = true;
+    } else if (c === ',') {
+      cells.push(cur.trim());
+      cur = '';
+    } else {
+      cur += c;
+    }
+  }
+  cells.push(cur.trim());
+  return cells;
+}
+
 function parseCsv(text) {
-  const lines = text.trim().split('\n');
-  const headers = lines[0].split(',').map((h) => h.replace(/^"|"$/g, '').trim());
+  const lines = text.trim().split('\n').filter((l) => l.trim().length > 0);
+  if (lines.length === 0) return [];
+  const headers = parseCsvLine(lines[0]);
   return lines.slice(1).map((line) => {
-    const cells = line.split(',').map((c) => c.replace(/^"|"$/g, '').trim());
+    const cells = parseCsvLine(line);
     const row = {};
     headers.forEach((h, i) => { row[h] = cells[i]; });
     return row;
@@ -87,6 +117,16 @@ async function main() {
       .sort((a, b) => a.period.localeCompare(b.period));
 
     console.log(`  OK — ${byCountry[appCode].length} points reçus.`);
+    if (byCountry[appCode].length === 0) {
+      console.warn(`  ⚠️  0 point exploitable. Longueur du texte reçu : ${csvText.length} caractères.`);
+      console.warn('  Début du texte brut reçu :', JSON.stringify(csvText.slice(0, 400)));
+      if (rows.length > 0) {
+        console.warn('  Colonnes vues :', Object.keys(rows[0]).join(', '));
+        console.warn('  Exemple de ligne :', JSON.stringify(rows[0]));
+      } else {
+        console.warn('  Aucune ligne de données parsée (0 lignes après l\'en-tête).');
+      }
+    }
     // petite pause entre deux pays pour ne pas bombarder le serveur de l'OCDE
     await new Promise((r) => setTimeout(r, 1000));
   }
