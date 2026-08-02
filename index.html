@@ -354,6 +354,13 @@
   .feed-page-grid .fi-summary{ font-size:13px; }
   .feed-page-empty{ grid-column:1 / -1; text-align:center; color:var(--muted); font-size:13px; padding:40px 0; }
 
+  .tv-calendar-panel{
+    background:var(--panel); border:1px solid var(--line); border-radius:12px;
+    padding:16px; margin-top:6px;
+  }
+  .tradingview-widget-copyright{ font-size:11px; color:var(--muted); margin-top:8px; text-align:right; }
+  .tradingview-widget-copyright .blue-text{ color:var(--amber); }
+
   /* ---------- CALENDAR: LIST/GRID VIEW TOGGLE ---------- */
   .view-toggle-row{ display:flex; gap:8px; margin-bottom:16px; }
   .view-toggle-btn{
@@ -682,31 +689,28 @@
    <div id="calendarPageView" style="display:none;">
      <div class="feed-page-head">
        <button class="back-btn" id="calendarPageBack">← Retour au tableau de bord</button>
-       <div class="feed-page-title">Calendrier économique — tous les événements</div>
-       <div class="feed-page-sub">Filtre par pays et par période</div>
-     </div>
-     <div class="feed-page-filters">
-       <div class="filter-row" id="calendarPageCountryFilters"></div>
-       <div class="filter-row" id="calendarPageTypeFilters"></div>
+       <div class="feed-page-title">Calendrier économique</div>
+       <div class="feed-page-sub">Données réelles — calendrier fourni par TradingView (comprend le consensus des analystes, que nous ne pouvons pas obtenir gratuitement par une autre voie)</div>
      </div>
 
-     <div class="view-toggle-row">
-       <button class="view-toggle-btn active" id="calViewListBtn">🗒 Vue liste</button>
-       <button class="view-toggle-btn" id="calViewGridBtn">🗓 Vue calendrier</button>
-     </div>
-
-     <div class="feed-page-grid" id="calendarPageList"></div>
-
-     <div class="calendar-grid-view" id="calendarGridView" style="display:none;">
-       <div class="cal-grid-nav">
-         <button class="cal-nav-btn" id="calGridPrev">←</button>
-         <div class="cal-grid-month" id="calGridMonthLabel">Juillet 2026</div>
-         <button class="cal-nav-btn" id="calGridNext">→</button>
+     <div class="tv-calendar-panel">
+       <div class="tradingview-widget-container" style="height:650px;">
+         <div class="tradingview-widget-container__widget"></div>
+         <div class="tradingview-widget-copyright">
+           <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Calendrier économique</span></a> par TradingView
+         </div>
+         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
+         {
+           "colorTheme": "dark",
+           "isTransparent": true,
+           "width": "100%",
+           "height": "650",
+           "locale": "fr",
+           "importanceFilter": "-1,0,1",
+           "countryFilter": "fr,us,de,gb,jp,au,nz,ch,eu"
+         }
+         </script>
        </div>
-       <div class="cal-grid-weekdays">
-         <div>Lun</div><div>Mar</div><div>Mer</div><div>Jeu</div><div>Ven</div><div>Sam</div><div>Dim</div>
-       </div>
-       <div class="cal-grid-days" id="calGridDays"></div>
      </div>
    </div>
 
@@ -1557,174 +1561,9 @@ document.getElementById('seeAllFeedBtn').addEventListener('click', openFeedPage)
 document.getElementById('feedPageBack').addEventListener('click', closeFeedPage);
 
 // ---------------- DEDICATED CALENDAR PAGE ----------------
-let calendarPageCountries = new Set(); // empty = tous les pays
-let calendarPageType = 'ALL';
-let calendarViewMode = 'list';
-const CALENDAR_TYPE_FILTERS = [
-  {id:'ALL', label:'Toutes les périodes'},
-  {id:'hist', label:'Passé'},
-  {id:'today', label:"Aujourd'hui"},
-  {id:'future', label:'À venir'},
-];
-
-function getFilteredCalendarEvents(){
-  return calendarEvents.filter(e=>
-    (calendarPageCountries.size===0 || calendarPageCountries.has(e.code)) &&
-    (calendarPageType==='ALL' || e.type===calendarPageType)
-  );
-}
-
-function refreshCalendarView(){
-  calendarViewMode === 'list' ? renderCalendarPage() : renderCalendarGrid();
-}
-
-function buildCalendarPageFilters(){
-  const countryRow = document.getElementById('calendarPageCountryFilters');
-  countryRow.innerHTML = '';
-  const countryOptions = [{code:'ALL', name:'Tous les pays'}, ...countries];
-  countryOptions.forEach(c=>{
-    const p = document.createElement('div');
-    const isActive = c.code==='ALL' ? calendarPageCountries.size===0 : calendarPageCountries.has(c.code);
-    p.className = 'filter-pill' + (isActive ? ' active' : '');
-    const flagPart = c.code==='ALL' ? '🗂️' : flagHTML(c.code, 15);
-    p.innerHTML = `<span>${flagPart}</span>${c.name}`;
-    p.onclick = ()=>{
-      if(c.code==='ALL'){ calendarPageCountries.clear(); }
-      else { toggleSetValue(calendarPageCountries, c.code); }
-      buildCalendarPageFilters();
-      refreshCalendarView();
-    };
-    countryRow.appendChild(p);
-  });
-
-  const typeRow = document.getElementById('calendarPageTypeFilters');
-  typeRow.innerHTML = '';
-  CALENDAR_TYPE_FILTERS.forEach(t=>{
-    const p = document.createElement('div');
-    p.className = 'filter-pill' + (calendarPageType===t.id ? ' active' : '');
-    p.textContent = t.label;
-    p.onclick = ()=>{ calendarPageType = t.id; buildCalendarPageFilters(); refreshCalendarView(); };
-    typeRow.appendChild(p);
-  });
-}
-
-function renderCalendarPage(){
-  const grid = document.getElementById('calendarPageList');
-  grid.innerHTML = '';
-  const items = getFilteredCalendarEvents();
-  if(items.length===0){
-    grid.innerHTML = `<div class="feed-page-empty">Aucun événement ne correspond à ces filtres.</div>`;
-    return;
-  }
-  items.forEach(e=>{
-    const div = document.createElement('div');
-    div.className = 'feed-item';
-    let tagClass, tagLabel, valsLine;
-    if(e.type === 'future'){
-      tagClass = 'analyse'; tagLabel = 'À venir';
-      valsLine = `Consensus <b>${e.cons}</b> · Haussier ${e.hi} / Baissier ${e.lo}`;
-    } else if(e.type === 'today'){
-      tagClass = 'bank'; tagLabel = "Aujourd'hui";
-      valsLine = `Réel <b>${e.act}</b> · Consensus ${e.cons} · Précédent ${e.prev}`;
-    } else {
-      const beat = parseFloat(e.act) >= parseFloat(e.cons);
-      tagClass = beat ? 'pub' : 'marche'; tagLabel = beat ? 'Au-dessus du consensus' : 'En-dessous du consensus';
-      valsLine = `Réel <b>${e.act}</b> · Consensus ${e.cons} · Précédent ${e.prev}`;
-    }
-    div.innerHTML = `
-      <div class="fi-flag">${flagHTML(e.code, 22)}</div>
-      <div class="fi-body">
-        <div class="fi-top">
-          <span class="fi-tag ${tagClass}">${tagLabel}</span>
-          <span class="fi-time">${e.date}</span>
-        </div>
-        <div class="fi-title">${e.name}</div>
-        <div class="fi-summary">${valsLine}</div>
-        <div class="fi-source">${e.category} · ${e.country}</div>
-      </div>
-    `;
-    grid.appendChild(div);
-    div.addEventListener('click', ()=> openEventModal(e));
-  });
-}
-
-// ---------------- CALENDAR MONTH-GRID VIEW ----------------
-const FR_MONTHS_SHORT = {'Janv':0,'Févr':1,'Mars':2,'Avr':3,'Mai':4,'Juin':5,'Juil':6,'Août':7,'Sept':8,'Oct':9,'Nov':10,'Déc':11};
-const FR_MONTH_NAMES = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
-let calendarGridMonth = new Date(2026, 6, 1); // Juillet 2026, le mois du premier événement
-
-function parseEventDate(dateStr){
-  const [dayStr, monStr] = dateStr.split(' ');
-  return new Date(2026, FR_MONTHS_SHORT[monStr] ?? 0, parseInt(dayStr, 10));
-}
-
-function renderCalendarGrid(){
-  const events = getFilteredCalendarEvents();
-  const year = calendarGridMonth.getFullYear();
-  const month = calendarGridMonth.getMonth();
-  document.getElementById('calGridMonthLabel').textContent = `${FR_MONTH_NAMES[month]} ${year}`;
-
-  const daysInMonth = new Date(year, month+1, 0).getDate();
-  const startOffset = (new Date(year, month, 1).getDay() + 6) % 7; // semaine commençant le lundi
-
-  const container = document.getElementById('calGridDays');
-  container.innerHTML = '';
-
-  for(let i=0; i<startOffset; i++){
-    const empty = document.createElement('div');
-    empty.className = 'cal-day empty';
-    container.appendChild(empty);
-  }
-
-  for(let d=1; d<=daysInMonth; d++){
-    const cell = document.createElement('div');
-    cell.className = 'cal-day';
-    const dayEvents = events.filter(e=>{
-      const ed = parseEventDate(e.date);
-      return ed.getFullYear()===year && ed.getMonth()===month && ed.getDate()===d;
-    });
-    let chipsHtml = '';
-    dayEvents.forEach(e=>{
-      let chipClass = 'future';
-      if(e.type === 'hist') chipClass = parseFloat(e.act) >= parseFloat(e.cons) ? 'beat' : 'miss';
-      else if(e.type === 'today') chipClass = 'today';
-      const idx = calendarEvents.indexOf(e);
-      chipsHtml += `<div class="cal-chip ${chipClass}" data-idx="${idx}">${flagHTML(e.code, 12)}<span>${e.name}</span></div>`;
-    });
-    cell.innerHTML = `<div class="cal-day-num">${d}</div>${chipsHtml}`;
-    container.appendChild(cell);
-  }
-
-  container.querySelectorAll('.cal-chip').forEach(chip=>{
-    chip.addEventListener('click', ()=> openEventModal(calendarEvents[+chip.dataset.idx]));
-  });
-}
-
-document.getElementById('calGridPrev').addEventListener('click', ()=>{
-  calendarGridMonth = new Date(calendarGridMonth.getFullYear(), calendarGridMonth.getMonth()-1, 1);
-  renderCalendarGrid();
-});
-document.getElementById('calGridNext').addEventListener('click', ()=>{
-  calendarGridMonth = new Date(calendarGridMonth.getFullYear(), calendarGridMonth.getMonth()+1, 1);
-  renderCalendarGrid();
-});
-
-document.getElementById('calViewListBtn').addEventListener('click', ()=>{
-  calendarViewMode = 'list';
-  document.getElementById('calViewListBtn').classList.add('active');
-  document.getElementById('calViewGridBtn').classList.remove('active');
-  document.getElementById('calendarPageList').style.display = 'grid';
-  document.getElementById('calendarGridView').style.display = 'none';
-  renderCalendarPage();
-});
-document.getElementById('calViewGridBtn').addEventListener('click', ()=>{
-  calendarViewMode = 'grid';
-  document.getElementById('calViewGridBtn').classList.add('active');
-  document.getElementById('calViewListBtn').classList.remove('active');
-  document.getElementById('calendarPageList').style.display = 'none';
-  document.getElementById('calendarGridView').style.display = 'block';
-  renderCalendarGrid();
-});
+// La liste/grille maison a été remplacée par le widget TradingView (voir le
+// HTML de calendarPageView), qui inclut déjà son propre filtrage par pays et
+// importance. Tout le rendu manuel ci-dessous n'est donc plus nécessaire.
 
 function openCalendarPage(){
   document.getElementById('dashboardView').style.display = 'none';
@@ -1742,8 +1581,6 @@ function openCalendarPage(){
   const navBtn = document.getElementById('navCalendarBtn');
   navBtn.classList.add('active');
   navBtn.textContent = '← Retour au tableau de bord';
-  buildCalendarPageFilters();
-  refreshCalendarView();
   window.scrollTo(0,0);
 }
 function closeCalendarPage(){
