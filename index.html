@@ -744,17 +744,29 @@
    <div id="newsPageView" style="display:none;">
      <div class="feed-page-head">
        <button class="back-btn" id="newsPageBack">← Retour au tableau de bord</button>
-       <div class="feed-page-title-row">
-         <div class="feed-page-title">News — actualité financière mondiale</div>
-         <div class="live-badge"><span class="live-dot"></span>SIMULATION EN DIRECT · <span id="newsLiveClock">--:--:--</span></div>
+       <div class="feed-page-title">News — actualité financière mondiale</div>
+       <div class="feed-page-sub">Données réelles — fil fourni par TradingView (actions, crypto, forex, matières premières)</div>
+     </div>
+
+     <div class="tv-calendar-panel">
+       <div class="tradingview-widget-container" style="height:650px;">
+         <div class="tradingview-widget-container__widget"></div>
+         <div class="tradingview-widget-copyright">
+           <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Actualité des marchés</span></a> par TradingView
+         </div>
+         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
+         {
+           "feedMode": "all_symbols",
+           "colorTheme": "dark",
+           "isTransparent": true,
+           "displayMode": "regular",
+           "width": "100%",
+           "height": "650",
+           "locale": "fr"
+         }
+         </script>
        </div>
-       <div class="feed-page-sub">Actions, obligations, matières premières, devises, crypto — filtre par marché et par pays</div>
      </div>
-     <div class="feed-page-filters">
-       <div class="filter-row" id="newsPageMarketFilters"></div>
-       <div class="filter-row" id="newsPageCountryFilters"></div>
-     </div>
-     <div class="feed-page-grid" id="newsPageList"></div>
    </div>
 
   </div>
@@ -921,6 +933,22 @@ function isProxySource(countryCode, indicatorIdx){
   return !!(info && info.isProxy);
 }
 
+let REAL_NEWS_FEED = null;
+
+function relativeTimeFr(isoDate){
+  if(!isoDate) return '';
+  const diffMs = Date.now() - new Date(isoDate).getTime();
+  const diffH = Math.round(diffMs / 3600000);
+  if(diffH < 1) return "À l'instant";
+  if(diffH < 24) return `Il y a ${diffH}h`;
+  const diffD = Math.round(diffH / 24);
+  if(diffD === 1) return 'Il y a 1 jour';
+  if(diffD < 7) return `Il y a ${diffD} jours`;
+  const diffW = Math.round(diffD / 7);
+  if(diffW === 1) return 'Il y a 1 semaine';
+  return `Il y a ${diffW} semaines`;
+}
+
 async function loadRealData(){
   const sources = { gdp: 'data/gdp.json', inflation: 'data/inflation.json', unemployment: 'data/unemployment.json', rates: 'data/rates.json' };
   await Promise.all(Object.entries(sources).map(async ([key, url])=>{
@@ -931,6 +959,30 @@ async function loadRealData(){
       console.warn(`Données réelles indisponibles pour "${key}" — repli sur les données simulées.`, e);
     }
   }));
+
+  try{
+    const res = await fetch('data/news-feed.json');
+    if(res.ok){
+      REAL_NEWS_FEED = await res.json();
+      if(REAL_NEWS_FEED && Array.isArray(REAL_NEWS_FEED.items) && REAL_NEWS_FEED.items.length){
+        const realFeedItems = REAL_NEWS_FEED.items.map(it => ({
+          country: it.country,
+          flag: it.flag,
+          tag: it.tag,
+          tagLabel: `🟢 ${it.tagLabel}`,
+          title: it.title,
+          summary: it.summary,
+          source: it.source,
+          time: relativeTimeFr(it.publishedAt),
+          detail: it.summary,
+        }));
+        feedItems.unshift(...realFeedItems);
+      }
+    }
+  }catch(e){
+    console.warn('Fil d\'actualité réel indisponible — repli sur le fil simulé.', e);
+  }
+
   render(); // ré-affiche avec les vraies données dès qu'elles sont chargées
 }
 
@@ -1529,7 +1581,6 @@ function openFeedPage(){
   document.getElementById('calendarPageView').style.display = 'none';
   document.getElementById('forexPageView').style.display = 'none';
   document.getElementById('newsPageView').style.display = 'none';
-  stopNewsLiveSimulation();
   document.getElementById('feedPageView').style.display = 'block';
   document.getElementById('navCalendarBtn').classList.remove('active');
   document.getElementById('navCalendarBtn').textContent = '📅 Calendrier';
@@ -1570,7 +1621,6 @@ function openCalendarPage(){
   document.getElementById('feedPageView').style.display = 'none';
   document.getElementById('forexPageView').style.display = 'none';
   document.getElementById('newsPageView').style.display = 'none';
-  stopNewsLiveSimulation();
   document.getElementById('navFeedBtn').classList.remove('active');
   document.getElementById('navFeedBtn').textContent = "📰 Fil d'actualité";
   document.getElementById('navForexBtn').classList.remove('active');
@@ -1839,7 +1889,6 @@ function openForexPage(){
   document.getElementById('feedPageView').style.display = 'none';
   document.getElementById('calendarPageView').style.display = 'none';
   document.getElementById('newsPageView').style.display = 'none';
-  stopNewsLiveSimulation();
   document.getElementById('navFeedBtn').classList.remove('active');
   document.getElementById('navFeedBtn').textContent = "📰 Fil d'actualité";
   document.getElementById('navCalendarBtn').classList.remove('active');
@@ -1871,14 +1920,9 @@ document.getElementById('navForexBtn').addEventListener('click', toggleForexPage
 document.getElementById('forexPageBack').addEventListener('click', closeForexPage);
 
 // ---------------- NEWS: ACTUALITÉ FINANCIÈRE MONDIALE ----------------
-const NEWS_MARKETS = [
-  {id:'actions', label:'📈 Actions'},
-  {id:'obligations', label:'💵 Obligations'},
-  {id:'matieres', label:'🛢️ Matières premières'},
-  {id:'devises', label:'💱 Devises'},
-  {id:'crypto', label:'₿ Crypto'},
-];
-
+// L'onglet News affiche maintenant le vrai widget TradingView (voir le HTML de
+// newsPageView). NEWS_ITEMS ci-dessous sert uniquement à l'aperçu affiché dans
+// le panneau "Vue d'ensemble" du tableau de bord (toujours illustratif).
 const NEWS_ITEMS = [
   {country:'US', flag:'🇺🇸', tag:'actions', tagLabel:'📈 Actions', title:'Wall Street clôture en hausse, portée par les valeurs technologiques', summary:"Le Nasdaq signe sa meilleure séance en trois semaines, porté par les résultats des semi-conducteurs.", source:'Bloomberg', time:'Il y a 3h',
     detail:"Les indices américains ont terminé en nette hausse, le Nasdaq en tête, après des résultats trimestriels supérieurs aux attentes dans le secteur des semi-conducteurs. Les investisseurs saluent également des commentaires plus rassurants sur la demande en intelligence artificielle pour les prochains trimestres."},
@@ -1920,99 +1964,6 @@ const NEWS_ITEMS = [
     detail:"Les autorités européennes ont publié de nouvelles lignes directrices précisant les exigences de réserve applicables aux émetteurs de stablecoins dans le cadre du règlement MiCA, dans le but de renforcer la protection des détenteurs."},
 ];
 
-let newsPageMarkets = new Set(); // vide = tous les marchés
-let newsPageCountries = new Set(); // vide = tous les pays
-
-function buildNewsPageFilters(){
-  const marketRow = document.getElementById('newsPageMarketFilters');
-  marketRow.innerHTML = '';
-  const allMarketPill = document.createElement('div');
-  allMarketPill.className = 'filter-pill' + (newsPageMarkets.size===0 ? ' active' : '');
-  allMarketPill.textContent = 'Tous les marchés';
-  allMarketPill.onclick = ()=>{ newsPageMarkets.clear(); buildNewsPageFilters(); renderNewsPage(); };
-  marketRow.appendChild(allMarketPill);
-  NEWS_MARKETS.forEach(m=>{
-    const p = document.createElement('div');
-    p.className = 'filter-pill' + (newsPageMarkets.has(m.id) ? ' active' : '');
-    p.textContent = m.label;
-    p.onclick = ()=>{ toggleSetValue(newsPageMarkets, m.id); buildNewsPageFilters(); renderNewsPage(); };
-    marketRow.appendChild(p);
-  });
-
-  const countryRow = document.getElementById('newsPageCountryFilters');
-  countryRow.innerHTML = '';
-  const countryOptions = [{code:'ALL', flag:'🗂️', name:'Tous les pays'}, {code:'GLOBAL', flag:'🌍', name:'Monde'}, ...countries];
-  countryOptions.forEach(c=>{
-    const p = document.createElement('div');
-    const isActive = c.code==='ALL' ? newsPageCountries.size===0 : newsPageCountries.has(c.code);
-    p.className = 'filter-pill' + (isActive ? ' active' : '');
-    const flagPart = (c.code==='ALL' || c.code==='GLOBAL') ? c.flag : flagHTML(c.code, 15);
-    p.innerHTML = `<span>${flagPart}</span>${c.name||c.code}`;
-    p.onclick = ()=>{
-      if(c.code==='ALL'){ newsPageCountries.clear(); }
-      else { toggleSetValue(newsPageCountries, c.code); }
-      buildNewsPageFilters();
-      renderNewsPage();
-    };
-    countryRow.appendChild(p);
-  });
-}
-
-// ---------------- NEWS: SIMULATION "TEMPS RÉEL" ----------------
-// IMPORTANT : ceci est une simulation côté prototype (aucune connexion à une vraie source d'actualité).
-// De nouvelles têtes de ligne sont piochées dans NEWS_INCOMING à intervalle régulier pour donner
-// l'impression d'un fil qui arrive en direct. Pour du vrai temps réel, il faudrait brancher une API
-// d'actualité (ex. NewsAPI, Finnhub, Benzinga) via un petit backend — un navigateur ne peut pas
-// appeler ces API directement (clé API exposée, CORS bloqué).
-const NEWS_INCOMING = [
-  {country:'US', flag:'🇺🇸', tag:'actions', tagLabel:'📈 Actions', title:'Les futures américains repassent dans le vert avant l\u2019ouverture', summary:"Les investisseurs attendent les résultats de plusieurs poids lourds de la tech ce soir.", source:'Bloomberg', time:"À l'instant",
-    detail:"Les contrats à terme sur les principaux indices américains ont effacé leurs pertes de la matinée, les investisseurs se positionnant avant la publication des résultats trimestriels de plusieurs grandes valeurs technologiques attendue après la clôture."},
-  {country:'GLOBAL', flag:'🌍', tag:'matieres', tagLabel:'🛢️ Matières premières', title:'Le gaz naturel européen bondit sur fond de vague de froid annoncée', summary:"Les prévisions météo font craindre une tension sur la demande de chauffage.", source:'Reuters', time:"À l'instant",
-    detail:"Les prix du gaz naturel sur le marché européen ont accéléré leur hausse après la publication de prévisions météorologiques annonçant une vague de froid plus précoce que d'habitude sur plusieurs pays du continent."},
-  {country:'GLOBAL', flag:'🌍', tag:'crypto', tagLabel:'₿ Crypto', title:'Le bitcoin efface une partie de ses gains après un pic de volatilité', summary:"Un mouvement de prise de bénéfices intervient après le franchissement d'un seuil psychologique.", source:'CoinDesk', time:"À l'instant",
-    detail:"Le bitcoin a reculé de plusieurs points après avoir franchi un nouveau seuil psychologique plus tôt dans la séance, un mouvement que les analystes attribuent à une prise de bénéfices classique après une hausse rapide."},
-  {country:'EU', flag:'🇪🇺', tag:'devises', tagLabel:'💱 Devises', title:"L'euro varie peu avant la conférence de presse de la BCE", summary:"Les cambistes restent prudents avant les commentaires de Christine Lagarde.", source:'Reuters', time:"À l'instant",
-    detail:"L'euro évolue dans un mouchoir de poche face au dollar, les investisseurs préférant rester à l'écart avant la conférence de presse de la présidente de la BCE, qui pourrait apporter des indices sur la trajectoire des taux à venir."},
-  {country:'JP', flag:'🇯🇵', tag:'actions', tagLabel:'📈 Actions', title:'Le Nikkei efface ses gains en fin de séance', summary:"Un repli des valeurs technologiques pèse sur l'indice en clôture.", source:'Nikkei Asia', time:"À l'instant",
-    detail:"L'indice Nikkei a effacé ses gains de la matinée en fin de séance, un repli des valeurs technologiques ayant pris le pas sur la bonne tenue des exportateurs plus tôt dans la journée."},
-  {country:'GB', flag:'🇬🇧', tag:'obligations', tagLabel:'💵 Obligations', title:'Les gilts se stabilisent après une adjudication bien accueillie', summary:"La demande des investisseurs reste solide malgré le contexte de taux élevés.", source:'Financial Times', time:"À l'instant",
-    detail:"Les emprunts d'État britanniques se sont stabilisés après une adjudication qui a suscité une demande jugée solide par les analystes, un signal rassurant sur l'appétit des investisseurs pour la dette souveraine du pays."},
-  {country:'GLOBAL', flag:'🌍', tag:'matieres', tagLabel:'🛢️ Matières premières', title:"L'argent métal suit la dynamique de l'or vers de nouveaux sommets", summary:"Le métal blanc profite également de la demande industrielle liée au solaire.", source:'Bloomberg', time:"À l'instant",
-    detail:"L'argent métal a suivi la dynamique haussière de l'or, porté à la fois par la demande de valeurs refuges et par une demande industrielle soutenue, notamment liée à la fabrication de panneaux solaires."},
-  {country:'AU', flag:'🇦🇺', tag:'devises', tagLabel:'💱 Devises', title:'Le dollar australien progresse après des données solides sur l\u2019emploi', summary:"Les cambistes révisent leurs anticipations sur la trajectoire de la RBA.", source:'Reuters', time:"À l'instant",
-    detail:"Le dollar australien a progressé après la publication de données sur l'emploi plus solides que prévu, poussant certains investisseurs à revoir leurs anticipations quant à un possible assouplissement de la politique monétaire de la RBA."},
-];
-
-let newsLiveInterval = null;
-let newsLiveClockInterval = null;
-
-function updateNewsLiveClock(){
-  const el = document.getElementById('newsLiveClock');
-  if(el) el.textContent = new Date().toLocaleTimeString('fr-FR');
-}
-
-function startNewsLiveSimulation(){
-  stopNewsLiveSimulation();
-  updateNewsLiveClock();
-  newsLiveClockInterval = setInterval(updateNewsLiveClock, 1000);
-  newsLiveInterval = setInterval(()=>{
-    if(NEWS_INCOMING.length === 0) return;
-    const item = NEWS_INCOMING.shift();
-    NEWS_ITEMS.unshift(item);
-    renderNewsPage();
-    renderOverviewPanels();
-    const firstCard = document.querySelector('#newsPageList .feed-item');
-    if(firstCard){
-      firstCard.classList.add('just-in');
-      setTimeout(()=> firstCard.classList.remove('just-in'), 2500);
-    }
-  }, 20000);
-}
-function stopNewsLiveSimulation(){
-  if(newsLiveInterval){ clearInterval(newsLiveInterval); newsLiveInterval = null; }
-  if(newsLiveClockInterval){ clearInterval(newsLiveClockInterval); newsLiveClockInterval = null; }
-}
-
 // ---------------- DASHBOARD OVERVIEW (Forex + News preview) ----------------
 function renderOverviewPanels(){
   const forexList = document.getElementById('overviewForexList');
@@ -2052,37 +2003,6 @@ function renderOverviewPanels(){
 document.getElementById('overviewForexSeeAll').addEventListener('click', openForexPage);
 document.getElementById('overviewNewsSeeAll').addEventListener('click', openNewsPage);
 
-function renderNewsPage(){
-  const grid = document.getElementById('newsPageList');
-  grid.innerHTML = '';
-  const items = NEWS_ITEMS.filter(i=>
-    (newsPageMarkets.size===0 || newsPageMarkets.has(i.tag)) &&
-    (newsPageCountries.size===0 || newsPageCountries.has(i.country))
-  );
-  if(items.length===0){
-    grid.innerHTML = `<div class="feed-page-empty">Aucune actualité ne correspond à ces filtres.</div>`;
-    return;
-  }
-  items.forEach(i=>{
-    const div = document.createElement('div');
-    div.className = 'feed-item';
-    div.innerHTML = `
-      <div class="fi-flag">${feedItemFlag(i, 22)}</div>
-      <div class="fi-body">
-        <div class="fi-top">
-          <span class="fi-tag">${i.tagLabel}</span>
-          <span class="fi-time">${i.time}</span>
-        </div>
-        <div class="fi-title">${i.title}</div>
-        <div class="fi-summary">${i.summary}</div>
-        <div class="fi-source">${i.source}</div>
-      </div>
-    `;
-    grid.appendChild(div);
-    div.addEventListener('click', ()=> openFeedModal(i));
-  });
-}
-
 function openNewsPage(){
   document.getElementById('dashboardView').style.display = 'none';
   document.getElementById('feedPageView').style.display = 'none';
@@ -2098,9 +2018,6 @@ function openNewsPage(){
   const navBtn = document.getElementById('navNewsBtn');
   navBtn.classList.add('active');
   navBtn.textContent = '← Retour au tableau de bord';
-  buildNewsPageFilters();
-  renderNewsPage();
-  startNewsLiveSimulation();
   window.scrollTo(0,0);
 }
 function closeNewsPage(){
@@ -2109,7 +2026,6 @@ function closeNewsPage(){
   const navBtn = document.getElementById('navNewsBtn');
   navBtn.classList.remove('active');
   navBtn.textContent = '🌐 News';
-  stopNewsLiveSimulation();
   window.scrollTo(0,0);
 }
 function toggleNewsPage(){
