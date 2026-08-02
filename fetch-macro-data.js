@@ -34,7 +34,12 @@ function buildUrl(iso3) {
 async function fetchWithRetry(url, tries = 3) {
   for (let attempt = 1; attempt <= tries; attempt++) {
     try {
-      const res = await fetch(url);
+      const res = await fetch(url, {
+        headers: {
+          'Accept-Language': 'en-US,en;q=0.9',
+          'User-Agent': 'Mozilla/5.0 (compatible; macro-terminal-data-fetcher/1.0)',
+        },
+      });
       if (res.ok) return await res.text();
       const body = await res.text().catch(() => '');
       console.warn(`  Tentative ${attempt}/${tries} échouée : ${res.status} ${res.statusText}${body ? ' — ' + body.slice(0, 200) : ''}`);
