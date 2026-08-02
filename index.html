@@ -1,0 +1,2416 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Macro Terminal — Prototype</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0D1117;
+    --panel:#141B24;
+    --panel-2:#182029;
+    --line:#242E3A;
+    --text:#E6E9EE;
+    --muted:#7C8896;
+    --amber:#E8A33D;
+    --amber-dim:#E8A33D33;
+    --up:#6FBF8B;
+    --down:#D9605C;
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'Inter', sans-serif;
+    --font-mono:'IBM Plex Mono', monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--ink);
+    color:var(--text);
+    font-family:var(--font-body);
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--amber-dim); color:var(--amber); }
+
+  body.light{
+    --ink:#F3F5F8;
+    --panel:#FFFFFF;
+    --panel-2:#F7F9FB;
+    --line:#E1E6EC;
+    --text:#141B24;
+    --muted:#667180;
+    --amber:#B9791F;
+    --amber-dim:#B9791F22;
+    --up:#2F9E68;
+    --down:#C23B36;
+  }
+  body.light .topbar{ background:linear-gradient(180deg, #FFFFFF, var(--ink)); }
+  body{ transition:background .2s, color .2s; }
+  body.light .stat-card, body.light .chart-panel, body.light .river, body.light .feed-item, body.light .feed-tab{
+    box-shadow:0 1px 2px rgba(20,27,36,.04);
+  }
+
+  /* ---------- THEME TOGGLE ---------- */
+  .theme-toggle{
+    width:34px; height:34px; border-radius:8px; border:1px solid var(--line);
+    background:var(--panel); color:var(--muted); cursor:pointer;
+    display:flex; align-items:center; justify-content:center; font-size:15px;
+    transition:.15s; flex:0 0 auto;
+  }
+  .theme-toggle:hover{ border-color:var(--amber); color:var(--amber); }
+
+  /* ---------- TOP BAR ---------- */
+  .topbar{
+    display:flex; align-items:center; gap:28px;
+    padding:16px 28px;
+    border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg, #10161F, var(--ink));
+    position:sticky; top:0; z-index:20;
+  }
+  .wordmark{
+    font-family:var(--font-display); font-weight:700; font-size:19px;
+    letter-spacing:0.02em; display:flex; align-items:center; gap:8px;
+  }
+  .wordmark .dot{
+    width:8px; height:8px; border-radius:50%; background:var(--amber);
+    box-shadow:0 0 8px 2px var(--amber-dim);
+    animation:pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:.35;} }
+
+  .country-tabs{ display:flex; gap:4px; flex:1; overflow-x:auto; }
+  .country-tab{
+    font-family:var(--font-mono); letter-spacing:.04em;
+    color:var(--muted); background:transparent; border:1px solid transparent;
+    padding:6px 10px; border-radius:8px; cursor:pointer; white-space:nowrap;
+    display:flex; align-items:center; justify-content:center; transition:.15s;
+  }
+  .country-tab:hover{ border-color:var(--line); background:var(--panel-2); }
+  .country-tab.active{ background:var(--amber-dim); border-color:var(--amber); }
+  .country-tab .flag{ line-height:1; display:flex; }
+  .flag-img{ display:inline-block; vertical-align:middle; border-radius:2px; box-shadow:0 0 0 1px rgba(0,0,0,.15); }
+
+  .clock{ font-family:var(--font-mono); font-size:12px; color:var(--muted); white-space:nowrap; }
+
+  .nav-feed-btn{
+    font-family:var(--font-mono); font-size:12.5px; color:var(--muted);
+    background:transparent; border:1px solid var(--line); border-radius:6px;
+    padding:7px 13px; cursor:pointer; white-space:nowrap; transition:.15s; flex:0 0 auto;
+  }
+  .nav-feed-btn:hover{ color:var(--amber); border-color:var(--amber); }
+  .nav-feed-btn.active{ color:var(--ink); background:var(--amber); font-weight:600; border-color:var(--amber); }
+
+  /* ---------- LAYOUT ---------- */
+  .wrap{ max-width:1480px; margin:0 auto; padding:28px; }
+  .hero-head{ display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:18px; flex-wrap:wrap; gap:14px;}
+  .hero-title{ font-family:var(--font-display); font-size:26px; font-weight:600; }
+  .hero-sub{ color:var(--muted); font-size:13.5px; margin-top:4px; }
+
+  .indicator-pills{ display:flex; gap:8px; }
+  .pill{
+    font-family:var(--font-mono); font-size:12px; padding:7px 12px;
+    border:1px solid var(--line); border-radius:20px; color:var(--muted);
+    cursor:pointer; transition:.15s;
+  }
+  .pill:hover{ border-color:var(--amber); color:var(--text); }
+  .pill.active{ border-color:var(--amber); color:var(--amber); background:var(--amber-dim); }
+
+  /* ---------- MAIN CHART PANEL ---------- */
+  .chart-panel{
+    background:var(--panel); border:1px solid var(--line); border-radius:12px;
+    padding:22px; margin-bottom:22px;
+  }
+  .chart-wrap.clickable{ cursor:pointer; border-radius:8px; transition:.15s; }
+  .chart-wrap.clickable:hover{ outline:2px solid var(--amber); outline-offset:6px; }
+  .expand-hint{
+    display:flex; align-items:center; gap:6px; font-family:var(--font-mono); font-size:11px;
+    color:var(--muted); margin-top:12px; justify-content:flex-end;
+  }
+  .expand-hint svg{ width:12px; height:12px; }
+  .chart-legend{ display:flex; gap:22px; margin-bottom:14px; font-family:var(--font-mono); font-size:11.5px; color:var(--muted); flex-wrap:wrap;}
+  .chart-legend span{ display:flex; align-items:center; gap:6px; }
+  .swatch{ width:16px; height:2px; display:inline-block; }
+  .swatch.hist{ background:var(--text); }
+  .swatch.fore{ background:var(--amber); border-top:2px dashed var(--amber); background:none; }
+  .swatch.range{ width:12px; height:10px; background:var(--amber-dim); border:1px solid var(--amber); }
+  .chart-wrap{ height:340px; position:relative; }
+  .dotplot-wrap{ height:300px; }
+  .dot-swatch{ width:10px; height:10px; border-radius:50%; display:inline-block; }
+  .dot-swatch.member{ background:var(--amber); opacity:.55; }
+  .dot-swatch.median{ background:var(--up); border-radius:2px; transform:rotate(45deg); }
+  .chart-wrap canvas{ position:absolute; top:0; left:0; width:100%; height:100%; }
+
+  /* ---------- CARD GRID ---------- */
+  .card-grid{
+    display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:14px; margin-bottom:30px;
+  }
+  .stat-card{
+    background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:16px 18px;
+    cursor:pointer; transition:.15s;
+  }
+  .stat-card:hover{ border-color:var(--amber); transform:translateY(-1px); }
+  .stat-card .label{ font-size:11.5px; color:var(--muted); letter-spacing:.03em; text-transform:uppercase; }
+  .stat-card .value-row{ display:flex; align-items:baseline; gap:8px; margin-top:8px; }
+  .stat-card .value{ font-family:var(--font-mono); font-size:22px; font-weight:600; }
+  .stat-card .delta{ font-family:var(--font-mono); font-size:12px; }
+  .delta.up{ color:var(--up); } .delta.down{ color:var(--down); }
+  .spark-wrap{ height:34px; margin-top:10px; position:relative; }
+  .spark-wrap canvas{ position:absolute; top:0; left:0; width:100%; height:100%; }
+
+  /* ---------- CALENDAR / SURPRISE RIVER ---------- */
+  .section-head{ display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;}
+  .section-title{ font-family:var(--font-display); font-size:18px; font-weight:600;}
+  .section-sub{ color:var(--muted); font-size:12.5px; margin-bottom:16px;}
+
+  .river{
+    background:var(--panel); border:1px solid var(--line); border-radius:12px;
+    padding:24px 8px 18px 8px; overflow-x:auto;
+  }
+  /* ---------- LAYOUT: LEFT SIDEBAR (OVERVIEW) + MAIN COLUMN + STICKY SIDEBAR FEED ---------- */
+  .dashboard-grid{
+    display:grid; grid-template-columns:260px minmax(0,1fr) 340px; gap:22px; align-items:start;
+  }
+  .main-col{ min-width:0; }
+  .side-col, .side-col-left{ position:sticky; top:84px; }
+  .side-col-left{ display:flex; flex-direction:column; gap:14px; }
+  .feed-panel{
+    background:var(--panel); border:1px solid var(--line); border-radius:12px;
+    padding:18px; max-height:calc(100vh - 104px); display:flex; flex-direction:column;
+  }
+  .feed-panel .feed-list{ overflow-y:auto; padding-right:2px; }
+  .river-track{ position:relative; display:flex; align-items:flex-end; min-width:1100px; padding:0 20px; height:190px; }
+  .river-axis{
+    position:absolute; left:20px; right:20px; bottom:60px; height:1px; background:var(--line);
+  }
+  .river-empty{
+    width:100%; min-width:1060px; text-align:center; color:var(--muted); font-size:13px;
+    display:flex; align-items:center; justify-content:center; height:100%;
+  }
+  .now-marker{
+    position:absolute; top:0; bottom:0; width:1px; background:var(--amber);
+  }
+  .now-label{
+    position:absolute; top:-4px; transform:translateX(-50%);
+    font-family:var(--font-mono); font-size:10.5px; color:var(--amber);
+    background:var(--ink); padding:2px 6px; border:1px solid var(--amber); border-radius:10px;
+  }
+  .event{
+    position:relative; width:118px; flex:0 0 auto; text-align:center; z-index:2;
+    cursor:pointer;
+  }
+  .event:hover .name{ color:var(--amber); }
+  .event .bar-wrap{ position:relative; height:130px; display:flex; align-items:flex-end; justify-content:center; }
+  .bar{ width:6px; border-radius:3px 3px 0 0; position:absolute; bottom:60px; }
+  .bar.hist.beat{ background:var(--up); }
+  .bar.hist.miss{ background:var(--down); }
+  .bar.future{ background:repeating-linear-gradient(45deg, var(--amber-dim), var(--amber-dim) 3px, transparent 3px, transparent 6px); border:1px dashed var(--amber); width:16px; border-radius:4px; }
+  .event .dot{ width:8px; height:8px; border-radius:50%; position:absolute; bottom:56px; background:var(--muted); }
+  .event.today .dot{ background:var(--amber); box-shadow:0 0 8px 2px var(--amber-dim); animation:pulse 2s infinite; }
+  .event .date{ font-family:var(--font-mono); font-size:10.5px; color:var(--muted); margin-top:66px; }
+  .event .flag{ display:flex; justify-content:center; }
+  .event .name{ font-size:11px; margin-top:2px; line-height:1.25; color:var(--text); min-height:28px; }
+  .event .vals{ font-family:var(--font-mono); font-size:10px; color:var(--muted); margin-top:3px; }
+  .event .vals b{ color:var(--text); font-weight:600; }
+  .event .scenario{
+    font-family:var(--font-mono); font-size:9.5px; color:var(--amber); margin-top:3px; opacity:.85;
+  }
+
+  .foot-note{ text-align:center; color:var(--muted); font-size:11.5px; margin-top:26px; font-family:var(--font-mono); }
+  .foot-note b{ color:var(--amber); }
+
+  /* ---------- FEED ---------- */
+  .feed-tabs{ display:flex; gap:8px; margin:2px 0 14px 0; }
+  .feed-tab{
+    font-family:var(--font-mono); font-size:12px; padding:8px 14px;
+    border:1px solid var(--line); border-radius:8px; color:var(--muted);
+    cursor:pointer; background:var(--panel-2); transition:.15s; white-space:nowrap;
+  }
+  .feed-tab:hover{ color:var(--text); border-color:var(--amber); }
+  .feed-tab.active{ color:var(--amber); border-color:var(--amber); background:var(--amber-dim); }
+
+  .feed-country-row{ display:flex; gap:6px; flex-wrap:wrap; margin:10px 0; }
+  .feed-country-pill{
+    width:34px; height:34px; border-radius:8px; border:1px solid var(--line);
+    background:var(--panel-2); font-size:17px; display:flex; align-items:center; justify-content:center;
+    cursor:pointer; transition:.15s;
+  }
+  .feed-country-pill:hover{ border-color:var(--amber); }
+  .feed-country-pill.active{ border-color:var(--amber); background:var(--amber-dim); }
+
+  .feed-count-row{
+    display:flex; align-items:center; gap:8px; margin-bottom:14px;
+    font-family:var(--font-mono); font-size:11.5px; color:var(--muted);
+  }
+  .feed-count-row select{
+    font-family:var(--font-mono); font-size:12px; color:var(--text);
+    background:var(--panel-2); border:1px solid var(--line); border-radius:6px;
+    padding:4px 8px; cursor:pointer;
+  }
+  .feed-count-row select:hover{ border-color:var(--amber); }
+
+  .feed-list{ display:flex; flex-direction:column; gap:10px; margin-bottom:10px; }
+  .feed-item{
+    background:var(--panel-2); border:1px solid var(--line); border-radius:10px;
+    padding:14px 16px; display:flex; gap:14px; align-items:flex-start;
+    cursor:pointer; transition:.15s;
+  }
+  .feed-item:hover{ border-color:var(--amber); }
+  .feed-item .fi-flag{ margin-top:1px; }
+  .feed-item .fi-body{ flex:1; min-width:0; }
+  .feed-item .fi-top{ display:flex; align-items:center; gap:10px; margin-bottom:4px; flex-wrap:wrap; }
+  .fi-tag{
+    font-family:var(--font-mono); font-size:9.5px; letter-spacing:.04em; text-transform:uppercase;
+    padding:2px 8px; border-radius:10px; border:1px solid var(--line); color:var(--muted);
+  }
+  .fi-tag.pub{ color:var(--up); border-color:var(--up); }
+  .fi-tag.bank{ color:var(--amber); border-color:var(--amber); }
+  .fi-tag.marche{ color:var(--down); border-color:var(--down); }
+  .fi-time{ font-family:var(--font-mono); font-size:10.5px; color:var(--muted); margin-left:auto; }
+  .fi-title{ font-size:13.5px; font-weight:600; margin-bottom:3px; }
+  .fi-summary{ font-size:12.5px; color:var(--muted); line-height:1.4; }
+  .fi-source{ font-family:var(--font-mono); font-size:10px; color:var(--muted); margin-top:5px; }
+
+  .see-all-btn{
+    width:100%; font-family:var(--font-mono); font-size:12px; color:var(--amber);
+    background:transparent; border:1px solid var(--line); border-radius:8px;
+    padding:10px; margin-top:4px; cursor:pointer; transition:.15s;
+  }
+  .see-all-btn:hover{ border-color:var(--amber); background:var(--amber-dim); }
+
+  /* ---------- DEDICATED FEED PAGE ---------- */
+  .feed-page-head{ margin-bottom:20px; }
+  .back-btn{
+    font-family:var(--font-mono); font-size:12px; color:var(--muted);
+    background:transparent; border:1px solid var(--line); border-radius:8px;
+    padding:8px 13px; cursor:pointer; margin-bottom:16px; transition:.15s;
+  }
+  .back-btn:hover{ color:var(--amber); border-color:var(--amber); }
+  .feed-page-title{ font-family:var(--font-display); font-size:24px; font-weight:600; }
+  .feed-page-title-row{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  .live-badge{
+    display:flex; align-items:center; gap:7px; font-family:var(--font-mono); font-size:11px;
+    color:var(--down); border:1px solid var(--down); border-radius:20px; padding:5px 12px;
+  }
+  .live-dot{
+    width:7px; height:7px; border-radius:50%; background:var(--down);
+    box-shadow:0 0 6px 1px var(--down); animation:pulse 1.6s ease-in-out infinite;
+  }
+  .feed-item.just-in{ animation:justIn 2.5s ease-out; }
+  @keyframes justIn{
+    0%{ background:var(--amber-dim); border-color:var(--amber); }
+    100%{ background:var(--panel-2); border-color:var(--line); }
+  }
+
+  /* ---------- DASHBOARD OVERVIEW PANELS ---------- */
+  .overview-panel{ background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:16px 18px; }
+  .overview-panel-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
+  .overview-panel-title{ font-family:var(--font-display); font-weight:600; font-size:14px; }
+  .overview-see-all{
+    font-family:var(--font-mono); font-size:11px; color:var(--amber);
+    background:transparent; border:none; cursor:pointer; padding:0;
+  }
+  .overview-see-all:hover{ text-decoration:underline; }
+
+  .overview-forex-row{
+    display:flex; align-items:center; gap:10px; padding:8px 0; border-bottom:1px solid var(--line);
+    cursor:pointer;
+  }
+  .overview-forex-row:last-child{ border-bottom:none; }
+  .overview-forex-row:hover .overview-forex-pair{ color:var(--amber); }
+  .overview-forex-pair{ font-family:var(--font-mono); font-size:12px; font-weight:600; width:78px; flex:0 0 auto; transition:.15s; }
+  .overview-forex-mini-bar{ flex:1; display:flex; height:6px; border-radius:3px; overflow:hidden; background:var(--panel-2); }
+
+  .overview-news-row{
+    display:flex; gap:10px; padding:9px 0; border-bottom:1px solid var(--line); cursor:pointer;
+  }
+  .overview-news-row:last-child{ border-bottom:none; }
+  .overview-news-row:hover .overview-news-title{ color:var(--amber); }
+  .overview-news-title{ font-size:12.5px; line-height:1.35; transition:.15s; }
+  .overview-news-meta{ font-family:var(--font-mono); font-size:10px; color:var(--muted); margin-top:3px; }
+
+  .feed-page-sub{ color:var(--muted); font-size:13px; margin-top:4px; }
+
+  .feed-page-filters{ display:flex; flex-direction:column; gap:10px; margin:20px 0; }
+  .filter-row{ display:flex; gap:8px; flex-wrap:wrap; }
+  .filter-pill{
+    font-family:var(--font-mono); font-size:12px; padding:7px 13px;
+    border:1px solid var(--line); border-radius:20px; color:var(--muted);
+    cursor:pointer; background:var(--panel); transition:.15s; white-space:nowrap;
+    display:flex; align-items:center; gap:6px;
+  }
+  .filter-pill:hover{ border-color:var(--amber); color:var(--text); }
+  .filter-pill.active{ border-color:var(--amber); color:var(--amber); background:var(--amber-dim); }
+
+  .feed-page-grid{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px; margin-top:6px; }
+  .feed-page-grid .feed-item{ padding:18px; }
+  .feed-page-grid .fi-title{ font-size:14.5px; }
+  .feed-page-grid .fi-summary{ font-size:13px; }
+  .feed-page-empty{ grid-column:1 / -1; text-align:center; color:var(--muted); font-size:13px; padding:40px 0; }
+
+  /* ---------- CALENDAR: LIST/GRID VIEW TOGGLE ---------- */
+  .view-toggle-row{ display:flex; gap:8px; margin-bottom:16px; }
+  .view-toggle-btn{
+    font-family:var(--font-mono); font-size:12px; padding:8px 14px;
+    border:1px solid var(--line); border-radius:8px; color:var(--muted);
+    cursor:pointer; background:var(--panel); transition:.15s;
+  }
+  .view-toggle-btn:hover{ border-color:var(--amber); color:var(--text); }
+  .view-toggle-btn.active{ color:var(--amber); border-color:var(--amber); background:var(--amber-dim); }
+
+  /* ---------- CALENDAR: MONTH GRID VIEW ---------- */
+  .calendar-grid-view{ background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:20px; }
+  .cal-grid-nav{ display:flex; align-items:center; justify-content:center; gap:20px; margin-bottom:16px; }
+  .cal-nav-btn{
+    width:32px; height:32px; border-radius:8px; border:1px solid var(--line);
+    background:var(--panel-2); color:var(--muted); cursor:pointer; font-size:14px;
+  }
+  .cal-nav-btn:hover{ border-color:var(--amber); color:var(--amber); }
+  .cal-grid-month{ font-family:var(--font-display); font-size:17px; font-weight:600; min-width:180px; text-align:center; }
+  .cal-grid-weekdays{
+    display:grid; grid-template-columns:repeat(7, 1fr); gap:6px; margin-bottom:6px;
+    font-family:var(--font-mono); font-size:10.5px; color:var(--muted); text-align:center; text-transform:uppercase;
+  }
+  .cal-grid-days{ display:grid; grid-template-columns:repeat(7, 1fr); gap:6px; }
+  .cal-day{
+    min-height:88px; border:1px solid var(--line); border-radius:8px; padding:6px;
+    background:var(--panel-2); display:flex; flex-direction:column; gap:4px;
+  }
+  .cal-day.empty{ background:transparent; border-color:transparent; }
+  .cal-day-num{ font-family:var(--font-mono); font-size:11px; color:var(--muted); }
+  .cal-chip{
+    display:flex; align-items:center; gap:4px; font-size:10px; padding:3px 5px;
+    border-radius:5px; border:1px solid var(--line); cursor:pointer; line-height:1.2;
+    background:var(--panel); transition:.15s;
+  }
+  .cal-chip:hover{ border-color:var(--amber); }
+  .cal-chip span{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .cal-chip.beat{ border-color:var(--up); color:var(--up); }
+  .cal-chip.miss{ border-color:var(--down); color:var(--down); }
+  .cal-chip.today{ border-color:var(--amber); color:var(--amber); }
+  .cal-chip.future{ border-color:var(--line); color:var(--muted); border-style:dashed; }
+
+  @media (max-width:760px){
+    .cal-day{ min-height:60px; }
+    .cal-chip span{ display:none; }
+  }
+
+  /* ---------- FOREX ---------- */
+  .forex-grid{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px; margin-top:6px; }
+  .forex-card{
+    background:var(--panel); border:1px solid var(--line); border-radius:12px;
+    padding:16px 18px; cursor:pointer; transition:.15s;
+  }
+  .forex-card:hover{ border-color:var(--amber); }
+  .forex-pair-head{ display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+  .forex-flags{ display:flex; align-items:center; }
+  .forex-flags img{ position:relative; }
+  .forex-flags img:last-child{ margin-left:-7px; }
+  .forex-pair-name{ font-family:var(--font-display); font-weight:600; font-size:15px; }
+  .forex-fav-btn{
+    margin-left:auto; background:transparent; border:none; cursor:pointer;
+    font-size:19px; color:var(--muted); line-height:1; padding:2px 4px; transition:.15s;
+  }
+  .forex-fav-btn:hover{ color:var(--amber); transform:scale(1.1); }
+  .forex-fav-btn.active{ color:var(--amber); }
+  .forex-position-row{ margin-bottom:11px; }
+  .forex-position-row:last-of-type{ margin-bottom:0; }
+  .fp-label{ font-family:var(--font-mono); font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:.03em; margin-bottom:5px; }
+  .fp-bar{ display:flex; height:7px; border-radius:4px; overflow:hidden; background:var(--panel-2); }
+  .fp-long{ background:var(--up); }
+  .fp-short{ background:var(--down); }
+  .fp-values{ display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:10.5px; margin-top:4px; }
+  .fp-values .up{ color:var(--up); }
+  .fp-values .down{ color:var(--down); }
+  .forex-signal{ font-size:11px; color:var(--amber); margin-top:10px; padding-top:10px; border-top:1px dashed var(--line); line-height:1.4; }
+
+  .forex-custom-builder{
+    background:var(--panel); border:1px solid var(--line); border-radius:12px;
+    padding:20px; margin-top:6px;
+  }
+  .forex-custom-selects{ display:flex; align-items:flex-end; gap:14px; margin-bottom:18px; flex-wrap:wrap; }
+  .fc-select-group{ display:flex; flex-direction:column; gap:6px; flex:1; min-width:180px; }
+  .fc-select-group label{ font-family:var(--font-mono); font-size:10.5px; color:var(--muted); text-transform:uppercase; letter-spacing:.03em; }
+  .fc-select-group select{
+    font-family:var(--font-mono); font-size:13px; color:var(--text);
+    background:var(--panel-2); border:1px solid var(--line); border-radius:8px;
+    padding:9px 10px; cursor:pointer;
+  }
+  .fc-select-group select:hover{ border-color:var(--amber); }
+  .fc-swap{
+    width:36px; height:36px; border-radius:8px; border:1px solid var(--line);
+    background:var(--panel-2); color:var(--muted); display:flex; align-items:center; justify-content:center;
+    cursor:pointer; font-size:16px; flex:0 0 auto; margin-bottom:1px; transition:.15s;
+  }
+  .fc-swap:hover{ border-color:var(--amber); color:var(--amber); }
+
+  @media (max-width:760px){
+    .forex-grid{ grid-template-columns:1fr; }
+  }
+
+
+  @media (max-width:760px){
+    .feed-page-grid{ grid-template-columns:1fr; }
+  }
+
+  @media (max-width:1080px){
+    .dashboard-grid{ grid-template-columns:1fr; }
+    .side-col, .side-col-left{ position:static; }
+    .feed-panel{ max-height:none; }
+    .feed-panel .feed-list{ overflow-y:visible; }
+  }
+  @media (max-width:820px){
+    .card-grid{ grid-template-columns:repeat(2,1fr); }
+    .topbar{ flex-wrap:wrap; }
+  }
+
+  /* ---------- CHART DETAIL MODAL ---------- */
+  .modal-overlay{
+    position:fixed; inset:0; background:rgba(6,9,13,.72); backdrop-filter:blur(2px);
+    display:none; align-items:flex-start; justify-content:center; z-index:100;
+    padding:5vh 20px; overflow-y:auto;
+  }
+  .modal-overlay.open{ display:flex; }
+  body.light .modal-overlay{ background:rgba(20,27,36,.45); }
+  .modal-panel{
+    background:var(--panel); border:1px solid var(--line); border-radius:14px;
+    max-width:880px; width:100%; padding:26px; animation:modalIn .18s ease-out;
+  }
+  @keyframes modalIn{ from{ opacity:0; transform:translateY(8px);} to{ opacity:1; transform:translateY(0);} }
+  .modal-head{ display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:18px; gap:14px; }
+  .modal-title{ font-family:var(--font-display); font-size:21px; font-weight:600; }
+  .modal-sub{ color:var(--muted); font-size:12.5px; margin-top:4px; }
+  .modal-close{
+    width:34px; height:34px; border-radius:8px; border:1px solid var(--line);
+    background:var(--panel-2); color:var(--muted); cursor:pointer; font-size:15px; flex:0 0 auto;
+  }
+  .modal-close:hover{ border-color:var(--amber); color:var(--amber); }
+  .modal-chart-wrap{ height:280px; margin-bottom:22px; }
+
+  .decision-divider{
+    font-family:var(--font-mono); font-size:11px; letter-spacing:.05em; text-transform:uppercase;
+    color:var(--amber); margin:14px 0 4px 0; padding-top:10px; border-top:1px dashed var(--line);
+  }
+  .decision-list{ display:flex; flex-direction:column; }
+  .decision-item{ display:flex; gap:14px; padding:11px 0; border-bottom:1px solid var(--line); }
+  .decision-item:last-child{ border-bottom:none; }
+  .di-date{ font-family:var(--font-mono); font-size:11px; color:var(--muted); width:64px; flex:0 0 auto; padding-top:2px; }
+  .di-marker{ width:8px; height:8px; border-radius:50%; margin-top:5px; flex:0 0 auto; }
+  .di-marker.up{ background:var(--up); }
+  .di-marker.down{ background:var(--down); }
+  .di-marker.flat{ background:var(--muted); }
+  .di-marker.future{ background:transparent; border:1px dashed var(--amber); }
+  .di-body{ flex:1; min-width:0; }
+  .di-value{ font-family:var(--font-mono); font-size:12.5px; font-weight:600; }
+  .di-value.up{ color:var(--up); } .di-value.down{ color:var(--down); }
+  .di-reason{ font-size:12.5px; color:var(--muted); margin-top:2px; line-height:1.4; }
+  .di-reason .scen{ font-family:var(--font-mono); font-size:11px; font-weight:600; }
+  .di-reason .scen.up{ color:var(--up); } .di-reason .scen.down{ color:var(--down); }
+
+  /* ---------- FEED / EVENT DETAIL MODALS ---------- */
+  .modal-meta{ display:flex; align-items:center; gap:10px; margin-bottom:8px; flex-wrap:wrap; }
+  .modal-body-text{ font-size:13.5px; line-height:1.65; color:var(--text); }
+  .read-more-btn{
+    font-family:var(--font-mono); font-size:12px; color:var(--amber);
+    background:transparent; border:1px solid var(--amber); border-radius:8px;
+    padding:8px 14px; margin-top:16px; cursor:pointer; transition:.15s;
+  }
+  .read-more-btn:hover{ background:var(--amber-dim); }
+  .modal-footline{ font-family:var(--font-mono); font-size:11px; color:var(--muted); margin-top:18px; padding-top:14px; border-top:1px solid var(--line); }
+  .event-values{ display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; margin-bottom:18px; }
+  .event-values .ev-box{ background:var(--panel-2); border:1px solid var(--line); border-radius:10px; padding:12px 14px; }
+  .event-values .ev-label{ font-family:var(--font-mono); font-size:10.5px; color:var(--muted); text-transform:uppercase; letter-spacing:.03em; }
+  .event-values .ev-val{ font-family:var(--font-mono); font-size:18px; font-weight:600; margin-top:4px; }
+  .event-values .ev-box.beat .ev-val{ color:var(--up); }
+  .event-values .ev-box.miss .ev-val{ color:var(--down); }
+  .scenario-block{ display:flex; flex-direction:column; gap:10px; margin-top:16px; }
+  .scenario-row{ display:flex; gap:10px; align-items:flex-start; font-size:12.5px; line-height:1.5; color:var(--muted); }
+  .scenario-row .scen-badge{ font-family:var(--font-mono); font-size:11px; font-weight:600; flex:0 0 auto; width:76px; }
+  .scenario-row.up .scen-badge{ color:var(--up); }
+  .scenario-row.down .scen-badge{ color:var(--down); }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="wordmark"><span class="dot"></span>MACRO//TERMINAL</div>
+    <div class="country-tabs" id="countryTabs"></div>
+    <button class="nav-feed-btn" id="navFeedBtn">📰 Fil d'actualité</button>
+    <button class="nav-feed-btn" id="navCalendarBtn">📅 Calendrier</button>
+    <button class="nav-feed-btn" id="navForexBtn">💱 Forex</button>
+    <button class="nav-feed-btn" id="navNewsBtn">🌐 News</button>
+    <div class="clock" id="clock"></div>
+    <button class="theme-toggle" id="themeToggle" title="Changer de thème">🌙</button>
+  </div>
+
+  <div class="wrap">
+
+   <div id="dashboardView">
+    <div class="dashboard-grid">
+      <div class="side-col-left">
+        <div class="section-head">
+          <div>
+            <div class="section-title">Vue d'ensemble</div>
+            <div class="section-sub">Un aperçu de chaque section</div>
+          </div>
+        </div>
+        <div class="overview-panel">
+          <div class="overview-panel-head">
+            <div class="overview-panel-title">💱 Forex</div>
+            <button class="overview-see-all" id="overviewForexSeeAll">Voir tout →</button>
+          </div>
+          <div id="overviewForexList"></div>
+        </div>
+        <div class="overview-panel">
+          <div class="overview-panel-head">
+            <div class="overview-panel-title">🌐 News</div>
+            <button class="overview-see-all" id="overviewNewsSeeAll">Voir tout →</button>
+          </div>
+          <div id="overviewNewsList"></div>
+        </div>
+      </div>
+
+      <div class="main-col">
+
+        <div class="hero-head">
+          <div>
+            <div class="hero-title" id="heroTitle">France — Vue d'ensemble</div>
+            <div class="hero-sub">Historique, publication en cours et projections consensus — mis à jour en continu</div>
+          </div>
+          <div class="indicator-pills" id="pillRow"></div>
+        </div>
+
+        <div class="chart-panel">
+          <div class="chart-legend">
+            <span><i class="swatch hist"></i> Données publiées</span>
+            <span><i class="swatch fore"></i> Consensus (prévision)</span>
+            <span><i class="swatch range"></i> Fourchette scénarios haut / bas</span>
+          </div>
+          <div class="chart-wrap clickable" id="mainChartWrap"><canvas id="mainChart"></canvas></div>
+          <div class="expand-hint">Cliquer sur le graphique pour l'agrandir et voir le détail des variations →</div>
+        </div>
+
+        <div class="card-grid" id="cardGrid"></div>
+
+        <div class="section-head">
+          <div>
+            <div class="section-title">Dot plot — projections de taux directeur</div>
+            <div class="section-sub" id="dotPlotSub">Chaque point = l'anticipation d'un membre du comité de politique monétaire · Losange = médiane</div>
+          </div>
+        </div>
+        <div class="chart-panel dotplot-panel">
+          <div class="chart-legend">
+            <span><i class="dot-swatch member"></i> Projection individuelle</span>
+            <span><i class="dot-swatch median"></i> Médiane du comité</span>
+          </div>
+          <div class="chart-wrap dotplot-wrap"><canvas id="dotPlotChart"></canvas></div>
+        </div>
+
+        <div class="section-head">
+          <div>
+            <div class="section-title">Calendrier — rivière des surprises</div>
+            <div class="section-sub">Passé (écart vs consensus) · Aujourd'hui · À venir (scénarios haussier / baissier)</div>
+          </div>
+        </div>
+        <div class="feed-country-row" id="riverCountryRow"></div>
+        <div class="river">
+          <div class="river-track" id="riverTrack"></div>
+        </div>
+        <button class="see-all-btn" id="seeAllCalendarBtn">Voir tout le calendrier →</button>
+
+      </div>
+
+      <div class="side-col">
+        <div class="feed-panel">
+          <div class="section-head">
+            <div>
+              <div class="section-title">Fil d'actualité</div>
+              <div class="section-sub">Ce qui bouge, publication par publication</div>
+            </div>
+          </div>
+
+          <div class="feed-tabs" id="feedTabs">
+            <div class="feed-tab active" data-mode="country">Fil pays</div>
+            <div class="feed-tab" data-mode="global">Fil principal (monde)</div>
+          </div>
+
+          <div class="feed-country-row" id="feedCountryRow"></div>
+
+          <div class="feed-count-row">
+            <label for="feedCountSelect">Afficher</label>
+            <select id="feedCountSelect">
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5" selected>5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+            </select>
+            <span>actus</span>
+          </div>
+
+          <div class="feed-list" id="feedList"></div>
+          <button class="see-all-btn" id="seeAllFeedBtn">Voir tout le fil d'actualité →</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="foot-note">Prototype visuel — données fictives à but de démonstration · Prochaine étape : brancher les sources (<b>INSEE, Eurostat, BLS, FRED, BCE, FMI…</b>)</div>
+   </div>
+
+   <div id="feedPageView" style="display:none;">
+     <div class="feed-page-head">
+       <button class="back-btn" id="feedPageBack">← Retour au tableau de bord</button>
+       <div class="feed-page-title">Fil d'actualité — toutes les publications</div>
+       <div class="feed-page-sub">Filtre par pays et par type de publication</div>
+     </div>
+     <div class="feed-page-filters">
+       <div class="filter-row" id="feedPageCountryFilters"></div>
+       <div class="filter-row" id="feedPageTagFilters"></div>
+     </div>
+     <div class="feed-page-grid" id="feedPageList"></div>
+   </div>
+
+   <div id="calendarPageView" style="display:none;">
+     <div class="feed-page-head">
+       <button class="back-btn" id="calendarPageBack">← Retour au tableau de bord</button>
+       <div class="feed-page-title">Calendrier économique — tous les événements</div>
+       <div class="feed-page-sub">Filtre par pays et par période</div>
+     </div>
+     <div class="feed-page-filters">
+       <div class="filter-row" id="calendarPageCountryFilters"></div>
+       <div class="filter-row" id="calendarPageTypeFilters"></div>
+     </div>
+
+     <div class="view-toggle-row">
+       <button class="view-toggle-btn active" id="calViewListBtn">🗒 Vue liste</button>
+       <button class="view-toggle-btn" id="calViewGridBtn">🗓 Vue calendrier</button>
+     </div>
+
+     <div class="feed-page-grid" id="calendarPageList"></div>
+
+     <div class="calendar-grid-view" id="calendarGridView" style="display:none;">
+       <div class="cal-grid-nav">
+         <button class="cal-nav-btn" id="calGridPrev">←</button>
+         <div class="cal-grid-month" id="calGridMonthLabel">Juillet 2026</div>
+         <button class="cal-nav-btn" id="calGridNext">→</button>
+       </div>
+       <div class="cal-grid-weekdays">
+         <div>Lun</div><div>Mar</div><div>Mer</div><div>Jeu</div><div>Ven</div><div>Sam</div><div>Dim</div>
+       </div>
+       <div class="cal-grid-days" id="calGridDays"></div>
+     </div>
+   </div>
+
+   <div id="forexPageView" style="display:none;">
+     <div class="feed-page-head">
+       <button class="back-btn" id="forexPageBack">← Retour au tableau de bord</button>
+       <div class="feed-page-title">Forex — retail vs institutionnel</div>
+       <div class="feed-page-sub">Comparaison du positionnement des traders particuliers et des investisseurs institutionnels, paire par paire</div>
+     </div>
+     <div class="feed-page-filters">
+       <div class="filter-row" id="forexPairFilters"></div>
+     </div>
+     <div class="forex-grid" id="forexGrid"></div>
+
+     <div class="forex-custom-builder" id="forexCustomBuilder" style="display:none;">
+       <div class="forex-custom-selects">
+         <div class="fc-select-group">
+           <label for="forexCustomBase">Devise 1</label>
+           <select id="forexCustomBase"></select>
+         </div>
+         <div class="fc-swap" id="forexCustomSwap" title="Inverser">⇄</div>
+         <div class="fc-select-group">
+           <label for="forexCustomQuote">Devise 2</label>
+           <select id="forexCustomQuote"></select>
+         </div>
+       </div>
+       <div class="forex-grid" id="forexCustomResult"></div>
+     </div>
+   </div>
+
+   <div id="newsPageView" style="display:none;">
+     <div class="feed-page-head">
+       <button class="back-btn" id="newsPageBack">← Retour au tableau de bord</button>
+       <div class="feed-page-title-row">
+         <div class="feed-page-title">News — actualité financière mondiale</div>
+         <div class="live-badge"><span class="live-dot"></span>SIMULATION EN DIRECT · <span id="newsLiveClock">--:--:--</span></div>
+       </div>
+       <div class="feed-page-sub">Actions, obligations, matières premières, devises, crypto — filtre par marché et par pays</div>
+     </div>
+     <div class="feed-page-filters">
+       <div class="filter-row" id="newsPageMarketFilters"></div>
+       <div class="filter-row" id="newsPageCountryFilters"></div>
+     </div>
+     <div class="feed-page-grid" id="newsPageList"></div>
+   </div>
+
+  </div>
+
+  <div class="modal-overlay" id="chartModal">
+    <div class="modal-panel">
+      <div class="modal-head">
+        <div>
+          <div class="modal-title" id="modalTitle">France — PIB (croissance)</div>
+          <div class="modal-sub">Chaque point de la courbe expliqué : pourquoi ça a monté, pourquoi ça a baissé</div>
+        </div>
+        <button class="modal-close" id="modalClose">✕</button>
+      </div>
+      <div class="chart-wrap modal-chart-wrap"><canvas id="modalChart"></canvas></div>
+      <div class="decision-list" id="decisionList"></div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="feedModal">
+    <div class="modal-panel">
+      <div class="modal-head">
+        <div>
+          <div class="modal-meta" id="feedModalMeta"></div>
+          <div class="modal-title" id="feedModalTitle"></div>
+        </div>
+        <button class="modal-close" id="feedModalClose">✕</button>
+      </div>
+      <div class="modal-body-text" id="feedModalBody"></div>
+      <div class="modal-body-text extra" id="feedModalExtra" style="display:none; margin-top:12px;"></div>
+      <button class="read-more-btn" id="feedReadMoreBtn">Lire l'article complet →</button>
+      <div class="modal-footline" id="feedModalSource"></div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="eventModal">
+    <div class="modal-panel">
+      <div class="modal-head">
+        <div>
+          <div class="modal-meta" id="eventModalMeta"></div>
+          <div class="modal-title" id="eventModalTitle"></div>
+        </div>
+        <button class="modal-close" id="eventModalClose">✕</button>
+      </div>
+      <div class="event-values" id="eventModalValues"></div>
+      <div class="modal-body-text" id="eventModalBody"></div>
+      <div class="modal-footline" id="eventModalScenarios"></div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="forexModal">
+    <div class="modal-panel">
+      <div class="modal-head">
+        <div>
+          <div class="modal-meta" id="forexModalMeta"></div>
+          <div class="modal-title" id="forexModalTitle"></div>
+        </div>
+        <button class="modal-close" id="forexModalClose">✕</button>
+      </div>
+      <div id="forexModalBars"></div>
+      <div class="modal-body-text" id="forexModalBody"></div>
+      <div class="modal-footline">Prototype visuel — positionnement fictif à but de démonstration.</div>
+    </div>
+  </div>
+
+<script>
+// ---------------- MOCK DATA ----------------
+const countries = [
+  {code:'DE', name:'Allemagne'},
+  {code:'AU', name:'Australie'},
+  {code:'US', name:'États-Unis'},
+  {code:'EU', name:'Europe'},
+  {code:'FR', name:'France'},
+  {code:'GB', name:'Grande-Bretagne'},
+  {code:'JP', name:'Japon'},
+  {code:'NZ', name:'Nouvelle-Zélande'},
+  {code:'CH', name:'Suisse'},
+];
+const indicators = ['PIB (croissance)','Inflation (CPI)','Chômage','Taux directeur'];
+
+// Real flag images instead of emoji: emoji flags don't render on Windows
+// (it falls back to showing the raw two-letter code, e.g. "FR").
+function flagHTML(code, size){
+  return `<img class="flag-img" src="https://flagcdn.com/w40/${code.toLowerCase()}.png" alt="${code}" style="width:${size}px;">`;
+}
+
+function toggleSetValue(set, value){
+  if(set.has(value)) set.delete(value); else set.add(value);
+}
+
+let activeCountry = 'FR';
+let activeIndicator = 0;
+
+// ---------------- RENDER TOP TABS ----------------
+const tabsEl = document.getElementById('countryTabs');
+countries.forEach(c=>{
+  const b = document.createElement('button');
+  b.className = 'country-tab' + (c.code===activeCountry?' active':'');
+  b.innerHTML = `<span class="flag">${flagHTML(c.code, 22)}</span>`;
+  b.title = c.name;
+  b.onclick = ()=>{ activeCountry=c.code; render(); };
+  b.dataset.code = c.code;
+  tabsEl.appendChild(b);
+});
+
+const pillRow = document.getElementById('pillRow');
+indicators.forEach((label,i)=>{
+  const p = document.createElement('div');
+  p.className = 'pill' + (i===activeIndicator?' active':'');
+  p.textContent = label;
+  p.onclick = ()=>{ activeIndicator=i; render(); };
+  p.dataset.i = i;
+  pillRow.appendChild(p);
+});
+
+// ---------------- THEME ----------------
+const THEME_COLORS = {
+  dark:  { text:'#E6E9EE', muted:'#7C8896', grid:'#1A222C', amber:'#E8A33D', amberFill:'#E8A33D22', up:'#6FBF8B', down:'#D9605C', tooltipBg:'#141B24', tooltipBorder:'#242E3A' },
+  light: { text:'#141B24', muted:'#667180', grid:'#E9EDF1', amber:'#B9791F', amberFill:'#B9791F1A', up:'#2F9E68', down:'#C23B36', tooltipBg:'#FFFFFF', tooltipBorder:'#E1E6EC' }
+};
+let currentTheme = 'dark';
+const themeToggleBtn = document.getElementById('themeToggle');
+themeToggleBtn.addEventListener('click', ()=>{
+  currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  document.body.classList.toggle('light', currentTheme === 'light');
+  themeToggleBtn.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+  render();
+});
+
+// clock
+function tickClock(){
+  document.getElementById('clock').textContent = new Date().toLocaleString('fr-FR', {weekday:'short',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit',second:'2-digit'});
+}
+setInterval(tickClock,1000); tickClock();
+
+// ---------------- CHART DATA GENERATION (seeded fake data) ----------------
+function seeded(seed){ let s=seed; return ()=> (s = (s*9301+49297) % 233280) / 233280; }
+
+function genSeries(countryCode, indicatorIdx){
+  const rnd = seeded(countryCode.charCodeAt(0)*13 + indicatorIdx*97 + 7);
+  const months = ['Jan','Fév','Mar','Avr','Mai','Juin','Juil','Août','Sep','Oct','Nov','Déc'];
+  const labels = [];
+  const base = [2.1, 3.4, 7.2, 3.5][indicatorIdx];
+  let val = base;
+  const hist = [];
+  for(let i=0;i<10;i++){
+    val += (rnd()-0.5)*0.6;
+    hist.push(+val.toFixed(2));
+    labels.push(months[i%12]+' '+ (24+Math.floor(i/12)));
+  }
+  const forecast = [];
+  let fval = val;
+  const rangeHigh=[], rangeLow=[];
+  for(let i=0;i<5;i++){
+    fval += (rnd()-0.45)*0.5;
+    forecast.push(+fval.toFixed(2));
+    rangeHigh.push(+(fval + 0.4 + rnd()*0.3).toFixed(2));
+    rangeLow.push(+(fval - 0.4 - rnd()*0.3).toFixed(2));
+    labels.push(months[(10+i)%12]+' '+ (24+Math.floor((10+i)/12)));
+  }
+  // build aligned arrays for chart.js (nulls to break line correctly)
+  const histLine = hist.concat(Array(5).fill(null));
+  histLine[9] = hist[9];
+  const foreLine = Array(9).fill(null).concat([hist[9]], forecast);
+  const highLine = Array(10).fill(null).concat(rangeHigh);
+  const lowLine  = Array(10).fill(null).concat(rangeLow);
+  return {labels, histLine, foreLine, highLine, lowLine};
+}
+
+// ---------------- DECISION REASONS (mock explanatory data) ----------------
+const REASONS = [
+  { // PIB
+    up:["Rebond de la consommation des ménages","Accélération des exportations industrielles","Reprise de l'investissement des entreprises","Effet de base favorable après un trimestre faible","Soutien budgétaire ponctuel"],
+    down:["Ralentissement de la demande extérieure","Contraction de l'investissement des entreprises","Effet de base défavorable","Mouvements sociaux ayant pesé sur la production","Recul de la consommation face à l'inflation"],
+    hi:["accélération de la demande mondiale et reprise des commandes industrielles","effet d'entraînement d'une politique budgétaire plus expansive"],
+    lo:["durcissement des conditions financières et ralentissement du crédit","choc externe sur la demande d'exportation"]
+  },
+  { // Inflation
+    up:["Hausse des prix de l'énergie","Tensions sur les chaînes d'approvisionnement","Rebond des prix alimentaires","Répercussion de la hausse des salaires sur les prix des services","Dépréciation de la devise renchérissant les importations"],
+    down:["Recul des prix de l'énergie","Détente sur les prix alimentaires","Ralentissement de la demande intérieure","Base de comparaison élevée l'an dernier","Effet différé des hausses de taux passées"],
+    hi:["nouvelle flambée des cours de l'énergie","reprise plus forte que prévu de la demande"],
+    lo:["poursuite de la baisse des prix de l'énergie","ralentissement plus marqué de la consommation"]
+  },
+  { // Chômage
+    up:["Ralentissement des embauches dans l'industrie","Plans sociaux dans le secteur technologique","Arrivée de nouveaux entrants sur le marché du travail","Effet saisonnier défavorable"],
+    down:["Créations d'emplois dans les services","Reprise de l'activité dans la construction","Mesures de soutien à l'embauche","Départs à la retraite plus nombreux que prévu"],
+    hi:["vague de restructurations dans plusieurs grands groupes","ralentissement économique plus marqué qu'anticipé"],
+    lo:["accélération des embauches dans les services et le tourisme","plan de relance ciblé sur l'emploi"]
+  },
+  { // Taux directeur
+    up:["La banque centrale resserre sa politique face aux pressions inflationnistes","Décision de hausse pour ancrer les anticipations d'inflation","Réponse à une inflation jugée trop persistante"],
+    down:["Assouplissement pour soutenir l'activité économique","Inflation en net repli, la banque centrale desserre","Signal de soutien face au ralentissement de la croissance"],
+    hi:["inflation qui resterait durablement au-dessus de la cible","risque de surchauffe du marché du travail"],
+    lo:["ralentissement économique plus marqué que prévu","inflation revenant plus vite que prévu vers la cible"]
+  }
+];
+
+function genAnnotated(countryCode, indicatorIdx){
+  const s = genSeries(countryCode, indicatorIdx);
+  const rnd = seeded(countryCode.charCodeAt(0)*31 + indicatorIdx*53 + 3);
+  const pool = REASONS[indicatorIdx];
+  const hist = s.histLine.filter(v=>v!==null).slice(0,10);
+  const histItems = hist.map((v,i)=>{
+    if(i===0) return {label:s.labels[0], value:v, dir:'flat', reason:"Point de départ de la série observée."};
+    const prev = hist[i-1];
+    const dir = v>=prev ? 'up' : 'down';
+    const list = dir==='up' ? pool.up : pool.down;
+    return {label:s.labels[i], value:v, dir, reason:list[Math.floor(rnd()*list.length)]};
+  });
+  const futureLabels = s.labels.slice(10);
+  const futureVals = s.foreLine.filter(v=>v!==null).slice(1);
+  const futureItems = futureVals.map((v,i)=>({
+    label:futureLabels[i], value:v,
+    hiReason:pool.hi[Math.floor(rnd()*pool.hi.length)],
+    loReason:pool.lo[Math.floor(rnd()*pool.lo.length)]
+  }));
+  return {series:s, histItems, futureItems};
+}
+
+let chart;
+function renderChart(){
+  const d = genSeries(activeCountry, activeIndicator);
+  const tc = THEME_COLORS[currentTheme];
+  const ctx = document.getElementById('mainChart');
+  if(chart) chart.destroy();
+  chart = new Chart(ctx, {
+    type:'line',
+    data:{
+      labels:d.labels,
+      datasets:[
+        { label:'Fourchette haute', data:d.highLine, borderWidth:0, backgroundColor:tc.amberFill, fill:'+1', pointRadius:0, tension:.3 },
+        { label:'Fourchette basse', data:d.lowLine, borderWidth:0, backgroundColor:'transparent', fill:false, pointRadius:0, tension:.3 },
+        { label:'Publié', data:d.histLine, borderColor:tc.text, backgroundColor:tc.text, pointRadius:2, borderWidth:2, tension:.3 },
+        { label:'Consensus', data:d.foreLine, borderColor:tc.amber, borderDash:[5,4], pointRadius:2, borderWidth:2, tension:.3 },
+      ]
+    },
+    options:{
+      responsive:true,
+      interaction:{mode:'index', intersect:false},
+      plugins:{ legend:{display:false}, tooltip:{
+        backgroundColor:tc.tooltipBg, borderColor:tc.tooltipBorder, borderWidth:1, titleColor:tc.amber, bodyColor:tc.text, titleFont:{family:'IBM Plex Mono'}, bodyFont:{family:'IBM Plex Mono'}
+      }},
+      scales:{
+        x:{ grid:{color:tc.grid}, ticks:{color:tc.muted, font:{family:'IBM Plex Mono', size:10.5}} },
+        y:{ grid:{color:tc.grid}, ticks:{color:tc.muted, font:{family:'IBM Plex Mono', size:10.5}} }
+      }
+    }
+  });
+}
+
+// ---------------- DOT PLOT (rate projections) ----------------
+const BASE_POLICY_RATE = {DE:2.75, AU:4.10, US:4.25, EU:2.75, FR:2.75, GB:4.00, JP:0.50, NZ:3.75, CH:1.00};
+const DOT_PERIODS = ['2026','2027','2028','Long terme'];
+
+function genDotPlotData(countryCode){
+  const rnd = seeded(countryCode.charCodeAt(0)*41 + 19);
+  const base = BASE_POLICY_RATE[countryCode] ?? 3.0;
+  const neutral = Math.max(0.25, base - 1.4);
+  const dots = [];
+  const medianPoints = [];
+  DOT_PERIODS.forEach((label, pIdx)=>{
+    const glide = pIdx===3 ? 1 : pIdx/3; // long terme = full glide to neutral
+    const center = base - (base-neutral)*glide;
+    const memberCount = 9 + Math.floor(rnd()*4); // 9-12 members
+    const vals = [];
+    for(let m=0;m<memberCount;m++){
+      const val = +Math.max(0, center + (rnd()-0.5)*0.9).toFixed(2);
+      const jitter = (rnd()-0.5)*0.55;
+      dots.push({x: pIdx + jitter, y: val});
+      vals.push(val);
+    }
+    vals.sort((a,b)=>a-b);
+    const median = vals.length % 2 === 0
+      ? +((vals[vals.length/2 - 1] + vals[vals.length/2]) / 2).toFixed(2)
+      : vals[(vals.length-1)/2];
+    medianPoints.push({x:pIdx, y:median});
+  });
+  return {dots, medianPoints};
+}
+
+let dotPlotChart;
+function renderDotPlot(){
+  const {dots, medianPoints} = genDotPlotData(activeCountry);
+  const tc = THEME_COLORS[currentTheme];
+  const ctx = document.getElementById('dotPlotChart');
+  if(dotPlotChart) dotPlotChart.destroy();
+  dotPlotChart = new Chart(ctx, {
+    type:'line',
+    data:{
+      datasets:[
+        { label:'Projections individuelles', data:dots, showLine:false, pointRadius:5, pointBackgroundColor:tc.amber+'99', pointBorderColor:tc.amber, pointBorderWidth:1 },
+        { label:'Médiane du comité', data:medianPoints, showLine:true, borderColor:tc.up, backgroundColor:tc.up, borderWidth:2, borderDash:[5,4], pointRadius:7, pointStyle:'rectRot', pointBackgroundColor:tc.up, pointBorderColor:tc.up }
+      ]
+    },
+    options:{
+      responsive:true,
+      plugins:{
+        legend:{display:false},
+        tooltip:{
+          backgroundColor:tc.tooltipBg, borderColor:tc.tooltipBorder, borderWidth:1, titleColor:tc.amber, bodyColor:tc.text, titleFont:{family:'IBM Plex Mono'}, bodyFont:{family:'IBM Plex Mono'},
+          callbacks:{
+            title:(items)=> DOT_PERIODS[Math.round(items[0].parsed.x)] || '',
+            label:(item)=> `${item.dataset.label} : ${item.parsed.y.toFixed(2)}%`
+          }
+        }
+      },
+      scales:{
+        x:{
+          type:'linear', min:-0.6, max:DOT_PERIODS.length-0.4,
+          grid:{color:tc.grid},
+          ticks:{ color:tc.muted, font:{family:'IBM Plex Mono', size:10.5}, stepSize:1, callback:(v)=> DOT_PERIODS[Math.round(v)] ?? '' }
+        },
+        y:{
+          grid:{color:tc.grid},
+          ticks:{ color:tc.muted, font:{family:'IBM Plex Mono', size:10.5}, callback:(v)=> v+'%' }
+        }
+      }
+    }
+  });
+}
+
+// ---------------- STAT CARDS ----------------
+function renderCards(){
+  const grid = document.getElementById('cardGrid');
+  grid.innerHTML='';
+  indicators.forEach((label,i)=>{
+    const d = genSeries(activeCountry, i);
+    const last = d.histLine.filter(v=>v!==null).slice(-1)[0];
+    const prev = d.histLine.filter(v=>v!==null).slice(-2)[0];
+    const delta = (last-prev).toFixed(2);
+    const up = delta >= 0;
+    const suffix = i===2 ? '%' : (i===3 ? '%' : '%');
+    const card = document.createElement('div');
+    card.className='stat-card';
+    card.innerHTML = `
+      <div class="label">${label}</div>
+      <div class="value-row">
+        <div class="value">${last}${suffix}</div>
+        <div class="delta ${up?'up':'down'}">${up?'▲':'▼'} ${Math.abs(delta)}</div>
+      </div>
+      <div class="spark-wrap"><canvas id="spark${i}"></canvas></div>
+    `;
+    grid.appendChild(card);
+    card.addEventListener('click', ()=> openChartModal(i));
+    requestAnimationFrame(()=>{
+      const tc = THEME_COLORS[currentTheme];
+      new Chart(document.getElementById('spark'+i), {
+        type:'line',
+        data:{ labels:d.labels.slice(0,10), datasets:[{ data:d.histLine.slice(0,10), borderColor: up?tc.up:tc.down, borderWidth:1.5, pointRadius:0, tension:.35 }]},
+        options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false},tooltip:{enabled:false}}, scales:{x:{display:false},y:{display:false}} }
+      });
+    });
+  });
+}
+
+// ---------------- SURPRISE RIVER (calendar) ----------------
+const calendarEvents = [
+  {date:'12 Juil', flag:'🇫🇷', country:'France', code:'FR', name:'Production industrielle', prev:'0.4%', cons:'0.3%', act:'0.6%', type:'hist', category:'Activité', detail:"La production industrielle mesure la variation mensuelle du volume produit par les usines, mines et services d'utilité publique. Une surprise à la hausse comme celle-ci est souvent lue comme un signe avant-coureur d'une accélération du PIB du trimestre en cours."},
+  {date:'15 Juil', flag:'🇺🇸', country:'États-Unis', code:'US', name:'Inflation CPI (m/m)', prev:'0.3%', cons:'0.3%', act:'0.2%', type:'hist', category:'Prix', detail:"L'indice des prix à la consommation est l'indicateur le plus suivi par la Fed pour calibrer sa politique monétaire. Une inflation plus faible que prévu renforce généralement les anticipations de baisse de taux à court terme."},
+  {date:'17 Juil', flag:'🇨🇭', country:'Suisse', code:'CH', name:'Décision BNS (taux)', prev:'1.00%', cons:'1.00%', act:'1.00%', type:'hist', category:'Politique monétaire', detail:"La Banque nationale suisse a maintenu son taux directeur, réaffirmant sa vigilance face à un franc jugé structurellement fort qui pèse sur la compétitivité des exportateurs helvétiques."},
+  {date:'18 Juil', flag:'🇩🇪', country:'Allemagne', code:'DE', name:'Indice ZEW', prev:'12.1', cons:'13.0', act:'15.4', type:'hist', category:'Confiance', detail:"L'indice ZEW mesure le sentiment des investisseurs et analystes financiers sur les perspectives économiques à 6 mois. Il est considéré comme un indicateur avancé de l'activité future."},
+  {date:'20 Juil', flag:'🇦🇺', country:'Australie', code:'AU', name:'Taux de chômage', prev:'4.1%', cons:'4.0%', act:'3.9%', type:'hist', category:'Emploi', detail:"Le taux de chômage australien mesure la part de la population active sans emploi. Un chiffre plus bas que prévu peut retarder les anticipations de baisse de taux de la RBA."},
+  {date:'22 Juil', flag:'🇬🇧', country:'Royaume-Uni', code:'GB', name:'Ventes au détail', prev:'-0.1%', cons:'0.2%', act:'-0.4%', type:'hist', category:'Consommation', detail:"Les ventes au détail reflètent la vigueur de la consommation des ménages, moteur principal de l'économie britannique. Une déception peut peser sur les prévisions de croissance du trimestre."},
+  {date:'24 Juil', flag:'🇪🇺', country:'Europe', code:'EU', name:'PMI composite (zone euro)', prev:'49.8', cons:'50.2', act:'50.6', type:'hist', category:'Confiance', detail:"L'indice PMI composite synthétise l'activité des secteurs manufacturier et des services. Un passage au-dessus de 50 signale une expansion de l'activité économique de la zone euro."},
+  {date:'27 Juil', flag:'🇯🇵', country:'Japon', code:'JP', name:'Taux BoJ', prev:'0.25%', cons:'0.25%', act:'0.25%', type:'hist', category:'Politique monétaire', detail:"La Banque du Japon a maintenu son taux directeur inchangé, confirmant une approche prudente face à une inflation encore éloignée d'une dynamique jugée auto-entretenue."},
+  {date:'31 Juil', flag:'🇫🇷', country:'France', code:'FR', name:'PIB T2 (prov.)', prev:'0.2%', cons:'0.3%', act:'0.3%', type:'today', category:'Croissance', detail:"Estimation provisoire du produit intérieur brut du deuxième trimestre. Cette première publication sera révisée dans les semaines suivantes une fois les données définitives disponibles."},
+  {date:'05 Août', flag:'🇺🇸', country:'États-Unis', code:'US', name:'Rapport emploi (NFP)', prev:'—', cons:'+180k', hi:'+230k', lo:'+90k', type:'future', category:'Emploi', detail:"Le rapport sur l'emploi non agricole est l'une des publications macroéconomiques les plus surveillées au monde. Il influence directement les anticipations de politique monétaire de la Fed."},
+  {date:'07 Août', flag:'🇳🇿', country:'Nouvelle-Zélande', code:'NZ', name:'Décision RBNZ (taux)', prev:'3.75%', cons:'3.50%', hi:'3.75%', lo:'3.25%', type:'future', category:'Politique monétaire', detail:"La Reserve Bank of New Zealand doit décider si elle poursuit son cycle de baisse de taux entamé pour soutenir une économie qui peine encore à retrouver de la vigueur après une récession prolongée."},
+  {date:'13 Août', flag:'🇩🇪', country:'Allemagne', code:'DE', name:'Inflation CPI', prev:'—', cons:'2.2%', hi:'2.6%', lo:'1.9%', type:'future', category:'Prix', detail:"La première économie de la zone euro donne souvent le ton pour la publication agrégée de l'inflation européenne quelques jours plus tard."},
+  {date:'20 Août', flag:'🇬🇧', country:'Royaume-Uni', code:'GB', name:'Décision BoE (taux)', prev:'—', cons:'4.25%', hi:'4.50%', lo:'4.00%', type:'future', category:'Politique monétaire', detail:"La Banque d'Angleterre doit arbitrer entre une inflation encore au-dessus de la cible et un marché du travail qui montre des signes de ralentissement."},
+  {date:'25 Août', flag:'🇪🇺', country:'Europe', code:'EU', name:'Décision BCE (taux)', prev:'—', cons:'2.75%', hi:'3.00%', lo:'2.50%', type:'future', category:'Politique monétaire', detail:"La Banque centrale européenne doit statuer sur son taux de dépôt, en tenant compte d'une inflation proche de sa cible mais d'une croissance encore fragile dans plusieurs pays membres."},
+];
+
+let riverCountries = new Set(); // vide = tous les pays
+
+function buildRiverCountryPills(){
+  const row = document.getElementById('riverCountryRow');
+  row.innerHTML = '';
+
+  const allPill = document.createElement('div');
+  allPill.className = 'feed-country-pill' + (riverCountries.size===0 ? ' active' : '');
+  allPill.textContent = '🗂️';
+  allPill.title = 'Tous les pays';
+  allPill.onclick = ()=>{ riverCountries.clear(); buildRiverCountryPills(); renderRiver(); };
+  row.appendChild(allPill);
+
+  countries.forEach(c=>{
+    const p = document.createElement('div');
+    p.className = 'feed-country-pill' + (riverCountries.has(c.code) ? ' active' : '');
+    p.innerHTML = flagHTML(c.code, 18);
+    p.title = c.name;
+    p.onclick = ()=>{ toggleSetValue(riverCountries, c.code); buildRiverCountryPills(); renderRiver(); };
+    row.appendChild(p);
+  });
+}
+
+function renderRiver(){
+  const track = document.getElementById('riverTrack');
+  track.innerHTML = '<div class="river-axis"></div>';
+
+  const items = riverCountries.size===0
+    ? calendarEvents
+    : calendarEvents.filter(e => riverCountries.has(e.code));
+
+  if(items.length === 0){
+    track.innerHTML += '<div class="river-empty">Aucun événement pour les pays sélectionnés.</div>';
+    return;
+  }
+
+  const nowIndex = items.findIndex(e=>e.type==='today');
+  if(nowIndex !== -1){
+    const nowPos = ((nowIndex+0.5) / items.length) * 100;
+    const marker = document.createElement('div');
+    marker.className='now-marker';
+    marker.style.left = nowPos+'%';
+    marker.innerHTML = `<div class="now-label">AUJOURD'HUI</div>`;
+    track.appendChild(marker);
+  }
+
+  items.forEach(e=>{
+    const div = document.createElement('div');
+    div.className = 'event' + (e.type==='today' ? ' today' : '');
+    let barHtml = '';
+    let scenarioHtml = '';
+    if(e.type==='hist'){
+      const a = parseFloat(e.act), c = parseFloat(e.cons);
+      const beat = a>=c;
+      const h = Math.min(60, Math.abs(a-c)*90 + 14);
+      barHtml = `<div class="bar hist ${beat?'beat':'miss'}" style="height:${h}px;"></div><div class="dot"></div>`;
+      scenarioHtml = `<div class="scenario">${beat?'Au-dessus du consensus':'En-dessous du consensus'}</div>`;
+    } else if(e.type==='today'){
+      barHtml = `<div class="bar hist beat" style="height:34px;"></div><div class="dot"></div>`;
+      scenarioHtml = `<div class="scenario">Publication en cours</div>`;
+    } else {
+      barHtml = `<div class="bar future" style="height:56px;"></div>`;
+      scenarioHtml = `<div class="scenario">↑ ${e.hi} · ↓ ${e.lo}</div>`;
+    }
+    div.innerHTML = `
+      <div class="bar-wrap">${barHtml}</div>
+      <div class="date">${e.date}</div>
+      <div class="flag">${flagHTML(e.code, 18)}</div>
+      <div class="name">${e.name}</div>
+      <div class="vals">${e.type==='future' ? `Cons. <b>${e.cons}</b>` : `Réel <b>${e.act||e.cons}</b> / Cons. ${e.cons}`}</div>
+      ${scenarioHtml}
+    `;
+    track.appendChild(div);
+    div.addEventListener('click', ()=> openEventModal(e));
+  });
+}
+
+// ---------------- FEED ----------------
+const feedItems = [
+  {country:'GLOBAL', flag:'🌍', tag:'analyse', tagLabel:'Analyse', title:'Le FMI relève ses prévisions de croissance mondiale pour 2026', summary:"L'institution évoque un rebond du commerce international plus fort qu'anticipé au premier semestre.", source:'FMI · Rapport trimestriel', time:'Il y a 2h',
+    detail:"Dans son rapport trimestriel, le Fonds monétaire international relève sa prévision de croissance mondiale de 0,2 point pour 2026. L'institution cite un commerce international plus dynamique que prévu et une résorption progressive des tensions sur les chaînes d'approvisionnement. Elle appelle toutefois à la prudence face aux risques géopolitiques et à l'endettement de plusieurs économies avancées.",
+    more:"Le FMI précise que cette révision reste conditionnée à l'absence de nouveau choc géopolitique majeur d'ici la fin de l'année. Les économistes de l'institution soulignent également que la dispersion entre économies avancées et émergentes s'est réduite, un signe encourageant pour la stabilité financière mondiale dans les prochains trimestres."},
+  {country:'FR', flag:'🇫🇷', tag:'pub', tagLabel:'Publication', title:'La production industrielle française surprend à la hausse', summary:"+0.6% en juin contre +0.3% attendu, portée par l'aéronautique et l'énergie.", source:'INSEE', time:'Il y a 4h',
+    detail:"L'INSEE a publié ce matin une hausse de 0,6% de la production industrielle en juin, contre 0,3% attendu par le consensus. La progression est portée par le secteur aéronautique, qui bénéficie d'un carnet de commandes solide, ainsi que par la production énergétique. Cette surprise pourrait pousser les économistes à revoir légèrement à la hausse leurs prévisions de PIB pour le trimestre.",
+    more:"Dans le détail, la filière aéronautique a vu sa production progresser de plus de 2% sur le mois, portée par la montée en cadence de plusieurs lignes d'assemblage. Les économistes restent toutefois prudents quant à la pérennité de cette dynamique, certains évoquant un possible effet de rattrapage après un mois de mai plus faible."},
+  {country:'US', flag:'🇺🇸', tag:'bank', tagLabel:'Banque centrale', title:'La Fed maintient ses taux, ton prudent sur l\u2019inflation', summary:'Powell évoque un marché du travail encore solide mais surveille de près les prix des services.', source:'Federal Reserve', time:'Il y a 6h',
+    detail:"À l'issue de sa réunion, la Réserve fédérale a maintenu ses taux directeurs inchangés. Jerome Powell a souligné la résilience du marché du travail tout en indiquant que le comité restait attentif à la persistance de l'inflation dans les services. Les marchés continuent d'anticiper une première baisse de taux d'ici la fin de l'année, sans toutefois de calendrier précis communiqué par la banque centrale.",
+    more:"Plusieurs membres du comité de politique monétaire ont exprimé des vues divergentes lors de la réunion, certains plaidant pour une baisse dès la prochaine échéance, d'autres privilégiant une approche plus attentiste. Les minutes complètes de la réunion seront publiées dans les prochaines semaines et devraient apporter davantage de clarté sur la trajectoire envisagée."},
+  {country:'DE', flag:'🇩🇪', tag:'analyse', tagLabel:'Analyse', title:"L'indice ZEW allemand rebondit plus que prévu", summary:"Le climat des affaires s'améliore malgré des commandes industrielles atones.", source:'ZEW Mannheim', time:'Hier',
+    detail:"L'indice de confiance ZEW, qui mesure le sentiment des investisseurs institutionnels sur les six prochains mois, est ressorti à 15,4 contre 13,0 attendu. Ce rebond intervient malgré des commandes industrielles encore atones, suggérant que les investisseurs anticipent une amélioration progressive de la conjoncture d'ici la fin d'année.",
+    more:"Les composantes de l'indice montrent une amélioration particulièrement marquée dans les services financiers et la distribution, tandis que l'industrie manufacturière reste en retrait. Les analystes y voient le signe d'une reprise à deux vitesses, la demande intérieure prenant le relais d'un commerce extérieur encore poussif."},
+  {country:'GB', flag:'🇬🇧', tag:'marche', tagLabel:'Marché', title:'La livre recule après des ventes au détail décevantes', summary:'Les cambistes réajustent leurs anticipations sur une baisse de taux de la BoE en septembre.', source:'Reuters', time:'Hier',
+    detail:"La livre sterling a cédé du terrain face au dollar et à l'euro après la publication de ventes au détail en recul de 0,4% contre une hausse de 0,2% attendue. Les cambistes y voient un signal supplémentaire justifiant une baisse de taux de la Banque d'Angleterre dès sa prochaine réunion, ce qui pèse mécaniquement sur la devise.",
+    more:"Plusieurs banques d'investissement ont révisé à la baisse leurs prévisions de croissance du PIB britannique pour le troisième trimestre à la suite de cette publication, évoquant un effet de richesse négatif lié à la persistance de taux d'intérêt élevés sur le pouvoir d'achat des ménages."},
+  {country:'JP', flag:'🇯🇵', tag:'bank', tagLabel:'Banque centrale', title:'La BoJ maintient son taux directeur à 0.25%', summary:'La banque centrale reste attentiste face à une inflation encore modérée.', source:'Banque du Japon', time:'Il y a 2 jours',
+    detail:"La Banque du Japon a choisi de maintenir son taux directeur à 0,25%, conformément aux attentes. Le gouverneur a réaffirmé que toute nouvelle hausse dépendrait de la confirmation d'une dynamique salariale durable, jugée encore insuffisante pour ancrer l'inflation autour de la cible de 2%.",
+    more:"Le gouverneur a également indiqué suivre de près l'évolution du taux de change du yen, dont la faiblesse continue de renchérir les importations d'énergie. Une intervention sur les marchés des changes n'est pas exclue si la dépréciation venait à s'accélérer dans les prochaines semaines."},
+  {country:'FR', flag:'🇫🇷', tag:'marche', tagLabel:'Marché', title:'Le CAC 40 réagit peu aux chiffres du PIB', summary:'Les investisseurs attendaient déjà une croissance modérée au deuxième trimestre.', source:'Bloomberg', time:'Il y a 3 jours',
+    detail:"L'indice parisien a peu réagi à la publication du PIB du deuxième trimestre, la croissance de 0,3% ayant déjà été largement anticipée par les marchés. Les investisseurs se concentrent désormais sur les prochaines publications d'inflation et sur les résultats d'entreprises du troisième trimestre.",
+    more:"Les volumes d'échanges sont restés inférieurs à leur moyenne habituelle, les gérants préférant attendre les prochaines publications d'inflation avant de repositionner leurs portefeuilles. Le compartiment des valeurs bancaires a toutefois surperformé, porté par des anticipations de taux plus élevés plus longtemps."},
+  {country:'GLOBAL', flag:'🌍', tag:'analyse', tagLabel:'Analyse', title:"Les banques centrales entre deux eaux : ralentir ou temporiser ?", summary:"Une majorité d'économistes anticipent une pause générale des cycles de baisse de taux cet été.", source:'The Economist', time:'Il y a 3 jours',
+    detail:"Un sondage mené auprès d'économistes de marché montre qu'une majorité anticipe une pause synchronisée des cycles de baisse de taux des principales banques centrales cet été, le temps d'évaluer l'impact des précédentes baisses sur l'inflation et l'activité avant de reprendre l'assouplissement à l'automne.",
+    more:"Le sondage souligne également des divergences régionales marquées : la Banque centrale européenne serait perçue comme la plus encline à temporiser, tandis que certaines banques centrales de pays émergents pourraient au contraire poursuivre leur cycle d'assouplissement pour soutenir une activité plus fragile."},
+  {country:'US', flag:'🇺🇸', tag:'pub', tagLabel:'Publication', title:"L'inflation américaine ralentit légèrement en juin", summary:'CPI à 0.2% sur le mois, sous le consensus de 0.3%.', source:'Bureau of Labor Statistics', time:'Il y a 4 jours',
+    detail:"L'indice des prix à la consommation américain a progressé de 0,2% en juin, contre 0,3% attendu par le consensus. Le ralentissement est principalement porté par les prix de l'énergie et des biens durables, tandis que l'inflation des services reste plus rigide. Cette publication renforce les anticipations d'une prochaine baisse de taux de la Fed.",
+    more:"Sur douze mois, l'inflation sous-jacente, qui exclut l'alimentation et l'énergie, s'est établie à 3,1%, en léger repli par rapport au mois précédent. La Fed accorde une attention particulière à cette mesure, qu'elle juge plus représentative des tendances de fond que l'indice global."},
+
+  {country:'FR', flag:'🇫🇷', tag:'pub', tagLabel:'Publication', title:"L'inflation française ralentit à 1,8% en juillet", summary:"Portée par le repli des prix de l'énergie, désormais sous la cible de la BCE.", source:'INSEE', time:'Il y a 5 jours',
+    detail:"L'indice des prix à la consommation français est revenu à 1,8% sur un an en juillet, sous l'effet du repli des prix de l'énergie et d'une accalmie sur les produits alimentaires. Cette décélération conforte les anticipations d'un maintien de la politique monétaire accommodante de la BCE."},
+  {country:'FR', flag:'🇫🇷', tag:'analyse', tagLabel:'Analyse', title:"Le taux de chômage français se stabilise à 7,3%", summary:"Le marché du travail montre des signes de résilience malgré le ralentissement de l'activité.", source:'INSEE', time:'Il y a 6 jours',
+    detail:"Le taux de chômage est resté stable à 7,3% au deuxième trimestre, porté par les créations d'emplois dans les services à la personne et la santé, qui compensent le repli observé dans l'industrie manufacturière."},
+  {country:'FR', flag:'🇫🇷', tag:'bank', tagLabel:'Banque centrale', title:"La Banque de France maintient ses prévisions de croissance", summary:"L'institution table sur une croissance de 1,1% pour l'année en cours.", source:'Banque de France', time:'Il y a 1 semaine',
+    detail:"Dans sa dernière note de conjoncture, la Banque de France a confirmé sa prévision de croissance de 1,1% pour l'année, s'appuyant sur une consommation des ménages plus résiliente que prévu et un climat des affaires jugé stable dans la plupart des secteurs."},
+  {country:'FR', flag:'🇫🇷', tag:'marche', tagLabel:'Marché', title:"Le spread OAT-Bund se resserre légèrement", summary:"Les investisseurs saluent la trajectoire budgétaire présentée par le gouvernement.", source:'Reuters', time:'Il y a 8 jours',
+    detail:"L'écart de taux entre la dette française et allemande à 10 ans s'est resserré de quelques points de base, les investisseurs accueillant favorablement les annonces budgétaires récentes, même si la prudence reste de mise sur la trajectoire de la dette à moyen terme."},
+  {country:'FR', flag:'🇫🇷', tag:'analyse', tagLabel:'Analyse', title:"La confiance des ménages français progresse en juillet", summary:"L'indice INSEE atteint son plus haut niveau depuis un an.", source:'INSEE', time:'Il y a 9 jours',
+    detail:"L'indicateur de confiance des ménages a progressé de deux points en juillet, porté par une perception plus favorable de l'évolution du niveau de vie et une inquiétude moindre concernant le chômage futur."},
+
+  {country:'US', flag:'🇺🇸', tag:'pub', tagLabel:'Publication', title:"Les ventes au détail américaines dépassent les attentes", summary:"+0.5% en juin, portées par les dépenses en ligne.", source:'US Census Bureau', time:'Il y a 5 jours',
+    detail:"Les ventes au détail ont progressé de 0,5% en juin, contre 0,2% attendu, portées notamment par le commerce en ligne et les dépenses de loisirs, un signal encourageant sur la résilience de la consommation américaine."},
+  {country:'US', flag:'🇺🇸', tag:'analyse', tagLabel:'Analyse', title:"Le marché de l'emploi américain montre des signes de ralentissement", summary:"Les inscriptions au chômage progressent pour la troisième semaine consécutive.", source:'Département du Travail', time:'Il y a 6 jours',
+    detail:"Les nouvelles inscriptions hebdomadaires au chômage ont augmenté pour la troisième semaine d'affilée, un signal que certains économistes interprètent comme le début d'un ajustement progressif du marché du travail après plusieurs trimestres de tension."},
+  {country:'US', flag:'🇺🇸', tag:'marche', tagLabel:'Marché', title:"Wall Street salue les résultats des grandes banques", summary:"Les bénéfices trimestriels dépassent les attentes des analystes.", source:'Bloomberg', time:'Il y a 1 semaine',
+    detail:"Les principales banques américaines ont publié des résultats trimestriels supérieurs aux attentes, portés par l'activité de banque d'investissement, ce qui a soutenu l'indice S&P 500 sur la semaine."},
+  {country:'US', flag:'🇺🇸', tag:'bank', tagLabel:'Banque centrale', title:"Un membre de la Fed plaide pour une baisse dès septembre", summary:"Il évoque un risque croissant de ralentissement du marché du travail.", source:'Reuters', time:'Il y a 8 jours',
+    detail:"Dans une intervention publique, un membre votant du comité de politique monétaire a estimé que les risques pesant sur l'emploi justifiaient d'envisager une première baisse de taux dès la réunion de septembre, une position qui reste minoritaire au sein du comité."},
+  {country:'US', flag:'🇺🇸', tag:'pub', tagLabel:'Publication', title:"La production industrielle américaine recule légèrement", summary:"-0.2% en juin, freinée par le secteur manufacturier.", source:'Réserve fédérale', time:'Il y a 9 jours',
+    detail:"La production industrielle s'est repliée de 0,2% en juin, la faiblesse du secteur manufacturier n'ayant été que partiellement compensée par la production d'énergie, restée stable sur le mois."},
+
+  {country:'DE', flag:'🇩🇪', tag:'pub', tagLabel:'Publication', title:"L'inflation allemande recule à 2,1% en juin", summary:"Le repli des prix de l'énergie continue de peser sur l'indice global.", source:'Destatis', time:'Il y a 5 jours',
+    detail:"L'inflation allemande est retombée à 2,1% sur un an, se rapprochant de la cible de la BCE, principalement sous l'effet du repli des prix de l'énergie et d'une stabilisation des prix alimentaires."},
+  {country:'DE', flag:'🇩🇪', tag:'analyse', tagLabel:'Analyse', title:"Les commandes industrielles allemandes déçoivent", summary:"Un recul de 1,4% qui ravive les inquiétudes sur la reprise manufacturière.", source:'Destatis', time:'Il y a 6 jours',
+    detail:"Les commandes industrielles ont reculé de 1,4% en juin, un signal négatif pour la reprise du secteur manufacturier allemand, encore pénalisé par une demande extérieure atone, notamment en provenance de Chine."},
+  {country:'DE', flag:'🇩🇪', tag:'marche', tagLabel:'Marché', title:"Le DAX atteint un nouveau record", summary:"Porté par les valeurs technologiques et industrielles.", source:'Bloomberg', time:'Il y a 1 semaine',
+    detail:"L'indice DAX a atteint un nouveau plus haut historique, porté par la bonne tenue des valeurs technologiques et par des résultats d'entreprises supérieurs aux attentes dans l'industrie."},
+  {country:'DE', flag:'🇩🇪', tag:'bank', tagLabel:'Banque centrale', title:"La Bundesbank alerte sur les risques budgétaires", summary:"L'institution appelle à la prudence face à la hausse de la dette publique.", source:'Bundesbank', time:'Il y a 8 jours',
+    detail:"Dans son rapport mensuel, la Bundesbank a appelé le gouvernement fédéral à la prudence budgétaire, alertant sur une trajectoire d'endettement qui pourrait limiter les marges de manœuvre en cas de nouveau choc économique."},
+
+  {country:'GB', flag:'🇬🇧', tag:'pub', tagLabel:'Publication', title:"L'inflation britannique surprend à la baisse", summary:"2.0% en juin, au plus bas depuis trois ans.", source:'ONS', time:'Il y a 5 jours',
+    detail:"L'inflation britannique est retombée à 2,0% sur un an en juin, son niveau le plus bas depuis trois ans, principalement grâce au repli des prix de l'énergie et des transports."},
+  {country:'GB', flag:'🇬🇧', tag:'analyse', tagLabel:'Analyse', title:"Le marché de l'emploi britannique se tend légèrement", summary:"Le taux de chômage remonte à 4.4%.", source:'ONS', time:'Il y a 6 jours',
+    detail:"Le taux de chômage est remonté à 4,4%, son plus haut niveau depuis un an, un signal que les économistes surveillent de près à l'approche de la prochaine décision de la Banque d'Angleterre."},
+  {country:'GB', flag:'🇬🇧', tag:'bank', tagLabel:'Banque centrale', title:"La BoE prépare le terrain pour une nouvelle baisse de taux", summary:"Plusieurs membres du comité évoquent un assouplissement graduel.", source:'Bank of England', time:'Il y a 1 semaine',
+    detail:"Plusieurs membres du comité de politique monétaire de la Banque d'Angleterre ont évoqué la possibilité d'un assouplissement graduel dans les prochains mois, sous réserve de la confirmation du ralentissement de l'inflation."},
+  {country:'GB', flag:'🇬🇧', tag:'marche', tagLabel:'Marché', title:"La bourse de Londres profite du repli de la livre", summary:"Les valeurs exportatrices tirent l'indice FTSE vers le haut.", source:'Reuters', time:'Il y a 8 jours',
+    detail:"L'indice FTSE 100 a progressé, porté par les valeurs exportatrices qui bénéficient mécaniquement de la faiblesse récente de la livre sterling face au dollar et à l'euro."},
+
+  {country:'JP', flag:'🇯🇵', tag:'pub', tagLabel:'Publication', title:"L'inflation japonaise se maintient au-dessus de 2%", summary:"Portée par la hausse des prix alimentaires.", source:"Ministère des Affaires intérieures", time:'Il y a 5 jours',
+    detail:"L'inflation japonaise est restée au-dessus de la cible des 2% pour le douzième mois consécutif, portée notamment par la hausse continue des prix alimentaires et le renchérissement des importations lié à la faiblesse du yen."},
+  {country:'JP', flag:'🇯🇵', tag:'analyse', tagLabel:'Analyse', title:"Les salaires réels japonais progressent enfin", summary:"Une première depuis plusieurs mois, un signal encourageant pour la BoJ.", source:'Ministère du Travail', time:'Il y a 6 jours',
+    detail:"Les salaires réels ont progressé pour la première fois depuis plusieurs mois, un développement que la Banque du Japon surveille de près puisqu'il conditionne en partie sa décision de poursuivre ou non la normalisation de sa politique monétaire."},
+  {country:'JP', flag:'🇯🇵', tag:'marche', tagLabel:'Marché', title:"Le yen se stabilise après plusieurs semaines de baisse", summary:"Les cambistes évoquent une possible intervention des autorités.", source:'Bloomberg', time:'Il y a 1 semaine',
+    detail:"Le yen s'est stabilisé face au dollar après plusieurs semaines de dépréciation continue, certains cambistes évoquant la possibilité d'une intervention verbale, voire directe, des autorités japonaises sur le marché des changes."},
+  {country:'JP', flag:'🇯🇵', tag:'bank', tagLabel:'Banque centrale', title:"La BoJ évoque une possible hausse de taux à l'automne", summary:"Sous réserve de la confirmation d'une dynamique salariale durable.", source:'Banque du Japon', time:'Il y a 8 jours',
+    detail:"Un membre du comité de politique monétaire de la Banque du Japon a indiqué qu'une nouvelle hausse de taux pourrait être envisagée à l'automne si la dynamique salariale observée récemment se confirmait dans la durée."},
+
+  {country:'EU', flag:'🇪🇺', tag:'bank', tagLabel:'Banque centrale', title:"La BCE maintient ses taux, prudente sur la suite", summary:"Christine Lagarde évoque une inflation proche de l'objectif mais des risques encore présents.", source:'Banque centrale européenne', time:'Il y a 4 jours',
+    detail:"La Banque centrale européenne a maintenu son taux de dépôt inchangé, la présidente évoquant une inflation désormais proche de la cible de 2% tout en soulignant que les risques liés au commerce international justifient une approche prudente sur les prochaines décisions."},
+  {country:'EU', flag:'🇪🇺', tag:'pub', tagLabel:'Publication', title:"La croissance de la zone euro déçoit légèrement au T2", summary:"+0.2% sur le trimestre, freinée par la faiblesse de l'Allemagne et de l'Italie.", source:'Eurostat', time:'Il y a 5 jours',
+    detail:"La croissance de la zone euro s'est établie à 0,2% au deuxième trimestre, en dessous des attentes, la faiblesse de l'activité manufacturière en Allemagne et en Italie pesant sur la moyenne de l'union monétaire malgré une meilleure tenue en Espagne."},
+  {country:'EU', flag:'🇪🇺', tag:'analyse', tagLabel:'Analyse', title:"Le climat des affaires s'améliore dans la zone euro", summary:"L'indice PMI composite repasse au-dessus du seuil de 50.", source:'S&P Global', time:'Il y a 6 jours',
+    detail:"L'indice PMI composite de la zone euro est repassé au-dessus de 50, seuil séparant expansion et contraction, porté par un rebond du secteur des services qui compense en partie la faiblesse persistante de l'industrie."},
+  {country:'EU', flag:'🇪🇺', tag:'marche', tagLabel:'Marché', title:"L'euro se raffermit face au dollar", summary:"Les investisseurs anticipent un écart de taux moins favorable au billet vert.", source:'Reuters', time:'Il y a 1 semaine',
+    detail:"L'euro a progressé face au dollar, les investisseurs révisant leurs anticipations sur l'écart de taux entre la BCE et la Fed à mesure que les probabilités d'une baisse américaine se renforcent."},
+
+  {country:'AU', flag:'🇦🇺', tag:'bank', tagLabel:'Banque centrale', title:"La RBA laisse ses taux inchangés, ton prudent", summary:"La banque centrale australienne surveille de près l'évolution du marché du logement.", source:'Reserve Bank of Australia', time:'Il y a 4 jours',
+    detail:"La Reserve Bank of Australia a maintenu son taux directeur, évoquant une inflation encore légèrement au-dessus de sa fourchette cible et un marché du logement qu'elle continue de surveiller de près avant d'envisager un nouvel assouplissement."},
+  {country:'AU', flag:'🇦🇺', tag:'pub', tagLabel:'Publication', title:"Le chômage australien recule à 3.9%", summary:"Un marché du travail toujours tendu malgré le ralentissement de l'activité.", source:'Australian Bureau of Statistics', time:'Il y a 5 jours',
+    detail:"Le taux de chômage est retombé à 3,9%, un niveau historiquement bas qui continue de nourrir les pressions salariales et complique la tâche de la banque centrale dans sa lutte contre l'inflation."},
+  {country:'AU', flag:'🇦🇺', tag:'marche', tagLabel:'Marché', title:"Le dollar australien profite de la remontée des prix du minerai de fer", summary:"Les exportations vers l'Asie soutiennent la devise.", source:'Bloomberg', time:'Il y a 8 jours',
+    detail:"Le dollar australien s'est apprécié, porté par la remontée des cours du minerai de fer et une demande chinoise jugée plus résiliente que prévu pour les matières premières australiennes."},
+  {country:'AU', flag:'🇦🇺', tag:'analyse', tagLabel:'Analyse', title:"La confiance des consommateurs australiens se redresse", summary:"Un rebond porté par le ralentissement de l'inflation perçue.", source:'Westpac', time:'Il y a 9 jours',
+    detail:"L'indice de confiance des consommateurs a rebondi ce mois-ci, les ménages se montrant plus optimistes à mesure que l'inflation perçue diminue et que les perspectives de baisse de taux se précisent."},
+
+  {country:'NZ', flag:'🇳🇿', tag:'bank', tagLabel:'Banque centrale', title:"La RBNZ poursuit son cycle de baisse de taux", summary:"Une troisième baisse consécutive pour soutenir une économie encore fragile.", source:'Reserve Bank of New Zealand', time:'Il y a 5 jours',
+    detail:"La Reserve Bank of New Zealand a abaissé son taux directeur pour la troisième fois consécutive, jugeant que l'inflation était désormais suffisamment maîtrisée pour poursuivre le soutien à une économie qui peine à retrouver de la vigueur."},
+  {country:'NZ', flag:'🇳🇿', tag:'pub', tagLabel:'Publication', title:"L'économie néo-zélandaise sort timidement de la récession", summary:"+0.3% au deuxième trimestre après plusieurs trimestres de contraction.", source:'Statistics New Zealand', time:'Il y a 6 jours',
+    detail:"Le PIB néo-zélandais a progressé de 0,3% au deuxième trimestre, marquant une sortie timide de la récession technique observée depuis plus d'un an, portée notamment par le secteur agricole et le tourisme."},
+  {country:'NZ', flag:'🇳🇿', tag:'analyse', tagLabel:'Analyse', title:"Les prix du lait soutiennent les perspectives d'exportation", summary:"Un rebond bienvenu pour la première filière d'exportation du pays.", source:'Reuters', time:'Il y a 1 semaine',
+    detail:"Les prix mondiaux des produits laitiers ont progressé lors des dernières enchères, une nouvelle bienvenue pour l'économie néo-zélandaise dont les exportations laitières représentent une part importante des revenus extérieurs."},
+
+  {country:'CH', flag:'🇨🇭', tag:'bank', tagLabel:'Banque centrale', title:"La BNS maintient son taux directeur proche de zéro", summary:"La banque centrale suisse reste attentive à la vigueur du franc.", source:'Banque nationale suisse', time:'Il y a 4 jours',
+    detail:"La Banque nationale suisse a maintenu son taux directeur à un niveau très bas, réaffirmant sa volonté d'intervenir si nécessaire sur le marché des changes pour contenir une appréciation excessive du franc suisse."},
+  {country:'CH', flag:'🇨🇭', tag:'pub', tagLabel:'Publication', title:"L'inflation suisse reste parmi les plus basses d'Europe", summary:"0.6% sur un an en juin, très en dessous de ses voisins.", source:'Office fédéral de la statistique', time:'Il y a 5 jours',
+    detail:"L'inflation suisse s'est établie à 0,6% sur un an, un niveau nettement inférieur à celui observé dans la zone euro ou au Royaume-Uni, conforté par la vigueur du franc qui limite le coût des importations."},
+  {country:'CH', flag:'🇨🇭', tag:'marche', tagLabel:'Marché', title:"Le franc suisse atteint un plus haut face à l'euro", summary:"Les investisseurs continuent de le privilégier comme valeur refuge.", source:'Bloomberg', time:'Il y a 8 jours',
+    detail:"Le franc suisse a atteint un nouveau plus haut face à l'euro, les investisseurs continuant de privilégier la devise helvétique comme valeur refuge dans un contexte d'incertitude géopolitique persistante."},
+
+];
+
+let feedMode = 'country';
+let feedCountries = new Set([activeCountry]);
+let feedLimit = 5;
+
+function feedItemFlag(item, size){
+  return item.country === 'GLOBAL' ? item.flag : flagHTML(item.country, size);
+}
+
+function buildFeedCountryPills(){
+  const row = document.getElementById('feedCountryRow');
+  row.innerHTML = '';
+  countries.forEach(c=>{
+    const p = document.createElement('div');
+    p.className = 'feed-country-pill' + (feedCountries.has(c.code) ? ' active' : '');
+    p.innerHTML = flagHTML(c.code, 18);
+    p.title = c.name;
+    p.onclick = ()=>{
+      if(feedCountries.has(c.code) && feedCountries.size===1) return; // keep at least one selected
+      toggleSetValue(feedCountries, c.code);
+      buildFeedCountryPills();
+      renderFeed();
+    };
+    row.appendChild(p);
+  });
+}
+
+function renderFeed(){
+  const list = document.getElementById('feedList');
+  list.innerHTML = '';
+  const filtered = feedMode === 'country'
+    ? feedItems.filter(i => feedCountries.has(i.country))
+    : feedItems;
+  const items = filtered.slice(0, feedLimit);
+  if(items.length === 0){
+    list.innerHTML = `<div class="feed-item"><div class="fi-body"><div class="fi-summary">Aucune actualité pour ce pays pour le moment.</div></div></div>`;
+    return;
+  }
+  items.forEach(i=>{
+    const div = document.createElement('div');
+    div.className = 'feed-item';
+    div.innerHTML = `
+      <div class="fi-flag">${feedItemFlag(i, 22)}</div>
+      <div class="fi-body">
+        <div class="fi-top">
+          <span class="fi-tag ${i.tag}">${i.tagLabel}</span>
+          <span class="fi-time">${i.time}</span>
+        </div>
+        <div class="fi-title">${i.title}</div>
+        <div class="fi-summary">${i.summary}</div>
+        <div class="fi-source">${i.source}</div>
+      </div>
+    `;
+    list.appendChild(div);
+    div.addEventListener('click', ()=> openFeedModal(i));
+  });
+}
+
+document.getElementById('feedTabs').addEventListener('click', (e)=>{
+  const tab = e.target.closest('.feed-tab');
+  if(!tab) return;
+  feedMode = tab.dataset.mode;
+  document.querySelectorAll('.feed-tab').forEach(t=>t.classList.toggle('active', t===tab));
+  document.getElementById('feedCountryRow').style.display = feedMode === 'country' ? 'flex' : 'none';
+  renderFeed();
+});
+
+document.getElementById('feedCountSelect').addEventListener('change', (e)=>{
+  feedLimit = parseInt(e.target.value, 10);
+  renderFeed();
+});
+
+buildFeedCountryPills();
+
+// ---------------- DEDICATED FEED PAGE ----------------
+let feedPageCountries = new Set(); // empty = tous les pays
+let feedPageTag = 'ALL';
+const TAG_FILTERS = [
+  {id:'ALL', label:'Tous les types'},
+  {id:'pub', label:'Publication'},
+  {id:'bank', label:'Banque centrale'},
+  {id:'analyse', label:'Analyse'},
+  {id:'marche', label:'Marché'},
+];
+
+function buildFeedPageFilters(){
+  const countryRow = document.getElementById('feedPageCountryFilters');
+  countryRow.innerHTML = '';
+  const countryOptions = [{code:'ALL', flag:'🗂️', name:'Tous les pays'}, {code:'GLOBAL', flag:'🌍', name:'Monde'}, ...countries];
+  countryOptions.forEach(c=>{
+    const p = document.createElement('div');
+    const isActive = c.code==='ALL' ? feedPageCountries.size===0 : feedPageCountries.has(c.code);
+    p.className = 'filter-pill' + (isActive ? ' active' : '');
+    const flagPart = (c.code==='ALL' || c.code==='GLOBAL') ? c.flag : flagHTML(c.code, 15);
+    p.innerHTML = `<span>${flagPart}</span>${c.name||c.code}`;
+    p.onclick = ()=>{
+      if(c.code==='ALL'){ feedPageCountries.clear(); }
+      else { toggleSetValue(feedPageCountries, c.code); }
+      buildFeedPageFilters();
+      renderFeedPage();
+    };
+    countryRow.appendChild(p);
+  });
+
+  const tagRow = document.getElementById('feedPageTagFilters');
+  tagRow.innerHTML = '';
+  TAG_FILTERS.forEach(t=>{
+    const p = document.createElement('div');
+    p.className = 'filter-pill' + (feedPageTag===t.id ? ' active' : '');
+    p.textContent = t.label;
+    p.onclick = ()=>{ feedPageTag = t.id; buildFeedPageFilters(); renderFeedPage(); };
+    tagRow.appendChild(p);
+  });
+}
+
+function renderFeedPage(){
+  const grid = document.getElementById('feedPageList');
+  grid.innerHTML = '';
+  const items = feedItems.filter(i=>
+    (feedPageCountries.size===0 || feedPageCountries.has(i.country)) &&
+    (feedPageTag==='ALL' || i.tag===feedPageTag)
+  );
+  if(items.length===0){
+    grid.innerHTML = `<div class="feed-page-empty">Aucune actualité ne correspond à ces filtres.</div>`;
+    return;
+  }
+  items.forEach(i=>{
+    const div = document.createElement('div');
+    div.className = 'feed-item';
+    div.innerHTML = `
+      <div class="fi-flag">${feedItemFlag(i, 22)}</div>
+      <div class="fi-body">
+        <div class="fi-top">
+          <span class="fi-tag ${i.tag}">${i.tagLabel}</span>
+          <span class="fi-time">${i.time}</span>
+        </div>
+        <div class="fi-title">${i.title}</div>
+        <div class="fi-summary">${i.summary}</div>
+        <div class="fi-source">${i.source}</div>
+      </div>
+    `;
+    grid.appendChild(div);
+    div.addEventListener('click', ()=> openFeedModal(i));
+  });
+}
+
+function openFeedPage(){
+  document.getElementById('dashboardView').style.display = 'none';
+  document.getElementById('calendarPageView').style.display = 'none';
+  document.getElementById('forexPageView').style.display = 'none';
+  document.getElementById('newsPageView').style.display = 'none';
+  stopNewsLiveSimulation();
+  document.getElementById('feedPageView').style.display = 'block';
+  document.getElementById('navCalendarBtn').classList.remove('active');
+  document.getElementById('navCalendarBtn').textContent = '📅 Calendrier';
+  document.getElementById('navForexBtn').classList.remove('active');
+  document.getElementById('navForexBtn').textContent = '💱 Forex';
+  document.getElementById('navNewsBtn').classList.remove('active');
+  document.getElementById('navNewsBtn').textContent = '🌐 News';
+  const navBtn = document.getElementById('navFeedBtn');
+  navBtn.classList.add('active');
+  navBtn.textContent = '← Retour au tableau de bord';
+  buildFeedPageFilters();
+  renderFeedPage();
+  window.scrollTo(0,0);
+}
+function closeFeedPage(){
+  document.getElementById('feedPageView').style.display = 'none';
+  document.getElementById('dashboardView').style.display = 'block';
+  const navBtn = document.getElementById('navFeedBtn');
+  navBtn.classList.remove('active');
+  navBtn.textContent = "📰 Fil d'actualité";
+  window.scrollTo(0,0);
+}
+function toggleFeedPage(){
+  const isOpen = document.getElementById('feedPageView').style.display !== 'none';
+  isOpen ? closeFeedPage() : openFeedPage();
+}
+document.getElementById('navFeedBtn').addEventListener('click', toggleFeedPage);
+document.getElementById('seeAllFeedBtn').addEventListener('click', openFeedPage);
+document.getElementById('feedPageBack').addEventListener('click', closeFeedPage);
+
+// ---------------- DEDICATED CALENDAR PAGE ----------------
+let calendarPageCountries = new Set(); // empty = tous les pays
+let calendarPageType = 'ALL';
+let calendarViewMode = 'list';
+const CALENDAR_TYPE_FILTERS = [
+  {id:'ALL', label:'Toutes les périodes'},
+  {id:'hist', label:'Passé'},
+  {id:'today', label:"Aujourd'hui"},
+  {id:'future', label:'À venir'},
+];
+
+function getFilteredCalendarEvents(){
+  return calendarEvents.filter(e=>
+    (calendarPageCountries.size===0 || calendarPageCountries.has(e.code)) &&
+    (calendarPageType==='ALL' || e.type===calendarPageType)
+  );
+}
+
+function refreshCalendarView(){
+  calendarViewMode === 'list' ? renderCalendarPage() : renderCalendarGrid();
+}
+
+function buildCalendarPageFilters(){
+  const countryRow = document.getElementById('calendarPageCountryFilters');
+  countryRow.innerHTML = '';
+  const countryOptions = [{code:'ALL', name:'Tous les pays'}, ...countries];
+  countryOptions.forEach(c=>{
+    const p = document.createElement('div');
+    const isActive = c.code==='ALL' ? calendarPageCountries.size===0 : calendarPageCountries.has(c.code);
+    p.className = 'filter-pill' + (isActive ? ' active' : '');
+    const flagPart = c.code==='ALL' ? '🗂️' : flagHTML(c.code, 15);
+    p.innerHTML = `<span>${flagPart}</span>${c.name}`;
+    p.onclick = ()=>{
+      if(c.code==='ALL'){ calendarPageCountries.clear(); }
+      else { toggleSetValue(calendarPageCountries, c.code); }
+      buildCalendarPageFilters();
+      refreshCalendarView();
+    };
+    countryRow.appendChild(p);
+  });
+
+  const typeRow = document.getElementById('calendarPageTypeFilters');
+  typeRow.innerHTML = '';
+  CALENDAR_TYPE_FILTERS.forEach(t=>{
+    const p = document.createElement('div');
+    p.className = 'filter-pill' + (calendarPageType===t.id ? ' active' : '');
+    p.textContent = t.label;
+    p.onclick = ()=>{ calendarPageType = t.id; buildCalendarPageFilters(); refreshCalendarView(); };
+    typeRow.appendChild(p);
+  });
+}
+
+function renderCalendarPage(){
+  const grid = document.getElementById('calendarPageList');
+  grid.innerHTML = '';
+  const items = getFilteredCalendarEvents();
+  if(items.length===0){
+    grid.innerHTML = `<div class="feed-page-empty">Aucun événement ne correspond à ces filtres.</div>`;
+    return;
+  }
+  items.forEach(e=>{
+    const div = document.createElement('div');
+    div.className = 'feed-item';
+    let tagClass, tagLabel, valsLine;
+    if(e.type === 'future'){
+      tagClass = 'analyse'; tagLabel = 'À venir';
+      valsLine = `Consensus <b>${e.cons}</b> · Haussier ${e.hi} / Baissier ${e.lo}`;
+    } else if(e.type === 'today'){
+      tagClass = 'bank'; tagLabel = "Aujourd'hui";
+      valsLine = `Réel <b>${e.act}</b> · Consensus ${e.cons} · Précédent ${e.prev}`;
+    } else {
+      const beat = parseFloat(e.act) >= parseFloat(e.cons);
+      tagClass = beat ? 'pub' : 'marche'; tagLabel = beat ? 'Au-dessus du consensus' : 'En-dessous du consensus';
+      valsLine = `Réel <b>${e.act}</b> · Consensus ${e.cons} · Précédent ${e.prev}`;
+    }
+    div.innerHTML = `
+      <div class="fi-flag">${flagHTML(e.code, 22)}</div>
+      <div class="fi-body">
+        <div class="fi-top">
+          <span class="fi-tag ${tagClass}">${tagLabel}</span>
+          <span class="fi-time">${e.date}</span>
+        </div>
+        <div class="fi-title">${e.name}</div>
+        <div class="fi-summary">${valsLine}</div>
+        <div class="fi-source">${e.category} · ${e.country}</div>
+      </div>
+    `;
+    grid.appendChild(div);
+    div.addEventListener('click', ()=> openEventModal(e));
+  });
+}
+
+// ---------------- CALENDAR MONTH-GRID VIEW ----------------
+const FR_MONTHS_SHORT = {'Janv':0,'Févr':1,'Mars':2,'Avr':3,'Mai':4,'Juin':5,'Juil':6,'Août':7,'Sept':8,'Oct':9,'Nov':10,'Déc':11};
+const FR_MONTH_NAMES = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+let calendarGridMonth = new Date(2026, 6, 1); // Juillet 2026, le mois du premier événement
+
+function parseEventDate(dateStr){
+  const [dayStr, monStr] = dateStr.split(' ');
+  return new Date(2026, FR_MONTHS_SHORT[monStr] ?? 0, parseInt(dayStr, 10));
+}
+
+function renderCalendarGrid(){
+  const events = getFilteredCalendarEvents();
+  const year = calendarGridMonth.getFullYear();
+  const month = calendarGridMonth.getMonth();
+  document.getElementById('calGridMonthLabel').textContent = `${FR_MONTH_NAMES[month]} ${year}`;
+
+  const daysInMonth = new Date(year, month+1, 0).getDate();
+  const startOffset = (new Date(year, month, 1).getDay() + 6) % 7; // semaine commençant le lundi
+
+  const container = document.getElementById('calGridDays');
+  container.innerHTML = '';
+
+  for(let i=0; i<startOffset; i++){
+    const empty = document.createElement('div');
+    empty.className = 'cal-day empty';
+    container.appendChild(empty);
+  }
+
+  for(let d=1; d<=daysInMonth; d++){
+    const cell = document.createElement('div');
+    cell.className = 'cal-day';
+    const dayEvents = events.filter(e=>{
+      const ed = parseEventDate(e.date);
+      return ed.getFullYear()===year && ed.getMonth()===month && ed.getDate()===d;
+    });
+    let chipsHtml = '';
+    dayEvents.forEach(e=>{
+      let chipClass = 'future';
+      if(e.type === 'hist') chipClass = parseFloat(e.act) >= parseFloat(e.cons) ? 'beat' : 'miss';
+      else if(e.type === 'today') chipClass = 'today';
+      const idx = calendarEvents.indexOf(e);
+      chipsHtml += `<div class="cal-chip ${chipClass}" data-idx="${idx}">${flagHTML(e.code, 12)}<span>${e.name}</span></div>`;
+    });
+    cell.innerHTML = `<div class="cal-day-num">${d}</div>${chipsHtml}`;
+    container.appendChild(cell);
+  }
+
+  container.querySelectorAll('.cal-chip').forEach(chip=>{
+    chip.addEventListener('click', ()=> openEventModal(calendarEvents[+chip.dataset.idx]));
+  });
+}
+
+document.getElementById('calGridPrev').addEventListener('click', ()=>{
+  calendarGridMonth = new Date(calendarGridMonth.getFullYear(), calendarGridMonth.getMonth()-1, 1);
+  renderCalendarGrid();
+});
+document.getElementById('calGridNext').addEventListener('click', ()=>{
+  calendarGridMonth = new Date(calendarGridMonth.getFullYear(), calendarGridMonth.getMonth()+1, 1);
+  renderCalendarGrid();
+});
+
+document.getElementById('calViewListBtn').addEventListener('click', ()=>{
+  calendarViewMode = 'list';
+  document.getElementById('calViewListBtn').classList.add('active');
+  document.getElementById('calViewGridBtn').classList.remove('active');
+  document.getElementById('calendarPageList').style.display = 'grid';
+  document.getElementById('calendarGridView').style.display = 'none';
+  renderCalendarPage();
+});
+document.getElementById('calViewGridBtn').addEventListener('click', ()=>{
+  calendarViewMode = 'grid';
+  document.getElementById('calViewGridBtn').classList.add('active');
+  document.getElementById('calViewListBtn').classList.remove('active');
+  document.getElementById('calendarPageList').style.display = 'none';
+  document.getElementById('calendarGridView').style.display = 'block';
+  renderCalendarGrid();
+});
+
+function openCalendarPage(){
+  document.getElementById('dashboardView').style.display = 'none';
+  document.getElementById('feedPageView').style.display = 'none';
+  document.getElementById('forexPageView').style.display = 'none';
+  document.getElementById('newsPageView').style.display = 'none';
+  stopNewsLiveSimulation();
+  document.getElementById('navFeedBtn').classList.remove('active');
+  document.getElementById('navFeedBtn').textContent = "📰 Fil d'actualité";
+  document.getElementById('navForexBtn').classList.remove('active');
+  document.getElementById('navForexBtn').textContent = '💱 Forex';
+  document.getElementById('navNewsBtn').classList.remove('active');
+  document.getElementById('navNewsBtn').textContent = '🌐 News';
+  document.getElementById('calendarPageView').style.display = 'block';
+  const navBtn = document.getElementById('navCalendarBtn');
+  navBtn.classList.add('active');
+  navBtn.textContent = '← Retour au tableau de bord';
+  buildCalendarPageFilters();
+  refreshCalendarView();
+  window.scrollTo(0,0);
+}
+function closeCalendarPage(){
+  document.getElementById('calendarPageView').style.display = 'none';
+  document.getElementById('dashboardView').style.display = 'block';
+  const navBtn = document.getElementById('navCalendarBtn');
+  navBtn.classList.remove('active');
+  navBtn.textContent = '📅 Calendrier';
+  window.scrollTo(0,0);
+}
+function toggleCalendarPage(){
+  const isOpen = document.getElementById('calendarPageView').style.display !== 'none';
+  isOpen ? closeCalendarPage() : openCalendarPage();
+}
+document.getElementById('navCalendarBtn').addEventListener('click', toggleCalendarPage);
+document.getElementById('seeAllCalendarBtn').addEventListener('click', openCalendarPage);
+document.getElementById('calendarPageBack').addEventListener('click', closeCalendarPage);
+
+// ---------------- FOREX: RETAIL VS INSTITUTIONNEL ----------------
+const FOREX_CURRENCY_TO_COUNTRY = {USD:'US', EUR:'EU', GBP:'GB', JPY:'JP', AUD:'AU', NZD:'NZ', CHF:'CH'};
+const FOREX_PAIRS = [
+  {pair:'EUR/USD', major:true}, {pair:'GBP/USD', major:true}, {pair:'USD/JPY', major:true},
+  {pair:'USD/CHF', major:true}, {pair:'AUD/USD', major:true}, {pair:'NZD/USD', major:true},
+  {pair:'EUR/GBP', major:false}, {pair:'EUR/JPY', major:false}, {pair:'EUR/CHF', major:false},
+  {pair:'EUR/AUD', major:false}, {pair:'EUR/NZD', major:false}, {pair:'GBP/JPY', major:false},
+  {pair:'GBP/CHF', major:false}, {pair:'GBP/AUD', major:false}, {pair:'GBP/NZD', major:false},
+  {pair:'AUD/JPY', major:false}, {pair:'AUD/CHF', major:false}, {pair:'AUD/NZD', major:false},
+  {pair:'NZD/JPY', major:false}, {pair:'NZD/CHF', major:false}, {pair:'CHF/JPY', major:false},
+];
+
+// Univers élargi pour le sélecteur libre : majors + devises "exotiques" courantes.
+// Toute combinaison est possible, même si elle n'apparaît pas dans FOREX_PAIRS.
+const FOREX_ALL_CURRENCIES = [
+  {code:'USD', country:'US', name:'Dollar américain'},
+  {code:'EUR', country:'EU', name:'Euro'},
+  {code:'GBP', country:'GB', name:'Livre sterling'},
+  {code:'JPY', country:'JP', name:'Yen japonais'},
+  {code:'AUD', country:'AU', name:'Dollar australien'},
+  {code:'NZD', country:'NZ', name:'Dollar néo-zélandais'},
+  {code:'CHF', country:'CH', name:'Franc suisse'},
+  {code:'CAD', country:'CA', name:'Dollar canadien'},
+  {code:'CNH', country:'CN', name:'Yuan chinois (offshore)'},
+  {code:'SEK', country:'SE', name:'Couronne suédoise'},
+  {code:'NOK', country:'NO', name:'Couronne norvégienne'},
+  {code:'DKK', country:'DK', name:'Couronne danoise'},
+  {code:'MXN', country:'MX', name:'Peso mexicain'},
+  {code:'ZAR', country:'ZA', name:'Rand sud-africain'},
+  {code:'TRY', country:'TR', name:'Livre turque'},
+  {code:'SGD', country:'SG', name:'Dollar de Singapour'},
+  {code:'HKD', country:'HK', name:'Dollar de Hong Kong'},
+  {code:'PLN', country:'PL', name:'Zloty polonais'},
+  {code:'INR', country:'IN', name:'Roupie indienne'},
+  {code:'BRL', country:'BR', name:'Réal brésilien'},
+  {code:'KRW', country:'KR', name:'Won sud-coréen'},
+  {code:'THB', country:'TH', name:'Baht thaïlandais'},
+  {code:'ILS', country:'IL', name:'Shekel israélien'},
+  {code:'HUF', country:'HU', name:'Forint hongrois'},
+];
+FOREX_ALL_CURRENCIES.forEach(c=>{ FOREX_CURRENCY_TO_COUNTRY[c.code] = c.country; });
+
+function hashString(s){
+  let h = 0;
+  for(let i=0;i<s.length;i++){ h = (h*31 + s.charCodeAt(i)) >>> 0; }
+  return h % 233280;
+}
+
+function genForexPositioning(pair){
+  const rnd = seeded(hashString(pair) || 1);
+  const retailLong = Math.round(28 + rnd()*47); // 28-75%
+  const retailShort = 100 - retailLong;
+  let instLong = Math.round((100 - retailLong) + (rnd()-0.5)*40);
+  instLong = Math.max(12, Math.min(88, instLong));
+  const instShort = 100 - instLong;
+  return {retailLong, retailShort, instLong, instShort};
+}
+
+function forexFlagsHTML(pair, size){
+  const [base, quote] = pair.split('/');
+  return flagHTML(FOREX_CURRENCY_TO_COUNTRY[base] || base, size) + flagHTML(FOREX_CURRENCY_TO_COUNTRY[quote] || quote, size);
+}
+
+function buildForexCardHTML(pair, pos){
+  const diff = pos.retailLong - pos.instLong;
+  const isFav = forexFavorites.has(pair);
+  return `
+    <div class="forex-pair-head">
+      <div class="forex-flags">${forexFlagsHTML(pair, 22)}</div>
+      <div class="forex-pair-name">${pair}</div>
+      <button class="forex-fav-btn${isFav ? ' active' : ''}" title="${isFav ? 'Retirer des favoris' : 'Ajouter aux favoris'}">${isFav ? '★' : '☆'}</button>
+    </div>
+    <div class="forex-position-row">
+      <div class="fp-label">Retail</div>
+      <div class="fp-bar"><div class="fp-long" style="width:${pos.retailLong}%"></div><div class="fp-short" style="width:${pos.retailShort}%"></div></div>
+      <div class="fp-values"><span class="up">${pos.retailLong}% Long</span><span class="down">${pos.retailShort}% Short</span></div>
+    </div>
+    <div class="forex-position-row">
+      <div class="fp-label">Institutionnel</div>
+      <div class="fp-bar"><div class="fp-long" style="width:${pos.instLong}%"></div><div class="fp-short" style="width:${pos.instShort}%"></div></div>
+      <div class="fp-values"><span class="up">${pos.instLong}% Long</span><span class="down">${pos.instShort}% Short</span></div>
+    </div>
+    ${Math.abs(diff) >= 20 ? `<div class="forex-signal">⚡ Divergence notable entre retail et institutionnel</div>` : ''}
+  `;
+}
+
+let forexFilter = 'ALL';
+let forexFavorites = new Set(); // aucune limite de taille
+
+function wireForexCard(div, pair, pos){
+  div.addEventListener('click', ()=> openForexModal(pair, pos));
+  const favBtn = div.querySelector('.forex-fav-btn');
+  favBtn.addEventListener('click', (e)=>{
+    e.stopPropagation();
+    toggleSetValue(forexFavorites, pair);
+    const isFav = forexFavorites.has(pair);
+    favBtn.textContent = isFav ? '★' : '☆';
+    favBtn.classList.toggle('active', isFav);
+    favBtn.title = isFav ? 'Retirer des favoris' : 'Ajouter aux favoris';
+    buildForexFilters(); // met à jour le compteur "Mes favoris (n)"
+    if(forexFilter === 'FAVORITES') renderForexGrid();
+    renderOverviewPanels();
+  });
+}
+
+function buildForexFilters(){
+  const row = document.getElementById('forexPairFilters');
+  row.innerHTML = '';
+  [
+    {id:'ALL', label:'Toutes les paires (21)'},
+    {id:'MAJOR', label:'Paires majeures'},
+    {id:'FAVORITES', label:`⭐ Mes favoris (${forexFavorites.size})`},
+    {id:'CUSTOM', label:'🔍 Paire personnalisée'},
+  ].forEach(f=>{
+    const p = document.createElement('div');
+    p.className = 'filter-pill' + (forexFilter===f.id ? ' active' : '');
+    p.textContent = f.label;
+    p.onclick = ()=>{ forexFilter = f.id; buildForexFilters(); renderForexView(); };
+    row.appendChild(p);
+  });
+}
+
+function renderForexView(){
+  const gridVisible = forexFilter !== 'CUSTOM';
+  document.getElementById('forexGrid').style.display = gridVisible ? 'grid' : 'none';
+  document.getElementById('forexCustomBuilder').style.display = gridVisible ? 'none' : 'block';
+  if(gridVisible) renderForexGrid();
+  else renderForexCustomResult();
+}
+
+function renderForexGrid(){
+  const grid = document.getElementById('forexGrid');
+  grid.innerHTML = '';
+  let pairs;
+  if(forexFilter === 'MAJOR') pairs = FOREX_PAIRS.filter(p=>p.major).map(p=>p.pair);
+  else if(forexFilter === 'FAVORITES') pairs = Array.from(forexFavorites);
+  else pairs = FOREX_PAIRS.map(p=>p.pair);
+
+  if(pairs.length === 0){
+    grid.innerHTML = `<div class="feed-page-empty">Aucune paire favorite pour l'instant. Clique sur l'étoile ☆ d'une paire pour l'ajouter ici — sans limite de nombre.</div>`;
+    return;
+  }
+
+  pairs.forEach(pair=>{
+    const pos = genForexPositioning(pair);
+    const div = document.createElement('div');
+    div.className = 'forex-card';
+    div.innerHTML = buildForexCardHTML(pair, pos);
+    grid.appendChild(div);
+    wireForexCard(div, pair, pos);
+  });
+}
+
+// ---------------- FOREX: SÉLECTEUR LIBRE (n'importe quelle paire) ----------------
+function populateForexCustomSelects(){
+  const baseSel = document.getElementById('forexCustomBase');
+  const quoteSel = document.getElementById('forexCustomQuote');
+  if(baseSel.options.length > 0) return; // déjà rempli, on garde le choix de l'utilisateur
+  FOREX_ALL_CURRENCIES.forEach(c=>{
+    const label = `${c.code} — ${c.name}`;
+    const o1 = document.createElement('option'); o1.value = c.code; o1.textContent = label;
+    baseSel.appendChild(o1);
+    const o2 = document.createElement('option'); o2.value = c.code; o2.textContent = label;
+    quoteSel.appendChild(o2);
+  });
+  baseSel.value = 'USD';
+  quoteSel.value = 'TRY';
+}
+
+function renderForexCustomResult(){
+  const base = document.getElementById('forexCustomBase').value;
+  const quote = document.getElementById('forexCustomQuote').value;
+  const resultEl = document.getElementById('forexCustomResult');
+  resultEl.innerHTML = '';
+  if(base === quote){
+    resultEl.innerHTML = `<div class="feed-page-empty">Choisis deux devises différentes pour former une paire.</div>`;
+    return;
+  }
+  const pair = `${base}/${quote}`;
+  const pos = genForexPositioning(pair);
+  const div = document.createElement('div');
+  div.className = 'forex-card';
+  div.innerHTML = buildForexCardHTML(pair, pos);
+  resultEl.appendChild(div);
+  wireForexCard(div, pair, pos);
+}
+
+document.getElementById('forexCustomBase').addEventListener('change', renderForexCustomResult);
+document.getElementById('forexCustomQuote').addEventListener('change', renderForexCustomResult);
+document.getElementById('forexCustomSwap').addEventListener('click', ()=>{
+  const baseSel = document.getElementById('forexCustomBase');
+  const quoteSel = document.getElementById('forexCustomQuote');
+  const tmp = baseSel.value;
+  baseSel.value = quoteSel.value;
+  quoteSel.value = tmp;
+  renderForexCustomResult();
+});
+
+function openForexModal(pair, pos){
+  document.getElementById('forexModalMeta').innerHTML = forexFlagsHTML(pair, 18);
+  document.getElementById('forexModalTitle').textContent = pair;
+  const diff = pos.retailLong - pos.instLong;
+  let note;
+  if(Math.abs(diff) < 15){
+    note = `Le positionnement des traders particuliers et des investisseurs institutionnels est globalement aligné sur ${pair}, ce qui offre peu de signal contrarian pour le moment.`;
+  } else if(diff > 0){
+    note = `Les traders particuliers sont nettement plus acheteurs (${pos.retailLong}% long) que les institutionnels (${pos.instLong}% long) sur ${pair}. Une lecture contrarian classique consiste à se méfier d'un excès d'optimisme côté retail, souvent utilisé comme indicateur à contre-courant par les traders professionnels.`;
+  } else {
+    note = `Les investisseurs institutionnels sont nettement plus acheteurs (${pos.instLong}% long) que les traders particuliers (${pos.retailLong}% long) sur ${pair}, ce qui peut traduire une conviction plus forte du côté institutionnel, notamment via les données de positionnement futures (type COT).`;
+  }
+  document.getElementById('forexModalBars').innerHTML = `
+    <div class="forex-position-row">
+      <div class="fp-label">Retail</div>
+      <div class="fp-bar" style="height:14px; border-radius:7px;"><div class="fp-long" style="width:${pos.retailLong}%"></div><div class="fp-short" style="width:${pos.retailShort}%"></div></div>
+      <div class="fp-values"><span class="up">${pos.retailLong}% Long</span><span class="down">${pos.retailShort}% Short</span></div>
+    </div>
+    <div class="forex-position-row">
+      <div class="fp-label">Institutionnel (type COT)</div>
+      <div class="fp-bar" style="height:14px; border-radius:7px;"><div class="fp-long" style="width:${pos.instLong}%"></div><div class="fp-short" style="width:${pos.instShort}%"></div></div>
+      <div class="fp-values"><span class="up">${pos.instLong}% Long</span><span class="down">${pos.instShort}% Short</span></div>
+    </div>
+  `;
+  document.getElementById('forexModalBody').textContent = note;
+  document.getElementById('forexModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeForexModal(){
+  document.getElementById('forexModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('forexModalClose').addEventListener('click', closeForexModal);
+document.getElementById('forexModal').addEventListener('click', (e)=>{
+  if(e.target.id === 'forexModal') closeForexModal();
+});
+
+function openForexPage(){
+  document.getElementById('dashboardView').style.display = 'none';
+  document.getElementById('feedPageView').style.display = 'none';
+  document.getElementById('calendarPageView').style.display = 'none';
+  document.getElementById('newsPageView').style.display = 'none';
+  stopNewsLiveSimulation();
+  document.getElementById('navFeedBtn').classList.remove('active');
+  document.getElementById('navFeedBtn').textContent = "📰 Fil d'actualité";
+  document.getElementById('navCalendarBtn').classList.remove('active');
+  document.getElementById('navCalendarBtn').textContent = '📅 Calendrier';
+  document.getElementById('navNewsBtn').classList.remove('active');
+  document.getElementById('navNewsBtn').textContent = '🌐 News';
+  document.getElementById('forexPageView').style.display = 'block';
+  const navBtn = document.getElementById('navForexBtn');
+  navBtn.classList.add('active');
+  navBtn.textContent = '← Retour au tableau de bord';
+  buildForexFilters();
+  populateForexCustomSelects();
+  renderForexView();
+  window.scrollTo(0,0);
+}
+function closeForexPage(){
+  document.getElementById('forexPageView').style.display = 'none';
+  document.getElementById('dashboardView').style.display = 'block';
+  const navBtn = document.getElementById('navForexBtn');
+  navBtn.classList.remove('active');
+  navBtn.textContent = '💱 Forex';
+  window.scrollTo(0,0);
+}
+function toggleForexPage(){
+  const isOpen = document.getElementById('forexPageView').style.display !== 'none';
+  isOpen ? closeForexPage() : openForexPage();
+}
+document.getElementById('navForexBtn').addEventListener('click', toggleForexPage);
+document.getElementById('forexPageBack').addEventListener('click', closeForexPage);
+
+// ---------------- NEWS: ACTUALITÉ FINANCIÈRE MONDIALE ----------------
+const NEWS_MARKETS = [
+  {id:'actions', label:'📈 Actions'},
+  {id:'obligations', label:'💵 Obligations'},
+  {id:'matieres', label:'🛢️ Matières premières'},
+  {id:'devises', label:'💱 Devises'},
+  {id:'crypto', label:'₿ Crypto'},
+];
+
+const NEWS_ITEMS = [
+  {country:'US', flag:'🇺🇸', tag:'actions', tagLabel:'📈 Actions', title:'Wall Street clôture en hausse, portée par les valeurs technologiques', summary:"Le Nasdaq signe sa meilleure séance en trois semaines, porté par les résultats des semi-conducteurs.", source:'Bloomberg', time:'Il y a 3h',
+    detail:"Les indices américains ont terminé en nette hausse, le Nasdaq en tête, après des résultats trimestriels supérieurs aux attentes dans le secteur des semi-conducteurs. Les investisseurs saluent également des commentaires plus rassurants sur la demande en intelligence artificielle pour les prochains trimestres."},
+  {country:'FR', flag:'🇫🇷', tag:'actions', tagLabel:'📈 Actions', title:'Le CAC 40 recule après des résultats décevants du luxe', summary:"LVMH et Kering pèsent sur l'indice parisien après des ventes en Chine plus faibles que prévu.", source:'Reuters', time:'Il y a 5h',
+    detail:"Le secteur du luxe a pesé sur le CAC 40, les investisseurs sanctionnant des ventes en Chine inférieures aux attentes chez plusieurs grands groupes. Le repli de la demande des consommateurs chinois reste un point de vigilance majeur pour le secteur ces derniers trimestres."},
+  {country:'JP', flag:'🇯🇵', tag:'actions', tagLabel:'📈 Actions', title:'Le Nikkei atteint un nouveau record annuel', summary:"Les valeurs exportatrices profitent de la faiblesse persistante du yen.", source:'Nikkei Asia', time:'Il y a 8h',
+    detail:"L'indice Nikkei a atteint un nouveau plus haut depuis le début de l'année, porté par les valeurs exportatrices qui bénéficient mécaniquement d'un yen toujours faible face au dollar, améliorant la compétitivité de leurs produits à l'étranger."},
+  {country:'GB', flag:'🇬🇧', tag:'actions', tagLabel:'📈 Actions', title:'Le FTSE 100 profite du rebond des valeurs minières', summary:"La remontée des prix des métaux industriels soutient les grands groupes miniers cotés à Londres.", source:'Reuters', time:'Il y a 1 jour',
+    detail:"Le FTSE 100 a progressé, porté par un rebond marqué des valeurs minières après plusieurs semaines de repli, dans le sillage d'une remontée des cours du cuivre et du minerai de fer sur les marchés internationaux."},
+
+  {country:'US', flag:'🇺🇸', tag:'obligations', tagLabel:'💵 Obligations', title:'Le rendement du 10 ans américain grimpe à 4,35%', summary:"Les investisseurs réajustent leurs anticipations après des données d'emploi plus solides que prévu.", source:'Bloomberg', time:'Il y a 4h',
+    detail:"Le rendement des bons du Trésor américain à 10 ans a progressé de plusieurs points de base après la publication de données d'emploi plus solides qu'attendu, les marchés révisant à la baisse la probabilité d'une baisse de taux rapide de la Fed."},
+  {country:'EU', flag:'🇪🇺', tag:'obligations', tagLabel:'💵 Obligations', title:'Le spread franco-allemand se resserre à son plus bas niveau depuis un an', summary:"Les investisseurs saluent la trajectoire budgétaire présentée par Paris.", source:'Reuters', time:'Il y a 7h',
+    detail:"L'écart de taux entre la dette française et allemande à 10 ans est retombé à son plus bas niveau depuis un an, les investisseurs accueillant favorablement les récentes annonces budgétaires, même si la prudence reste de mise sur la trajectoire de la dette à moyen terme."},
+  {country:'GB', flag:'🇬🇧', tag:'obligations', tagLabel:'💵 Obligations', title:'Les gilts britanniques sous pression après une inflation plus élevée que prévu', summary:"Les investisseurs révisent leurs anticipations de baisse de taux de la Banque d'Angleterre.", source:'Financial Times', time:'Il y a 1 jour',
+    detail:"Les emprunts d'État britanniques ont reculé après la publication d'une inflation plus élevée que prévu, poussant les investisseurs à repousser leurs anticipations d'une prochaine baisse de taux de la Banque d'Angleterre."},
+
+  {country:'GLOBAL', flag:'🌍', tag:'matieres', tagLabel:'🛢️ Matières premières', title:'Le pétrole Brent repasse au-dessus de 85 dollars', summary:"Les tensions géopolitiques au Moyen-Orient ravivent les craintes sur l'offre.", source:'Reuters', time:'Il y a 2h',
+    detail:"Le baril de Brent a repassé la barre des 85 dollars, porté par des tensions géopolitiques persistantes au Moyen-Orient qui ravivent les inquiétudes des marchés quant à d'éventuelles perturbations de l'offre mondiale."},
+  {country:'GLOBAL', flag:'🌍', tag:'matieres', tagLabel:'🛢️ Matières premières', title:"L'or atteint un nouveau record historique", summary:"La demande de valeurs refuges reste soutenue dans un contexte d'incertitude persistante.", source:'Bloomberg', time:'Il y a 6h',
+    detail:"Le métal jaune a inscrit un nouveau record historique, porté par une demande soutenue de valeurs refuges de la part des investisseurs institutionnels et de plusieurs banques centrales continuant de diversifier leurs réserves."},
+  {country:'AU', flag:'🇦🇺', tag:'matieres', tagLabel:'🛢️ Matières premières', title:'Le minerai de fer soutient les valeurs minières australiennes', summary:"Les prix se redressent sur fond de demande chinoise jugée plus résiliente que prévu.", source:'Bloomberg', time:'Il y a 9h',
+    detail:"Les cours du minerai de fer se sont redressés, portés par une demande chinoise jugée plus résiliente qu'anticipé, ce qui a soutenu les principales valeurs minières cotées à la bourse australienne."},
+  {country:'GLOBAL', flag:'🌍', tag:'matieres', tagLabel:'🛢️ Matières premières', title:'Le cuivre recule sur fond de craintes sur la demande chinoise', summary:"Les indicateurs manufacturiers chinois décevants pèsent sur les métaux industriels.", source:'Reuters', time:'Il y a 1 jour',
+    detail:"Les prix du cuivre ont reculé après la publication d'indicateurs manufacturiers chinois plus faibles que prévu, ravivant les inquiétudes des marchés sur la vigueur de la demande industrielle en provenance de la deuxième économie mondiale."},
+
+  {country:'GLOBAL', flag:'🌍', tag:'devises', tagLabel:'💱 Devises', title:'Le dollar se renforce après des chiffres de l\u2019emploi solides', summary:"Les cambistes réduisent leurs anticipations de baisse de taux rapide de la Fed.", source:'Reuters', time:'Il y a 3h',
+    detail:"Le dollar américain s'est apprécié face à un panier de devises après la publication de créations d'emplois supérieures aux attentes, les cambistes révisant à la baisse la probabilité d'une baisse de taux rapide de la Réserve fédérale."},
+  {country:'CH', flag:'🇨🇭', tag:'devises', tagLabel:'💱 Devises', title:'Le franc suisse atteint un plus haut face à l\u2019euro', summary:"Les investisseurs continuent de privilégier la devise helvétique comme valeur refuge.", source:'Bloomberg', time:'Il y a 8h',
+    detail:"Le franc suisse a atteint un nouveau plus haut face à l'euro, les investisseurs continuant de le privilégier comme valeur refuge dans un contexte d'incertitude géopolitique persistante à l'échelle mondiale."},
+  {country:'NZ', flag:'🇳🇿', tag:'devises', tagLabel:'💱 Devises', title:'Le dollar néo-zélandais recule après des chiffres d\u2019emploi décevants', summary:"Les investisseurs anticipent une poursuite du cycle de baisse de taux de la RBNZ.", source:'Reuters', time:'Il y a 1 jour',
+    detail:"Le dollar néo-zélandais a reculé après la publication de chiffres de l'emploi plus faibles que prévu, renforçant les anticipations d'une poursuite du cycle de baisse de taux entamé par la Reserve Bank of New Zealand."},
+
+  {country:'GLOBAL', flag:'🌍', tag:'crypto', tagLabel:'₿ Crypto', title:'Le bitcoin dépasse les 70 000 dollars pour la première fois depuis mars', summary:"Les flux entrants vers les ETF bitcoin au comptant atteignent un niveau record.", source:'CoinDesk', time:'Il y a 4h',
+    detail:"Le bitcoin a franchi le seuil des 70 000 dollars pour la première fois depuis plusieurs mois, porté par des flux entrants records vers les ETF bitcoin au comptant lancés aux États-Unis, qui continuent d'attirer un nombre croissant d'investisseurs institutionnels."},
+  {country:'GLOBAL', flag:'🌍', tag:'crypto', tagLabel:'₿ Crypto', title:'Ethereum recule après le report d\u2019une mise à jour technique', summary:"Les développeurs annoncent un délai supplémentaire pour la prochaine mise à niveau du réseau.", source:'CoinDesk', time:'Il y a 10h',
+    detail:"Ethereum a cédé du terrain après l'annonce d'un report de la prochaine mise à jour technique majeure du réseau, les développeurs invoquant la nécessité de tests de sécurité supplémentaires avant le déploiement."},
+  {country:'EU', flag:'🇪🇺', tag:'crypto', tagLabel:'₿ Crypto', title:'Les régulateurs européens précisent le cadre applicable aux stablecoins', summary:"De nouvelles lignes directrices détaillent les exigences de réserve pour les émetteurs.", source:'Reuters', time:'Il y a 1 jour',
+    detail:"Les autorités européennes ont publié de nouvelles lignes directrices précisant les exigences de réserve applicables aux émetteurs de stablecoins dans le cadre du règlement MiCA, dans le but de renforcer la protection des détenteurs."},
+];
+
+let newsPageMarkets = new Set(); // vide = tous les marchés
+let newsPageCountries = new Set(); // vide = tous les pays
+
+function buildNewsPageFilters(){
+  const marketRow = document.getElementById('newsPageMarketFilters');
+  marketRow.innerHTML = '';
+  const allMarketPill = document.createElement('div');
+  allMarketPill.className = 'filter-pill' + (newsPageMarkets.size===0 ? ' active' : '');
+  allMarketPill.textContent = 'Tous les marchés';
+  allMarketPill.onclick = ()=>{ newsPageMarkets.clear(); buildNewsPageFilters(); renderNewsPage(); };
+  marketRow.appendChild(allMarketPill);
+  NEWS_MARKETS.forEach(m=>{
+    const p = document.createElement('div');
+    p.className = 'filter-pill' + (newsPageMarkets.has(m.id) ? ' active' : '');
+    p.textContent = m.label;
+    p.onclick = ()=>{ toggleSetValue(newsPageMarkets, m.id); buildNewsPageFilters(); renderNewsPage(); };
+    marketRow.appendChild(p);
+  });
+
+  const countryRow = document.getElementById('newsPageCountryFilters');
+  countryRow.innerHTML = '';
+  const countryOptions = [{code:'ALL', flag:'🗂️', name:'Tous les pays'}, {code:'GLOBAL', flag:'🌍', name:'Monde'}, ...countries];
+  countryOptions.forEach(c=>{
+    const p = document.createElement('div');
+    const isActive = c.code==='ALL' ? newsPageCountries.size===0 : newsPageCountries.has(c.code);
+    p.className = 'filter-pill' + (isActive ? ' active' : '');
+    const flagPart = (c.code==='ALL' || c.code==='GLOBAL') ? c.flag : flagHTML(c.code, 15);
+    p.innerHTML = `<span>${flagPart}</span>${c.name||c.code}`;
+    p.onclick = ()=>{
+      if(c.code==='ALL'){ newsPageCountries.clear(); }
+      else { toggleSetValue(newsPageCountries, c.code); }
+      buildNewsPageFilters();
+      renderNewsPage();
+    };
+    countryRow.appendChild(p);
+  });
+}
+
+// ---------------- NEWS: SIMULATION "TEMPS RÉEL" ----------------
+// IMPORTANT : ceci est une simulation côté prototype (aucune connexion à une vraie source d'actualité).
+// De nouvelles têtes de ligne sont piochées dans NEWS_INCOMING à intervalle régulier pour donner
+// l'impression d'un fil qui arrive en direct. Pour du vrai temps réel, il faudrait brancher une API
+// d'actualité (ex. NewsAPI, Finnhub, Benzinga) via un petit backend — un navigateur ne peut pas
+// appeler ces API directement (clé API exposée, CORS bloqué).
+const NEWS_INCOMING = [
+  {country:'US', flag:'🇺🇸', tag:'actions', tagLabel:'📈 Actions', title:'Les futures américains repassent dans le vert avant l\u2019ouverture', summary:"Les investisseurs attendent les résultats de plusieurs poids lourds de la tech ce soir.", source:'Bloomberg', time:"À l'instant",
+    detail:"Les contrats à terme sur les principaux indices américains ont effacé leurs pertes de la matinée, les investisseurs se positionnant avant la publication des résultats trimestriels de plusieurs grandes valeurs technologiques attendue après la clôture."},
+  {country:'GLOBAL', flag:'🌍', tag:'matieres', tagLabel:'🛢️ Matières premières', title:'Le gaz naturel européen bondit sur fond de vague de froid annoncée', summary:"Les prévisions météo font craindre une tension sur la demande de chauffage.", source:'Reuters', time:"À l'instant",
+    detail:"Les prix du gaz naturel sur le marché européen ont accéléré leur hausse après la publication de prévisions météorologiques annonçant une vague de froid plus précoce que d'habitude sur plusieurs pays du continent."},
+  {country:'GLOBAL', flag:'🌍', tag:'crypto', tagLabel:'₿ Crypto', title:'Le bitcoin efface une partie de ses gains après un pic de volatilité', summary:"Un mouvement de prise de bénéfices intervient après le franchissement d'un seuil psychologique.", source:'CoinDesk', time:"À l'instant",
+    detail:"Le bitcoin a reculé de plusieurs points après avoir franchi un nouveau seuil psychologique plus tôt dans la séance, un mouvement que les analystes attribuent à une prise de bénéfices classique après une hausse rapide."},
+  {country:'EU', flag:'🇪🇺', tag:'devises', tagLabel:'💱 Devises', title:"L'euro varie peu avant la conférence de presse de la BCE", summary:"Les cambistes restent prudents avant les commentaires de Christine Lagarde.", source:'Reuters', time:"À l'instant",
+    detail:"L'euro évolue dans un mouchoir de poche face au dollar, les investisseurs préférant rester à l'écart avant la conférence de presse de la présidente de la BCE, qui pourrait apporter des indices sur la trajectoire des taux à venir."},
+  {country:'JP', flag:'🇯🇵', tag:'actions', tagLabel:'📈 Actions', title:'Le Nikkei efface ses gains en fin de séance', summary:"Un repli des valeurs technologiques pèse sur l'indice en clôture.", source:'Nikkei Asia', time:"À l'instant",
+    detail:"L'indice Nikkei a effacé ses gains de la matinée en fin de séance, un repli des valeurs technologiques ayant pris le pas sur la bonne tenue des exportateurs plus tôt dans la journée."},
+  {country:'GB', flag:'🇬🇧', tag:'obligations', tagLabel:'💵 Obligations', title:'Les gilts se stabilisent après une adjudication bien accueillie', summary:"La demande des investisseurs reste solide malgré le contexte de taux élevés.", source:'Financial Times', time:"À l'instant",
+    detail:"Les emprunts d'État britanniques se sont stabilisés après une adjudication qui a suscité une demande jugée solide par les analystes, un signal rassurant sur l'appétit des investisseurs pour la dette souveraine du pays."},
+  {country:'GLOBAL', flag:'🌍', tag:'matieres', tagLabel:'🛢️ Matières premières', title:"L'argent métal suit la dynamique de l'or vers de nouveaux sommets", summary:"Le métal blanc profite également de la demande industrielle liée au solaire.", source:'Bloomberg', time:"À l'instant",
+    detail:"L'argent métal a suivi la dynamique haussière de l'or, porté à la fois par la demande de valeurs refuges et par une demande industrielle soutenue, notamment liée à la fabrication de panneaux solaires."},
+  {country:'AU', flag:'🇦🇺', tag:'devises', tagLabel:'💱 Devises', title:'Le dollar australien progresse après des données solides sur l\u2019emploi', summary:"Les cambistes révisent leurs anticipations sur la trajectoire de la RBA.", source:'Reuters', time:"À l'instant",
+    detail:"Le dollar australien a progressé après la publication de données sur l'emploi plus solides que prévu, poussant certains investisseurs à revoir leurs anticipations quant à un possible assouplissement de la politique monétaire de la RBA."},
+];
+
+let newsLiveInterval = null;
+let newsLiveClockInterval = null;
+
+function updateNewsLiveClock(){
+  const el = document.getElementById('newsLiveClock');
+  if(el) el.textContent = new Date().toLocaleTimeString('fr-FR');
+}
+
+function startNewsLiveSimulation(){
+  stopNewsLiveSimulation();
+  updateNewsLiveClock();
+  newsLiveClockInterval = setInterval(updateNewsLiveClock, 1000);
+  newsLiveInterval = setInterval(()=>{
+    if(NEWS_INCOMING.length === 0) return;
+    const item = NEWS_INCOMING.shift();
+    NEWS_ITEMS.unshift(item);
+    renderNewsPage();
+    renderOverviewPanels();
+    const firstCard = document.querySelector('#newsPageList .feed-item');
+    if(firstCard){
+      firstCard.classList.add('just-in');
+      setTimeout(()=> firstCard.classList.remove('just-in'), 2500);
+    }
+  }, 20000);
+}
+function stopNewsLiveSimulation(){
+  if(newsLiveInterval){ clearInterval(newsLiveInterval); newsLiveInterval = null; }
+  if(newsLiveClockInterval){ clearInterval(newsLiveClockInterval); newsLiveClockInterval = null; }
+}
+
+// ---------------- DASHBOARD OVERVIEW (Forex + News preview) ----------------
+function renderOverviewPanels(){
+  const forexList = document.getElementById('overviewForexList');
+  forexList.innerHTML = '';
+  const previewPairs = forexFavorites.size > 0
+    ? Array.from(forexFavorites).slice(0, 4)
+    : FOREX_PAIRS.filter(p=>p.major).slice(0, 4).map(p=>p.pair);
+  previewPairs.forEach(pair=>{
+    const pos = genForexPositioning(pair);
+    const row = document.createElement('div');
+    row.className = 'overview-forex-row';
+    row.innerHTML = `
+      <div class="forex-flags">${forexFlagsHTML(pair, 16)}</div>
+      <div class="overview-forex-pair">${pair}</div>
+      <div class="overview-forex-mini-bar"><div class="fp-long" style="width:${pos.retailLong}%"></div><div class="fp-short" style="width:${pos.retailShort}%"></div></div>
+    `;
+    row.addEventListener('click', openForexPage);
+    forexList.appendChild(row);
+  });
+
+  const newsList = document.getElementById('overviewNewsList');
+  newsList.innerHTML = '';
+  NEWS_ITEMS.slice(0, 4).forEach(i=>{
+    const row = document.createElement('div');
+    row.className = 'overview-news-row';
+    row.innerHTML = `
+      <div class="fi-flag">${feedItemFlag(i, 18)}</div>
+      <div>
+        <div class="overview-news-title">${i.title}</div>
+        <div class="overview-news-meta">${i.tagLabel} · ${i.time}</div>
+      </div>
+    `;
+    row.addEventListener('click', openNewsPage);
+    newsList.appendChild(row);
+  });
+}
+document.getElementById('overviewForexSeeAll').addEventListener('click', openForexPage);
+document.getElementById('overviewNewsSeeAll').addEventListener('click', openNewsPage);
+
+function renderNewsPage(){
+  const grid = document.getElementById('newsPageList');
+  grid.innerHTML = '';
+  const items = NEWS_ITEMS.filter(i=>
+    (newsPageMarkets.size===0 || newsPageMarkets.has(i.tag)) &&
+    (newsPageCountries.size===0 || newsPageCountries.has(i.country))
+  );
+  if(items.length===0){
+    grid.innerHTML = `<div class="feed-page-empty">Aucune actualité ne correspond à ces filtres.</div>`;
+    return;
+  }
+  items.forEach(i=>{
+    const div = document.createElement('div');
+    div.className = 'feed-item';
+    div.innerHTML = `
+      <div class="fi-flag">${feedItemFlag(i, 22)}</div>
+      <div class="fi-body">
+        <div class="fi-top">
+          <span class="fi-tag">${i.tagLabel}</span>
+          <span class="fi-time">${i.time}</span>
+        </div>
+        <div class="fi-title">${i.title}</div>
+        <div class="fi-summary">${i.summary}</div>
+        <div class="fi-source">${i.source}</div>
+      </div>
+    `;
+    grid.appendChild(div);
+    div.addEventListener('click', ()=> openFeedModal(i));
+  });
+}
+
+function openNewsPage(){
+  document.getElementById('dashboardView').style.display = 'none';
+  document.getElementById('feedPageView').style.display = 'none';
+  document.getElementById('calendarPageView').style.display = 'none';
+  document.getElementById('forexPageView').style.display = 'none';
+  document.getElementById('navFeedBtn').classList.remove('active');
+  document.getElementById('navFeedBtn').textContent = "📰 Fil d'actualité";
+  document.getElementById('navCalendarBtn').classList.remove('active');
+  document.getElementById('navCalendarBtn').textContent = '📅 Calendrier';
+  document.getElementById('navForexBtn').classList.remove('active');
+  document.getElementById('navForexBtn').textContent = '💱 Forex';
+  document.getElementById('newsPageView').style.display = 'block';
+  const navBtn = document.getElementById('navNewsBtn');
+  navBtn.classList.add('active');
+  navBtn.textContent = '← Retour au tableau de bord';
+  buildNewsPageFilters();
+  renderNewsPage();
+  startNewsLiveSimulation();
+  window.scrollTo(0,0);
+}
+function closeNewsPage(){
+  document.getElementById('newsPageView').style.display = 'none';
+  document.getElementById('dashboardView').style.display = 'block';
+  const navBtn = document.getElementById('navNewsBtn');
+  navBtn.classList.remove('active');
+  navBtn.textContent = '🌐 News';
+  stopNewsLiveSimulation();
+  window.scrollTo(0,0);
+}
+function toggleNewsPage(){
+  const isOpen = document.getElementById('newsPageView').style.display !== 'none';
+  isOpen ? closeNewsPage() : openNewsPage();
+}
+document.getElementById('navNewsBtn').addEventListener('click', toggleNewsPage);
+document.getElementById('newsPageBack').addEventListener('click', closeNewsPage);
+
+document.addEventListener('keydown', (e)=>{
+  if(e.key !== 'Escape') return;
+  if(document.getElementById('feedPageView').style.display !== 'none') closeFeedPage();
+  if(document.getElementById('calendarPageView').style.display !== 'none') closeCalendarPage();
+  if(document.getElementById('forexPageView').style.display !== 'none') closeForexPage();
+  if(document.getElementById('newsPageView').style.display !== 'none') closeNewsPage();
+});
+
+// ---------------- MASTER RENDER ----------------
+function render(){
+  document.querySelectorAll('.country-tab').forEach(el=> el.classList.toggle('active', el.dataset.code===activeCountry));
+  document.querySelectorAll('.pill').forEach(el=> el.classList.toggle('active', +el.dataset.i===activeIndicator));
+  const cName = countries.find(c=>c.code===activeCountry).name;
+  document.getElementById('heroTitle').textContent = `${cName} — ${indicators[activeIndicator]}`;
+  renderChart();
+  renderCards();
+  renderDotPlot();
+  renderFeed();
+  renderOverviewPanels();
+}
+
+// ---------------- CHART DETAIL MODAL ----------------
+let modalChart;
+function renderModalChart(data){
+  const tc = THEME_COLORS[currentTheme];
+  const ctx = document.getElementById('modalChart');
+  if(modalChart) modalChart.destroy();
+  const s = data.series;
+  modalChart = new Chart(ctx, {
+    type:'line',
+    data:{
+      labels:s.labels,
+      datasets:[
+        { label:'Fourchette haute', data:s.highLine, borderWidth:0, backgroundColor:tc.amberFill, fill:'+1', pointRadius:0, tension:.3 },
+        { label:'Fourchette basse', data:s.lowLine, borderWidth:0, backgroundColor:'transparent', fill:false, pointRadius:0, tension:.3 },
+        { label:'Publié', data:s.histLine, borderColor:tc.text, backgroundColor:tc.text, pointRadius:3, pointHoverRadius:5, borderWidth:2, tension:.3 },
+        { label:'Consensus', data:s.foreLine, borderColor:tc.amber, borderDash:[5,4], pointRadius:3, borderWidth:2, tension:.3 },
+      ]
+    },
+    options:{
+      responsive:true,
+      interaction:{mode:'index', intersect:false},
+      plugins:{ legend:{display:false}, tooltip:{
+        backgroundColor:tc.tooltipBg, borderColor:tc.tooltipBorder, borderWidth:1, titleColor:tc.amber, bodyColor:tc.text, titleFont:{family:'IBM Plex Mono'}, bodyFont:{family:'IBM Plex Mono'}
+      }},
+      scales:{
+        x:{ grid:{color:tc.grid}, ticks:{color:tc.muted, font:{family:'IBM Plex Mono', size:10.5}} },
+        y:{ grid:{color:tc.grid}, ticks:{color:tc.muted, font:{family:'IBM Plex Mono', size:10.5}} }
+      }
+    }
+  });
+}
+
+function renderDecisionTimeline(data){
+  const list = document.getElementById('decisionList');
+  list.innerHTML = '';
+  data.histItems.forEach(item=>{
+    const div = document.createElement('div');
+    div.className = 'decision-item';
+    const arrow = item.dir==='up' ? '▲' : item.dir==='down' ? '▼' : '';
+    div.innerHTML = `
+      <div class="di-date">${item.label}</div>
+      <div class="di-marker ${item.dir}"></div>
+      <div class="di-body">
+        <div class="di-value ${item.dir}">${item.value}% ${arrow}</div>
+        <div class="di-reason">${item.reason}</div>
+      </div>
+    `;
+    list.appendChild(div);
+  });
+  const divider = document.createElement('div');
+  divider.className = 'decision-divider';
+  divider.textContent = "À venir — scénarios du consensus";
+  list.appendChild(divider);
+  data.futureItems.forEach(item=>{
+    const div = document.createElement('div');
+    div.className = 'decision-item future';
+    div.innerHTML = `
+      <div class="di-date">${item.label}</div>
+      <div class="di-marker future"></div>
+      <div class="di-body">
+        <div class="di-value">Consensus ${item.value}%</div>
+        <div class="di-reason"><span class="scen up">↑ Haussier</span> si ${item.hiReason}</div>
+        <div class="di-reason"><span class="scen down">↓ Baissier</span> si ${item.loReason}</div>
+      </div>
+    `;
+    list.appendChild(div);
+  });
+}
+
+function openChartModal(indicatorIdx){
+  const data = genAnnotated(activeCountry, indicatorIdx);
+  const cName = countries.find(c=>c.code===activeCountry).name;
+  document.getElementById('modalTitle').textContent = `${cName} — ${indicators[indicatorIdx]}`;
+  document.getElementById('chartModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  renderModalChart(data);
+  renderDecisionTimeline(data);
+}
+function closeChartModal(){
+  document.getElementById('chartModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('mainChartWrap').addEventListener('click', ()=> openChartModal(activeIndicator));
+document.getElementById('modalClose').addEventListener('click', closeChartModal);
+document.getElementById('chartModal').addEventListener('click', (e)=>{
+  if(e.target.id === 'chartModal') closeChartModal();
+});
+
+// ---------------- FEED DETAIL MODAL ----------------
+function countryNameByCode(code){
+  if(code === 'GLOBAL') return 'Monde';
+  const c = countries.find(c=>c.code===code);
+  return c ? c.name : code;
+}
+function openFeedModal(item){
+  document.getElementById('feedModalMeta').innerHTML = `<span class="fi-tag ${item.tag}">${item.tagLabel}</span><span class="fi-time">${feedItemFlag(item, 16)} ${countryNameByCode(item.country)} · ${item.time}</span>`;
+  document.getElementById('feedModalTitle').textContent = item.title;
+  document.getElementById('feedModalBody').textContent = item.detail || item.summary;
+  document.getElementById('feedModalSource').textContent = `Source : ${item.source}`;
+
+  const extraEl = document.getElementById('feedModalExtra');
+  const btn = document.getElementById('feedReadMoreBtn');
+  extraEl.textContent = item.more || '';
+  extraEl.style.display = 'none';
+  if(item.more){
+    btn.style.display = 'inline-block';
+    btn.textContent = "Lire l'article complet →";
+  } else {
+    btn.style.display = 'none';
+  }
+
+  document.getElementById('feedModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeFeedModal(){
+  document.getElementById('feedModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('feedModalClose').addEventListener('click', closeFeedModal);
+document.getElementById('feedReadMoreBtn').addEventListener('click', ()=>{
+  const extraEl = document.getElementById('feedModalExtra');
+  const btn = document.getElementById('feedReadMoreBtn');
+  const expanded = extraEl.style.display !== 'none';
+  extraEl.style.display = expanded ? 'none' : 'block';
+  btn.textContent = expanded ? "Lire l'article complet →" : "Réduire ↑";
+});
+document.getElementById('feedModal').addEventListener('click', (e)=>{
+  if(e.target.id === 'feedModal') closeFeedModal();
+});
+
+// ---------------- EVENT DETAIL MODAL ----------------
+function openEventModal(ev){
+  document.getElementById('eventModalMeta').innerHTML = `<span class="fi-tag analyse">${ev.category||''}</span><span class="fi-time">${flagHTML(ev.code, 16)} ${ev.country} · ${ev.date}</span>`;
+  document.getElementById('eventModalTitle').textContent = ev.name;
+  const valuesBox = document.getElementById('eventModalValues');
+  const scenariosBox = document.getElementById('eventModalScenarios');
+  if(ev.type === 'future'){
+    valuesBox.innerHTML = `
+      <div class="ev-box"><div class="ev-label">Précédent</div><div class="ev-val">${ev.prev}</div></div>
+      <div class="ev-box"><div class="ev-label">Consensus</div><div class="ev-val">${ev.cons}</div></div>
+      <div class="ev-box"><div class="ev-label">Publication</div><div class="ev-val">${ev.date}</div></div>
+    `;
+    scenariosBox.innerHTML = `
+      <div class="scenario-block">
+        <div class="scenario-row up"><span class="scen-badge">↑ Haussier</span><span>${ev.hi} — si la dynamique surprend positivement.</span></div>
+        <div class="scenario-row down"><span class="scen-badge">↓ Baissier</span><span>${ev.lo} — si la conjoncture déçoit.</span></div>
+      </div>
+    `;
+  } else {
+    const a = parseFloat(ev.act), c = parseFloat(ev.cons);
+    const beat = a >= c;
+    valuesBox.innerHTML = `
+      <div class="ev-box"><div class="ev-label">Précédent</div><div class="ev-val">${ev.prev}</div></div>
+      <div class="ev-box"><div class="ev-label">Consensus</div><div class="ev-val">${ev.cons}</div></div>
+      <div class="ev-box ${beat?'beat':'miss'}"><div class="ev-label">Réel</div><div class="ev-val">${ev.act}</div></div>
+    `;
+    scenariosBox.innerHTML = `<div>${beat ? '✅ Publication au-dessus du consensus.' : '⚠️ Publication en-dessous du consensus.'}</div>`;
+  }
+  document.getElementById('eventModalBody').textContent = ev.detail || '';
+  document.getElementById('eventModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeEventModal(){
+  document.getElementById('eventModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('eventModalClose').addEventListener('click', closeEventModal);
+document.getElementById('eventModal').addEventListener('click', (e)=>{
+  if(e.target.id === 'eventModal') closeEventModal();
+});
+
+document.addEventListener('keydown', (e)=>{
+  if(e.key === 'Escape'){ closeChartModal(); closeFeedModal(); closeEventModal(); closeForexModal(); }
+});
+
+buildRiverCountryPills();
+render();
+renderRiver();
+</script>
+</body>
+</html>

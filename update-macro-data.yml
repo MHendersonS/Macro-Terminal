@@ -1,0 +1,50 @@
+# update-macro-data.yml
+#
+# À placer dans ton dépôt GitHub sous : .github/workflows/update-macro-data.yml
+#
+# Ce workflow tourne tout seul, gratuitement, sur les serveurs de GitHub :
+# - une fois par jour (5h UTC, soit 6h ou 7h heure de Paris selon la saison)
+# - à la demande, via l'onglet "Actions" de ton dépôt ("Run workflow")
+#
+# Il exécute les 3 scripts (inflation, PIB, chômage), qui vont chercher les
+# vraies données auprès de l'OCDE, puis committe automatiquement les fichiers
+# data/*.json mis à jour. Le site (via GitHub Pages) n'a plus qu'à les lire.
+
+name: Mise à jour des données macro
+
+on:
+  schedule:
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Inflation (CPI)
+        run: node fetch-macro-data.js
+
+      - name: PIB
+        run: node fetch-gdp-data.js
+
+      - name: Chômage
+        run: node fetch-unemployment-data.js
+
+      - name: Committer les fichiers mis à jour (si changement)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/*.json
+          git diff --staged --quiet || git commit -m "Mise à jour automatique des données macro"
+          git push

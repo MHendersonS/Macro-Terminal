@@ -1,0 +1,10 @@
+{
+  "name": "macro-terminal-data",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Scripts de récupération des données macro réelles (OCDE) pour Macro Terminal.",
+  "engines": {
+    "node": ">=18"
+  }
+}
