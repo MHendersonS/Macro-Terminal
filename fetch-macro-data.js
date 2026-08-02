@@ -4,16 +4,15 @@
 // gratuite de l'OCDE, pour les pays de l'app, et écrit un fichier JSON propre
 // que le site pourra lire directement (data/inflation.json).
 //
-// Ce script est fait pour tourner via GitHub Actions (voir le fichier
-// update-macro-data.yml fourni à côté), mais tu peux aussi le lancer à la main
-// avec : node fetch-macro-data.js
+// Version robuste : interroge un pays à la fois (requêtes plus légères pour
+// le serveur de l'OCDE), réessaie en cas d'échec, et continue même si un pays
+// échoue plutôt que de tout arrêter.
 //
 // Aucune clé API nécessaire — l'OCDE est en accès libre.
 
 import fs from 'fs';
 import path from 'path';
 
-// Code ISO3 OCDE -> code pays utilisé dans l'app (voir countries[] dans le prototype)
 const COUNTRY_MAP = {
   FRA: 'FR',
   USA: 'US',
@@ -23,70 +22,35 @@ const COUNTRY_MAP = {
   NZL: 'NZ',
   AUS: 'AU',
   CHE: 'CH',
-  // EU / zone euro : à ajouter dans une prochaine passe (code REF_AREA à confirmer,
-  // probablement EA20 ou EU27_2020 selon le jeu de données OCDE)
 };
 
-const OECD_CODES = Object.keys(COUNTRY_MAP); // ['FRA','USA','DEU',...]
-
-// Dataset OCDE : Consumer Price Indices, CPI, glissement annuel (GY), tous postes (CP01)
 const DATASET = 'DSD_PRICES@DF_PRICES_N_CP01';
-const KEY = `${OECD_CODES.join('+')}.M.N.CPI.PA.CP01.N.GY`;
-const URL = `https://sdmx.oecd.org/public/rest/data/${DATASET}/${KEY}/all?startPeriod=2024-01&format=csvfilewithlabels`;
 
-async function main() {
-  console.log('Requête OCDE :', URL);
-  const res = await fetch(URL);
-  if (!res.ok) {
-    throw new Error(`Réponse OCDE en erreur : ${res.status} ${res.statusText}`);
-  }
-  const csvText = await res.text();
-
-  const rows = parseCsv(csvText);
-  if (rows.length === 0) {
-    throw new Error('Aucune ligne reçue — vérifier la requête (clé/dimensions).');
-  }
-
-  // On garde, pour chaque pays, la série triée par date, et on ne conserve
-  // que les colonnes utiles au site (REF_AREA, obsTime, obsValue).
-  const byCountry = {};
-  for (const row of rows) {
-    const iso3 = row.REF_AREA;
-    const appCode = COUNTRY_MAP[iso3];
-    if (!appCode) continue; // pays qu'on ne suit pas dans l'app
-
-    if (!byCountry[appCode]) byCountry[appCode] = [];
-    byCountry[appCode].push({
-      period: row.TIME_PERIOD || row.obsTime,
-      value: parseFloat(row.OBS_VALUE || row.obsValue),
-    });
-  }
-
-  // Tri chronologique de chaque série
-  for (const code of Object.keys(byCountry)) {
-    byCountry[code].sort((a, b) => a.period.localeCompare(b.period));
-  }
-
-  const output = {
-    indicator: 'inflation_cpi_yoy',
-    unit: '%',
-    source: 'OCDE — DSD_PRICES@DF_PRICES_N_CP01 (CPI, glissement annuel)',
-    fetchedAt: new Date().toISOString(),
-    series: byCountry,
-  };
-
-  const outDir = path.join(process.cwd(), 'data');
-  fs.mkdirSync(outDir, { recursive: true });
-  fs.writeFileSync(
-    path.join(outDir, 'inflation.json'),
-    JSON.stringify(output, null, 2)
-  );
-
-  console.log('OK — data/inflation.json écrit avec', Object.keys(byCountry).length, 'pays.');
+function buildUrl(iso3) {
+  const key = `${iso3}.M.N.CPI.PA.CP01.N.GY`;
+  return `https://sdmx.oecd.org/public/rest/data/${DATASET}/${key}/all?startPeriod=2024-01&format=csvfilewithlabels`;
 }
 
-// Petit parseur CSV simple (le CSV de l'OCDE n'a pas de virgules dans les champs
-// qui nous intéressent ici, donc pas besoin d'une librairie externe).
+async function fetchWithRetry(url, tries = 3) {
+  for (let attempt = 1; attempt <= tries; attempt++) {
+    try {
+      const res = await fetch(url, {
+        headers: {
+          'Accept': 'application/vnd.sdmx.data+csv; charset=utf-8',
+          'User-Agent': 'macro-terminal-data-fetcher/1.0',
+        },
+      });
+      if (res.ok) return await res.text();
+      const body = await res.text().catch(() => '');
+      console.warn(`  Tentative ${attempt}/${tries} échouée : ${res.status} ${res.statusText}${body ? ' — ' + body.slice(0, 200) : ''}`);
+    } catch (err) {
+      console.warn(`  Tentative ${attempt}/${tries} échouée (réseau) : ${err.message}`);
+    }
+    if (attempt < tries) await new Promise((r) => setTimeout(r, 3000 * attempt));
+  }
+  return null;
+}
+
 function parseCsv(text) {
   const lines = text.trim().split('\n');
   const headers = lines[0].split(',').map((h) => h.replace(/^"|"$/g, '').trim());
@@ -96,6 +60,56 @@ function parseCsv(text) {
     headers.forEach((h, i) => { row[h] = cells[i]; });
     return row;
   });
+}
+
+async function main() {
+  const byCountry = {};
+  const failed = [];
+
+  for (const [iso3, appCode] of Object.entries(COUNTRY_MAP)) {
+    const url = buildUrl(iso3);
+    console.log(`Inflation — ${appCode} (${iso3})...`);
+    const csvText = await fetchWithRetry(url);
+
+    if (!csvText) {
+      console.warn(`  ⚠️  Abandon pour ${appCode} après plusieurs tentatives — ce pays sera absent du fichier cette fois-ci.`);
+      failed.push(appCode);
+      continue;
+    }
+
+    const rows = parseCsv(csvText);
+    byCountry[appCode] = rows
+      .map((row) => ({
+        period: row.TIME_PERIOD || row.obsTime,
+        value: parseFloat(row.OBS_VALUE || row.obsValue),
+      }))
+      .filter((d) => d.period && !Number.isNaN(d.value))
+      .sort((a, b) => a.period.localeCompare(b.period));
+
+    console.log(`  OK — ${byCountry[appCode].length} points reçus.`);
+    // petite pause entre deux pays pour ne pas bombarder le serveur de l'OCDE
+    await new Promise((r) => setTimeout(r, 1000));
+  }
+
+  if (Object.keys(byCountry).length === 0) {
+    throw new Error('Aucun pays récupéré — l\'OCDE est probablement indisponible pour le moment. Le workflow réessaiera au prochain passage automatique.');
+  }
+
+  const output = {
+    indicator: 'inflation_cpi_yoy',
+    unit: '%',
+    source: 'OCDE — DSD_PRICES@DF_PRICES_N_CP01 (CPI, glissement annuel)',
+    fetchedAt: new Date().toISOString(),
+    failed, // pays absents ce coup-ci, s'il y en a
+    series: byCountry,
+  };
+
+  const outDir = path.join(process.cwd(), 'data');
+  fs.mkdirSync(outDir, { recursive: true });
+  fs.writeFileSync(path.join(outDir, 'inflation.json'), JSON.stringify(output, null, 2));
+
+  console.log(`\nOK — data/inflation.json écrit avec ${Object.keys(byCountry).length}/${Object.keys(COUNTRY_MAP).length} pays.`);
+  if (failed.length) console.log('Pays manquants ce coup-ci :', failed.join(', '));
 }
 
 main().catch((err) => {
