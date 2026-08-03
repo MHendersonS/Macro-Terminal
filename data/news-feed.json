@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-08-02T15:14:54.955Z",
+  "fetchedAt": "2026-08-03T14:02:47.224Z",
   "failed": [],
   "items": [
     {
@@ -8,55 +8,55 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "The reverse bridge: Crypto meets Wall Street using perps",
-      "summary": "Crypto exchanges built perpetual futures for digital assets. Now they are using them to offer 24/7 exposure to stocks, commodities and indexes.",
+      "title": "Circle Internet slides after Morgan Stanley downgrade, cut in price target",
+      "summary": "The bank said tokenized money market funds, Open USD and slower USDC growth could weigh on the stablecoin issuer's earnings.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/08/02/the-reverse-bridge-crypto-meets-wall-street-using-perps",
-      "publishedAt": "2026-08-02T13:00:00.000Z"
+      "link": "https://www.coindesk.com/markets/2026/08/03/circle-internet-slides-after-morgan-stanley-downgrade-cut-in-price-target",
+      "publishedAt": "2026-08-03T13:59:50.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Unlike the FTX collapse, the $89 million Coldcard exploit has investors sending bitcoin back to exchanges",
-      "summary": "The Coldcard vulnerability has smaller bitcoin holders moving funds onto exchanges for safety, according to blockchain analytics firms. This is opposite of the trend seen following the FTX collapse in late 2022.",
+      "title": "Bernstein sees another leg lower for crypto markets if Clarity Act stalls",
+      "summary": "The broker said failure to pass the Clarity Act this year would likely send crypto lower, but expects U.S. regulators to accelerate rulemaking.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/02/unlike-the-ftx-collapse-the-usd88-million-coldcard-exploit-has-investors-sending-bitcoin-back-to-exchanges",
-      "publishedAt": "2026-08-02T12:03:51.000Z"
+      "link": "https://www.coindesk.com/policy/2026/08/03/bernstein-sees-another-leg-lower-for-crypto-markets-if-clarity-act-stalls",
+      "publishedAt": "2026-08-03T13:49:40.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Strategy holds STRC dividend at 12%",
-      "summary": "Customarily, Michael Saylor and team have lifted the STRC dividend when it trades sizably below par, but not this month.",
+      "title": "BlackRock expands tokenized cash with new blockchain-based money market offerings",
+      "summary": "Both funds intend to qualify as eligible reserve assets for permitted U.S. payment stablecoin issuers under the GENIUS Act.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/01/strategy-holds-strc-dividend-at-12",
-      "publishedAt": "2026-08-01T22:01:57.000Z"
+      "link": "https://www.coindesk.com/business/2026/08/03/blackrock-expands-tokenized-cash-with-new-blockchain-based-money-market-offerings",
+      "publishedAt": "2026-08-03T13:15:46.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin cold-wallet attack spreads to 4,500 addresses as losses near $89 million",
-      "summary": "Galaxy Research flagged a third wave of sweeps tied to weak Coldcard-generated keys, with the attacker now targeting smaller balances and changing how funds are collected onchain.",
+      "title": "Tom Lee's Bitmine bought more ether, added to stock buyback last week",
+      "summary": "Chairman Tom Lee said ether's outperformance versus the Nasdaq in July signals strengthening crypto fundamentals.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/tech/2026/08/02/bitcoin-cold-wallet-attack-spreads-to-4-500-addresses-as-losses-near-usd89-million",
-      "publishedAt": "2026-08-01T20:10:54.000Z"
+      "link": "https://www.coindesk.com/business/2026/08/03/bitmine-bought-more-ether-added-to-stock-buyback-last-week",
+      "publishedAt": "2026-08-03T12:53:21.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Tokenized stock trading surged 288% in July, but one QQQ token drove most of it",
-      "summary": "Without that QQQ token, QQQB, July volume for tokenized equities would be roughly $2.03 billion, about 30% below June’s total.",
+      "title": "Strategy sold another $105 million of bitcoin last week, repurchased $81.2 million of STRC",
+      "summary": "The company trimmed bitcoin holdings by 1,638 coins, while raising $290.6 million with sales of common stock.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/01/tokenized-stock-trading-surged-288-in-july-but-one-qqq-token-drove-most-of-it",
-      "publishedAt": "2026-08-01T16:51:35.000Z"
+      "link": "https://www.coindesk.com/markets/2026/08/03/strategy-sold-another-usd105-million-of-bitcoin-last-week-repurchased-usd81-2-million-of-strc",
+      "publishedAt": "2026-08-03T12:17:10.000Z"
     },
     {
       "country": "EU",
