@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-08-03T14:02:47.224Z",
+  "fetchedAt": "2026-08-04T12:27:11.625Z",
   "failed": [],
   "items": [
     {
@@ -8,55 +8,55 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Circle Internet slides after Morgan Stanley downgrade, cut in price target",
-      "summary": "The bank said tokenized money market funds, Open USD and slower USDC growth could weigh on the stablecoin issuer's earnings.",
+      "title": "Coldcard urges users to move bitcoin as exploit is still in progress",
+      "summary": "The cold wallet maker said the flaw behind roughly $114 million in losses remains live, with specific models and firmware still exposed.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/03/circle-internet-slides-after-morgan-stanley-downgrade-cut-in-price-target",
-      "publishedAt": "2026-08-03T13:59:50.000Z"
+      "link": "https://www.coindesk.com/tech/2026/08/04/coldcard-urges-users-to-move-bitcoin-as-active-wallet-exploit-continues",
+      "publishedAt": "2026-08-04T12:00:25.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bernstein sees another leg lower for crypto markets if Clarity Act stalls",
-      "summary": "The broker said failure to pass the Clarity Act this year would likely send crypto lower, but expects U.S. regulators to accelerate rulemaking.",
+      "title": "The bitcoin market has plenty of reasons to freak out, yet calm pervades",
+      "summary": "Your day-ahead look for Aug. 4, 2026",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/policy/2026/08/03/bernstein-sees-another-leg-lower-for-crypto-markets-if-clarity-act-stalls",
-      "publishedAt": "2026-08-03T13:49:40.000Z"
+      "link": "https://www.coindesk.com/daybook-us/2026/08/04/the-bitcoin-market-has-plenty-of-reasons-to-freak-out-yet-calm-pervades",
+      "publishedAt": "2026-08-04T11:23:33.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "BlackRock expands tokenized cash with new blockchain-based money market offerings",
-      "summary": "Both funds intend to qualify as eligible reserve assets for permitted U.S. payment stablecoin issuers under the GENIUS Act.",
+      "title": "South African lawmakers propose draft rules on cross-border crypto transactions",
+      "summary": "A draft rulebook proposes that sending crypto offshore must be conducted through an authorized provider and be reported to the central bank’s FinSurv.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/08/03/blackrock-expands-tokenized-cash-with-new-blockchain-based-money-market-offerings",
-      "publishedAt": "2026-08-03T13:15:46.000Z"
+      "link": "https://www.coindesk.com/policy/2026/08/04/south-african-lawmakers-propose-draft-rules-on-cross-border-crypto-transactions",
+      "publishedAt": "2026-08-04T10:59:41.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Tom Lee's Bitmine bought more ether, added to stock buyback last week",
-      "summary": "Chairman Tom Lee said ether's outperformance versus the Nasdaq in July signals strengthening crypto fundamentals.",
+      "title": "Bitcoin rises toward $64,000 as Coldcard exploit, Strategy sales recede. ADA advances",
+      "summary": "Bitcoin advanced as the market settled down following the weekend’s hack of Coldcard wallets and sales by Strategy even as sentiment remained in “extreme fear.”",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/08/03/bitmine-bought-more-ether-added-to-stock-buyback-last-week",
-      "publishedAt": "2026-08-03T12:53:21.000Z"
+      "link": "https://www.coindesk.com/markets/2026/08/04/bitcoin-rises-toward-usd64-000-as-coldcard-exploit-strategy-sales-recede-ada-advances",
+      "publishedAt": "2026-08-04T10:51:11.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Strategy sold another $105 million of bitcoin last week, repurchased $81.2 million of STRC",
-      "summary": "The company trimmed bitcoin holdings by 1,638 coins, while raising $290.6 million with sales of common stock.",
+      "title": "BlackRock debuts tokenized access to $311 billion of money market funds in Europe",
+      "summary": "Earlier this week, BlackRock expanded its U.S. tokenized cash platform which involved offering onchain shares of an existing fund, plus a new daily reinvestment stablecoin fund.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/03/strategy-sold-another-usd105-million-of-bitcoin-last-week-repurchased-usd81-2-million-of-strc",
-      "publishedAt": "2026-08-03T12:17:10.000Z"
+      "link": "https://www.coindesk.com/business/2026/08/04/blackrock-debuts-tokenized-access-to-usd311-billion-of-money-market-funds-in-europe",
+      "publishedAt": "2026-08-04T10:03:24.000Z"
     },
     {
       "country": "EU",
