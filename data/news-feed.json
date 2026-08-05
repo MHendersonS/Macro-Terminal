@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-08-04T12:27:11.625Z",
+  "fetchedAt": "2026-08-05T12:23:51.389Z",
   "failed": [],
   "items": [
     {
@@ -8,55 +8,55 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Coldcard urges users to move bitcoin as exploit is still in progress",
-      "summary": "The cold wallet maker said the flaw behind roughly $114 million in losses remains live, with specific models and firmware still exposed.",
+      "title": "SpaceX extends decline to 11% on lockup expiration and capex spending fears",
+      "summary": "The company reported no BTC sales in the second quarter, but shares fell before the open as investors focused on capital spending, free cash flow pressure and a looming insider lockup expiry.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/tech/2026/08/04/coldcard-urges-users-to-move-bitcoin-as-active-wallet-exploit-continues",
-      "publishedAt": "2026-08-04T12:00:25.000Z"
+      "link": "https://www.coindesk.com/markets/2026/08/05/spacex-stock-drops-11-premarket-as-lockup-spending-fears-hit-first-earnings",
+      "publishedAt": "2026-08-05T12:12:08.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "The bitcoin market has plenty of reasons to freak out, yet calm pervades",
-      "summary": "Your day-ahead look for Aug. 4, 2026",
+      "title": "Yellow Card raises $40 million to link banks to stablecoin processing",
+      "summary": "The funds bring Yellow Card’s total financing to more than $120 million since being founded 10 years ago.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/daybook-us/2026/08/04/the-bitcoin-market-has-plenty-of-reasons-to-freak-out-yet-calm-pervades",
-      "publishedAt": "2026-08-04T11:23:33.000Z"
+      "link": "https://www.coindesk.com/business/2026/08/05/yellow-card-raises-usd40-million-to-link-banks-to-stablecoin-processing",
+      "publishedAt": "2026-08-05T12:09:05.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "South African lawmakers propose draft rules on cross-border crypto transactions",
-      "summary": "A draft rulebook proposes that sending crypto offshore must be conducted through an authorized provider and be reported to the central bank’s FinSurv.",
+      "title": "The $120 million Coldcard hack lights up Bitcoin's memory pool",
+      "summary": "Your day-ahead look for Aug. 5, 2026",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/policy/2026/08/04/south-african-lawmakers-propose-draft-rules-on-cross-border-crypto-transactions",
-      "publishedAt": "2026-08-04T10:59:41.000Z"
+      "link": "https://www.coindesk.com/daybook-us/2026/08/05/the-usd120-million-coldcard-hack-lights-up-bitcoin-s-memory-pool",
+      "publishedAt": "2026-08-05T11:20:58.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin rises toward $64,000 as Coldcard exploit, Strategy sales recede. ADA advances",
-      "summary": "Bitcoin advanced as the market settled down following the weekend’s hack of Coldcard wallets and sales by Strategy even as sentiment remained in “extreme fear.”",
+      "title": "Circle shares jump as earnings beat offsets revenue miss, Arc blockchain gains Wall Street backing",
+      "summary": "Shares jumped 10% in pre-market trading as the stablecoin issuer revealed institutional adoption for its layer 1 blockchain Arc.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/04/bitcoin-rises-toward-usd64-000-as-coldcard-exploit-strategy-sales-recede-ada-advances",
-      "publishedAt": "2026-08-04T10:51:11.000Z"
+      "link": "https://www.coindesk.com/markets/2026/08/05/circle-shares-jump-as-earnings-beat-offsets-revenue-miss-arc-blockchain-gains-wall-street-backing",
+      "publishedAt": "2026-08-05T11:13:17.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "BlackRock debuts tokenized access to $311 billion of money market funds in Europe",
-      "summary": "Earlier this week, BlackRock expanded its U.S. tokenized cash platform which involved offering onchain shares of an existing fund, plus a new daily reinvestment stablecoin fund.",
+      "title": "Bitcoin, broader market fail to keep pace as global equities hit record highs",
+      "summary": "Derivatives data show subdued activity in bitcoin and ether but aggressive positioning in select altcoins.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/08/04/blackrock-debuts-tokenized-access-to-usd311-billion-of-money-market-funds-in-europe",
-      "publishedAt": "2026-08-04T10:03:24.000Z"
+      "link": "https://www.coindesk.com/markets/2026/08/05/bitcoin-broader-market-fail-to-keep-pace-as-global-equities-hit-record-highs",
+      "publishedAt": "2026-08-05T11:01:15.000Z"
     },
     {
       "country": "EU",
