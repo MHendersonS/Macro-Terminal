@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-08-05T12:23:51.389Z",
+  "fetchedAt": "2026-08-06T12:27:36.382Z",
   "failed": [],
   "items": [
     {
@@ -8,55 +8,55 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "SpaceX extends decline to 11% on lockup expiration and capex spending fears",
-      "summary": "The company reported no BTC sales in the second quarter, but shares fell before the open as investors focused on capital spending, free cash flow pressure and a looming insider lockup expiry.",
+      "title": "Bitcoin’s low volatility doesn’t necessarily mean low risk",
+      "summary": "Your day-ahead look for Aug. 6, 2026",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/05/spacex-stock-drops-11-premarket-as-lockup-spending-fears-hit-first-earnings",
-      "publishedAt": "2026-08-05T12:12:08.000Z"
+      "link": "https://www.coindesk.com/daybook-us/2026/08/06/bitcoin-s-low-volatility-doesn-t-necessarily-mean-low-risk",
+      "publishedAt": "2026-08-06T11:37:03.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Yellow Card raises $40 million to link banks to stablecoin processing",
-      "summary": "The funds bring Yellow Card’s total financing to more than $120 million since being founded 10 years ago.",
+      "title": "Free Markets and Innovation, Sort Of",
+      "summary": "The Journal’s editorial board rejects crypto competition and instead misinterprets Clarity, a pro-innovation, pro-competition, and pro-consumer bill, argues the Blockchain Association's Summer Mersinger.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/08/05/yellow-card-raises-usd40-million-to-link-banks-to-stablecoin-processing",
-      "publishedAt": "2026-08-05T12:09:05.000Z"
+      "link": "https://www.coindesk.com/opinion/2026/08/06/free-markets-and-innovation-sort-of",
+      "publishedAt": "2026-08-06T11:30:00.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "The $120 million Coldcard hack lights up Bitcoin's memory pool",
-      "summary": "Your day-ahead look for Aug. 5, 2026",
+      "title": "Why Sandisk and Western Digital crashed 10% and what it means for bitcoin",
+      "summary": "Strong earnings from SanDisk and Western Digital were not enough to satisfy investors, raising questions about whether capital is beginning to rotate from AI winners into crypto.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/daybook-us/2026/08/05/the-usd120-million-coldcard-hack-lights-up-bitcoin-s-memory-pool",
-      "publishedAt": "2026-08-05T11:20:58.000Z"
+      "link": "https://www.coindesk.com/markets/2026/08/06/why-sandisk-and-western-digital-crashed-10-and-what-it-means-for-bitcoin",
+      "publishedAt": "2026-08-06T11:14:47.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Circle shares jump as earnings beat offsets revenue miss, Arc blockchain gains Wall Street backing",
-      "summary": "Shares jumped 10% in pre-market trading as the stablecoin issuer revealed institutional adoption for its layer 1 blockchain Arc.",
+      "title": "JPYC raises $38 million Series B led by major Japanese logistics firm AZ-COM Maruwa",
+      "summary": "The investment brings the company’s total raised to $106 million across seven funding rounds since November 2021.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/05/circle-shares-jump-as-earnings-beat-offsets-revenue-miss-arc-blockchain-gains-wall-street-backing",
-      "publishedAt": "2026-08-05T11:13:17.000Z"
+      "link": "https://www.coindesk.com/business/2026/08/06/jpyc-raises-usd38-million-series-b-led-by-major-japanese-logistics-firm-az-com-maruwa",
+      "publishedAt": "2026-08-06T10:53:09.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin, broader market fail to keep pace as global equities hit record highs",
-      "summary": "Derivatives data show subdued activity in bitcoin and ether but aggressive positioning in select altcoins.",
+      "title": "Bitcoin, ether benefit as traders seek safety of largest tokens",
+      "summary": "The two largest cryptocurrencies are the only CoinDesk 20 members in positive territory as altcoins fall out of favor.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/05/bitcoin-broader-market-fail-to-keep-pace-as-global-equities-hit-record-highs",
-      "publishedAt": "2026-08-05T11:01:15.000Z"
+      "link": "https://www.coindesk.com/markets/2026/08/06/bitcoin-ether-benefit-as-traders-seek-safety-of-largest-tokens",
+      "publishedAt": "2026-08-06T10:43:07.000Z"
     },
     {
       "country": "EU",
