@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-08-06T12:27:36.382Z",
+  "fetchedAt": "2026-08-08T07:38:59.154Z",
   "failed": [],
   "items": [
     {
@@ -8,55 +8,66 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin’s low volatility doesn’t necessarily mean low risk",
-      "summary": "Your day-ahead look for Aug. 6, 2026",
+      "title": "New XRP Ledger amendments target $530 million in tokenized Wall Street assets",
+      "summary": "A new XRPL amendment proposal would let institutions encrypt token balances and transfer amounts while still giving issuers, auditors and regulators selective access.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/daybook-us/2026/08/06/bitcoin-s-low-volatility-doesn-t-necessarily-mean-low-risk",
-      "publishedAt": "2026-08-06T11:37:03.000Z"
+      "link": "https://www.coindesk.com/tech/2026/08/07/new-xrp-ledger-amendments-target-usd530-million-in-tokenized-wall-street-assets",
+      "publishedAt": "2026-08-08T03:30:00.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Free Markets and Innovation, Sort Of",
-      "summary": "The Journal’s editorial board rejects crypto competition and instead misinterprets Clarity, a pro-innovation, pro-competition, and pro-consumer bill, argues the Blockchain Association's Summer Mersinger.",
+      "title": "Bitcoin holders risk losing real BTC if they sell coins from BIP-110 fork, says developer",
+      "summary": "If a minority chain appears this weekend, buyers could replay signed fork-coin sales on bitcoin itself, making doing nothing the safest move until the chains can be separated.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/opinion/2026/08/06/free-markets-and-innovation-sort-of",
-      "publishedAt": "2026-08-06T11:30:00.000Z"
+      "link": "https://www.coindesk.com/tech/2026/08/08/bitcoin-holders-risk-losing-real-btc-if-they-sell-coins-from-bip-110-fork-says-developer",
+      "publishedAt": "2026-08-08T02:30:00.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Why Sandisk and Western Digital crashed 10% and what it means for bitcoin",
-      "summary": "Strong earnings from SanDisk and Western Digital were not enough to satisfy investors, raising questions about whether capital is beginning to rotate from AI winners into crypto.",
+      "title": "Trump Media pulls back from crypto, scraps Crypto.com's CRO token treasury deal",
+      "summary": "The Truth Social parent company is refocusing on media and its pending merger with a fusion energy firm, as the digital asset treasury boom has lost its steam.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/06/why-sandisk-and-western-digital-crashed-10-and-what-it-means-for-bitcoin",
-      "publishedAt": "2026-08-06T11:14:47.000Z"
+      "link": "https://www.coindesk.com/business/2026/08/07/trump-media-pulls-back-from-crypto-scraps-crypto-com-cro-treasury-deal",
+      "publishedAt": "2026-08-07T21:13:21.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "JPYC raises $38 million Series B led by major Japanese logistics firm AZ-COM Maruwa",
-      "summary": "The investment brings the company’s total raised to $106 million across seven funding rounds since November 2021.",
+      "title": "Trump-Backed American Bitcoin director Justin Mateen buys nearly $2 million of ABTC stock",
+      "summary": "Mateen purchased more than 306,000 shares across two days following the company's quarterly earnings, lifting his stake to more than 492,000 shares.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/08/06/jpyc-raises-usd38-million-series-b-led-by-major-japanese-logistics-firm-az-com-maruwa",
-      "publishedAt": "2026-08-06T10:53:09.000Z"
+      "link": "https://www.coindesk.com/business/2026/08/07/trump-backed-american-bitcoin-director-justin-mateen-buys-nearly-usd2-million-of-abtc-stock",
+      "publishedAt": "2026-08-07T20:20:00.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin, ether benefit as traders seek safety of largest tokens",
-      "summary": "The two largest cryptocurrencies are the only CoinDesk 20 members in positive territory as altcoins fall out of favor.",
+      "title": "U.S. widens Iran crypto crackdown with sanctions on two exchanges",
+      "summary": "The Treasury's OFAC targeted Shelbit and Aban Tether as Washington continues its effort to cut Tehran's access to crypto and foreign currency.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/06/bitcoin-ether-benefit-as-traders-seek-safety-of-largest-tokens",
-      "publishedAt": "2026-08-06T10:43:07.000Z"
+      "link": "https://www.coindesk.com/policy/2026/08/07/u-s-widens-iran-crypto-crackdown-with-sanctions-on-two-exchanges",
+      "publishedAt": "2026-08-07T18:42:44.000Z"
+    },
+    {
+      "country": "EU",
+      "flag": "🇪🇺",
+      "tag": "bank",
+      "tagLabel": "Banque centrale",
+      "title": "ECB publishes consolidated banking data for end-March 2026",
+      "summary": "",
+      "source": "Banque centrale européenne",
+      "link": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260807~58eb5109ce.en.html",
+      "publishedAt": "2026-08-07T08:00:00.000Z"
     },
     {
       "country": "EU",
@@ -101,17 +112,6 @@
       "source": "Banque centrale européenne",
       "link": "https://www.ecb.europa.eu//press/govcdec/otherdec/2026/html/ecb.gc260724~eebbc30622.en.html",
       "publishedAt": "2026-07-24T13:00:00.000Z"
-    },
-    {
-      "country": "EU",
-      "flag": "🇪🇺",
-      "tag": "bank",
-      "tagLabel": "Banque centrale",
-      "title": "ECB to extend use of climate factors in Eurosystem collateral framework to non-financial corporate credit claims",
-      "summary": "",
-      "source": "Banque centrale européenne",
-      "link": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260724_4~f082ce289d.en.html",
-      "publishedAt": "2026-07-24T10:00:00.000Z"
     }
   ]
 }
