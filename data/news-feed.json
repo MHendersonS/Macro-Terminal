@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-08-13T09:00:09.548Z",
+  "fetchedAt": "2026-08-18T06:01:13.626Z",
   "failed": [],
   "items": [
     {
@@ -8,55 +8,77 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Metaplanet denies selling bitcoin worth $320 million",
-      "summary": "Metaplanet CEO dismisses bitcoin sale rumors, confirms 43,000 BTC holdings",
+      "title": "The bitcoin price level where leveraged bulls could get whacked",
+      "summary": "Bulls are stacking longs, liquidity is thinning and one key level could trigger large liquidations.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/13/metaplanet-denies-selling-bitcoin-worth-usd320-million",
-      "publishedAt": "2026-08-13T05:34:48.000Z"
+      "link": "https://www.coindesk.com/markets/2026/08/18/the-bitcoin-price-level-where-leveraged-bulls-could-get-whacked",
+      "publishedAt": "2026-08-18T05:55:43.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin firms ask AI labs for same tools attackers already have",
-      "summary": "Coinbase, Block, BitGo and dozens of others signed a letter arguing that safety guardrails on frontier models are blocking legitimate security work while adversaries face no such limits.",
+      "title": "XRP slips below $1 even as a Korean regional bank adopts Ripple Payments",
+      "summary": "Jeonbuk Bank will use Ripple’s 24/7 cross-border payment service for business remittances, but it is unknown whether the flows will use XRP or Ripple’s RLUSD stablecoin.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/tech/2026/08/13/bitcoin-firms-ask-ai-labs-for-same-tools-attackers-already-have",
-      "publishedAt": "2026-08-13T05:21:21.000Z"
+      "link": "https://www.coindesk.com/markets/2026/08/18/xrp-slips-below-usd1-even-as-korean-regional-bank-adopts-ripple-payments",
+      "publishedAt": "2026-08-18T05:34:32.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Speculation on dogecoin is back to October 2025 levels. The price is down 70%",
-      "summary": "Futures positioning has rebuilt to levels last seen when dogecoin traded at three times today's price, and more than three accounts are betting on a rebound for every one betting against.",
+      "title": "Monad, an Ethereum rival, offered early investors up to $60 million to cash out. Almost all said no",
+      "summary": "The program came three months before investor unlocks begin, with MON trading below its public-sale price and most of the token supply still outside circulation.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/13/speculation-on-dogecoin-is-back-to-october-2025-levels-the-price-is-down-70",
-      "publishedAt": "2026-08-13T04:06:16.000Z"
+      "link": "https://www.coindesk.com/markets/2026/08/18/monad-an-ethereum-rival-offered-early-investors-up-to-usd60-million-to-cash-out-almost-all-said-no",
+      "publishedAt": "2026-08-18T05:18:18.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin slips near $63,500 as traders look past CPI to Fed’s next tests",
-      "summary": "An in-line inflation print removed a tail risk but gave BTC little reason to rally, leaving Jackson Hole, jobs data and the next CPI release as the market’s next catalysts.",
+      "title": "Bitcoin climbs above $64,000 while most majors slip",
+      "summary": "Miners have cut their computing power by a fifth over three quarters to make room for AI, and Venice's token jumped 10% after the company said it crossed $100 million in annualised revenue.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/13/bitcoin-slips-near-usd63-500-as-traders-look-past-cpi-to-fed-s-next-tests",
-      "publishedAt": "2026-08-13T03:39:06.000Z"
+      "link": "https://www.coindesk.com/markets/2026/08/18/bitcoin-climbs-above-usd64-000-while-most-majors-slip",
+      "publishedAt": "2026-08-18T04:32:38.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Prediction markets should dial back faulty filings for incentives to boost trading: CFTC",
-      "summary": "The U.S. regulator of platforms such as Kalshi and Polymarket suggests the industry is getting into bad compliance habits that may allow for market abuse.",
+      "title": "Kraken parent Payward joins Anthropic’s Project Glasswing for AI security push",
+      "summary": "Payward will use Anthropic’s cybersecurity model to hunt vulnerabilities and share open-source findings.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/policy/2026/08/12/prediction-markets-should-dial-back-faulty-filings-for-incentives-to-boost-trading-cftc",
-      "publishedAt": "2026-08-12T23:16:53.000Z"
+      "link": "https://www.coindesk.com/tech/2026/08/17/kraken-parent-payward-joins-anthropic-s-project-glasswing-for-ai-security-push",
+      "publishedAt": "2026-08-17T22:12:00.000Z"
+    },
+    {
+      "country": "EU",
+      "flag": "🇪🇺",
+      "tag": "bank",
+      "tagLabel": "Banque centrale",
+      "title": "Philip R. Lane: The rise in defence spending and the euro area economy",
+      "summary": "",
+      "source": "Banque centrale européenne",
+      "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260817~1f9f7149c9.en.pdf",
+      "publishedAt": "2026-08-17T09:30:00.000Z"
+    },
+    {
+      "country": "EU",
+      "flag": "🇪🇺",
+      "tag": "bank",
+      "tagLabel": "Banque centrale",
+      "title": "Cash remains most widely accepted payment method in euro area",
+      "summary": "",
+      "source": "Banque centrale européenne",
+      "link": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260813~389729d6a9.en.html",
+      "publishedAt": "2026-08-13T09:00:00.000Z"
     },
     {
       "country": "EU",
@@ -90,28 +112,6 @@
       "source": "Banque centrale européenne",
       "link": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260730~3b3bfbb565.en.html",
       "publishedAt": "2026-07-30T08:00:00.000Z"
-    },
-    {
-      "country": "EU",
-      "flag": "🇪🇺",
-      "tag": "bank",
-      "tagLabel": "Banque centrale",
-      "title": "ECB wage tracker at 2.7% in Q1 2027, indicating stable negotiated wage pressures",
-      "summary": "",
-      "source": "Banque centrale européenne",
-      "link": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260729~4ad7508d8a.en.html",
-      "publishedAt": "2026-07-29T08:00:00.000Z"
-    },
-    {
-      "country": "EU",
-      "flag": "🇪🇺",
-      "tag": "bank",
-      "tagLabel": "Banque centrale",
-      "title": "Philip R. Lane: Outlook for the euro area economy",
-      "summary": "",
-      "source": "Banque centrale européenne",
-      "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260724~d484b483b9.en.pdf",
-      "publishedAt": "2026-07-24T15:30:00.000Z"
     }
   ]
 }

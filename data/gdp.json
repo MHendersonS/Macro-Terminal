@@ -2,7 +2,7 @@
   "indicator": "gdp_growth_yoy",
   "unit": "%",
   "source": "OCDE — DF_QNA_EXPENDITURE_GROWTH_OECD (PIB, glissement annuel)",
-  "fetchedAt": "2026-08-13T08:59:07.889Z",
+  "fetchedAt": "2026-08-18T06:00:16.575Z",
   "failed": [],
   "series": {
     "FR": [
@@ -285,6 +285,10 @@
       {
         "period": "2026-Q1",
         "value": 0.912997847
+      },
+      {
+        "period": "2026-Q2",
+        "value": 1.174400872
       }
     ],
     "NZ": [
