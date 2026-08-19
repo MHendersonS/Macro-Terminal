@@ -2,7 +2,7 @@
   "indicator": "gdp_growth_yoy",
   "unit": "%",
   "source": "OCDE — DF_QNA_EXPENDITURE_GROWTH_OECD (PIB, glissement annuel)",
-  "fetchedAt": "2026-08-18T06:00:16.575Z",
+  "fetchedAt": "2026-08-19T06:02:06.016Z",
   "failed": [],
   "series": {
     "FR": [
@@ -182,55 +182,59 @@
     "JP": [
       {
         "period": "2023-Q1",
-        "value": 1.833947832
+        "value": 2.076839457
       },
       {
         "period": "2023-Q2",
-        "value": 0.999063865
+        "value": 1.164006146
       },
       {
         "period": "2023-Q3",
-        "value": -0.02097178
+        "value": 0.177702485
       },
       {
         "period": "2023-Q4",
-        "value": 0.044233156
+        "value": 0.151689511
       },
       {
         "period": "2024-Q1",
-        "value": -1.06270292
+        "value": -0.814247792
       },
       {
         "period": "2024-Q2",
-        "value": -1.162030482
+        "value": -0.976463733
       },
       {
         "period": "2024-Q3",
-        "value": 0.891788729
+        "value": 1.094042736
       },
       {
         "period": "2024-Q4",
-        "value": 0.710310378
+        "value": 1.027611228
       },
       {
         "period": "2025-Q1",
-        "value": 1.525342105
+        "value": 1.61615149
       },
       {
         "period": "2025-Q2",
-        "value": 1.821211301
+        "value": 1.932115813
       },
       {
         "period": "2025-Q3",
-        "value": 0.535869705
+        "value": 0.65638059
       },
       {
         "period": "2025-Q4",
-        "value": 0.371660777
+        "value": 0.495741994
       },
       {
         "period": "2026-Q1",
-        "value": 0.317040504
+        "value": 0.44562294
+      },
+      {
+        "period": "2026-Q2",
+        "value": 0.54976599
       }
     ],
     "GB": [
@@ -451,6 +455,10 @@
       {
         "period": "2026-Q1",
         "value": 0.589888471
+      },
+      {
+        "period": "2026-Q2",
+        "value": 2.328050605
       }
     ],
     "EU": [
@@ -508,7 +516,7 @@
       },
       {
         "period": "2026-Q2",
-        "value": 1.183388747
+        "value": 1.176016075
       }
     ]
   }
