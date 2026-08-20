@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-08-19T06:03:06.734Z",
+  "fetchedAt": "2026-08-20T06:03:48.173Z",
   "failed": [],
   "items": [
     {
@@ -8,55 +8,66 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Robot maker Unitree’s IPO surges 600%, outpacing crypto traders’ premarket bets",
-      "summary": "A Hyperliquid perp priced Unitree far above its IPO valuation before Shanghai trading began, but the robot maker’s first public trade still opened roughly 75% above crypto traders’ implied price.",
+      "title": "Trader who made $49 million shorting crypto lost $24 million on ether in 12 seconds",
+      "summary": "The Hyperliquid wallet known as pension-usdt.eth was forced out of a 50,000 ETH short as ether surged, with five liquidation orders helping push the price higher during the unwind.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/19/robot-maker-unitree-s-ipo-surges-600-outpacing-crypto-traders-premarket-bets",
-      "publishedAt": "2026-08-19T05:45:27.000Z"
+      "link": "https://www.coindesk.com/markets/2026/08/20/trader-who-made-usd49-million-shorting-crypto-lost-usd24-million-on-ether-in-12-seconds",
+      "publishedAt": "2026-08-20T05:40:54.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Solana leads bitcoin and ether higher while Korean chip stocks slide 7%",
-      "summary": "Bitcoin held near $64,000 and every major except BNB gained, while Korean semiconductor stocks fell more than 7% and Fed minutes are due at 2 p.m. ET.",
+      "title": "Bearish crypto bets lose record $2.7 billion as bitcoin surges toward $70,000",
+      "summary": "Traders betting against crypto lost $2.74 billion in a day, more than the short side of the October 2025 crash that remains the biggest liquidation event in the market's history.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/19/solana-leads-bitcoin-and-ether-higher-while-korean-chip-stocks-slide-7",
-      "publishedAt": "2026-08-19T04:25:42.000Z"
+      "link": "https://www.coindesk.com/markets/2026/08/20/bearish-crypto-bets-lose-record-usd2-7-billion-as-bitcoin-surges-toward-usd70-000",
+      "publishedAt": "2026-08-20T04:29:56.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "‘It has to pass’: Andrew Cuomo warns U.S. is falling behind on crypto rules",
-      "summary": "Former New York Gov. Andrew Cuomo says the CLARITY Act is key to linking crypto and traditional markets.",
+      "title": "Ether jumps 18% to $2,250 as bitcoin tops $69,000 in broad crypto rally",
+      "summary": "Every major except tron posted double-digit weekly gains, with nearly $1.4 billion of short positions wiped out after the Treasury doubled its bond buybacks.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/policy/2026/08/18/it-has-to-pass-andrew-cuomo-warns-u-s-is-falling-behind-on-crypto-rules",
-      "publishedAt": "2026-08-19T01:35:36.000Z"
+      "link": "https://www.coindesk.com/markets/2026/08/20/ether-jumps-18-to-usd2-250-as-bitcoin-tops-usd69-000-in-broad-crypto-rally",
+      "publishedAt": "2026-08-20T04:10:40.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Robinhood CEO urges U.S. to clear path for tokenized stocks as overseas markets advance",
-      "summary": "Vlad Tenev says tokenized stocks could bring real-time settlement and 24/7 trading, but U.S. rules remain a hurdle.",
+      "title": "Bitcoin briefly hits $70,000 for the first time since June. Here is why",
+      "summary": "The largest crypto asset rose more than 7% on Wednesday after several catalysts sent crypto-related assets higher.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/18/robinhood-ceo-urges-u-s-to-clear-path-for-tokenized-stocks-as-overseas-markets-advance",
-      "publishedAt": "2026-08-18T23:11:12.000Z"
+      "link": "https://www.coindesk.com/markets/2026/08/19/bitcoin-briefly-hits-usd70-000-for-the-first-time-since-june-here-is-why",
+      "publishedAt": "2026-08-19T22:26:01.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "U.S. accounting-standards group proposes way to see stablecoins as 'cash equivalent'",
-      "summary": "The Financial Accounting Standards Board, a nonprofit that governs accounting practices, proposed that certain stablecoins should fit the bill as cash-like.",
+      "title": "HYPE jumps 11% as Trump says CFTC is working to bring Hyperliquid to U.S.",
+      "summary": "During a White House meeting Wednesday, President Donald Trump said CFTC Chair Mike Selig is working to bring the perpetual futures platform into the U.S. under federal rules.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/policy/2026/08/18/u-s-accounting-standards-group-proposes-way-to-see-stablecoins-as-cash-equivalent",
-      "publishedAt": "2026-08-18T21:25:42.000Z"
+      "link": "https://www.coindesk.com/markets/2026/08/19/hype-jumps-11-as-trump-says-cftc-is-working-to-bring-hyperliquid-to-u-s",
+      "publishedAt": "2026-08-19T19:49:51.000Z"
+    },
+    {
+      "country": "EU",
+      "flag": "🇪🇺",
+      "tag": "bank",
+      "tagLabel": "Banque centrale",
+      "title": "Christine Lagarde: Panel remarks about the European economy during a discussion on the global economic outlook at the World Economic Forum",
+      "summary": "",
+      "source": "Banque centrale européenne",
+      "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260819~98ddf24b7b.en.html",
+      "publishedAt": "2026-08-19T07:10:00.000Z"
     },
     {
       "country": "EU",
@@ -101,17 +112,6 @@
       "source": "Banque centrale européenne",
       "link": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260807~58eb5109ce.en.html",
       "publishedAt": "2026-08-07T08:00:00.000Z"
-    },
-    {
-      "country": "EU",
-      "flag": "🇪🇺",
-      "tag": "bank",
-      "tagLabel": "Banque centrale",
-      "title": "Digital euro app to incorporate highest accessibility standards",
-      "summary": "",
-      "source": "Banque centrale européenne",
-      "link": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260730~3b3bfbb565.en.html",
-      "publishedAt": "2026-07-30T08:00:00.000Z"
     }
   ]
 }
