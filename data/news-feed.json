@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-08-20T06:03:48.173Z",
+  "fetchedAt": "2026-08-21T06:05:27.461Z",
   "failed": [],
   "items": [
     {
@@ -8,55 +8,55 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Trader who made $49 million shorting crypto lost $24 million on ether in 12 seconds",
-      "summary": "The Hyperliquid wallet known as pension-usdt.eth was forced out of a 50,000 ETH short as ether surged, with five liquidation orders helping push the price higher during the unwind.",
+      "title": "MANTRA token plunges 18% to record low as blockchain halts after exploit",
+      "summary": "The token touched $0.004126 minutes before the network stopped producing blocks, while MANTRA later said an attacker exploited a vulnerability in software used by the chain.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/20/trader-who-made-usd49-million-shorting-crypto-lost-usd24-million-on-ether-in-12-seconds",
-      "publishedAt": "2026-08-20T05:40:54.000Z"
+      "link": "https://www.coindesk.com/tech/2026/08/21/mantra-token-plunges-18-to-record-low-as-blockchain-halts-after-exploit",
+      "publishedAt": "2026-08-21T05:52:27.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bearish crypto bets lose record $2.7 billion as bitcoin surges toward $70,000",
-      "summary": "Traders betting against crypto lost $2.74 billion in a day, more than the short side of the October 2025 crash that remains the biggest liquidation event in the market's history.",
+      "title": "Ripple backs an RLUSD credit fund amid XRP's best week in months",
+      "summary": "Clearpool and Cicada Partners are building an institutional lending product using RLUSD, though the XRP Ledger features underpinning it are still awaiting activation.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/20/bearish-crypto-bets-lose-record-usd2-7-billion-as-bitcoin-surges-toward-usd70-000",
-      "publishedAt": "2026-08-20T04:29:56.000Z"
+      "link": "https://www.coindesk.com/markets/2026/08/21/ripple-backs-an-rlusd-credit-fund-amid-xrp-s-best-week-in-months",
+      "publishedAt": "2026-08-21T05:29:48.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Ether jumps 18% to $2,250 as bitcoin tops $69,000 in broad crypto rally",
-      "summary": "Every major except tron posted double-digit weekly gains, with nearly $1.4 billion of short positions wiped out after the Treasury doubled its bond buybacks.",
+      "title": "Bitcoin, ether and solana climb as another $1 billion shorts get wiped out",
+      "summary": "The two-day short liquidation total has reached about $3.8 billion, after Thursday's figure set a record going back to 2021.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/20/ether-jumps-18-to-usd2-250-as-bitcoin-tops-usd69-000-in-broad-crypto-rally",
-      "publishedAt": "2026-08-20T04:10:40.000Z"
+      "link": "https://www.coindesk.com/markets/2026/08/21/bitcoin-ether-and-solana-climb-as-another-usd1-billion-shorts-get-wiped-out",
+      "publishedAt": "2026-08-21T04:56:30.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin briefly hits $70,000 for the first time since June. Here is why",
-      "summary": "The largest crypto asset rose more than 7% on Wednesday after several catalysts sent crypto-related assets higher.",
+      "title": "Bitcoin pushes past $75,000 as rally continues.",
+      "summary": "\"Bears in pain, right now,\" wrote bitcoin analyst James Check.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/19/bitcoin-briefly-hits-usd70-000-for-the-first-time-since-june-here-is-why",
-      "publishedAt": "2026-08-19T22:26:01.000Z"
+      "link": "https://www.coindesk.com/markets/2026/08/20/bitcoin-pushes-past-usd75-000-as-rally-continues",
+      "publishedAt": "2026-08-21T01:55:50.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "HYPE jumps 11% as Trump says CFTC is working to bring Hyperliquid to U.S.",
-      "summary": "During a White House meeting Wednesday, President Donald Trump said CFTC Chair Mike Selig is working to bring the perpetual futures platform into the U.S. under federal rules.",
+      "title": "A $2 million bet on XRP volatility crosses the tape as prices surge",
+      "summary": "An options trader opened a large straddle on XRP, betting on wild price swings by Aug. 28.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/19/hype-jumps-11-as-trump-says-cftc-is-working-to-bring-hyperliquid-to-u-s",
-      "publishedAt": "2026-08-19T19:49:51.000Z"
+      "link": "https://www.coindesk.com/markets/2026/08/21/a-usd2-million-bet-on-xrp-volatility-crosses-the-tape-as-prices-surge",
+      "publishedAt": "2026-08-21T01:51:56.000Z"
     },
     {
       "country": "EU",
