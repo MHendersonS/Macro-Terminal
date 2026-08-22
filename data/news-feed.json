@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-08-21T06:05:27.461Z",
+  "fetchedAt": "2026-08-22T05:59:53.336Z",
   "failed": [],
   "items": [
     {
@@ -8,55 +8,66 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "MANTRA token plunges 18% to record low as blockchain halts after exploit",
-      "summary": "The token touched $0.004126 minutes before the network stopped producing blocks, while MANTRA later said an attacker exploited a vulnerability in software used by the chain.",
+      "title": "Zcash jumps 48% to over $800 as Grayscale spot ETF push adds to ‘next bitcoin’ buzz",
+      "summary": "ZEC traded above its January 2018 peak as futures volume hit billions of dollars and a Grayscale filing showed fresh progress toward converting its Zcash Trust into a spot ETF.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/tech/2026/08/21/mantra-token-plunges-18-to-record-low-as-blockchain-halts-after-exploit",
-      "publishedAt": "2026-08-21T05:52:27.000Z"
+      "link": "https://www.coindesk.com/markets/2026/08/22/zcash-tops-usd800-for-first-time-since-2016",
+      "publishedAt": "2026-08-22T05:37:43.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Ripple backs an RLUSD credit fund amid XRP's best week in months",
-      "summary": "Clearpool and Cicada Partners are building an institutional lending product using RLUSD, though the XRP Ledger features underpinning it are still awaiting activation.",
+      "title": "How a Treasury buyback tweak helped bitcoin surge 25% to nearly $80,000 in days",
+      "summary": "Treasury buybacks are not QE, analysts said, but the move helped pull long-term yields off 19-year highs and triggered a record short squeeze in a market already leaning too bearish.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/21/ripple-backs-an-rlusd-credit-fund-amid-xrp-s-best-week-in-months",
-      "publishedAt": "2026-08-21T05:29:48.000Z"
+      "link": "https://www.coindesk.com/markets/2026/08/22/how-a-treasury-buyback-tweak-helped-bitcoin-surge-nearly-25-in-days",
+      "publishedAt": "2026-08-22T05:05:13.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin, ether and solana climb as another $1 billion shorts get wiped out",
-      "summary": "The two-day short liquidation total has reached about $3.8 billion, after Thursday's figure set a record going back to 2021.",
+      "title": "Crypto advocates join in suing Illinois over digital asset tax",
+      "summary": "The Crypto Council for Innovation and the Blockchain Association added another lawsuit against the state for its recently approved 0.2% crypto tax.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/21/bitcoin-ether-and-solana-climb-as-another-usd1-billion-shorts-get-wiped-out",
-      "publishedAt": "2026-08-21T04:56:30.000Z"
+      "link": "https://www.coindesk.com/policy/2026/08/21/crypto-advocates-join-in-suing-illinois-over-digital-asset-tax",
+      "publishedAt": "2026-08-21T22:10:28.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin pushes past $75,000 as rally continues.",
-      "summary": "\"Bears in pain, right now,\" wrote bitcoin analyst James Check.",
+      "title": "Pass the Clarity Act",
+      "summary": "Reopening a settled provision four weeks before a vote would sink the bill, argues Summer Mersinger, CEO of the Blockchain Association.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/20/bitcoin-pushes-past-usd75-000-as-rally-continues",
-      "publishedAt": "2026-08-21T01:55:50.000Z"
+      "link": "https://www.coindesk.com/opinion/2026/08/21/pass-the-clarity-act",
+      "publishedAt": "2026-08-21T19:00:00.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "A $2 million bet on XRP volatility crosses the tape as prices surge",
-      "summary": "An options trader opened a large straddle on XRP, betting on wild price swings by Aug. 28.",
+      "title": "Ethena's ENA token surges 48%, but altcoin season will have to wait",
+      "summary": "ENA is rallying on a $1 billion FalconX deal, while HYPE tests its record, though flat dominance shows this is no broad alt season.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/21/a-usd2-million-bet-on-xrp-volatility-crosses-the-tape-as-prices-surge",
-      "publishedAt": "2026-08-21T01:51:56.000Z"
+      "link": "https://www.coindesk.com/markets/2026/08/21/ethena-surges-48-as-altcoins-pull-away-from-bitcoin",
+      "publishedAt": "2026-08-21T16:10:37.000Z"
+    },
+    {
+      "country": "EU",
+      "flag": "🇪🇺",
+      "tag": "bank",
+      "tagLabel": "Banque centrale",
+      "title": "ECB Consumer Expectations Survey results – July 2026",
+      "summary": "",
+      "source": "Banque centrale européenne",
+      "link": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260821~a044fdddd9.en.html",
+      "publishedAt": "2026-08-21T08:00:00.000Z"
     },
     {
       "country": "EU",
@@ -101,17 +112,6 @@
       "source": "Banque centrale européenne",
       "link": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260811~47cd3ee040.en.html",
       "publishedAt": "2026-08-11T08:30:00.000Z"
-    },
-    {
-      "country": "EU",
-      "flag": "🇪🇺",
-      "tag": "bank",
-      "tagLabel": "Banque centrale",
-      "title": "ECB publishes consolidated banking data for end-March 2026",
-      "summary": "",
-      "source": "Banque centrale européenne",
-      "link": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260807~58eb5109ce.en.html",
-      "publishedAt": "2026-08-07T08:00:00.000Z"
     }
   ]
 }
