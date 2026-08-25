@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-08-24T08:05:17.144Z",
+  "fetchedAt": "2026-08-25T06:05:25.340Z",
   "failed": [],
   "items": [
     {
@@ -8,22 +8,55 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Ether is crushing bitcoin and the 'golden cross' says it may not be done yet",
-      "summary": "The ETH/BTC ratio has recently formed a bullish golden cross, suggesting ether could extend its outperformance against bitcoin.",
+      "title": "Bitcoin traders place $2.9 million bet on a rapid price jump above $82,000",
+      "summary": "Traders are spending millions to position for further Bitcoin upside after its staggering rally to $80,000, though demand for downside protection remains firm, according to Laevitas.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/24/ether-is-crushing-bitcoin-and-the-golden-cross-says-it-may-not-be-done-yet",
-      "publishedAt": "2026-08-24T06:50:58.000Z"
+      "link": "https://www.coindesk.com/markets/2026/08/25/bitcoin-traders-place-usd2-9-million-bet-on-a-rapid-price-jump-above-usd82-000",
+      "publishedAt": "2026-08-25T05:51:52.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Ethereum lending app Term Finance loses $8.5 million after attacker buys voting power",
-      "summary": "The exploit shows how lightly held voting tokens can become a means of attack when control of a protocol is cheaper than the assets it governs.",
+      "title": "Bitcoin tops $80,000, solana jumps 8% but rally now runs into overbought warning",
+      "summary": "BTC is up more than 25% on the week after Treasury’s bond-buyback expansion sparked a rally, while Solana led majors Tuesday as validators vote on proposals to slow new SOL creation and raise daily burns.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/24/ethereum-lending-app-term-finance-loses-usd8-5-million-after-attacker-buys-voting-power",
-      "publishedAt": "2026-08-24T06:27:33.000Z"
+      "link": "https://www.coindesk.com/markets/2026/08/25/bitcoin-tops-usd80-000-solana-jumps-8-but-rally-now-runs-into-overbought-warning",
+      "publishedAt": "2026-08-25T05:25:11.000Z"
+    },
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "Bitcoin hits $80,000 for the first time since May as crypto recovery accelerates",
+      "summary": "BTC has now surged 38% following its June plunge as shifting U.S. Treasury policy helped bring buyers back to crypto, rejuvenating ETF demand.",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/markets/2026/08/24/bitcoin-hits-usd80-000-for-the-first-time-since-may-as-crypto-recovery-accelerates",
+      "publishedAt": "2026-08-25T00:55:32.000Z"
+    },
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "Bitcoin nears $80,000, but analysts say the next pullback will be key",
+      "summary": "Analysts say consolidation could strengthen bitcoin’s rally, while thin trading above $80,000 may set up sharper price moves.",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/markets/2026/08/24/bitcoin-nears-usd80-000-but-analysts-say-the-next-pullback-will-be-key",
+      "publishedAt": "2026-08-24T19:36:36.000Z"
+    },
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "Crypto political group details list of U.S. congressional allies its backing this year",
+      "summary": "Stand With Crypto, a member group that rates the crypto friendliness of politicians, is supporting 32 U.S. House incumbents, with more endorsements coming.",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/policy/2026/08/24/crypto-political-group-details-list-of-u-s-congressional-allies-its-backing-this-year",
+      "publishedAt": "2026-08-24T17:30:10.000Z"
     },
     {
       "country": "EU",
@@ -35,39 +68,6 @@
       "source": "Banque centrale européenne",
       "link": "https://www.ecb.europa.eu//press/inter/date/2026/html/ecb.in260824~fa5acbddea.en.html",
       "publishedAt": "2026-08-24T06:00:00.000Z"
-    },
-    {
-      "country": "GLOBAL",
-      "flag": "🌍",
-      "tag": "marche",
-      "tagLabel": "Marché",
-      "title": "Ray Dalio says investors should own ‘a bit of Bitcoin’ as U.S. debt risks rise",
-      "summary": "The Bridgewater founder says recent Treasury-market stress fits his long-running debt-crisis framework, though he still prefers gold as the bigger hedge.",
-      "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/24/ray-dalio-says-investors-should-own-a-bit-of-bitcoin-as-u-s-debt-risks-rise",
-      "publishedAt": "2026-08-24T05:13:19.000Z"
-    },
-    {
-      "country": "GLOBAL",
-      "flag": "🌍",
-      "tag": "marche",
-      "tagLabel": "Marché",
-      "title": "Bessent's $4 billion bond buyback wanted lower yields. It got a bitcoin surge instead.",
-      "summary": "Bessent’s bond-buyback plan fails to curb Treasury yields. Here's what it means for bitcoin and gold",
-      "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/24/bessent-s-usd4-billion-bond-buyback-wanted-lower-yields-it-got-a-bitcoin-surge-instead",
-      "publishedAt": "2026-08-24T05:12:56.000Z"
-    },
-    {
-      "country": "GLOBAL",
-      "flag": "🌍",
-      "tag": "marche",
-      "tagLabel": "Marché",
-      "title": "Stablecoin neobank Fasset lands $1 billion valuation as SBI backs its payments push",
-      "summary": "The firm raised $68 million as its revenue has grown six-fold as stablecoin payments and settlement expand, CEO Mohammad Raafi Hossain told CoinDesk.",
-      "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/08/22/stablecoin-neobank-fasset-lands-usd1-billion-valuation-as-sbi-backs-its-payments-push",
-      "publishedAt": "2026-08-24T04:45:00.000Z"
     },
     {
       "country": "EU",
