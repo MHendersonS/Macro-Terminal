@@ -2,7 +2,7 @@
   "indicator": "policy_rate",
   "unit": "%",
   "source": "FRED (Fed de Saint-Louis) — voir \"sourcesUsed\" pour le détail par pays",
-  "fetchedAt": "2026-08-25T06:05:22.790Z",
+  "fetchedAt": "2026-08-26T06:07:14.418Z",
   "failed": [],
   "sourcesUsed": {
     "US": {
@@ -54,10 +54,6 @@
   "series": {
     "US": [
       {
-        "period": "2026-08-15",
-        "value": 3.75
-      },
-      {
         "period": "2026-08-16",
         "value": 3.75
       },
@@ -91,15 +87,15 @@
       },
       {
         "period": "2026-08-24",
+        "value": 3.75
+      },
+      {
+        "period": "2026-08-25",
         "value": 3.75
       }
     ],
     "EU": [
       {
-        "period": "2026-08-15",
-        "value": 2.25
-      },
-      {
         "period": "2026-08-16",
         "value": 2.25
       },
@@ -133,15 +129,15 @@
       },
       {
         "period": "2026-08-24",
+        "value": 2.25
+      },
+      {
+        "period": "2026-08-25",
         "value": 2.25
       }
     ],
     "FR": [
       {
-        "period": "2026-08-15",
-        "value": 2.25
-      },
-      {
         "period": "2026-08-16",
         "value": 2.25
       },
@@ -175,15 +171,15 @@
       },
       {
         "period": "2026-08-24",
+        "value": 2.25
+      },
+      {
+        "period": "2026-08-25",
         "value": 2.25
       }
     ],
     "DE": [
       {
-        "period": "2026-08-15",
-        "value": 2.25
-      },
-      {
         "period": "2026-08-16",
         "value": 2.25
       },
@@ -217,6 +213,10 @@
       },
       {
         "period": "2026-08-24",
+        "value": 2.25
+      },
+      {
+        "period": "2026-08-25",
         "value": 2.25
       }
     ],
