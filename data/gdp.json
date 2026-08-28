@@ -2,7 +2,7 @@
   "indicator": "gdp_growth_yoy",
   "unit": "%",
   "source": "OCDE — DF_QNA_EXPENDITURE_GROWTH_OECD (PIB, glissement annuel)",
-  "fetchedAt": "2026-08-26T06:06:20.503Z",
+  "fetchedAt": "2026-08-28T21:22:08.195Z",
   "failed": [],
   "series": {
     "FR": [
@@ -118,7 +118,7 @@
       },
       {
         "period": "2026-Q2",
-        "value": 2.101819463
+        "value": 2.097671547
       }
     ],
     "DE": [
@@ -172,11 +172,11 @@
       },
       {
         "period": "2026-Q1",
-        "value": 0.646328734
+        "value": 0.665331843
       },
       {
         "period": "2026-Q2",
-        "value": 0.893621001
+        "value": 1.017205151
       }
     ],
     "JP": [

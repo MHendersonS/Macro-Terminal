@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-08-26T06:07:16.972Z",
+  "fetchedAt": "2026-08-28T21:23:00.836Z",
   "failed": [],
   "items": [
     {
@@ -8,55 +8,88 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Wall Street is making it easier for bitcoin whales to ditch self-custody: report",
-      "summary": "ETF issuers are lowering the barrier for bitcoin whales to trade self-custody for ETF shares.",
+      "title": "Solana vote to double disinflation passes by a hair in dramatic finish",
+      "summary": "Solana's first network-wide vote went down to the wire, with Kraken and Galaxy-linked validators switching sides before the disinflation proposal narrowly passed.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/26/E",
-      "publishedAt": "2026-08-26T05:52:53.000Z"
+      "link": "https://www.coindesk.com/tech/2026/08/28/solana-vote-to-double-disinflation-passes-by-a-hair-in-dramatic-finish",
+      "publishedAt": "2026-08-28T16:12:45.000Z"
+    },
+    {
+      "country": "EU",
+      "flag": "🇪🇺",
+      "tag": "bank",
+      "tagLabel": "Banque centrale",
+      "title": "Isabel Schnabel: Central banks on-chain",
+      "summary": "",
+      "source": "Banque centrale européenne",
+      "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260828~fe9afc86e8.en.html",
+      "publishedAt": "2026-08-28T16:00:00.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "XRP’s 44% rally brings leverage back, raising risk of sharper pullback",
-      "summary": "CryptoQuant data show XRP’s estimated leverage ratio on Binance at its highest since January, with long accounts outnumbering shorts as futures volume runs more than five times spot trading.",
+      "title": "BitGo to buy NYDIG trading arm for $42.5M in cash and stock plus $15M earnout",
+      "summary": "The deal to buy NYDIG IF Holdings comprises $7 million in cash and around $35.5 million in stock, as well as the $15 earnout.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/26/xrp-s-44-rally-brings-leverage-back-raising-risk-of-sharper-pullback",
-      "publishedAt": "2026-08-26T05:16:32.000Z"
+      "link": "https://www.coindesk.com/business/2026/08/28/bitgo-to-buy-nydig-trading-arm-for-usd42-5m-in-cash-and-stock-plus-usd15m-earnout",
+      "publishedAt": "2026-08-28T14:37:14.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Crypto greed gauge hits highest since just before October’s $19 billion wipeout",
-      "summary": "The Fear & Greed Index reached 74 on Tuesday after sitting at 27 less than two weeks ago, showing how quickly traders have gone from caution to chasing risk.",
+      "title": "Fed Chair Kevin Warsh at Jackson Hole: 'We have work to do' on inflation",
+      "summary": "Warsh's highly anticipated remarks at the Kansas City Fed's annual symposium Friday morning leaned hawkish, prompting traders to quickly raise bets on a September rate hike.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/26/crypto-greed-gauge-hits-highest-since-just-before-october-s-usd19-billion-wipeout",
-      "publishedAt": "2026-08-26T04:51:49.000Z"
+      "link": "https://www.coindesk.com/markets/2026/08/28/warsh-at-jackson-hole-we-have-work-to-do-on-inflaiton",
+      "publishedAt": "2026-08-28T14:05:12.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin holds $79,000, ether, solana slip as traders bank a week of gains",
-      "summary": "Every major token fell over 24 hours except HYPE, though bitcoin holds a 23% weekly gain and XRP almost 45%.",
+      "title": "The Clarity Act slipped to September. Banks are building anyway",
+      "summary": "But every month without settled rules quietly rewards the walled garden, writes Matter Labs’ Vassilis Tziokas.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/26/bitcoin-holds-usd79-000-ether-solana-slip-4-as-traders-bank-a-week-of-gains",
-      "publishedAt": "2026-08-26T04:13:10.000Z"
+      "link": "https://www.coindesk.com/opinion/2026/08/28/the-clarity-act-slipped-to-september-banks-are-building-anyway",
+      "publishedAt": "2026-08-28T13:00:00.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "U.S. state banking associations plan to launch their own nationwide blockchain network",
-      "summary": "The \"BankChain Alliance\" is aiming for a 2027 launch, and would foster stablecoins, payments and tokenized deposits inside the banking system's regulatory sphere.",
+      "title": "Ethena looks beyond crypto to squeeze yield from booming equity perpetuals",
+      "summary": "The issuer of the $4 billion USDe token said it expects real-world asset perpetuals to eclipse crypto derivatives in its backing within 12 to 24 months.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/policy/2026/08/25/u-s-state-banking-associations-plan-to-launch-their-own-nationwide-blockchain-network",
-      "publishedAt": "2026-08-25T21:56:57.000Z"
+      "link": "https://www.coindesk.com/business/2026/08/28/ethena-looks-beyond-crypto-to-squeeze-yield-from-booming-equity-perpetuals",
+      "publishedAt": "2026-08-28T12:30:57.000Z"
+    },
+    {
+      "country": "EU",
+      "flag": "🇪🇺",
+      "tag": "bank",
+      "tagLabel": "Banque centrale",
+      "title": "Meeting of 22-23 July 2026",
+      "summary": "",
+      "source": "Banque centrale européenne",
+      "link": "https://www.ecb.europa.eu//press/accounts/2026/html/ecb.mg260827~f06c21fd54.en.html",
+      "publishedAt": "2026-08-27T11:30:00.000Z"
+    },
+    {
+      "country": "EU",
+      "flag": "🇪🇺",
+      "tag": "bank",
+      "tagLabel": "Banque centrale",
+      "title": "Piero Cipollone: From vision to delivery: building Europe’s tokenised financial market",
+      "summary": "",
+      "source": "Banque centrale européenne",
+      "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260826~3641116314.en.html",
+      "publishedAt": "2026-08-26T10:15:00.000Z"
     },
     {
       "country": "EU",
@@ -79,39 +112,6 @@
       "source": "Banque centrale européenne",
       "link": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260821~a044fdddd9.en.html",
       "publishedAt": "2026-08-21T08:00:00.000Z"
-    },
-    {
-      "country": "EU",
-      "flag": "🇪🇺",
-      "tag": "bank",
-      "tagLabel": "Banque centrale",
-      "title": "Christine Lagarde: Panel remarks about the European economy during a discussion on the global economic outlook at the World Economic Forum",
-      "summary": "",
-      "source": "Banque centrale européenne",
-      "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260819~98ddf24b7b.en.html",
-      "publishedAt": "2026-08-19T07:10:00.000Z"
-    },
-    {
-      "country": "EU",
-      "flag": "🇪🇺",
-      "tag": "bank",
-      "tagLabel": "Banque centrale",
-      "title": "Philip R. Lane: The rise in defence spending and the euro area economy",
-      "summary": "",
-      "source": "Banque centrale européenne",
-      "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260817~1f9f7149c9.en.pdf",
-      "publishedAt": "2026-08-17T09:30:00.000Z"
-    },
-    {
-      "country": "EU",
-      "flag": "🇪🇺",
-      "tag": "bank",
-      "tagLabel": "Banque centrale",
-      "title": "Cash remains most widely accepted payment method in euro area",
-      "summary": "",
-      "source": "Banque centrale européenne",
-      "link": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260813~389729d6a9.en.html",
-      "publishedAt": "2026-08-13T09:00:00.000Z"
     }
   ]
 }
