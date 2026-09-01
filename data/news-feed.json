@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-08-31T05:06:12.645Z",
+  "fetchedAt": "2026-09-01T05:08:27.849Z",
   "failed": [],
   "items": [
     {
@@ -8,55 +8,55 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Cronos halts blockchain after $75 million lending exploit hits lending app Tectonic",
-      "summary": "An attacker allegedly pushed Tectonic’s thinly traded TONIC token up 100-fold, used it as collateral to borrow real assets and left most funds stranded when Cronos validators paused the network.",
+      "title": "Bitcoin steady above $78,000, HYPE leads as majors slip on hawkish Fed bets",
+      "summary": "Ether, solana, tron and dogecoin all shed ground over 24 hours while HYPE added about 4%, leaving bitcoin flat on the week after August's 24% run.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/tech/2026/08/31/cronos-halts-blockchain-after-usd75-million-lending-exploit-hits-lending-app-tectonic",
-      "publishedAt": "2026-08-31T04:57:13.000Z"
+      "link": "https://www.coindesk.com/markets/2026/09/01/bitcoin-steady-above-usd78-000-hype-leads-as-majors-slip-on-hawkish-fed-bets",
+      "publishedAt": "2026-09-01T04:30:28.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin barely blinks as U.S. hits Iran, sending oil higher and stocks lower",
-      "summary": "BTC remains August's best-performing asset after the latest escalation in geopolitical tensions.",
+      "title": "Trump Jr's firm leads $1 billion Polymarket raise at $21 billion value: Report",
+      "summary": "1789 Capital is putting in about $300 million, adding to a roughly $200 million stake, as the prediction market's valuation rises from $15 billion.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/31/bitcoin-barely-blinks-as-u-s-hits-iran-sending-oil-higher-and-stocks-lower",
-      "publishedAt": "2026-08-31T04:29:10.000Z"
+      "link": "https://www.coindesk.com/business/2026/09/01/trump-jr-s-firm-leads-usd1-billion-polymarket-raise-at-usd21-billion-value-report",
+      "publishedAt": "2026-09-01T04:19:54.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Michael Saylor hints at first bitcoin purchase in two months",
-      "summary": "Bitcoin rebounds from Friday’s low as Strategy’s valuation expands and bitcoin dominance climbs above 60%.",
+      "title": "CME’s share of XRP futures jumps as token rallies 40% in a week",
+      "summary": "Outstanding XRP futures positions outside CME fell by more than 500 million tokens in two weeks, while exposure on the regulated U.S. exchange climbed about 36% as XRP rallied toward $1.40.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/30/bitcoin-nears-usd79-000-as-michael-saylor-hints-at-first-bitcoin-purchase-in-two-months",
-      "publishedAt": "2026-08-30T15:39:55.000Z"
+      "link": "https://www.coindesk.com/markets/2026/09/01/xrp-futures-are-shifting-toward-cme-as-institutional-participation-grows",
+      "publishedAt": "2026-09-01T03:49:39.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "From Hawala to Swift: Inside the 1,000-year battle to move money safely",
-      "summary": "Finance has spent centuries decoupling wealth from physical transport, but constantly erasing friction creates vectors for increasingly high-tech exploits.",
+      "title": "North Korean hackers are moving tens of millions on Hyperliquid as Trump pushes to onshore the crypto platform",
+      "summary": "Blockchain data reviewed by CoinDesk shows wallets tied to North Korea’s Lazarus Group sold more than $30 million in bitcoin on the platform in the last three weeks alone.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/08/30/from-hawala-to-swift-inside-the-1-000-year-battle-to-move-money-safely",
-      "publishedAt": "2026-08-30T15:00:00.000Z"
+      "link": "https://www.coindesk.com/business/2026/08/31/north-korean-hackers-are-moving-tens-of-millions-on-hyperliquid-as-trump-pushes-to-onshore-the-crypto-platform",
+      "publishedAt": "2026-08-31T20:48:40.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Crypto market makers are cashing in on bitcoin's rally - without betting on direction",
-      "summary": "As bitcoin surges back above $80,000, sophisticated trading firms are quietly collecting yield rather than making directional bet.",
+      "title": "Kalshi lays down first lifetime ban for ex-member of Congress George Santos",
+      "summary": "The prediction market platform banned Santos for manipulation as part of the industry's ongoing efforts to show it's dealing with bad behavior.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/08/28/crypto-market-makers-are-cashing-in-on-bitcoin-s-rally-without-betting-on-direction",
-      "publishedAt": "2026-08-30T12:00:00.000Z"
+      "link": "https://www.coindesk.com/policy/2026/08/31/kalshi-lays-down-first-lifetime-ban-for-ex-member-of-congress-george-santos",
+      "publishedAt": "2026-08-31T15:33:14.000Z"
     },
     {
       "country": "EU",
