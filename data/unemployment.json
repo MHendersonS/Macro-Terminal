@@ -2,7 +2,7 @@
   "indicator": "unemployment_rate",
   "unit": "%",
   "source": "OCDE — DF_IALFS_UNE_M (taux de chômage mensuel, 15 ans et plus)",
-  "fetchedAt": "2026-09-01T05:08:16.383Z",
+  "fetchedAt": "2026-09-02T05:07:45.323Z",
   "failed": [
     "NZ",
     "CH"
@@ -71,7 +71,7 @@
       },
       {
         "period": "2024-04",
-        "value": 7.4
+        "value": 7.3
       },
       {
         "period": "2024-05",
@@ -163,19 +163,23 @@
       },
       {
         "period": "2026-03",
-        "value": 8.1
+        "value": 8.2
       },
       {
         "period": "2026-04",
-        "value": 8.2
+        "value": 8.3
       },
       {
         "period": "2026-05",
-        "value": 8.2
+        "value": 8.4
       },
       {
         "period": "2026-06",
-        "value": 8.2
+        "value": 8.3
+      },
+      {
+        "period": "2026-07",
+        "value": 8.3
       }
     ],
     "US": [
@@ -483,7 +487,7 @@
       },
       {
         "period": "2025-10",
-        "value": 3.9
+        "value": 3.8
       },
       {
         "period": "2025-11",
@@ -499,23 +503,27 @@
       },
       {
         "period": "2026-02",
-        "value": 3.8
+        "value": 3.9
       },
       {
         "period": "2026-03",
-        "value": 3.8
+        "value": 3.9
       },
       {
         "period": "2026-04",
-        "value": 3.8
+        "value": 3.9
       },
       {
         "period": "2026-05",
-        "value": 3.8
+        "value": 3.9
       },
       {
         "period": "2026-06",
-        "value": 3.9
+        "value": 4
+      },
+      {
+        "period": "2026-07",
+        "value": 4
       }
     ],
     "JP": [
@@ -686,6 +694,10 @@
       {
         "period": "2026-06",
         "value": 2.5
+      },
+      {
+        "period": "2026-07",
+        "value": 2.4
       }
     ],
     "GB": [
