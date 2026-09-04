@@ -1,62 +1,73 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-09-03T09:25:11.214Z",
+  "fetchedAt": "2026-09-04T09:18:17.166Z",
   "failed": [],
   "items": [
     {
-      "country": "GLOBAL",
-      "flag": "🌍",
-      "tag": "marche",
-      "tagLabel": "Marché",
-      "title": "CFTC asks judge to dismiss CME lawsuit over crypto perpetual futures",
-      "summary": "The regulator claims the dispute is \"much ado about nothing,\" noting that the order allows any designated contract market, including CME, to list these products.",
-      "source": "CoinDesk",
-      "link": "https://www.coindesk.com/policy/2026/09/03/cftc-asks-judge-to-dismiss-cme-lawsuit-over-crypto-perpetual-futures",
-      "publishedAt": "2026-09-03T09:13:40.000Z"
+      "country": "EU",
+      "flag": "🇪🇺",
+      "tag": "bank",
+      "tagLabel": "Banque centrale",
+      "title": "Philip R. Lane: Diversity at the European Central Bank",
+      "summary": "",
+      "source": "Banque centrale européenne",
+      "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260904~7b9257099b.en.pdf",
+      "publishedAt": "2026-09-04T09:10:00.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Catastrophe bonds may join tokenization rush, with plans for test issuance in 2027",
-      "summary": "A law firm and a tokenization platform say their proposed structure would give investors legal ownership of cat bonds onchain and could lower the minimum investment.",
+      "title": "Live updates: Bitcoin ETFs take $731 million, their biggest day since January",
+      "summary": "Every fund in the complex rose almost 6% on Thursday and net assets crossed $103 billion for the first time. BlackRock's IBIT accounted for well over half the money.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/09/03/catastrophe-bonds-may-join-tokenization-rush-with-plans-for-test-issuance-in-2027",
-      "publishedAt": "2026-09-03T08:30:00.000Z"
+      "link": "https://www.coindesk.com/business/2026/09/04/live-updates-bitcoin-etfs-take-usd731-million-their-biggest-day-since-january",
+      "publishedAt": "2026-09-04T07:34:07.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin’s fabled golden cross is coming. And USDT may be the real signal this time",
-      "summary": "BTC is nearing a bullish golden cross, a widely tracked signal with a mixed record of success in crypto markets. But this time, USDT is supporting the bullish read.",
+      "title": "OpenAI puts $1 billion behind cyber defense after unveiling AI that can find zero-days",
+      "summary": "The company is subsidizing access to its Daybreak security platform after saying Astra can independently find previously unknown software flaws and turn them into working attacks.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/09/03/bitcoin-s-fabled-golden-cross-is-coming-and-usdt-may-be-the-real-signal-this-time",
-      "publishedAt": "2026-09-03T07:01:28.000Z"
+      "link": "https://www.coindesk.com/tech/2026/09/04/openai-puts-usd1-billion-behind-cyber-defense-after-unveiling-ai-that-can-find-zero-days",
+      "publishedAt": "2026-09-04T05:49:43.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Dogecoin becomes only losing bet for Japan-listed firm as it sells altcoins for bitcoin",
-      "summary": "Remixpoint booked gains on ether, solana and XRP, but sold DOGE below its fiscal-year opening value as it concentrated its crypto holdings in bitcoin.",
+      "title": "One full bitcoin now buys a little more than 18 ounces of gold, the most since January",
+      "summary": "Bitcoin is pulling ahead of gold even as both hard assets rally together, driven by fears that governments will inflate away their debt rather than by bond yields.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/09/03/dogecoin-becomes-losing-bet-for-japan-listed-firm-remixpoint-as-it-sells-altcoins-for-bitcoin",
-      "publishedAt": "2026-09-03T04:58:05.000Z"
+      "link": "https://www.coindesk.com/markets/2026/09/04/one-full-bitcoin-now-buys-a-little-more-than-18-ounces-of-gold-the-most-since-january",
+      "publishedAt": "2026-09-04T05:10:34.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin back above $77,500, XRP leads majors as Fed hike odds slide to 62%",
-      "summary": "Every major token is green over 24 hours, though only zcash and hyperliquid are holding gains on the week.",
+      "title": "Bitcoin back above $81,000 as hike odds fade, Zcash leads with 15% jump",
+      "summary": "Every major token gained on Friday as traders cut bets on a September Federal Reserve rate increase to a coin flip, though most of the majors are barely changed on the week.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/09/03/bitcoin-back-above-usd77-500-xrp-leads-majors-as-fed-hike-odds-near-66",
-      "publishedAt": "2026-09-03T04:22:40.000Z"
+      "link": "https://www.coindesk.com/markets/2026/09/04/bitcoin-back-above-usd81-000-as-hike-odds-fade-zcash-leads-with-15-jump",
+      "publishedAt": "2026-09-04T04:22:01.000Z"
+    },
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "U.S. banking agency gives blockchain bank OpenReserve initial OK to operate",
+      "summary": "The Office of the Comptroller of the Currency granted a provisional charter to the new full-service bank, adding it to the growing mix of crypto-native institutions.",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/policy/2026/09/03/u-s-banking-agency-gives-blockchain-bank-openreserve-initial-ok-to-operate",
+      "publishedAt": "2026-09-04T03:26:50.000Z"
     },
     {
       "country": "EU",
@@ -101,17 +112,6 @@
       "source": "Banque centrale européenne",
       "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260826~3641116314.en.html",
       "publishedAt": "2026-08-26T10:15:00.000Z"
-    },
-    {
-      "country": "EU",
-      "flag": "🇪🇺",
-      "tag": "bank",
-      "tagLabel": "Banque centrale",
-      "title": "Piero Cipollone: Interview with ilsussidiario.net",
-      "summary": "",
-      "source": "Banque centrale européenne",
-      "link": "https://www.ecb.europa.eu//press/inter/date/2026/html/ecb.in260824~fa5acbddea.en.html",
-      "publishedAt": "2026-08-24T06:00:00.000Z"
     }
   ]
 }
