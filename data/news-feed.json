@@ -1,8 +1,63 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-09-04T09:18:17.166Z",
+  "fetchedAt": "2026-09-05T08:46:53.621Z",
   "failed": [],
   "items": [
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "XRP Ledger has fewer active accounts than last year, but bigger trades and more value",
+      "summary": "Daily order-book traders fell about 40% from a year ago while volume rose 79%, as the value held on XRPL climbed above $4 billion.",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/markets/2026/09/05/xrp-ledger-has-fewer-active-accounts-but-bigger-trades-and-more-value",
+      "publishedAt": "2026-09-05T05:30:45.000Z"
+    },
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "Southeast Asia’s crypto funding rebounds to $680 million as investors focus on mature firms",
+      "summary": "Blockchain investment in Southeast Asia in 2026 has been led by crypto financial services, though funding remains heavily concentrated in Singapore and a handful of companies.",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/business/2026/09/05/southeast-asia-s-crypto-funding-rebounds-to-usd680-million-as-investors-focus-on-mature-firms",
+      "publishedAt": "2026-09-05T05:00:00.000Z"
+    },
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "Robinhood isn't backing down after AMC CEO demands halt to stock tokens",
+      "summary": "AMC boss Adam Aron called Robinhood’s stock tokens “synthetic equity” and threatened legal action. Vlad Tenev says the brokerage stands behind the product.",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/business/2026/09/04/amc-ceo-tells-robinhood-to-stop-issuing-stock-token-as-industry-executives-weigh-in",
+      "publishedAt": "2026-09-04T14:56:00.000Z"
+    },
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "From warning to listing: UK’s largest retail investment platform opens access to crypto ETNs",
+      "summary": "The U.K.'s largest retail investment platform, Hargreaves Lansdown, has reversed course following the FCA's decision to lift its retail ban on crypto ETPs in October.",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/business/2026/09/04/from-warning-to-listing-uk-s-largest-wealth-platform-opens-access-to-crypto-etns",
+      "publishedAt": "2026-09-04T14:23:11.000Z"
+    },
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "U.S. Sheriff’s association shifts opposition stance to Clarity Act to 'neutral'",
+      "summary": "The law enforcement association said it has pivoted its position regarding the Clarity Act to neutral, months after it warned against a law it said would shield crypto crime.",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/policy/2026/09/04/u-s-sheriff-s-association-shifts-opposition-stance-to-clarity-act-to-neutral",
+      "publishedAt": "2026-09-04T14:12:34.000Z"
+    },
     {
       "country": "EU",
       "flag": "🇪🇺",
@@ -13,61 +68,6 @@
       "source": "Banque centrale européenne",
       "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260904~7b9257099b.en.pdf",
       "publishedAt": "2026-09-04T09:10:00.000Z"
-    },
-    {
-      "country": "GLOBAL",
-      "flag": "🌍",
-      "tag": "marche",
-      "tagLabel": "Marché",
-      "title": "Live updates: Bitcoin ETFs take $731 million, their biggest day since January",
-      "summary": "Every fund in the complex rose almost 6% on Thursday and net assets crossed $103 billion for the first time. BlackRock's IBIT accounted for well over half the money.",
-      "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/09/04/live-updates-bitcoin-etfs-take-usd731-million-their-biggest-day-since-january",
-      "publishedAt": "2026-09-04T07:34:07.000Z"
-    },
-    {
-      "country": "GLOBAL",
-      "flag": "🌍",
-      "tag": "marche",
-      "tagLabel": "Marché",
-      "title": "OpenAI puts $1 billion behind cyber defense after unveiling AI that can find zero-days",
-      "summary": "The company is subsidizing access to its Daybreak security platform after saying Astra can independently find previously unknown software flaws and turn them into working attacks.",
-      "source": "CoinDesk",
-      "link": "https://www.coindesk.com/tech/2026/09/04/openai-puts-usd1-billion-behind-cyber-defense-after-unveiling-ai-that-can-find-zero-days",
-      "publishedAt": "2026-09-04T05:49:43.000Z"
-    },
-    {
-      "country": "GLOBAL",
-      "flag": "🌍",
-      "tag": "marche",
-      "tagLabel": "Marché",
-      "title": "One full bitcoin now buys a little more than 18 ounces of gold, the most since January",
-      "summary": "Bitcoin is pulling ahead of gold even as both hard assets rally together, driven by fears that governments will inflate away their debt rather than by bond yields.",
-      "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/09/04/one-full-bitcoin-now-buys-a-little-more-than-18-ounces-of-gold-the-most-since-january",
-      "publishedAt": "2026-09-04T05:10:34.000Z"
-    },
-    {
-      "country": "GLOBAL",
-      "flag": "🌍",
-      "tag": "marche",
-      "tagLabel": "Marché",
-      "title": "Bitcoin back above $81,000 as hike odds fade, Zcash leads with 15% jump",
-      "summary": "Every major token gained on Friday as traders cut bets on a September Federal Reserve rate increase to a coin flip, though most of the majors are barely changed on the week.",
-      "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/09/04/bitcoin-back-above-usd81-000-as-hike-odds-fade-zcash-leads-with-15-jump",
-      "publishedAt": "2026-09-04T04:22:01.000Z"
-    },
-    {
-      "country": "GLOBAL",
-      "flag": "🌍",
-      "tag": "marche",
-      "tagLabel": "Marché",
-      "title": "U.S. banking agency gives blockchain bank OpenReserve initial OK to operate",
-      "summary": "The Office of the Comptroller of the Currency granted a provisional charter to the new full-service bank, adding it to the growing mix of crypto-native institutions.",
-      "source": "CoinDesk",
-      "link": "https://www.coindesk.com/policy/2026/09/03/u-s-banking-agency-gives-blockchain-bank-openreserve-initial-ok-to-operate",
-      "publishedAt": "2026-09-04T03:26:50.000Z"
     },
     {
       "country": "EU",
