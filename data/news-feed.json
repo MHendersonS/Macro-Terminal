@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-09-06T09:08:17.812Z",
+  "fetchedAt": "2026-09-07T09:55:49.425Z",
   "failed": [],
   "items": [
     {
@@ -8,55 +8,55 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Timing the bitcoin market is exciting but nearly impossible. Here's why",
-      "summary": "A historical analysis of bitcoin price performance from 2010 through 2026 demonstrates that the vast majority of the asset's annual returns occur during a tiny fraction of the calendar year.",
+      "title": "Bitcoin struggles at $83,000 sell wall as whales distribution flip into net selling",
+      "summary": "All wallet cohorts have shifted into net distribution for the first time since early June, but a potential golden cross offers bulls some hope.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/09/05/why-crypto-experts-say-buying-and-holding-bitcoin-easily-beats-trying-to-time-the-market",
-      "publishedAt": "2026-09-05T18:05:11.000Z"
+      "link": "https://www.coindesk.com/markets/2026/09/07/bitcoin-investors-turn-to-selling-as-usd83-000-resistance-holds",
+      "publishedAt": "2026-09-07T09:48:51.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Dollar-backed stablecoins can push local currencies lower, Bank of Korea study finds",
-      "summary": "Buying pressure in Binance-paired currencies correlates with local currency depreciation as market makers balance positions.",
+      "title": "Coldcard hacker moves $7.7 million in BTC, 45% of bitcoin stolen in third attack wave",
+      "summary": "The attacker has now drained the 11 largest vaults tied to the third wave of Coldcard thefts, Galaxy Research said.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/09/05/dollar-backed-stablecoins-can-push-local-currencies-lower-bank-of-korea-study-finds",
-      "publishedAt": "2026-09-05T16:43:13.000Z"
+      "link": "https://www.coindesk.com/business/2026/09/07/coldcard-hacker-moves-45-of-bitcoin-stolen-in-third-attack-wave",
+      "publishedAt": "2026-09-07T09:32:05.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "British investor thought he lost $2,000 in bitcoin in 2012. He just recovered $4.5 million",
-      "summary": "CEL Solicitors says it has identified a wallet holding more than 5,500 BTC linked to former Intersango users.",
+      "title": "No, Friday's jobs report hasn't materially boosted Fed rate hike odds",
+      "summary": "BTC fell on Friday and Treasury yields rose, but the hawkish market reaction looks overdone when compared to the largely steady Fed rate hike odds.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/09/02/british-investor-thought-he-lost-usd2-000-in-bitcoin-in-2012-he-just-recovered-usd4-5-million",
-      "publishedAt": "2026-09-05T12:00:00.000Z"
+      "link": "https://www.coindesk.com/markets/2026/09/07/no-friday-s-jobs-report-hasn-t-materially-boost-fed-rate-hike-odds",
+      "publishedAt": "2026-09-07T08:38:17.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "XRP Ledger has fewer active accounts than last year, but bigger trades and more value",
-      "summary": "Daily order-book traders fell about 40% from a year ago while volume rose 79%, as the value held on XRPL climbed above $4 billion.",
+      "title": "Live updates: Bitcoin holds $79,000 as hike odds climb, zcash runs 45% in a week",
+      "summary": "August payrolls came in three times above forecast and pushed September hike odds toward 58%. Equities sold it and crypto has not.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/09/05/xrp-ledger-has-fewer-active-accounts-but-bigger-trades-and-more-value",
-      "publishedAt": "2026-09-05T05:30:45.000Z"
+      "link": "https://www.coindesk.com/business/2026/09/07/live-updates-bitcoin-holds-usd79-000-as-hike-odds-climb-zcash-runs-45-in-a-week",
+      "publishedAt": "2026-09-07T08:17:12.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Southeast Asia’s crypto funding rebounds to $680 million as investors focus on mature firms",
-      "summary": "Blockchain investment in Southeast Asia in 2026 has been led by crypto financial services, though funding remains heavily concentrated in Singapore and a handful of companies.",
+      "title": "U.S. inflation, Coinbase’s Deribit switch: Crypto Week Ahead",
+      "summary": "Your look at what's coming in the week starting Sept. 7.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/09/05/southeast-asia-s-crypto-funding-rebounds-to-usd680-million-as-investors-focus-on-mature-firms",
-      "publishedAt": "2026-09-05T05:00:00.000Z"
+      "link": "https://www.coindesk.com/markets/2026/09/07/u-s-inflation-coinbase-s-deribit-switch-crypto-week-ahead",
+      "publishedAt": "2026-09-07T08:07:05.000Z"
     },
     {
       "country": "EU",
