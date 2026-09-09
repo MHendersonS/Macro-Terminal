@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-09-08T09:20:23.645Z",
+  "fetchedAt": "2026-09-09T09:22:47.837Z",
   "failed": [],
   "items": [
     {
@@ -8,55 +8,66 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Live updates: Yen rally and rising bond yields pressure bitcoin and risk assets",
-      "summary": "Bitcoin, gold and technology stocks fall as the yen rallies, while oil prices and government bond yields climb globally.",
+      "title": "India’s financial intelligence unit flags 15 crypto platforms for AML lapses",
+      "summary": "The Financial Intelligence Unit-India (FIU-IND) issued non-compliance notices to what it calls virtual digital asset service providers.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/tech/2026/09/08/live-updates",
-      "publishedAt": "2026-09-08T08:30:30.000Z"
+      "link": "https://www.coindesk.com/policy/2026/09/09/india-s-financial-intelligence-unit-flags-15-crypto-platforms-for-aml-lapses",
+      "publishedAt": "2026-09-09T08:17:54.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bit2Me sets up specialized unit to help law enforcement track down crypto assets",
-      "summary": "The unit formalizes past operations, building on 1.5 million euros in seized crypto the exchange processed in 2025 for agencies including Interpol and Europol.",
+      "title": "Live updates: Brent crude hits $100 for first time since July as bitcoin holds above $79,000",
+      "summary": "Japanese yen extends its rally against the U.S. dollar, briefly strengthening past 153 per dollar.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/09/02/bit2me-sets-up-specialized-unit-to-help-law-enforcement-track-down-crypto-assets",
-      "publishedAt": "2026-09-08T07:00:00.000Z"
+      "link": "https://www.coindesk.com/business/2026/09/09/live-updates-xrp-funds-stand-out-among-u-s-etfs-as-bitcoin-ether-solana-funds-see-outflows",
+      "publishedAt": "2026-09-09T07:20:51.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Hunter Biden wants to launch a LAPTOP memecoin. Crypto traders hate it already",
-      "summary": "Kraken deleted a promotional post after backlash, while a media group named in the token's distribution publicly distanced itself from the project.",
+      "title": "Anthropic researcher quits with a warning on AI that echoes 'The Terminator' script",
+      "summary": "The people building AI earnestly believe that it could kill us all by the end of the decade, Coxon said on X, explaining his resignation.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/09/08/crypto-traders-turn-on-hunter-biden-s-laptop-memecoin-before-it-even-launches",
-      "publishedAt": "2026-09-08T06:23:53.000Z"
+      "link": "https://www.coindesk.com/markets/2026/09/09/anthropic-researcher-quits-with-a-warning-on-ai-that-echoes-the-terminator-script",
+      "publishedAt": "2026-09-09T06:20:38.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin’s golden cross is here",
-      "summary": "A golden cross has triggered on bitcoin's daily price chart, indicating a potential long-term bullish trend ahead.",
+      "title": "Hunter Biden defends LAPTOP ahead of Wednesday launch, calls TRUMP a ‘grift’",
+      "summary": "Biden says the token is about “resilience, redemption and recovery” and will give coins to nearly one million wallets that lost money on TRUMP.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/09/08/bitcoin-s-golden-cross-is-here",
-      "publishedAt": "2026-09-08T05:56:23.000Z"
+      "link": "https://www.coindesk.com/markets/2026/09/09/hunter-biden-defends-laptop-ahead-of-wednesday-launch-calls-trump-a-grift",
+      "publishedAt": "2026-09-09T05:22:57.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Liquid Network gets back 3,400 bitcoin from whitehat hackers; talks underway for the rest",
-      "summary": "Supposed whitehat hackers behind Sunday’s Liquid Network breach have returned 3,400 of the 4,000 BTC they took, but nearly $47 million in bitcoin is still outstanding.",
+      "title": "Moonshot’s Kimi rattled markets. U.S. agencies now say it was trained on American models",
+      "summary": "Moonshot, whose Kimi model rattled markets earlier this year, is among six Chinese AI firms accused of systematically extracting capabilities from U.S. models.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/09/08/white-hat-hackers-return-most-of-usd320m-bitcoin-taken-from-liquid-network",
-      "publishedAt": "2026-09-08T04:41:17.000Z"
+      "link": "https://www.coindesk.com/tech/2026/09/09/moonshot-s-kimi-rattled-markets-u-s-agencies-now-say-it-was-trained-on-american-models",
+      "publishedAt": "2026-09-09T04:40:54.000Z"
+    },
+    {
+      "country": "EU",
+      "flag": "🇪🇺",
+      "tag": "bank",
+      "tagLabel": "Banque centrale",
+      "title": "Frank Elderson: Fireside chat",
+      "summary": "",
+      "source": "Banque centrale européenne",
+      "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260908~3652aa828f.en.html",
+      "publishedAt": "2026-09-08T15:00:00.000Z"
     },
     {
       "country": "EU",
@@ -101,17 +112,6 @@
       "source": "Banque centrale européenne",
       "link": "https://www.ecb.europa.eu//press/accounts/2026/html/ecb.mg260827~f06c21fd54.en.html",
       "publishedAt": "2026-08-27T11:30:00.000Z"
-    },
-    {
-      "country": "EU",
-      "flag": "🇪🇺",
-      "tag": "bank",
-      "tagLabel": "Banque centrale",
-      "title": "Piero Cipollone: From vision to delivery: building Europe’s tokenised financial market",
-      "summary": "",
-      "source": "Banque centrale européenne",
-      "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260826~3641116314.en.html",
-      "publishedAt": "2026-08-26T10:15:00.000Z"
     }
   ]
 }
