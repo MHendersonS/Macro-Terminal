@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-09-20T09:34:46.085Z",
+  "fetchedAt": "2026-09-21T10:22:36.829Z",
   "failed": [],
   "items": [
     {
@@ -8,55 +8,77 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Clarity Act, we hardly knew ye: We look at what was in the bill and what's replacing it",
-      "summary": "U.S. agencies are racing to substitute their regulations for the law that was meant to set crypto markets in governmental bedrock, but will the stand-ins last?",
+      "title": "X sues its own users for running a fake bitcoin news bot farm",
+      "summary": "X has sued Vivek Kumar Sen and Zmyang Sherpa for running fake bitcoin headline accounts to fraudulently earn creator rewards from the platform.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/news-analysis/2026/09/18/clarity-act-we-hardly-knew-ye-we-look-at-what-was-in-the-bill-and-what-s-replacing-it",
-      "publishedAt": "2026-09-19T16:00:00.000Z"
+      "link": "https://www.coindesk.com/markets/2026/09/21/x-sues-its-won-users-for-running-a-fake-bitcoin-news-bot-farm",
+      "publishedAt": "2026-09-21T10:15:44.000Z"
+    },
+    {
+      "country": "EU",
+      "flag": "🇪🇺",
+      "tag": "bank",
+      "tagLabel": "Banque centrale",
+      "title": "ECB to invest part of own funds in tokenised securities, with settlement via Pontes",
+      "summary": "",
+      "source": "Banque centrale européenne",
+      "link": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260921_1~5a011ecbea.en.html",
+      "publishedAt": "2026-09-21T10:00:00.000Z"
+    },
+    {
+      "country": "EU",
+      "flag": "🇪🇺",
+      "tag": "bank",
+      "tagLabel": "Banque centrale",
+      "title": "Eurosystem brings central bank money to tokenised finance",
+      "summary": "",
+      "source": "Banque centrale européenne",
+      "link": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260921~e754847a7b.en.html",
+      "publishedAt": "2026-09-21T10:00:00.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "'We have lost control': Crypto pioneer warns AI could trigger systemic banking and infrastructure shocks",
-      "summary": "Marc van der Chijs sold much of his bitcoin to invest in AI. Now, growing concerns about the technology accompany a move to put some profits back into crypto.",
+      "title": "Crypto enjoys bullish bounce post-Fed rate hike: Crypto Week Ahead",
+      "summary": "Your look at what's coming in the week starting Sept. 21.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/09/17/we-have-lost-control-crypto-pioneer-warns-ai-could-trigger-systemic-banking-and-infrastructure-shocks",
-      "publishedAt": "2026-09-19T14:00:00.000Z"
+      "link": "https://www.coindesk.com/markets/2026/09/21/crypto-week-ahead",
+      "publishedAt": "2026-09-21T09:12:42.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Ripple says asset managers are preparing for XRP Ledger’s next payments upgrade",
-      "summary": "The upcoming Batch V1.1 can make linked asset and payment transfers succeed together or fail together, and Ripple says commercial projects are already being built around the feature after an extensive security review.",
+      "title": "Hana Bank issues South Korea’s first digital bond using Euroclear’s blockchain",
+      "summary": "South Korea's second-largest bank’s $100 million foreign-currency bond blockchain issuance shortened settlement time to the same day from three to five business days.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/tech/2026/09/19/ripple-says-asset-managers-are-preparing-for-xrp-ledger-s-next-payments-upgrade",
-      "publishedAt": "2026-09-19T13:39:15.000Z"
+      "link": "https://www.coindesk.com/business/2026/09/21/hana-bank-issues-south-korea-s-first-digital-bond-using-euroclear-s-blockchain",
+      "publishedAt": "2026-09-21T08:49:59.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "'The orange tie stays': Michael Saylor responds to venture capitalist's bitcoin obituary",
-      "summary": "\"Bitcoin feels like the CD in the age of Spotify, the DVD in the age of Netflix,\" wrote Jason Calacanis.",
+      "title": "Live updates: Bitcoin hits $85,000 as short liquidations hit $300 million in an hour",
+      "summary": "Crypto majors climbed alongside equity futures on Monday, with Monero's XMR up 13%, as Brent fell for a fourth straight session and traders positioned ahead of a Trump-Xi summit later this week.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/09/19/the-orange-tie-stays-michael-saylor-responds-to-venture-capitalist-s-bitcoin-obituary",
-      "publishedAt": "2026-09-19T12:13:57.000Z"
+      "link": "https://www.coindesk.com/business/2026/09/21/live-updates-bitcoin-rises-above-usd82-000-as-falling-oil-lifts-risk-assets",
+      "publishedAt": "2026-09-21T08:39:26.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Robinhood Chain fees collapse 97% even as transactions stay near record highs",
-      "summary": "Seven-day average fees fell 82% while transaction counts slipped 6%, with about $1.5 billion a day still changing hands.",
+      "title": "Kalshi faces ‘fake crypto volume’ allegations as critic flags identical $5,500 trades",
+      "summary": "A trader alleged on X that Kalshi is inflating trading volumes in its ether perpetual futures.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/09/19/robinhood-chain-fees-collapse-97-even-as-transactions-stay-near-record-highs",
-      "publishedAt": "2026-09-19T12:00:00.000Z"
+      "link": "https://www.coindesk.com/markets/2026/09/21/kalshi-s-crypto-chief-responds-to-fake-crypto-volume-allegations-as-critic-flags-identical-usd5-500-trades",
+      "publishedAt": "2026-09-21T06:20:47.000Z"
     },
     {
       "country": "EU",
@@ -90,28 +112,6 @@
       "source": "Banque centrale européenne",
       "link": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260916~7bc58ebef4.en.html",
       "publishedAt": "2026-09-16T08:00:00.000Z"
-    },
-    {
-      "country": "EU",
-      "flag": "🇪🇺",
-      "tag": "bank",
-      "tagLabel": "Banque centrale",
-      "title": "Christine Lagarde: A new age of capital: growth, sovereignty and AI",
-      "summary": "",
-      "source": "Banque centrale européenne",
-      "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260914_2~a3f0efbee4.en.html",
-      "publishedAt": "2026-09-14T15:15:00.000Z"
-    },
-    {
-      "country": "EU",
-      "flag": "🇪🇺",
-      "tag": "bank",
-      "tagLabel": "Banque centrale",
-      "title": "Piero Cipollone: The future of euro cash: trusted today, designed for tomorrow",
-      "summary": "",
-      "source": "Banque centrale européenne",
-      "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260914_1~91d3436449.en.html",
-      "publishedAt": "2026-09-14T13:00:00.000Z"
     }
   ]
 }
