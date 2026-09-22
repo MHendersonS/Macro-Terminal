@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-09-21T10:22:36.829Z",
+  "fetchedAt": "2026-09-22T09:36:51.583Z",
   "failed": [],
   "items": [
     {
@@ -8,11 +8,66 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "X sues its own users for running a fake bitcoin news bot farm",
-      "summary": "X has sued Vivek Kumar Sen and Zmyang Sherpa for running fake bitcoin headline accounts to fraudulently earn creator rewards from the platform.",
+      "title": "Spot bitcoin ETFs attracted nearly $1 billion on Monday, the 9th largest inflow ever",
+      "summary": "Inflows into spot bitcoin ETFs picked up Monday as bitcoin rallied to its highest since January.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/09/21/x-sues-its-won-users-for-running-a-fake-bitcoin-news-bot-farm",
-      "publishedAt": "2026-09-21T10:15:44.000Z"
+      "link": "https://www.coindesk.com/markets/2026/09/22/spot-bitcoin-etfs-attracted-nearly-usd1-billion-on-monday-the-9th-largest-inflow-ever",
+      "publishedAt": "2026-09-22T07:40:41.000Z"
+    },
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "Whitehats move 52 bitcoin from the Coldcard hack to a recovery trust",
+      "summary": "According to Galaxy Digital, the good guys have moved 52 BTC to an address carrying an OP_RETURN message reading \"claim:cryptorecoverytrust dot com.\"",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/markets/2026/09/22/whitehats-move-52-bitcoin-from-the-coldcard-hack-to-a-recovery-trust",
+      "publishedAt": "2026-09-22T06:27:28.000Z"
+    },
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "Elon Musk's X brings bitcoin and stock trading closer to the timeline",
+      "summary": "Elon Musk’s X lets U.S. users tap cashtags such as $BTC to view live charts and access Coinbase, Kraken and other trading platforms.",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/markets/2026/09/22/elon-musk-s-x-brings-bitcoin-and-stock-trading-closer-to-the-timeline",
+      "publishedAt": "2026-09-22T05:26:00.000Z"
+    },
+    {
+      "country": "EU",
+      "flag": "🇪🇺",
+      "tag": "bank",
+      "tagLabel": "Banque centrale",
+      "title": "Philip R. Lane: Interview with Le Temps",
+      "summary": "",
+      "source": "Banque centrale européenne",
+      "link": "https://www.ecb.europa.eu//press/inter/date/2026/html/ecb.in260922~5f89d300ee.en.html",
+      "publishedAt": "2026-09-22T05:00:00.000Z"
+    },
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "Dogecoin leads market rebound with 15% pump, bitcoin steady above $85,000",
+      "summary": "A wave of forced buying that cost short sellers $844 million has run its course, leaving the largest cryptocurrency flat over the past hour and ZEC the only major token in the red.",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/markets/2026/09/22/dogecoin-leads-market-rebound-with-15-pump-bitcoin-steady-above-usd85-000",
+      "publishedAt": "2026-09-22T04:33:11.000Z"
+    },
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "Cardano joins Solana, XRP Ledger in race to power AI agent payments",
+      "summary": "The official x402 kit now includes Cardano tools for apps and AI agents to pay with ADA and other network tokens, though the facilitator has so far only been tested on pre-production.",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/tech/2026/09/21/cardano-joins-solana-xrp-ledger-in-race-to-power-ai-agent-payments",
+      "publishedAt": "2026-09-22T04:15:45.000Z"
     },
     {
       "country": "EU",
@@ -37,50 +92,6 @@
       "publishedAt": "2026-09-21T10:00:00.000Z"
     },
     {
-      "country": "GLOBAL",
-      "flag": "🌍",
-      "tag": "marche",
-      "tagLabel": "Marché",
-      "title": "Crypto enjoys bullish bounce post-Fed rate hike: Crypto Week Ahead",
-      "summary": "Your look at what's coming in the week starting Sept. 21.",
-      "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/09/21/crypto-week-ahead",
-      "publishedAt": "2026-09-21T09:12:42.000Z"
-    },
-    {
-      "country": "GLOBAL",
-      "flag": "🌍",
-      "tag": "marche",
-      "tagLabel": "Marché",
-      "title": "Hana Bank issues South Korea’s first digital bond using Euroclear’s blockchain",
-      "summary": "South Korea's second-largest bank’s $100 million foreign-currency bond blockchain issuance shortened settlement time to the same day from three to five business days.",
-      "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/09/21/hana-bank-issues-south-korea-s-first-digital-bond-using-euroclear-s-blockchain",
-      "publishedAt": "2026-09-21T08:49:59.000Z"
-    },
-    {
-      "country": "GLOBAL",
-      "flag": "🌍",
-      "tag": "marche",
-      "tagLabel": "Marché",
-      "title": "Live updates: Bitcoin hits $85,000 as short liquidations hit $300 million in an hour",
-      "summary": "Crypto majors climbed alongside equity futures on Monday, with Monero's XMR up 13%, as Brent fell for a fourth straight session and traders positioned ahead of a Trump-Xi summit later this week.",
-      "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/09/21/live-updates-bitcoin-rises-above-usd82-000-as-falling-oil-lifts-risk-assets",
-      "publishedAt": "2026-09-21T08:39:26.000Z"
-    },
-    {
-      "country": "GLOBAL",
-      "flag": "🌍",
-      "tag": "marche",
-      "tagLabel": "Marché",
-      "title": "Kalshi faces ‘fake crypto volume’ allegations as critic flags identical $5,500 trades",
-      "summary": "A trader alleged on X that Kalshi is inflating trading volumes in its ether perpetual futures.",
-      "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/09/21/kalshi-s-crypto-chief-responds-to-fake-crypto-volume-allegations-as-critic-flags-identical-usd5-500-trades",
-      "publishedAt": "2026-09-21T06:20:47.000Z"
-    },
-    {
       "country": "EU",
       "flag": "🇪🇺",
       "tag": "bank",
@@ -101,17 +112,6 @@
       "source": "Banque centrale européenne",
       "link": "https://www.ecb.europa.eu//press/inter/date/2026/html/ecb.in260918~33f023fe26.en.html",
       "publishedAt": "2026-09-18T06:00:00.000Z"
-    },
-    {
-      "country": "EU",
-      "flag": "🇪🇺",
-      "tag": "bank",
-      "tagLabel": "Banque centrale",
-      "title": "ECB wage tracker at 2.7% in H1 2027, pointing to a modest uptick in negotiated wage growth",
-      "summary": "",
-      "source": "Banque centrale européenne",
-      "link": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260916~7bc58ebef4.en.html",
-      "publishedAt": "2026-09-16T08:00:00.000Z"
     }
   ]
 }

@@ -2,9 +2,8 @@
   "indicator": "unemployment_rate",
   "unit": "%",
   "source": "OCDE — DF_IALFS_UNE_M (taux de chômage mensuel, 15 ans et plus)",
-  "fetchedAt": "2026-09-21T10:22:25.983Z",
+  "fetchedAt": "2026-09-22T09:36:41.365Z",
   "failed": [
-    "JP",
     "NZ",
     "CH"
   ],
@@ -529,6 +528,180 @@
       {
         "period": "2026-07",
         "value": 4
+      }
+    ],
+    "JP": [
+      {
+        "period": "2023-01",
+        "value": 2.5
+      },
+      {
+        "period": "2023-02",
+        "value": 2.6
+      },
+      {
+        "period": "2023-03",
+        "value": 2.7
+      },
+      {
+        "period": "2023-04",
+        "value": 2.6
+      },
+      {
+        "period": "2023-05",
+        "value": 2.5
+      },
+      {
+        "period": "2023-06",
+        "value": 2.5
+      },
+      {
+        "period": "2023-07",
+        "value": 2.6
+      },
+      {
+        "period": "2023-08",
+        "value": 2.6
+      },
+      {
+        "period": "2023-09",
+        "value": 2.6
+      },
+      {
+        "period": "2023-10",
+        "value": 2.5
+      },
+      {
+        "period": "2023-11",
+        "value": 2.6
+      },
+      {
+        "period": "2023-12",
+        "value": 2.5
+      },
+      {
+        "period": "2024-01",
+        "value": 2.5
+      },
+      {
+        "period": "2024-02",
+        "value": 2.6
+      },
+      {
+        "period": "2024-03",
+        "value": 2.6
+      },
+      {
+        "period": "2024-04",
+        "value": 2.6
+      },
+      {
+        "period": "2024-05",
+        "value": 2.6
+      },
+      {
+        "period": "2024-06",
+        "value": 2.5
+      },
+      {
+        "period": "2024-07",
+        "value": 2.7
+      },
+      {
+        "period": "2024-08",
+        "value": 2.5
+      },
+      {
+        "period": "2024-09",
+        "value": 2.4
+      },
+      {
+        "period": "2024-10",
+        "value": 2.5
+      },
+      {
+        "period": "2024-11",
+        "value": 2.5
+      },
+      {
+        "period": "2024-12",
+        "value": 2.5
+      },
+      {
+        "period": "2025-01",
+        "value": 2.5
+      },
+      {
+        "period": "2025-02",
+        "value": 2.4
+      },
+      {
+        "period": "2025-03",
+        "value": 2.5
+      },
+      {
+        "period": "2025-04",
+        "value": 2.5
+      },
+      {
+        "period": "2025-05",
+        "value": 2.5
+      },
+      {
+        "period": "2025-06",
+        "value": 2.5
+      },
+      {
+        "period": "2025-07",
+        "value": 2.4
+      },
+      {
+        "period": "2025-08",
+        "value": 2.6
+      },
+      {
+        "period": "2025-09",
+        "value": 2.6
+      },
+      {
+        "period": "2025-10",
+        "value": 2.6
+      },
+      {
+        "period": "2025-11",
+        "value": 2.6
+      },
+      {
+        "period": "2025-12",
+        "value": 2.6
+      },
+      {
+        "period": "2026-01",
+        "value": 2.7
+      },
+      {
+        "period": "2026-02",
+        "value": 2.6
+      },
+      {
+        "period": "2026-03",
+        "value": 2.7
+      },
+      {
+        "period": "2026-04",
+        "value": 2.5
+      },
+      {
+        "period": "2026-05",
+        "value": 2.5
+      },
+      {
+        "period": "2026-06",
+        "value": 2.5
+      },
+      {
+        "period": "2026-07",
+        "value": 2.4
       }
     ],
     "GB": [
