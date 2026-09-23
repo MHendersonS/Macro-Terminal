@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-09-22T09:36:51.583Z",
+  "fetchedAt": "2026-09-23T09:47:30.856Z",
   "failed": [],
   "items": [
     {
@@ -8,33 +8,55 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Spot bitcoin ETFs attracted nearly $1 billion on Monday, the 9th largest inflow ever",
-      "summary": "Inflows into spot bitcoin ETFs picked up Monday as bitcoin rallied to its highest since January.",
+      "title": "AI agents will soon buy their own computing power and data using stablecoins, according to BlackRock",
+      "summary": "The asset manager sees payments as the nearer-term opportunity, while markets for computing capacity remain at an early stage",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/09/22/spot-bitcoin-etfs-attracted-nearly-usd1-billion-on-monday-the-9th-largest-inflow-ever",
-      "publishedAt": "2026-09-22T07:40:41.000Z"
+      "link": "https://www.coindesk.com/markets/2026/09/23/ai-agents-will-soon-buy-their-own-computing-power-and-data-using-stablecoins-according-to-blackrock",
+      "publishedAt": "2026-09-23T09:17:53.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Whitehats move 52 bitcoin from the Coldcard hack to a recovery trust",
-      "summary": "According to Galaxy Digital, the good guys have moved 52 BTC to an address carrying an OP_RETURN message reading \"claim:cryptorecoverytrust dot com.\"",
+      "title": "Coinbase users can now borrow USDC against bitcoin at a fixed rate",
+      "summary": "Coinbase now allows users to borrow the USDC stablecoin against their bitcoin at a fixed interest rate and repayment date.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/09/22/whitehats-move-52-bitcoin-from-the-coldcard-hack-to-a-recovery-trust",
-      "publishedAt": "2026-09-22T06:27:28.000Z"
+      "link": "https://www.coindesk.com/markets/2026/09/23/coinbase-users-can-now-borrow-usdc-against-bitcoin-at-a-fixed-rate",
+      "publishedAt": "2026-09-23T07:49:23.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Elon Musk's X brings bitcoin and stock trading closer to the timeline",
-      "summary": "Elon Musk’s X lets U.S. users tap cashtags such as $BTC to view live charts and access Coinbase, Kraken and other trading platforms.",
+      "title": "XRP Ledger retries upgrade that lets banks split payment and compliance duties",
+      "summary": "The upgrade could activate Oct. 5, letting businesses give another account limited powers such as making payments or approving customers without handing over full control.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/09/22/elon-musk-s-x-brings-bitcoin-and-stock-trading-closer-to-the-timeline",
-      "publishedAt": "2026-09-22T05:26:00.000Z"
+      "link": "https://www.coindesk.com/tech/2026/09/23/xrp-ledger-retries-upgrade-that-lets-banks-split-payment-and-compliance-duties",
+      "publishedAt": "2026-09-23T07:37:46.000Z"
+    },
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "Solana starts testing upgrade that could cut finality from 12.8 seconds to 150 milliseconds",
+      "summary": "Alpenglow would let exchanges, bridges and merchants treat payments as irreversible almost immediately.",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/tech/2026/09/23/solana-starts-testing-upgrade-that-could-cut-finality-from-12-8-seconds-to-150-milliseconds",
+      "publishedAt": "2026-09-23T05:16:22.000Z"
+    },
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "Bitcoin's on a streak it hasn't hit since 2012",
+      "summary": "Bitcoin’s 10% September gain puts it on track for a rare three-month winning streak last seen in 2012.",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/markets/2026/09/23/bitcoin-s-on-a-streak-it-hasn-t-hit-since-2012",
+      "publishedAt": "2026-09-23T05:12:42.000Z"
     },
     {
       "country": "EU",
@@ -46,28 +68,6 @@
       "source": "Banque centrale européenne",
       "link": "https://www.ecb.europa.eu//press/inter/date/2026/html/ecb.in260922~5f89d300ee.en.html",
       "publishedAt": "2026-09-22T05:00:00.000Z"
-    },
-    {
-      "country": "GLOBAL",
-      "flag": "🌍",
-      "tag": "marche",
-      "tagLabel": "Marché",
-      "title": "Dogecoin leads market rebound with 15% pump, bitcoin steady above $85,000",
-      "summary": "A wave of forced buying that cost short sellers $844 million has run its course, leaving the largest cryptocurrency flat over the past hour and ZEC the only major token in the red.",
-      "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/09/22/dogecoin-leads-market-rebound-with-15-pump-bitcoin-steady-above-usd85-000",
-      "publishedAt": "2026-09-22T04:33:11.000Z"
-    },
-    {
-      "country": "GLOBAL",
-      "flag": "🌍",
-      "tag": "marche",
-      "tagLabel": "Marché",
-      "title": "Cardano joins Solana, XRP Ledger in race to power AI agent payments",
-      "summary": "The official x402 kit now includes Cardano tools for apps and AI agents to pay with ADA and other network tokens, though the facilitator has so far only been tested on pre-production.",
-      "source": "CoinDesk",
-      "link": "https://www.coindesk.com/tech/2026/09/21/cardano-joins-solana-xrp-ledger-in-race-to-power-ai-agent-payments",
-      "publishedAt": "2026-09-22T04:15:45.000Z"
     },
     {
       "country": "EU",
