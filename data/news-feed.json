@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-09-25T10:00:13.417Z",
+  "fetchedAt": "2026-09-26T09:41:15.400Z",
   "failed": [],
   "items": [
     {
@@ -8,55 +8,55 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin ETFs have erased a $5.8 billion hole",
-      "summary": "At one point in July, ETFs were down $5.8 billion in net outflows for the year. Now, that’s turned into $800 million in net inflows.",
+      "title": "Solana’s 150-millisecond settlement upgrade reaches second public test network",
+      "summary": "Alpenglow is running on both public test networks, giving application teams a place to check their software before the live blockchain switches.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/09/25/bitcoin-etfs-have-erased-a-usd5-8-billion-hole",
-      "publishedAt": "2026-09-25T09:13:01.000Z"
+      "link": "https://www.coindesk.com/tech/2026/09/26/solana-s-150-millisecond-settlement-upgrade-reaches-second-public-test-network",
+      "publishedAt": "2026-09-26T05:00:00.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "KelpDAO sues LayerZero for the largest exploit 2026 has seen so far",
-      "summary": "The cross-chain lending protocol accused LayerZero and its co-founder Brian Pellegrino of failing to disclose weaknesses in their protocol, which led to the $292 million hack.",
+      "title": "XRP Ledger’s Batch upgrade slips to Oct. 9 after validator support resets",
+      "summary": "The feature would let users bundle up to eight transactions, including asset-and-payment transfers, but a brief drop below the network’s 80% support threshold restarted its two-week activation clock.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/09/25/kelpdao-sues-layerzero-for-the-largest-exploit-2026-has-seen-so-far",
-      "publishedAt": "2026-09-25T08:58:03.000Z"
+      "link": "https://www.coindesk.com/tech/2026/09/26/xrp-ledger-s-batch-upgrade-slips-to-oct-9-after-validator-support-resets",
+      "publishedAt": "2026-09-26T04:30:00.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Live updates: Bitcoin steadies near $84,000 as the bond selloff pauses",
-      "summary": "Treasury yields eased from multi-decade highs and oil slipped on reports of a phased U.S.-Iran deal, with roughly $14 billion in bitcoin options set to expire on Deribit on Friday.",
+      "title": "Bitcoin could soon get Zcash-style 'shielded' privacy without changing its rules",
+      "summary": "Researchers have mapped out private bitcoin-denominated transfers that run alongside Bitcoin, but the system still lacks a finished way to lock up real BTC and release it again.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/09/25/live-updates-bitcoin-steadies-near-usd84-000-as-the-bond-selloff-pauses",
-      "publishedAt": "2026-09-25T07:09:11.000Z"
+      "link": "https://www.coindesk.com/tech/2026/09/26/bitcoin-could-soon-get-zcash-style-shielded-privacy-without-changing-its-rules",
+      "publishedAt": "2026-09-26T04:02:13.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitget's $352 million hack happened via spoofed transfers, not private keys, CEO Gracy Chen says",
-      "summary": "Bitget lost $351.6 million after attackers compromised a wallet backend, spoofed transaction data, Chen said on X.",
+      "title": "U.S. SEC's steadiest crypto advocate, Hester Peirce, to depart next week",
+      "summary": "The long-anticipated exit of the commissioner sometimes known as Crypto Mom is Oct. 2, announced as the agency was sending out its latest crypto work.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/09/25/bitget-s-usd351-million-hack-happened-via-spoofed-transfers-not-private-keys-ceo-gray-chen-says",
-      "publishedAt": "2026-09-25T04:29:34.000Z"
+      "link": "https://www.coindesk.com/policy/2026/09/25/u-s-sec-s-steadiest-crypto-advocate-hester-peirce-to-depart-next-week",
+      "publishedAt": "2026-09-25T22:17:38.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "New York sues Polymarket, alleging it is running an illegal gambling operation",
-      "summary": "The state wants to block Polymarket from operating without a gambling license and recover allegedly illegal gains.",
+      "title": "Another appeals court rules against prediction market provider Kalshi, says sports contracts are subject to state regulations",
+      "summary": "A Sixth Circuit Court of Appeals panel ruled that prediction markets' sports-related events contracts are not swaps, and therefore aren't subject to federal regulatory oversight.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/policy/2026/09/24/new-york-sues-polymarket-alleging-it-is-running-an-illegal-gambling-operation",
-      "publishedAt": "2026-09-24T22:41:44.000Z"
+      "link": "https://www.coindesk.com/policy/2026/09/25/another-appeals-court-rules-against-prediction-market-provider-kalshi-says-sports-contracts-are-subject-to-state-regulations",
+      "publishedAt": "2026-09-25T21:17:30.000Z"
     },
     {
       "country": "EU",
