@@ -1,8 +1,52 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-09-26T09:41:15.400Z",
+  "fetchedAt": "2026-09-27T10:20:46.998Z",
   "failed": [],
   "items": [
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "Kraken’s parent Payward is betting billions on becoming financial infrastructure, not just a crypto exchange",
+      "summary": "Kraken parent Payward is unifying trading, payments, asset management and institutional services on common rails, co-CEO Arjun Sethi said.",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/business/2026/09/26/kraken-s-parent-payward-is-betting-billions-on-becoming-financial-infrastructure-not-just-a-crypto-exchange",
+      "publishedAt": "2026-09-26T14:00:00.000Z"
+    },
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "Binance deal gives Circle a boost in stablecoin race with Tether, analysts say",
+      "summary": "The five-year deal could strengthen USDC’s reach in emerging markets, though Tether’s liquidity advantage remains hard to dislodge, analysts told CoinDesk.",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/business/2026/09/26/binance-deal-gives-circle-a-boost-in-stablecoin-race-with-tether-analysts-say",
+      "publishedAt": "2026-09-26T13:00:00.000Z"
+    },
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "Bitget hacker moves $83 million in stolen XRP that Ripple cannot freeze",
+      "summary": "Two wallets have been almost emptied and a third is being drained, with about $75 million remaining across the five original holding accounts.",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/markets/2026/09/26/bitget-hacker-moves-usd83-million-in-stolen-xrp-that-ripple-cannot-freeze",
+      "publishedAt": "2026-09-26T12:56:41.000Z"
+    },
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "Bitcoin could soon get Zcash-style 'shielded' privacy without changing its rules",
+      "summary": "Researchers have mapped out private bitcoin-denominated transfers that run alongside Bitcoin, but the system still lacks a finished way to lock up real BTC and release it again.",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/tech/2026/09/25/bitcoin-could-soon-get-zcash-style-shielded-privacy-without-changing-its-rules",
+      "publishedAt": "2026-09-26T12:00:00.000Z"
+    },
     {
       "country": "GLOBAL",
       "flag": "🌍",
@@ -13,50 +57,6 @@
       "source": "CoinDesk",
       "link": "https://www.coindesk.com/tech/2026/09/26/solana-s-150-millisecond-settlement-upgrade-reaches-second-public-test-network",
       "publishedAt": "2026-09-26T05:00:00.000Z"
-    },
-    {
-      "country": "GLOBAL",
-      "flag": "🌍",
-      "tag": "marche",
-      "tagLabel": "Marché",
-      "title": "XRP Ledger’s Batch upgrade slips to Oct. 9 after validator support resets",
-      "summary": "The feature would let users bundle up to eight transactions, including asset-and-payment transfers, but a brief drop below the network’s 80% support threshold restarted its two-week activation clock.",
-      "source": "CoinDesk",
-      "link": "https://www.coindesk.com/tech/2026/09/26/xrp-ledger-s-batch-upgrade-slips-to-oct-9-after-validator-support-resets",
-      "publishedAt": "2026-09-26T04:30:00.000Z"
-    },
-    {
-      "country": "GLOBAL",
-      "flag": "🌍",
-      "tag": "marche",
-      "tagLabel": "Marché",
-      "title": "Bitcoin could soon get Zcash-style 'shielded' privacy without changing its rules",
-      "summary": "Researchers have mapped out private bitcoin-denominated transfers that run alongside Bitcoin, but the system still lacks a finished way to lock up real BTC and release it again.",
-      "source": "CoinDesk",
-      "link": "https://www.coindesk.com/tech/2026/09/26/bitcoin-could-soon-get-zcash-style-shielded-privacy-without-changing-its-rules",
-      "publishedAt": "2026-09-26T04:02:13.000Z"
-    },
-    {
-      "country": "GLOBAL",
-      "flag": "🌍",
-      "tag": "marche",
-      "tagLabel": "Marché",
-      "title": "U.S. SEC's steadiest crypto advocate, Hester Peirce, to depart next week",
-      "summary": "The long-anticipated exit of the commissioner sometimes known as Crypto Mom is Oct. 2, announced as the agency was sending out its latest crypto work.",
-      "source": "CoinDesk",
-      "link": "https://www.coindesk.com/policy/2026/09/25/u-s-sec-s-steadiest-crypto-advocate-hester-peirce-to-depart-next-week",
-      "publishedAt": "2026-09-25T22:17:38.000Z"
-    },
-    {
-      "country": "GLOBAL",
-      "flag": "🌍",
-      "tag": "marche",
-      "tagLabel": "Marché",
-      "title": "Another appeals court rules against prediction market provider Kalshi, says sports contracts are subject to state regulations",
-      "summary": "A Sixth Circuit Court of Appeals panel ruled that prediction markets' sports-related events contracts are not swaps, and therefore aren't subject to federal regulatory oversight.",
-      "source": "CoinDesk",
-      "link": "https://www.coindesk.com/policy/2026/09/25/another-appeals-court-rules-against-prediction-market-provider-kalshi-says-sports-contracts-are-subject-to-state-regulations",
-      "publishedAt": "2026-09-25T21:17:30.000Z"
     },
     {
       "country": "EU",
