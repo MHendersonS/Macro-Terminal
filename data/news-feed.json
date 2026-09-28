@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-09-27T10:20:46.998Z",
+  "fetchedAt": "2026-09-28T11:24:58.916Z",
   "failed": [],
   "items": [
     {
@@ -8,55 +8,55 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Kraken’s parent Payward is betting billions on becoming financial infrastructure, not just a crypto exchange",
-      "summary": "Kraken parent Payward is unifying trading, payments, asset management and institutional services on common rails, co-CEO Arjun Sethi said.",
+      "title": "Bitcoin falls to $83,000 while altcoins unwind Friday's rally",
+      "summary": "Bitcoin fell 1.7% to $83,000, though the CoinDesk 100 dropped 2.6% as Friday's biggest gainers reversed and oil climbed back above $100.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/09/26/kraken-s-parent-payward-is-betting-billions-on-becoming-financial-infrastructure-not-just-a-crypto-exchange",
-      "publishedAt": "2026-09-26T14:00:00.000Z"
+      "link": "https://www.coindesk.com/markets/2026/09/28/bitcoin-falls-to-usd83-000-while-altcoins-unwind-friday-s-rally",
+      "publishedAt": "2026-09-28T10:15:04.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Binance deal gives Circle a boost in stablecoin race with Tether, analysts say",
-      "summary": "The five-year deal could strengthen USDC’s reach in emerging markets, though Tether’s liquidity advantage remains hard to dislodge, analysts told CoinDesk.",
+      "title": "Live updates: Bitcoin sinks below $83,000 as Iran talks stall and oil climbs",
+      "summary": "ZEC led losses among major tokens as Brent pushed toward $108 and traders added to bets on another Fed rate increase ahead of this week's inflation and jobs data.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/09/26/binance-deal-gives-circle-a-boost-in-stablecoin-race-with-tether-analysts-say",
-      "publishedAt": "2026-09-26T13:00:00.000Z"
+      "link": "https://www.coindesk.com/business/2026/09/28/live-updates-bitcoin-sinks-below-usd83-000-as-iran-talks-stall-and-oil-climbs",
+      "publishedAt": "2026-09-28T10:02:37.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitget hacker moves $83 million in stolen XRP that Ripple cannot freeze",
-      "summary": "Two wallets have been almost emptied and a third is being drained, with about $75 million remaining across the five original holding accounts.",
+      "title": "Eyes on key U.S. employment data as crypto bulls take a breather: Crypto Week Ahead",
+      "summary": "Your look at what's coming in the week starting Sept. 28.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/09/26/bitget-hacker-moves-usd83-million-in-stolen-xrp-that-ripple-cannot-freeze",
-      "publishedAt": "2026-09-26T12:56:41.000Z"
+      "link": "https://www.coindesk.com/markets/2026/09/28/bitcoin-rally-takes-a-breather-ahead-of-key-u-s-employment-data-crypto-week-ahead",
+      "publishedAt": "2026-09-28T09:45:55.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin could soon get Zcash-style 'shielded' privacy without changing its rules",
-      "summary": "Researchers have mapped out private bitcoin-denominated transfers that run alongside Bitcoin, but the system still lacks a finished way to lock up real BTC and release it again.",
+      "title": "Bitcoin bears pay to bet on further declines as futures positions near yearly lows",
+      "summary": "Overall demand for leveraged exposure remains weak, marked by sliding futures open interest. The capital that's still in the market appears skewed toward bearish positions.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/tech/2026/09/25/bitcoin-could-soon-get-zcash-style-shielded-privacy-without-changing-its-rules",
-      "publishedAt": "2026-09-26T12:00:00.000Z"
+      "link": "https://www.coindesk.com/markets/2026/09/28/bitcoin-bears-pay-to-bet-on-further-declines-as-futures-positions-near-yearly-lows",
+      "publishedAt": "2026-09-28T09:29:34.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Solana’s 150-millisecond settlement upgrade reaches second public test network",
-      "summary": "Alpenglow is running on both public test networks, giving application teams a place to check their software before the live blockchain switches.",
+      "title": "RedotPay completes financial audit as it presses ahead with U.S. IPO plans",
+      "summary": "The stablecoin payments company said the audit is part of its preparations to go public, disputing an August report that the listing had been put on hold.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/tech/2026/09/26/solana-s-150-millisecond-settlement-upgrade-reaches-second-public-test-network",
-      "publishedAt": "2026-09-26T05:00:00.000Z"
+      "link": "https://www.coindesk.com/business/2026/09/28/redotpay-completes-financial-audit-as-it-presses-ahead-with-u-s-ipo-plans",
+      "publishedAt": "2026-09-28T07:50:00.000Z"
     },
     {
       "country": "EU",
