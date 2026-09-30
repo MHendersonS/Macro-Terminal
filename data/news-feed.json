@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-09-29T11:02:28.165Z",
+  "fetchedAt": "2026-09-30T10:52:46.338Z",
   "failed": [],
   "items": [
     {
@@ -8,55 +8,66 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Aave leads DeFi higher as crypto shrugs off surging bond market",
-      "summary": "Aave jumped 11% on speculation over a token burn, with 72 of 100 CoinDesk 100 constituents higher even as the 10-year Treasury yield sat at 5.234%.",
+      "title": "OpenAI, Google and Meta pledge outside AI audits under voluntary White House deal",
+      "summary": "Six companies signed a safety pact covering hacking and biological threats, with no penalties or deadline for putting the checks in place.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/09/29/aave-leads-defi-higher-as-crypto-shrugs-off-surging-treasury-yields",
-      "publishedAt": "2026-09-29T10:28:51.000Z"
+      "link": "https://www.coindesk.com/tech/2026/09/30/openai-google-and-meta-pledge-outside-ai-audits-under-voluntary-white-house-deal",
+      "publishedAt": "2026-09-30T10:43:43.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Live updates: Bitcoin rebounds above $84,000 as ETFs draw in $30 million",
-      "summary": "Ether led a modest recovery among major tokens, while ZEC extended its slide and its U.S. fund posted the only outflow among crypto ETFs on Monday.",
+      "title": "Metaplanet directors push back against shareholder fury over a controversial executive payout plan",
+      "summary": "Independent directors cite management’s financial risk and restructuring role, but leave questions about Gerovich’s exercised shares and MMXX Ventures unanswered.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/09/29/live-updates-bitcoin-rebounds-above-usd84-000-as-treasury-yields-steady",
-      "publishedAt": "2026-09-29T10:14:41.000Z"
+      "link": "https://www.coindesk.com/markets/2026/09/30/metaplanet-directors-push-back-against-shareholder-fury-over-a-controversial-executive-payout-plan",
+      "publishedAt": "2026-09-30T10:28:24.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Blockchain.com targets $500 million IPO this year at up to $6 billion valuation",
-      "summary": "The London-based crypto services company confidentially filed for an initial public offering with the Securities and Exchange Commission earlier this year.",
+      "title": "Live updates: Bitcoin below $84,000 ahead of PCE inflation data, Micron earnings",
+      "summary": "Traders are waiting on the Fed's favored inflation gauge after a month of oil-driven rate-hike bets that sent 30-year Treasury yields to their highest since 2002.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/09/29/blockchain-com-targets-usd500-million-ipo-at-up-to-usd6-billion-valuation",
-      "publishedAt": "2026-09-29T10:13:40.000Z"
+      "link": "https://www.coindesk.com/markets/2026/09/30/live-updates-bitcoin-below-usd84-000-ahead-of-pce-inflation-data-micron-earnings",
+      "publishedAt": "2026-09-30T10:18:34.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin is on track to shatter a major decade-long streak as September gains surge",
-      "summary": "Bitcoin is on track for a third straight monthly gain, but higher yields, oil prices and two major November events could test its Q4 momentum.",
+      "title": "Bitcoin stalls near $83,000 while lighter drops 17% on Robinhood perps plan",
+      "summary": "Bitcoin held near $83,000 as the 30-year Treasury yield topped 5.6%, while DeFi tokens reversed and lighter fell after Robinhood unveiled U.S. perps.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/09/29/bitcoin-is-on-track-to-shatter-a-major-decade-long-streak-as-september-gains-surge",
-      "publishedAt": "2026-09-29T09:45:31.000Z"
+      "link": "https://www.coindesk.com/markets/2026/09/30/bitcoin-stalls-near-usd83-000-while-lighter-drops-17-on-robinhood-perps-plan",
+      "publishedAt": "2026-09-30T10:11:36.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Analysts see 10-year Treasury yield hitting 6%. Bitcoin bulls shouldn't panic",
-      "summary": "Why yields are rising matters more for bitcoin than how high they go.",
+      "title": "OpenAI seeks $30 billion in funding at whopping $1.4 trillion valuation after delaying IPO",
+      "summary": "The ChatGPT maker is pursuing fresh funding after delaying its public listing, while expanding its AI tools despite mounting safety concerns.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/09/29/analysts-see-10-year-treasury-yield-hitting-6-bitcoin-bulls-shouldn-t-panic",
-      "publishedAt": "2026-09-29T09:06:11.000Z"
+      "link": "https://www.coindesk.com/markets/2026/09/30/openai-targets-usd1-4-trillion-valuation-and-unveils-dots-ai-agent",
+      "publishedAt": "2026-09-30T08:50:22.000Z"
+    },
+    {
+      "country": "EU",
+      "flag": "🇪🇺",
+      "tag": "bank",
+      "tagLabel": "Banque centrale",
+      "title": "Frank Elderson: Supervisory risk appetite, efficiency and effectiveness",
+      "summary": "",
+      "source": "Banque centrale européenne",
+      "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260930~d495288355.en.html",
+      "publishedAt": "2026-09-30T02:20:00.000Z"
     },
     {
       "country": "EU",
@@ -101,17 +112,6 @@
       "source": "Banque centrale européenne",
       "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260924~e0eceef02c.en.pdf",
       "publishedAt": "2026-09-24T09:00:00.000Z"
-    },
-    {
-      "country": "EU",
-      "flag": "🇪🇺",
-      "tag": "bank",
-      "tagLabel": "Banque centrale",
-      "title": "Philip R. Lane: The Outlook for the Euro Area Economy",
-      "summary": "",
-      "source": "Banque centrale européenne",
-      "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260923_1~ac21bf46e3.en.pdf",
-      "publishedAt": "2026-09-23T16:30:00.000Z"
     }
   ]
 }
