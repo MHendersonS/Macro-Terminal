@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-10-01T11:19:39.186Z",
+  "fetchedAt": "2026-10-02T10:52:37.361Z",
   "failed": [],
   "items": [
     {
@@ -8,55 +8,77 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Synthetic tokenized stocks are bad for American investors",
-      "summary": "U.S. markets are the envy of the world because investors trust that whoever owns a share owns it fully, writes Aaron Kaplan, founder of Promethum. The synthetic models cheapens that trust, shortchanges U.S. investors,…",
+      "title": "Crypto traders are in risk-on mode as bitcoin dominance nears return to 60%",
+      "summary": "Bitcoin dominance is closing in on 60% while USDT's has slipped to 6.3%, pointing to a market growing more comfortable with risk.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/opinion/2026/10/01/synthetic-tokenized-stocks-are-bad-for-american-investors",
-      "publishedAt": "2026-10-01T11:00:00.000Z"
+      "link": "https://www.coindesk.com/markets/2026/10/02/crypto-traders-are-in-risk-on-mode-as-bitcoin-dominance-nears-return-to-60",
+      "publishedAt": "2026-10-02T10:31:16.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin kicks off new quarter in the old $82,000-$85,000 price range",
-      "summary": "Prices briefly topped $85,000 on Wednesday after weaker-than-expected U.S. inflation cooled bets on Fed rate hikes, But bulls couldn’t hold the move and spot ETFs didn’t help.",
+      "title": "Bitcoin open interest jumps $2.3 billion as traders pay more for bullish positions",
+      "summary": "Rising open interest and funding rates signal renewed demand for bullish bitcoin exposure.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/10/01/bitcoin-kicks-off-new-quarter-in-the-old-usd82-000-usd85-000-price-range",
-      "publishedAt": "2026-10-01T10:38:04.000Z"
+      "link": "https://www.coindesk.com/markets/2026/10/02/why-rising-perpetual-funding-rates-signal-growing-bullish-leverage-as-bitcoin-crosses-usd86-500",
+      "publishedAt": "2026-10-02T09:14:21.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Citigroup raises 12-month bitcoin target to $113,000 as ETF inflows resume",
-      "summary": "Citi also raised its 12-month target for ether from from $2,240 to $3,028.",
+      "title": "Tether's USDT is 'coming home' to Bitcoin this month over a decade after debut there",
+      "summary": "A Tether-backed project, Utexo, plans to support private USDT transfers, direct swaps between BTC and USDT and loans backed by BTC, while keeping most transaction data off Bitcoin’s public ledger.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/10/01/citigroup-raises-12-month-bitcoin-target-to-usd113-000-as-etf-inflows-resume",
-      "publishedAt": "2026-10-01T09:59:30.000Z"
+      "link": "https://www.coindesk.com/tech/2026/09/29/tether-s-usdt-is-coming-home-to-bitcoin-this-month-after-more-than-a-decade",
+      "publishedAt": "2026-10-02T08:28:19.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "MetaMask security incident forces Ethereum staking exits, no funds at risk",
-      "summary": "An Ethereum security researcher estimates about 0.36 ETH in rewards was diverted, while precautionary exits cover validators holding roughly 523,000 ETH.",
+      "title": "Bitcoin tops $86,000 ahead of U.S. jobs report",
+      "summary": "Bitcoin is up roughly 3% in October as traders await September’s jobs data, while rising bond yields, a stronger dollar weigh on broader markets.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/tech/2026/10/01/metamask-security-incident-forces-ethereum-staking-exits-with-lido-warning-of-lost-rewards",
-      "publishedAt": "2026-10-01T07:06:30.000Z"
+      "link": "https://www.coindesk.com/markets/2026/10/02/bitcoin-tops-usd86-000-ahead-of-u-s-jobs-report",
+      "publishedAt": "2026-10-02T08:11:54.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Dogecoin gets DeFi testnet as DogeOS bets miners will eventually secure its apps",
-      "summary": "DogeOS wants to turn DOGE into more than a payments and speculation asset, but its applications still rely on selected operators rather than Dogecoin miners.",
+      "title": "SEC proposes new crypto custody rules for investment advisers and funds",
+      "summary": "The regulator issued a proposed rule for custody, marking a swan song for its inaugural Crypto Task Force chief, Commissioner Hester Peirce, who exits this week.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/tech/2026/10/01/dogecoin-gets-defi-testnet-as-dogeos-bets-miners-will-eventually-secure-its-apps",
-      "publishedAt": "2026-10-01T04:58:52.000Z"
+      "link": "https://www.coindesk.com/policy/2026/10/01/u-s-sec-maps-out-crypto-custody-in-new-proposal-that-furthers-its-digital-assets-agenda",
+      "publishedAt": "2026-10-01T20:20:04.000Z"
+    },
+    {
+      "country": "EU",
+      "flag": "🇪🇺",
+      "tag": "bank",
+      "tagLabel": "Banque centrale",
+      "title": "Isabel Schnabel: Central banks on-chain",
+      "summary": "",
+      "source": "Banque centrale européenne",
+      "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp261001_1~a0be67193b.en.pdf",
+      "publishedAt": "2026-10-01T15:30:00.000Z"
+    },
+    {
+      "country": "EU",
+      "flag": "🇪🇺",
+      "tag": "bank",
+      "tagLabel": "Banque centrale",
+      "title": "Christine Lagarde: Where AI risks meet",
+      "summary": "",
+      "source": "Banque centrale européenne",
+      "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp261001~cf3c630379.en.html",
+      "publishedAt": "2026-10-01T13:30:00.000Z"
     },
     {
       "country": "EU",
@@ -90,28 +112,6 @@
       "source": "Banque centrale européenne",
       "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260930~d495288355.en.html",
       "publishedAt": "2026-09-30T02:20:00.000Z"
-    },
-    {
-      "country": "EU",
-      "flag": "🇪🇺",
-      "tag": "bank",
-      "tagLabel": "Banque centrale",
-      "title": "ECB amends monetary policy implementation guidelines as part of regular review",
-      "summary": "",
-      "source": "Banque centrale européenne",
-      "link": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260929~050089e922.en.html",
-      "publishedAt": "2026-09-29T08:00:00.000Z"
-    },
-    {
-      "country": "EU",
-      "flag": "🇪🇺",
-      "tag": "bank",
-      "tagLabel": "Banque centrale",
-      "title": "Christine Lagarde: Hearing of the Committee on Economic and Monetary Affairs of the European Parliament",
-      "summary": "",
-      "source": "Banque centrale européenne",
-      "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260928~a875675544.en.html",
-      "publishedAt": "2026-09-28T13:30:00.000Z"
     }
   ]
 }
