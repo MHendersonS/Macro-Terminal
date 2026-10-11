@@ -2,7 +2,7 @@
   "indicator": "policy_rate",
   "unit": "%",
   "source": "FRED (Fed de Saint-Louis) — voir \"sourcesUsed\" pour le détail par pays",
-  "fetchedAt": "2026-10-08T11:45:25.268Z",
+  "fetchedAt": "2026-10-11T11:10:47.364Z",
   "failed": [],
   "sourcesUsed": {
     "US": {
@@ -54,18 +54,6 @@
   "series": {
     "US": [
       {
-        "period": "2026-09-28",
-        "value": 4
-      },
-      {
-        "period": "2026-09-29",
-        "value": 4
-      },
-      {
-        "period": "2026-09-30",
-        "value": 4
-      },
-      {
         "period": "2026-10-01",
         "value": 4
       },
@@ -91,19 +79,23 @@
       },
       {
         "period": "2026-10-07",
+        "value": 4
+      },
+      {
+        "period": "2026-10-08",
+        "value": 4
+      },
+      {
+        "period": "2026-10-09",
+        "value": 4
+      },
+      {
+        "period": "2026-10-10",
         "value": 4
       }
     ],
     "EU": [
       {
-        "period": "2026-09-28",
-        "value": 2.5
-      },
-      {
-        "period": "2026-09-29",
-        "value": 2.5
-      },
-      {
         "period": "2026-09-30",
         "value": 2.5
       },
@@ -133,19 +125,19 @@
       },
       {
         "period": "2026-10-07",
+        "value": 2.5
+      },
+      {
+        "period": "2026-10-08",
+        "value": 2.5
+      },
+      {
+        "period": "2026-10-09",
         "value": 2.5
       }
     ],
     "FR": [
       {
-        "period": "2026-09-28",
-        "value": 2.5
-      },
-      {
-        "period": "2026-09-29",
-        "value": 2.5
-      },
-      {
         "period": "2026-09-30",
         "value": 2.5
       },
@@ -175,19 +167,19 @@
       },
       {
         "period": "2026-10-07",
+        "value": 2.5
+      },
+      {
+        "period": "2026-10-08",
+        "value": 2.5
+      },
+      {
+        "period": "2026-10-09",
         "value": 2.5
       }
     ],
     "DE": [
       {
-        "period": "2026-09-28",
-        "value": 2.5
-      },
-      {
-        "period": "2026-09-29",
-        "value": 2.5
-      },
-      {
         "period": "2026-09-30",
         "value": 2.5
       },
@@ -217,6 +209,14 @@
       },
       {
         "period": "2026-10-07",
+        "value": 2.5
+      },
+      {
+        "period": "2026-10-08",
+        "value": 2.5
+      },
+      {
+        "period": "2026-10-09",
         "value": 2.5
       }
     ],
