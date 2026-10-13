@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-10-12T12:41:07.167Z",
+  "fetchedAt": "2026-10-13T12:26:14.980Z",
   "failed": [],
   "items": [
     {
@@ -8,55 +8,55 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Standard Chartered offers RLUSD custody in Dubai and plans LMAX collateral link",
-      "summary": "Ripple previously gave LMAX $150 million in financing to integrate RLUSD into its institutional infrastructure.",
+      "title": "South Korea blocks 27 crypto exchanges, including Bitmart and Kucoin",
+      "summary": "The country’s regulators are stepping up their earlier restrictions on mobile apps to websites, targeting unregistered exchanges before investors report losses.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/10/12/standard-chartered-offers-rlusd-custody-in-dubai-and-plans-lmax-collateral-link",
-      "publishedAt": "2026-10-12T12:09:09.000Z"
+      "link": "https://www.coindesk.com/policy/2026/10/13/south-korea-blocks-27-crypto-exchanges-including-bitmart-and-kucoin",
+      "publishedAt": "2026-10-13T11:58:04.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Ledger claims CryptoBilis cases are limited as up to $93M is traced, $10M frozen",
-      "summary": "Ledger said every confirmed case involves devices sold by the Southeast Asian reseller, but critics say the hardware-wallet maker must answer for an authorized sales channel.",
+      "title": "Federated Hermes joins Wall Street's tokenization push with plans for first onchain fund shares",
+      "summary": "The $911 billion Pittsburgh-based asset manager is teaming up with Prometheum to bring blockchain-based share classes of its funds to traditional brokerage accounts.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/tech/2026/10/12/ledger-claims-cryptobilis-cases-are-limited-as-up-to-usd93m-is-traced-usd10m-frozen",
-      "publishedAt": "2026-10-12T12:01:53.000Z"
+      "link": "https://www.coindesk.com/business/2026/10/13/federated-hermes-joins-wall-street-s-tokenization-push-with-plans-for-first-onchain-fund-shares",
+      "publishedAt": "2026-10-13T11:56:04.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin holds $83,000 as dollar strength keeps markets on edge",
-      "summary": "Bitcoin and gold hold steady as a firm dollar and rising bond yields weigh on sentiment, while IREN secures a multiyear cloud services deal with Anthropic.",
+      "title": "Stacks' STX, a Bitcoin layer-2 token, has surged by 50% in four weeks",
+      "summary": "Your day-ahead look for Oct. 13, 2026",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/10/12/bitcoin-holds-usd83-000-as-dollar-strength-keeps-markets-on-edge",
-      "publishedAt": "2026-10-12T11:21:11.000Z"
+      "link": "https://www.coindesk.com/daybook-us/2026/10/13/stacks-stx-a-bitcoin-layer-2-token-has-surged-by-50-in-four-weeks",
+      "publishedAt": "2026-10-13T11:26:45.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Global financial watchdog calls for cross-border information sharing, planning for stablecoin crisis",
-      "summary": "Coins jointly issued by multiple companies can trap reserves in one jurisdiction while redemption demands hit another, complicating cross-border crisis response.",
+      "title": "Bitcoin, ether slip and rebound as South Korean stocks slide on AI-related concerns",
+      "summary": "Investors are positioning ahead of today's bank earnings reports and Wednesday’s U.S. inflation data.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/policy/2026/10/12/global-financial-watchdog-calls-for-cross-border-information-sharing-planning-for-stablecoin-crisis",
-      "publishedAt": "2026-10-12T11:02:38.000Z"
+      "link": "https://www.coindesk.com/markets/2026/10/13/bitcoin-ether-slip-and-rebound-as-south-korean-stocks-slide-on-ai-related-concerns",
+      "publishedAt": "2026-10-13T11:06:39.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "South Korea just got its first traditional bank loans backed by bitcoin",
-      "summary": "Loans use third-party custodians for bitcoin holdings and rely on court-ordered sales if borrowers default.",
+      "title": "Russia’s largest bank Sberbank secures approval to trade crypto",
+      "summary": "Sberbank plans to open crypto trading to all clients Dec. 1 and is already testing BTC, ETH and USDT trades in its app.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/10/12/south-korea-just-got-its-first-traditional-bank-loans-backed-by-bitcoin",
-      "publishedAt": "2026-10-12T10:57:37.000Z"
+      "link": "https://www.coindesk.com/business/2026/10/13/russia-s-largest-bank-sberbank-secures-approval-to-trade-crypto",
+      "publishedAt": "2026-10-13T11:02:47.000Z"
     },
     {
       "country": "EU",
