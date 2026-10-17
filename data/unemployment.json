@@ -2,7 +2,7 @@
   "indicator": "unemployment_rate",
   "unit": "%",
   "source": "OCDE — DF_IALFS_UNE_M (taux de chômage mensuel, 15 ans et plus)",
-  "fetchedAt": "2026-10-16T09:27:44.866Z",
+  "fetchedAt": "2026-10-17T08:59:26.023Z",
   "failed": [
     "NZ",
     "CH"
@@ -893,179 +893,183 @@
     "AU": [
       {
         "period": "2023-01",
-        "value": 3.663744
+        "value": 3.662925
       },
       {
         "period": "2023-02",
-        "value": 3.613338
+        "value": 3.61271
       },
       {
         "period": "2023-03",
-        "value": 3.602024
+        "value": 3.601182
       },
       {
         "period": "2023-04",
-        "value": 3.710887
+        "value": 3.710788
       },
       {
         "period": "2023-05",
-        "value": 3.598778
+        "value": 3.598683
       },
       {
         "period": "2023-06",
-        "value": 3.532286
+        "value": 3.531372
       },
       {
         "period": "2023-07",
-        "value": 3.728454
+        "value": 3.728036
       },
       {
         "period": "2023-08",
-        "value": 3.66386
+        "value": 3.664333
       },
       {
         "period": "2023-09",
-        "value": 3.550117
+        "value": 3.553902
       },
       {
         "period": "2023-10",
-        "value": 3.773633
+        "value": 3.772777
       },
       {
         "period": "2023-11",
-        "value": 3.931252
+        "value": 3.929743
       },
       {
         "period": "2023-12",
-        "value": 3.989432
+        "value": 3.988178
       },
       {
         "period": "2024-01",
-        "value": 4.095376
+        "value": 4.094151
       },
       {
         "period": "2024-02",
-        "value": 3.744207
+        "value": 3.743459
       },
       {
         "period": "2024-03",
-        "value": 3.906616
+        "value": 3.905921
       },
       {
         "period": "2024-04",
-        "value": 4.090117
+        "value": 4.090302
       },
       {
         "period": "2024-05",
-        "value": 4.015537
+        "value": 4.016013
       },
       {
         "period": "2024-06",
-        "value": 4.050691
+        "value": 4.049926
       },
       {
         "period": "2024-07",
-        "value": 4.213584
+        "value": 4.214837
       },
       {
         "period": "2024-08",
-        "value": 4.105777
+        "value": 4.108974
       },
       {
         "period": "2024-09",
-        "value": 4.002698
+        "value": 4.005261
       },
       {
         "period": "2024-10",
-        "value": 4.08471
+        "value": 4.082573
       },
       {
         "period": "2024-11",
-        "value": 3.934666
+        "value": 3.93268
       },
       {
         "period": "2024-12",
-        "value": 3.999842
+        "value": 3.998191
       },
       {
         "period": "2025-01",
-        "value": 4.129636
+        "value": 4.128545
       },
       {
         "period": "2025-02",
-        "value": 4.075771
+        "value": 4.075202
       },
       {
         "period": "2025-03",
-        "value": 4.085438
+        "value": 4.084888
       },
       {
         "period": "2025-04",
-        "value": 4.062994
+        "value": 4.063986
       },
       {
         "period": "2025-05",
-        "value": 4.11191
+        "value": 4.113105
       },
       {
         "period": "2025-06",
-        "value": 4.338871
+        "value": 4.337917
       },
       {
         "period": "2025-07",
-        "value": 4.25976
+        "value": 4.262689
       },
       {
         "period": "2025-08",
-        "value": 4.218316
+        "value": 4.222787
       },
       {
         "period": "2025-09",
-        "value": 4.423778
+        "value": 4.426341
       },
       {
         "period": "2025-10",
-        "value": 4.321709
+        "value": 4.318726
       },
       {
         "period": "2025-11",
-        "value": 4.317245
+        "value": 4.3144
       },
       {
         "period": "2025-12",
-        "value": 4.117109
+        "value": 4.115307
       },
       {
         "period": "2026-01",
-        "value": 4.083125
+        "value": 4.081658
       },
       {
         "period": "2026-02",
-        "value": 4.307355
+        "value": 4.306684
       },
       {
         "period": "2026-03",
-        "value": 4.290726
+        "value": 4.290313
       },
       {
         "period": "2026-04",
-        "value": 4.500124
+        "value": 4.501485
       },
       {
         "period": "2026-05",
-        "value": 4.392409
+        "value": 4.393544
       },
       {
         "period": "2026-06",
-        "value": 4.449973
+        "value": 4.44937
       },
       {
         "period": "2026-07",
-        "value": 4.484476
+        "value": 4.489178
       },
       {
         "period": "2026-08",
-        "value": 4.646296
+        "value": 4.651608
+      },
+      {
+        "period": "2026-09",
+        "value": 4.718349
       }
     ]
   }
