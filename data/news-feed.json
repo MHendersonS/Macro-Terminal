@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-10-19T10:28:15.727Z",
+  "fetchedAt": "2026-10-20T09:47:12.176Z",
   "failed": [],
   "items": [
     {
@@ -8,55 +8,55 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin extends bounce above $82,000 as stocks rebound, DeFi tokens lead altcoin gains",
-      "summary": "Bitcoin rose 0.8% to around $82,700 as China’s GDP beat estimates and Nasdaq futures rebounded, while the CoinDesk 80 gained 1.3% and DeFi led gains.",
+      "title": "South Korean IPO plunge deepens AI market jitters as brent tops $111",
+      "summary": "Elice’s debut slump added to concerns over AI infrastructure valuations, while rising oil prices compounded market uncertainty.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/10/19/bitcoin-extends-bounce-above-usd82-000-as-stocks-rebound-defi-tokens-lead-altcoin-gains",
-      "publishedAt": "2026-10-19T10:26:33.000Z"
+      "link": "https://www.coindesk.com/markets/2026/10/20/south-korean-ipo-plunge-deepens-ai-market-jitters-as-brent-tops-usd111",
+      "publishedAt": "2026-10-20T09:32:24.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "JPMorgan's JPM Coin, representing dollar deposits, is coming to Ethereum: Bloomberg",
-      "summary": "JPMorgan's dollar deposit token is heading to Ethereum as the lender looks to offer it to wider selection of institutional clients.",
+      "title": "Bitcoin ETFs just saw their biggest day in a month thanks entirely to BlackRock",
+      "summary": "Fidelity's FBTC and Grayscale's GBTC saw outflows of $83.6 million and $54.9 million, respectively.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/10/19/jpmorgan-s-jpm-coin-representing-dollar-deposits-is-coming-to-ethereum-bloomberg",
-      "publishedAt": "2026-10-19T10:03:47.000Z"
+      "link": "https://www.coindesk.com/business/2026/10/20/bitcoin-etfs-just-saw-their-biggest-day-in-a-month-thanks-entirely-to-blackrock",
+      "publishedAt": "2026-10-20T08:24:01.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Crypto vault deposits top $10 billion as lending risks draw regulatory scrutiny",
-      "summary": "Curator-managed lending strategies are attracting institutional capital, while exposing depositors to collateral, liquidity and smart-contract risks.",
+      "title": "Tether: Senator's investigation misses positive work that's led to lower Iran volumes",
+      "summary": "The stablecoin issuer's CEO, Paolo Ardoino, has been defending against accusations that the firm's stablecoins have fueled financial activity in Iran.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/10/19/crypto-vault-deposits-top-usd10-billion-as-lending-risks-draw-regulatory-scrutiny",
-      "publishedAt": "2026-10-19T09:32:38.000Z"
+      "link": "https://www.coindesk.com/policy/2026/10/19/tether-senator-s-investigation-misses-positive-work-that-s-led-to-lower-iran-volumes",
+      "publishedAt": "2026-10-19T20:21:13.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "CME’s bitcoin cash, uniswap futures, global PMIs: Crypto Week Ahead",
-      "summary": "Your look at what's coming in the week starting Oct. 19.",
+      "title": "U.S. CFTC rebuffs CME legal stance in consequential fight over perpetual futures",
+      "summary": "The future of perps in the U.S. may be at stake as the CFTC argues that CME hasn't shown the new policy is hurting it after the agency OK'd its first bitcoin perp.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/10/19/cme-s-bitcoin-cash-uniswap-futures-global-pmis-crypto-week-ahead",
-      "publishedAt": "2026-10-19T09:12:39.000Z"
+      "link": "https://www.coindesk.com/policy/2026/10/19/u-s-cftc-rebuffs-cme-legal-stance-in-consequential-fight-over-perpetual-futures",
+      "publishedAt": "2026-10-19T16:47:00.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin whale moves $34 million in BTC it got in 2013 when coins traded at $131",
-      "summary": "A bitcoin wallet dormant since 2013 moved 411 BTC, now worth about $34 million. It is one of several long-dormant wallets to wake up recently.",
+      "title": "Zerohash rolls out a new tool to move crypto without copying wallet addresses",
+      "summary": "The launch comes as Zerohash bids for a federal trust charter.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/10/19/bitcoin-whale-moves-usd34-million-in-btc-it-got-in-2013-when-coins-traded-at-usd131",
-      "publishedAt": "2026-10-19T06:23:16.000Z"
+      "link": "https://www.coindesk.com/business/2026/10/19/zerohash-rolls-out-a-new-tool-to-move-crypto-without-copying-wallet-addresses",
+      "publishedAt": "2026-10-19T14:58:40.000Z"
     },
     {
       "country": "EU",
