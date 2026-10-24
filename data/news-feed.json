@@ -1,29 +1,73 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-10-23T09:43:51.076Z",
+  "fetchedAt": "2026-10-24T09:16:42.455Z",
   "failed": [],
   "items": [
     {
-      "country": "GLOBAL",
-      "flag": "🌍",
-      "tag": "marche",
-      "tagLabel": "Marché",
-      "title": "Sweden’s central bank revives e-krona debate as stablecoins and digital euro loom",
-      "summary": "The Riksbank sees an e-krona as critical to securing national payments and monetary control.",
-      "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/10/23/sweden-s-central-bank-revives-e-krona-debate-as-stablecoins-and-digital-euro-loom",
-      "publishedAt": "2026-10-23T08:57:34.000Z"
+      "country": "EU",
+      "flag": "🇪🇺",
+      "tag": "bank",
+      "tagLabel": "Banque centrale",
+      "title": "Piero Cipollone: Interview with Milano Finanza",
+      "summary": "",
+      "source": "Banque centrale européenne",
+      "link": "https://www.ecb.europa.eu//press/inter/date/2026/html/ecb.in261024~ee2ba73cf3.en.html",
+      "publishedAt": "2026-10-24T06:00:00.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "India's largest exchange denies hack after sleuths pointed to $16 million in suspicious outflows",
-      "summary": "CoinDCX denies its active wallets were hacked after sleuths flagged $16 million in outflows from addresses linked to the India-based exchange.",
+      "title": "Franklin Templeton adds $150 million in fund shares to XRP Ledger, all in one wallet",
+      "summary": "Two subscriptions on Thursday nearly quadrupled the fund’s tokens on the network. The receiving wallet shares its authorized signers with the issuer.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/10/23/india-s-largest-exchange-denies-hack-after-blockchain-sleuths-pointed-to-usd16-million-in-suspicious-outflows",
-      "publishedAt": "2026-10-23T08:02:35.000Z"
+      "link": "https://www.coindesk.com/markets/2026/10/24/franklin-templeton-adds-usd150-million-in-fund-shares-to-xrp-ledger-all-in-one-wallet",
+      "publishedAt": "2026-10-24T04:45:43.000Z"
+    },
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "Robinhood sees surge in bitcoin, gold prediction markets as traders move beyond sports",
+      "summary": "The company's head of futures and prediction markets said bitcoin, gold and oil contracts are among its fastest-growing prediction markets.",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/markets/2026/10/23/robinhood-sees-surge-in-bitcoin-gold-prediction-markets-as-traders-move-beyond-sports",
+      "publishedAt": "2026-10-23T13:58:56.000Z"
+    },
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "Bitcoin Core changes security rules as AI makes finding code bugs dangerously easy",
+      "summary": "Developers merged a policy change that ends the months-long embargo for flaws a chatbot could rediscover, after a summer in which AI found hundreds of bitcoin bugs before the humans did.",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/tech/2026/10/23/bitcoin-will-now-stop-hiding-bugs-an-ai-can-find-in-one-prompt",
+      "publishedAt": "2026-10-23T12:03:53.000Z"
+    },
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "Bitcoin's price is as jumpy as Nvidia's and eight times more turbulent than the euro",
+      "summary": "Your day-ahead look for Oct. 23, 2026",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/daybook-us/2026/10/23/bitcoin-s-volatility-is-well-above-euro-dollar-gyrations-though-it-has-calmed-to-rival-nvidia-s",
+      "publishedAt": "2026-10-23T11:22:33.000Z"
+    },
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "Live updates: Bitcoin holds above $81,000 as oil prices hit six-month high",
+      "summary": "Brent crude oil surged above $116 per barrel for the first time since late April.",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/markets/2026/10/23/live-updates-bitcoin-holds-above-usd81-000-as-the-ai-rout-fades-and-oil-climbs",
+      "publishedAt": "2026-10-23T11:13:01.000Z"
     },
     {
       "country": "EU",
@@ -35,39 +79,6 @@
       "source": "Banque centrale européenne",
       "link": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr261023~a3d201c97c.en.html",
       "publishedAt": "2026-10-23T08:00:00.000Z"
-    },
-    {
-      "country": "GLOBAL",
-      "flag": "🌍",
-      "tag": "marche",
-      "tagLabel": "Marché",
-      "title": "Polymarket has reportedly fired its marketing chief, also a close friend of the CEO",
-      "summary": "Matthew Modabber was reportedly ousted after an internal probe of several instances of misconduct, according to the New York Post.",
-      "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/10/23/polymarket-has-reportedly-fired-its-marketing-chief-also-a-close-friend-of-the-ceo",
-      "publishedAt": "2026-10-23T05:01:19.000Z"
-    },
-    {
-      "country": "GLOBAL",
-      "flag": "🌍",
-      "tag": "marche",
-      "tagLabel": "Marché",
-      "title": "Ethereum delays Glamsterdam test after security devs flag risk to existing contracts",
-      "summary": "Developers canceled Monday's Hoodi activation after researchers showed how new gas rules could let smart contracts permanently record failed operations.",
-      "source": "CoinDesk",
-      "link": "https://www.coindesk.com/tech/2026/10/23/ethereum-delays-glamsterdam-test-after-security-devs-flag-risk-to-existing-contracts",
-      "publishedAt": "2026-10-23T04:59:34.000Z"
-    },
-    {
-      "country": "GLOBAL",
-      "flag": "🌍",
-      "tag": "marche",
-      "tagLabel": "Marché",
-      "title": "Cardano holders are being asked to bet $5 million on copper hitting a new record",
-      "summary": "Toto Finance wants 22 million ADA from Cardano’s treasury to buy tokenized copper, and the metal would have to trade well above its all-time high for holders to get their money back.",
-      "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/10/23/cardano-holders-are-being-asked-to-bet-usd5-million-on-copper-hitting-a-new-record",
-      "publishedAt": "2026-10-23T04:36:51.000Z"
     },
     {
       "country": "EU",
@@ -101,17 +112,6 @@
       "source": "Banque centrale européenne",
       "link": "https://www.ecb.europa.eu//press/inter/date/2026/html/ecb.in261020~97e2e4bc38.en.html",
       "publishedAt": "2026-10-20T07:00:00.000Z"
-    },
-    {
-      "country": "EU",
-      "flag": "🇪🇺",
-      "tag": "bank",
-      "tagLabel": "Banque centrale",
-      "title": "Frank Elderson: From climate and nature risks to economic resilience and competitiveness",
-      "summary": "",
-      "source": "Banque centrale européenne",
-      "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp261019~f0a3e053de.en.html",
-      "publishedAt": "2026-10-19T06:00:00.000Z"
     }
   ]
 }
