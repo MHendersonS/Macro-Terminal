@@ -2,10 +2,8 @@
   "indicator": "gdp_growth_yoy",
   "unit": "%",
   "source": "OCDE — DF_QNA_EXPENDITURE_GROWTH_OECD (PIB, glissement annuel)",
-  "fetchedAt": "2026-10-30T11:08:56.738Z",
-  "failed": [
-    "EU"
-  ],
+  "fetchedAt": "2026-10-31T10:42:07.189Z",
+  "failed": [],
   "series": {
     "FR": [
       {
@@ -481,6 +479,68 @@
       {
         "period": "2026-Q2",
         "value": 2.632421156
+      }
+    ],
+    "EU": [
+      {
+        "period": "2023-Q1",
+        "value": 1.126308505
+      },
+      {
+        "period": "2023-Q2",
+        "value": 0.389943414
+      },
+      {
+        "period": "2023-Q3",
+        "value": 0.209184768
+      },
+      {
+        "period": "2023-Q4",
+        "value": 0.444255321
+      },
+      {
+        "period": "2024-Q1",
+        "value": 1.054174087
+      },
+      {
+        "period": "2024-Q2",
+        "value": 1.219912091
+      },
+      {
+        "period": "2024-Q3",
+        "value": 1.428809048
+      },
+      {
+        "period": "2024-Q4",
+        "value": 1.817281809
+      },
+      {
+        "period": "2025-Q1",
+        "value": 1.6741025
+      },
+      {
+        "period": "2025-Q2",
+        "value": 1.541983957
+      },
+      {
+        "period": "2025-Q3",
+        "value": 1.425409047
+      },
+      {
+        "period": "2025-Q4",
+        "value": 1.265814407
+      },
+      {
+        "period": "2026-Q1",
+        "value": 0.905057987
+      },
+      {
+        "period": "2026-Q2",
+        "value": 1.441027302
+      },
+      {
+        "period": "2026-Q3",
+        "value": 1.485802196
       }
     ]
   }
