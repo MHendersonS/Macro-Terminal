@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-11-02T13:01:23.891Z",
+  "fetchedAt": "2026-11-03T12:35:20.390Z",
   "failed": [],
   "items": [
     {
@@ -8,55 +8,55 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "XRP Ledger set to fix flaw that could let stablecoin partners print new tokens",
-      "summary": "The fix is on track for Wednesday after validator support briefly dipped and restarted the two-week activation clock. XRP itself is unaffected.",
+      "title": "Bitcoin is breaking a midterm election pattern going back to 2014",
+      "summary": "Your day-ahead look for Nov. 3, 2026",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/tech/2026/11/02/xrp-ledger-set-to-fix-flaw-that-could-let-stablecoin-partners-print-new-tokens",
-      "publishedAt": "2026-11-02T12:37:24.000Z"
+      "link": "https://www.coindesk.com/daybook-us/2026/11/03/bitcoin-is-breaking-a-midterm-election-pattern-going-back-to-2014",
+      "publishedAt": "2026-11-03T12:30:09.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin's 'volatility curve' has a midterm bump",
-      "summary": "Your day-ahead look for Nov. 2, 2026",
+      "title": "ETHGas wants to bring Wall Street to public Ethereum by selling advance block reservations",
+      "summary": "But there’s a catch: validators that fail to deliver on their commitments currently face no financial compensation requirement under the service.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/daybook-us/2026/11/02/bitcoin-s-volatility-curve-has-a-midterm-bump",
-      "publishedAt": "2026-11-02T12:30:17.000Z"
+      "link": "https://www.coindesk.com/business/2026/11/03/ethgas-courts-wall-street-with-ethereum-blockspace-but-compensation-for-missed-trades-is-zero",
+      "publishedAt": "2026-11-03T12:01:05.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "No proof of AI in North Korean hackers move of stolen Binance funds",
-      "summary": "Elliptic tracked thousands of transfers, failed swaps and repeated transactions that suggest the hackers relied on scripts rather than AI agents.",
+      "title": "Bitcoin steadies after dip to $76,300 as ETF outflows and midterm elections weigh on crypto",
+      "summary": "Bitcoin edged up 0.2% to around $76,900 since midnight UTC as spot ETFs lost $399 million for a second day and Binance customers pulled a net $4.72 billion.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/tech/2026/11/02/no-proof-of-ai-in-north-korean-hackers-move-of-stolen-binance-funds-through-thousands-of-wallets",
-      "publishedAt": "2026-11-02T11:57:45.000Z"
+      "link": "https://www.coindesk.com/markets/2026/11/03/bitcoin-steadies-after-dip-to-usd76-300-as-etf-outflows-and-midterm-elections-weigh-on-crypto",
+      "publishedAt": "2026-11-03T11:28:00.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin eases to $77,900 as Binance customers pull $3.6 billion after withdrawals reopen",
-      "summary": "Bitcoin fell 0.4% to around $77,900 since midnight UTC as Binance customers pulled a net $3.64 billion after withdrawals reopened and ETFs lost $643 million.",
+      "title": "Liquid’s bitcoin IOUs are fully backed again after a $320 million exploit",
+      "summary": "A final 250 BTC transfer closed the hole left by September’s bug, but the federation behind the network still hasn’t said who paid to fill it.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/11/02/bitcoin-eases-to-usd77-900-as-binance-customers-pull-usd3-6-billion-after-withdrawals-reopen",
-      "publishedAt": "2026-11-02T11:30:00.000Z"
+      "link": "https://www.coindesk.com/markets/2026/11/03/liquid-s-bitcoin-ious-are-fully-backed-again-after-a-usd320-million-exploit",
+      "publishedAt": "2026-11-03T11:12:12.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Metals.io issues tokens backed by 25 tonnes of physical copper stored in Germany",
-      "summary": "The company is starting with $366,000 worth of copper stored in Germany, hoping to build a market for investors to own and trade physical metal onchain.",
+      "title": "Tether holds 150,000 bitcoin worth $11.5 billion, CEO Paolo Ardoino says",
+      "summary": "Ardoino didn’t say where the extra coins sit. Holdings outside USDT reserves, such as Tether’s investments, wouldn’t appear in the report.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/11/02/metals-io-issues-tokens-backed-by-25-tonnes-of-physical-copper-stored-in-germany",
-      "publishedAt": "2026-11-02T09:33:20.000Z"
+      "link": "https://www.coindesk.com/business/2026/11/03/tether-holds-150-000-bitcoin-worth-usd11-5-billion-ceo-paolo-ardoino-says",
+      "publishedAt": "2026-11-03T10:15:53.000Z"
     },
     {
       "country": "EU",
