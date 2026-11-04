@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-11-03T12:35:20.390Z",
+  "fetchedAt": "2026-11-04T12:44:54.996Z",
   "failed": [],
   "items": [
     {
@@ -8,55 +8,66 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin is breaking a midterm election pattern going back to 2014",
-      "summary": "Your day-ahead look for Nov. 3, 2026",
+      "title": "Circle beats earnings and revenue estimates on soaring USDC transaction volume",
+      "summary": "Circle’s net income for continuing operations of $226 million grew 5% year-over-year to $226 million in the third quarter.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/daybook-us/2026/11/03/bitcoin-is-breaking-a-midterm-election-pattern-going-back-to-2014",
-      "publishedAt": "2026-11-03T12:30:09.000Z"
+      "link": "https://www.coindesk.com/business/2026/11/04/circle-beats-earnings-and-revenue-estimates-on-soaring-usdc-transaction-volume",
+      "publishedAt": "2026-11-04T12:33:54.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "ETHGas wants to bring Wall Street to public Ethereum by selling advance block reservations",
-      "summary": "But there’s a catch: validators that fail to deliver on their commitments currently face no financial compensation requirement under the service.",
+      "title": "Here's how analysts are reacting to the new blue Congress",
+      "summary": "Your day-ahead look for Nov. 4, 2026",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/11/03/ethgas-courts-wall-street-with-ethereum-blockspace-but-compensation-for-missed-trades-is-zero",
-      "publishedAt": "2026-11-03T12:01:05.000Z"
+      "link": "https://www.coindesk.com/daybook-us/2026/11/04/here-s-how-analysts-are-reacting-to-the-new-blue-congress",
+      "publishedAt": "2026-11-04T12:14:11.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin steadies after dip to $76,300 as ETF outflows and midterm elections weigh on crypto",
-      "summary": "Bitcoin edged up 0.2% to around $76,900 since midnight UTC as spot ETFs lost $399 million for a second day and Binance customers pulled a net $4.72 billion.",
+      "title": "Bitcoin rebounds from midterm dip as DeFi leads gains",
+      "summary": "Bitcoin recovered from a dip to around $75,600 as Democrats won Congress, while DeFi tokens led gains and Trump-linked coins fell.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/11/03/bitcoin-steadies-after-dip-to-usd76-300-as-etf-outflows-and-midterm-elections-weigh-on-crypto",
-      "publishedAt": "2026-11-03T11:28:00.000Z"
+      "link": "https://www.coindesk.com/markets/2026/11/04/bitcoin-rebounds-from-midterm-dip-as-defi-leads-gains",
+      "publishedAt": "2026-11-04T10:38:58.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Liquid’s bitcoin IOUs are fully backed again after a $320 million exploit",
-      "summary": "A final 250 BTC transfer closed the hole left by September’s bug, but the federation behind the network still hasn’t said who paid to fill it.",
+      "title": "ZachXBT names French bank Crédit Mutuel Arkéa as suspected victim of $133 million crypto theft",
+      "summary": "Blockchain sleuth ZachXBT says the French bank may have lost more than $133 million from crypto exchange accounts. Crypto.com confirms it has blocked funds linked to the theft.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/11/03/liquid-s-bitcoin-ious-are-fully-backed-again-after-a-usd320-million-exploit",
-      "publishedAt": "2026-11-03T11:12:12.000Z"
+      "link": "https://www.coindesk.com/business/2026/11/04/zachxbt-names-french-bank-credit-mutuel-arkea-as-suspected-victim-of-usd133-million-crypto-theft",
+      "publishedAt": "2026-11-04T10:18:50.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Tether holds 150,000 bitcoin worth $11.5 billion, CEO Paolo Ardoino says",
-      "summary": "Ardoino didn’t say where the extra coins sit. Holdings outside USDT reserves, such as Tether’s investments, wouldn’t appear in the report.",
+      "title": "Elon Musk floats space data centers as Democratic sweep puts pressure on AI trade",
+      "summary": "Texas election result raises fears of data centre restrictions, while Musk and Palihapitiya draw attention to the space economy.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/11/03/tether-holds-150-000-bitcoin-worth-usd11-5-billion-ceo-paolo-ardoino-says",
-      "publishedAt": "2026-11-03T10:15:53.000Z"
+      "link": "https://www.coindesk.com/markets/2026/11/04/elon-musk-floats-space-data-centers-as-democratic-sweep-puts-pressure-on-ai-trade",
+      "publishedAt": "2026-11-04T10:03:33.000Z"
+    },
+    {
+      "country": "EU",
+      "flag": "🇪🇺",
+      "tag": "bank",
+      "tagLabel": "Banque centrale",
+      "title": "ECB wage tracker suggests slightly higher wage growth in first three quarters of 2027 compared with the full year of 2026",
+      "summary": "",
+      "source": "Banque centrale européenne",
+      "link": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr261104~caf181d7ac.en.html",
+      "publishedAt": "2026-11-04T00:00:00.000Z"
     },
     {
       "country": "EU",
@@ -101,17 +112,6 @@
       "source": "Banque centrale européenne",
       "link": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr261030~e92c3c838c.en.html",
       "publishedAt": "2026-10-30T09:00:00.000Z"
-    },
-    {
-      "country": "EU",
-      "flag": "🇪🇺",
-      "tag": "bank",
-      "tagLabel": "Banque centrale",
-      "title": "Piero Cipollone: Next-day securities settlement, tokenisation and the transformation of Europe’s financial infrastructure",
-      "summary": "",
-      "source": "Banque centrale européenne",
-      "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp261029~e9b57c3495.en.html",
-      "publishedAt": "2026-10-29T15:50:00.000Z"
     }
   ]
 }
