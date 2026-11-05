@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-11-04T12:44:54.996Z",
+  "fetchedAt": "2026-11-05T12:54:47.652Z",
   "failed": [],
   "items": [
     {
@@ -8,55 +8,77 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Circle beats earnings and revenue estimates on soaring USDC transaction volume",
-      "summary": "Circle’s net income for continuing operations of $226 million grew 5% year-over-year to $226 million in the third quarter.",
+      "title": "Ukraine’s central bank opposes crypto bill, citing monetary sovereignty concerns",
+      "summary": "Ukraine’s central bank won’t back a crypto legalization bill in its current form and wants lawmakers to revise it before a final vote.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/11/04/circle-beats-earnings-and-revenue-estimates-on-soaring-usdc-transaction-volume",
-      "publishedAt": "2026-11-04T12:33:54.000Z"
+      "link": "https://www.coindesk.com/business/2026/11/05/ukraine-s-central-bank-opposes-crypto-bill-citing-monetary-sovereignty-concerns",
+      "publishedAt": "2026-11-05T12:50:57.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Here's how analysts are reacting to the new blue Congress",
-      "summary": "Your day-ahead look for Nov. 4, 2026",
+      "title": "Bitcoin is resilient, but leverage is missing and demand still tepid",
+      "summary": "Your day-ahead look for Nov. 5, 2026",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/daybook-us/2026/11/04/here-s-how-analysts-are-reacting-to-the-new-blue-congress",
-      "publishedAt": "2026-11-04T12:14:11.000Z"
+      "link": "https://www.coindesk.com/daybook-us/2026/11/05/bitcoin-is-resilient-but-leverage-is-missing-and-demand-still-tepid",
+      "publishedAt": "2026-11-05T12:27:04.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin rebounds from midterm dip as DeFi leads gains",
-      "summary": "Bitcoin recovered from a dip to around $75,600 as Democrats won Congress, while DeFi tokens led gains and Trump-linked coins fell.",
+      "title": "Bitcoin miners are oversold following 35% October rout, VanEck says",
+      "summary": "Investors dumped AI infrastructure providers across the board in October, treating companies in very different sectors as one monolithic trade.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/11/04/bitcoin-rebounds-from-midterm-dip-as-defi-leads-gains",
-      "publishedAt": "2026-11-04T10:38:58.000Z"
+      "link": "https://www.coindesk.com/markets/2026/11/05/bitcoin-miners-are-oversold-following-35-october-rout-says-vaneck",
+      "publishedAt": "2026-11-05T11:49:23.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "ZachXBT names French bank Crédit Mutuel Arkéa as suspected victim of $133 million crypto theft",
-      "summary": "Blockchain sleuth ZachXBT says the French bank may have lost more than $133 million from crypto exchange accounts. Crypto.com confirms it has blocked funds linked to the theft.",
+      "title": "Trump-linked American Bitcoin swings to $126 million profit but misses revenue estimates",
+      "summary": "Revenue fell to $63.4 million in the third quarter and missed analysts’ forecasts as bitcoin production declined and higher summer electricity prices pushed mining costs up.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/11/04/zachxbt-names-french-bank-credit-mutuel-arkea-as-suspected-victim-of-usd133-million-crypto-theft",
-      "publishedAt": "2026-11-04T10:18:50.000Z"
+      "link": "https://www.coindesk.com/business/2026/11/05/trump-linked-american-bitcoin-swings-to-usd126-million-profit-in-q3-2026",
+      "publishedAt": "2026-11-05T11:45:54.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Elon Musk floats space data centers as Democratic sweep puts pressure on AI trade",
-      "summary": "Texas election result raises fears of data centre restrictions, while Musk and Palihapitiya draw attention to the space economy.",
+      "title": "Bitcoin holds above $80,000 after Wednesday’s jump as injective rallies on staked ETF listing",
+      "summary": "Bitcoin slipped 0.2% to around $80,250 since midnight UTC, holding above $80,000 after Wednesday’s jump, as spot ETFs ended a three-day outflow streak.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/11/04/elon-musk-floats-space-data-centers-as-democratic-sweep-puts-pressure-on-ai-trade",
-      "publishedAt": "2026-11-04T10:03:33.000Z"
+      "link": "https://www.coindesk.com/markets/2026/11/05/bitcoin-holds-above-usd80-000-after-wednesday-s-jump-as-injective-rallies-on-staked-etf-listing",
+      "publishedAt": "2026-11-05T11:30:00.000Z"
+    },
+    {
+      "country": "EU",
+      "flag": "🇪🇺",
+      "tag": "bank",
+      "tagLabel": "Banque centrale",
+      "title": "Isabel Schnabel: Navigating stormy waters: reflections on monetary policy",
+      "summary": "",
+      "source": "Banque centrale européenne",
+      "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp261105_1~5e97d9d5a0.en.html",
+      "publishedAt": "2026-11-05T08:00:00.000Z"
+    },
+    {
+      "country": "EU",
+      "flag": "🇪🇺",
+      "tag": "bank",
+      "tagLabel": "Banque centrale",
+      "title": "Piero Cipollone: Shaping the future of money",
+      "summary": "",
+      "source": "Banque centrale européenne",
+      "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp261105~6495a0df6f.en.html",
+      "publishedAt": "2026-11-05T07:30:00.000Z"
     },
     {
       "country": "EU",
@@ -90,28 +112,6 @@
       "source": "Banque centrale européenne",
       "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp261030~08d9d540f0.en.html",
       "publishedAt": "2026-10-30T16:10:00.000Z"
-    },
-    {
-      "country": "EU",
-      "flag": "🇪🇺",
-      "tag": "bank",
-      "tagLabel": "Banque centrale",
-      "title": "Decisions taken by the Governing Council of the ECB (in addition to decisions setting interest rates)",
-      "summary": "",
-      "source": "Banque centrale européenne",
-      "link": "https://www.ecb.europa.eu//press/govcdec/otherdec/2026/html/ecb.gc261030~e40f864093.en.html",
-      "publishedAt": "2026-10-30T14:00:00.000Z"
-    },
-    {
-      "country": "EU",
-      "flag": "🇪🇺",
-      "tag": "bank",
-      "tagLabel": "Banque centrale",
-      "title": "Results of the ECB Survey of Professional Forecasters for the fourth quarter of 2026",
-      "summary": "",
-      "source": "Banque centrale européenne",
-      "link": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr261030~e92c3c838c.en.html",
-      "publishedAt": "2026-10-30T09:00:00.000Z"
     }
   ]
 }
