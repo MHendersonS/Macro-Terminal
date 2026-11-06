@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-11-05T12:54:47.652Z",
+  "fetchedAt": "2026-11-06T12:41:30.892Z",
   "failed": [],
   "items": [
     {
@@ -8,55 +8,66 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Ukraine’s central bank opposes crypto bill, citing monetary sovereignty concerns",
-      "summary": "Ukraine’s central bank won’t back a crypto legalization bill in its current form and wants lawmakers to revise it before a final vote.",
+      "title": "Over $1 billion in bullish bets liquidated while ETF flows suggest no help in spot market",
+      "summary": "Your day-ahead look for Nov. 6, 2026",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/11/05/ukraine-s-central-bank-opposes-crypto-bill-citing-monetary-sovereignty-concerns",
-      "publishedAt": "2026-11-05T12:50:57.000Z"
+      "link": "https://www.coindesk.com/daybook-us/2026/11/06/over-usd1-billion-in-bullish-bets-liquidated-while-etf-flows-suggest-no-help-in-spot-market",
+      "publishedAt": "2026-11-06T12:30:00.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin is resilient, but leverage is missing and demand still tepid",
-      "summary": "Your day-ahead look for Nov. 5, 2026",
+      "title": "Live updates: Nasdaq 100 futures rally points to stock market respite",
+      "summary": "The tech-heavy Nasdaq 100 lost over 6% on Thursday amid worries of an AI slowdown following the Democrats' wins in the House and the Senate.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/daybook-us/2026/11/05/bitcoin-is-resilient-but-leverage-is-missing-and-demand-still-tepid",
-      "publishedAt": "2026-11-05T12:27:04.000Z"
+      "link": "https://www.coindesk.com/tech/2026/11/06/live-updates-nasdaq-100-futures-rally-points-to-stock-market-respite",
+      "publishedAt": "2026-11-06T11:58:40.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin miners are oversold following 35% October rout, VanEck says",
-      "summary": "Investors dumped AI infrastructure providers across the board in October, treating companies in very different sectors as one monolithic trade.",
+      "title": "Bitcoin steadies after AI-led selloff as eyes turn to latest U.S. jobs figures",
+      "summary": "Bitcoin bounced from around $75,200 after Thursday’s AI-led selloff, which drove more than $1 billion in liquidations, as traders await the U.S. jobs report.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/11/05/bitcoin-miners-are-oversold-following-35-october-rout-says-vaneck",
-      "publishedAt": "2026-11-05T11:49:23.000Z"
+      "link": "https://www.coindesk.com/markets/2026/11/06/bitcoin-steadies-near-usd76-000-after-ai-led-selloff",
+      "publishedAt": "2026-11-06T11:49:35.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Trump-linked American Bitcoin swings to $126 million profit but misses revenue estimates",
-      "summary": "Revenue fell to $63.4 million in the third quarter and missed analysts’ forecasts as bitcoin production declined and higher summer electricity prices pushed mining costs up.",
+      "title": "Bitcoin recovers $76,000 level as ETFs shed $430 million after tech rout",
+      "summary": "Bitcoin recovered above $76,000 Friday after dropping below that level during Thursday's tech-driven market rout.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/11/05/trump-linked-american-bitcoin-swings-to-usd126-million-profit-in-q3-2026",
-      "publishedAt": "2026-11-05T11:45:54.000Z"
+      "link": "https://www.coindesk.com/markets/2026/11/06/bitcoin-recovers-usd76-000-level-as-etfs-shed-usd430-million-after-tech-rout",
+      "publishedAt": "2026-11-06T09:53:27.000Z"
+    },
+    {
+      "country": "EU",
+      "flag": "🇪🇺",
+      "tag": "bank",
+      "tagLabel": "Banque centrale",
+      "title": "ECB publishes consolidated banking data for end-June 2026",
+      "summary": "",
+      "source": "Banque centrale européenne",
+      "link": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr261106~356f2fc73a.en.html",
+      "publishedAt": "2026-11-06T09:00:00.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin holds above $80,000 after Wednesday’s jump as injective rallies on staked ETF listing",
-      "summary": "Bitcoin slipped 0.2% to around $80,250 since midnight UTC, holding above $80,000 after Wednesday’s jump, as spot ETFs ended a three-day outflow streak.",
+      "title": "Greece approves 10% tax on crypto gains and 15% levy on DeFi income",
+      "summary": "Investors will have 12 months to declare past crypto gains without late-filing penalties, though questions remain over crypto-to-crypto swaps.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/11/05/bitcoin-holds-above-usd80-000-after-wednesday-s-jump-as-injective-rallies-on-staked-etf-listing",
-      "publishedAt": "2026-11-05T11:30:00.000Z"
+      "link": "https://www.coindesk.com/policy/2026/11/06/greece-approves-10-tax-on-crypto-gains-and-15-levy-on-defi-income",
+      "publishedAt": "2026-11-06T08:47:42.000Z"
     },
     {
       "country": "EU",
@@ -101,17 +112,6 @@
       "source": "Banque centrale européenne",
       "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp.261102~70003226e9.en.html",
       "publishedAt": "2026-11-02T09:30:00.000Z"
-    },
-    {
-      "country": "EU",
-      "flag": "🇪🇺",
-      "tag": "bank",
-      "tagLabel": "Banque centrale",
-      "title": "Philip R. Lane: AI adoption in Europe",
-      "summary": "",
-      "source": "Banque centrale européenne",
-      "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp261030~08d9d540f0.en.html",
-      "publishedAt": "2026-10-30T16:10:00.000Z"
     }
   ]
 }
