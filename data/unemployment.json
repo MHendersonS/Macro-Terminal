@@ -2,7 +2,7 @@
   "indicator": "unemployment_rate",
   "unit": "%",
   "source": "OCDE — DF_IALFS_UNE_M (taux de chômage mensuel, 15 ans et plus)",
-  "fetchedAt": "2026-11-07T11:27:46.101Z",
+  "fetchedAt": "2026-11-08T11:39:41.263Z",
   "failed": [
     "NZ",
     "CH"
@@ -31,11 +31,11 @@
       },
       {
         "period": "2023-06",
-        "value": 7.3
+        "value": 7.4
       },
       {
         "period": "2023-07",
-        "value": 7.4
+        "value": 7.5
       },
       {
         "period": "2023-08",
@@ -43,7 +43,7 @@
       },
       {
         "period": "2023-09",
-        "value": 7.5
+        "value": 7.4
       },
       {
         "period": "2023-10",
@@ -99,7 +99,7 @@
       },
       {
         "period": "2024-11",
-        "value": 7.4
+        "value": 7.3
       },
       {
         "period": "2024-12",
@@ -131,7 +131,7 @@
       },
       {
         "period": "2025-07",
-        "value": 7.7
+        "value": 7.8
       },
       {
         "period": "2025-08",
@@ -147,7 +147,7 @@
       },
       {
         "period": "2025-11",
-        "value": 8
+        "value": 7.9
       },
       {
         "period": "2025-12",
@@ -155,7 +155,7 @@
       },
       {
         "period": "2026-01",
-        "value": 8.1
+        "value": 8
       },
       {
         "period": "2026-02",
@@ -183,7 +183,11 @@
       },
       {
         "period": "2026-08",
-        "value": 8.2
+        "value": 8.3
+      },
+      {
+        "period": "2026-09",
+        "value": 8.5
       }
     ],
     "US": [
@@ -487,7 +491,7 @@
       },
       {
         "period": "2025-07",
-        "value": 3.7
+        "value": 3.8
       },
       {
         "period": "2025-08",
@@ -539,7 +543,11 @@
       },
       {
         "period": "2026-08",
-        "value": 4
+        "value": 4.1
+      },
+      {
+        "period": "2026-09",
+        "value": 4.1
       }
     ],
     "JP": [
@@ -718,6 +726,10 @@
       {
         "period": "2026-08",
         "value": 2.5
+      },
+      {
+        "period": "2026-09",
+        "value": 2.4
       }
     ],
     "GB": [
