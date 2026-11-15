@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-11-14T11:55:14.288Z",
+  "fetchedAt": "2026-11-15T12:27:38.648Z",
   "failed": [],
   "items": [
     {
@@ -8,55 +8,55 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Satoshi-era wallet served in a $260 billion lawsuit moves 75 BTC it held since 2011",
-      "summary": "The roughly $5 million transfer also spent the tiny payment used to deliver a court notice to the address in May.",
+      "title": "XRP crashes to its lowest since November 2024 as money leaves crypto",
+      "summary": "XRP tanked to its lowest level since November 2024 as ETF outflows and shrinking stablecoin supply add to pressure on crypto markets.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/11/13/satoshi-era-wallet-served-in-a-usd260-billion-lawsuit-moves-75-btc-it-held-since-2011",
-      "publishedAt": "2026-11-14T04:30:00.000Z"
+      "link": "https://www.coindesk.com/markets/2026/11/15/xrp-crashes-to-its-lowest-since-november-2024-as-money-leaves-crypto",
+      "publishedAt": "2026-11-15T02:50:57.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin miners pay Paraguay $350 million a year, but AI is pushing them out",
-      "summary": "Contracts that sell power to a 4% slice of the world’s bitcoin mining at $44 a megawatt-hour expire on Dec. 31, 2027. Paraguay’s state utility calls the date final, and it has just signed a 15-year deal to power a…",
+      "title": "Bitcoin crashes to 3-month low below $63,000 as analyst flags fourth capitulation wave",
+      "summary": "\"They are now selling at the very price they wish they had taken advantage of three months ago,\" wrote James Check.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/tech/2026/11/13/bitcoin-miners-pay-paraguay-usd350-million-a-year-but-ai-is-pushing-them-out",
-      "publishedAt": "2026-11-13T23:30:00.000Z"
+      "link": "https://www.coindesk.com/markets/2026/11/14/bitcoin-drifts-back-to-usd65-000-deep-value-zone-says-analyst",
+      "publishedAt": "2026-11-14T16:33:29.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin plunges to $68,000 as Anthropic IPO frenzy adds to market jitters",
-      "summary": "Analysts see no direct link between Nvidia and bitcoin's decline, pointing instead to investor capital headed into Anthropic as well as a broader risk-off move.",
+      "title": "Ethereum scaling project MegaETH slashes staff by 20% as it pursues AI business",
+      "summary": "Decentralized Finance total value locked on MegaETH dropped significantly from over $245 million to $8.8 million.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/11/13/bitcoin-slides-to-usd68k-as-nvidia-turmoil-anthropic-ipo-fuel-broader-market-sell-off",
-      "publishedAt": "2026-11-13T18:39:58.000Z"
+      "link": "https://www.coindesk.com/business/2026/11/14/ethereum-scaling-project-megaeth-slashes-staff-by-20-as-it-pursues-ai-business",
+      "publishedAt": "2026-11-14T16:33:23.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "U.S. Senate Banking Committee races toward hearing on new SEC nominations",
-      "summary": "The committee that needs to advance President Donald Trump's nominees responded quickly to set his SEC picks for review next week.",
+      "title": "Kazakhstan plans tokenized government bonds in first quarter after $22 million note sale",
+      "summary": "The plan follows Kazakhstan's first sale of tokenized central bank notes as the country expands its crypto market.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/policy/2026/11/13/u-s-senate-banking-committee-races-toward-hearing-on-new-sec-nominations",
-      "publishedAt": "2026-11-13T17:05:43.000Z"
+      "link": "https://www.coindesk.com/business/2026/11/14/kazakhstan-plans-tokenized-government-bonds-in-first-quarter-after-usd22-million-note-sale",
+      "publishedAt": "2026-11-14T15:38:27.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin heads for sixth weekly loss as Anthropic’s blockbuster IPO looms",
-      "summary": "Bitcoin is down 21% this year as investors weigh Anthropic’s anticipated listing, Nvidia’s leadership upheaval and rising Fed rate hike expectations.",
+      "title": "UK, Singapore, and Thailand central banks test cross-border FX settlement as stablecoins gain ground",
+      "summary": "Project Meridian FX APAC said it demonstrated how transactions can be coordinated across conventional settlement systems and those built using blockchain technology.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/11/13/bitcoin-heads-for-sixth-weekly-loss-as-anthropic-s-blockbuster-ipo-looms",
-      "publishedAt": "2026-11-13T16:01:27.000Z"
+      "link": "https://www.coindesk.com/policy/2026/11/14/uk-singapore-and-thailand-central-banks-test-cross-border-fx-settlement-as-stablecoins-gain-ground",
+      "publishedAt": "2026-11-14T15:00:00.000Z"
     },
     {
       "country": "EU",
