@@ -2,7 +2,7 @@
   "indicator": "policy_rate",
   "unit": "%",
   "source": "FRED (Fed de Saint-Louis) — voir \"sourcesUsed\" pour le détail par pays",
-  "fetchedAt": "2026-11-15T12:27:36.118Z",
+  "fetchedAt": "2026-11-16T13:19:37.723Z",
   "failed": [],
   "sourcesUsed": {
     "US": {
@@ -54,14 +54,6 @@
   "series": {
     "US": [
       {
-        "period": "2026-11-05",
-        "value": 4
-      },
-      {
-        "period": "2026-11-06",
-        "value": 4
-      },
-      {
         "period": "2026-11-07",
         "value": 4
       },
@@ -91,6 +83,14 @@
       },
       {
         "period": "2026-11-14",
+        "value": 4
+      },
+      {
+        "period": "2026-11-15",
+        "value": 4
+      },
+      {
+        "period": "2026-11-16",
         "value": 4
       }
     ],
