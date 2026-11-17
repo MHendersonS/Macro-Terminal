@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-11-16T13:19:40.356Z",
+  "fetchedAt": "2026-11-17T14:03:46.502Z",
   "failed": [],
   "items": [
     {
@@ -8,11 +8,55 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Solana drops ‘beta’ label after more than six years",
-      "summary": "The blockchain is getting a shared version number. Wallets, transactions and apps remain unchanged.",
+      "title": "Ethereum's Glamsterdam upgrade risks breaking up to 15,000 automated apps",
+      "summary": "In addition to that broader estimate, independent audits have uncovered hundreds of separate compatibility problems, with core developers set to reconsider the changes Thursday.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/tech/2026/11/16/solana-drops-beta-label-after-more-than-six-years",
-      "publishedAt": "2026-11-16T13:03:16.000Z"
+      "link": "https://www.coindesk.com/tech/2026/11/17/ethereum-s-glamsterdam-upgrade-risks-breaking-up-to-15-000-contracts",
+      "publishedAt": "2026-11-17T13:02:56.000Z"
+    },
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "Decentralized exchange Grvt looks to makes commodity trading more predictable with stable funding perps",
+      "summary": "Grvt’s new Stable Funding Perps tie the cost of holding commodities trades to traditional-market financing costs, rather than volatile crypto-style funding.",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/markets/2026/11/17/decentralized-exchange-grvt-makes-commodity-trading-more-predictable-with-stable-funding-perps",
+      "publishedAt": "2026-11-17T13:00:00.000Z"
+    },
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "Crypto's 'casino-chips' are disappearing, adding to pain from spot ETF outflows",
+      "summary": "Your day-ahead look for Nov. 17, 2026",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/daybook-us/2026/11/17/crypto-s-casino-chips-are-disappearing-adding-to-pain-from-spot-etf-outflows",
+      "publishedAt": "2026-11-17T12:16:53.000Z"
+    },
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "Ex-OpenAI researcher fund dumps bitcoin miners, cuts IREN 94% after portfolio slump",
+      "summary": "The fund swapped its common stock in Bloom Energy, Nebius and SanDisk for call options, keeping its bet on AI power, computing and memory.",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/business/2026/11/17/ex-openai-researcher-fund-dumps-bitcoin-miners-cuts-iren-94-after-portfolio-slump",
+      "publishedAt": "2026-11-17T12:00:55.000Z"
+    },
+    {
+      "country": "GLOBAL",
+      "flag": "🌍",
+      "tag": "marche",
+      "tagLabel": "Marché",
+      "title": "Bitcoin remains penned in near $64,000 even as ETF outflow streak ends",
+      "summary": "Bitcoin (BTC) is down a further 1.0% since midnight UTC at around $64,200, with its bounce from the weekend selloff stalled and pressure building on all fronts.",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/markets/2026/11/17/bitcoin-remains-penned-in-near-usd64-000-even-as-etf-outflow-streak-ends",
+      "publishedAt": "2026-11-17T11:36:07.000Z"
     },
     {
       "country": "EU",
@@ -24,50 +68,6 @@
       "source": "Banque centrale européenne",
       "link": "https://www.ecb.europa.eu//press/inter/date/2026/html/ecb.in261116_1~11dd7f62af.en.html",
       "publishedAt": "2026-11-16T13:00:00.000Z"
-    },
-    {
-      "country": "GLOBAL",
-      "flag": "🌍",
-      "tag": "marche",
-      "tagLabel": "Marché",
-      "title": "Old crypto feud reignites: Why OKX's Star Xu blames Binance for two years of October crashes",
-      "summary": "CZ says Binance isn’t selling crypto and he has been buying. OKX founder Star Xu accuses him of misleading customers about the exchange’s role in successive October crashes.",
-      "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/11/16/bitcoin-s-slide-reopens-an-old-feud-between-crypto-s-most-powerful-founders",
-      "publishedAt": "2026-11-16T12:55:46.000Z"
-    },
-    {
-      "country": "GLOBAL",
-      "flag": "🌍",
-      "tag": "marche",
-      "tagLabel": "Marché",
-      "title": "Bitcoin was supposed to gain as AI faltered, but it crashed. Here's why.",
-      "summary": "The price action runs counter to a crypto-market view that a cooling AI trade would trigger a rotation into digital assets and spark a rally.",
-      "source": "CoinDesk",
-      "link": "https://www.coindesk.com/daybook-us/2026/11/16/bitcoin-was-supposed-to-gain-as-ai-faltered-but-it-crashed-here-s-why",
-      "publishedAt": "2026-11-16T12:09:00.000Z"
-    },
-    {
-      "country": "GLOBAL",
-      "flag": "🌍",
-      "tag": "marche",
-      "tagLabel": "Marché",
-      "title": "Singapore, Germany test cross-border payments to reduce settlement risk",
-      "summary": "Zero-knowledge proofs let each ledger verify the other leg was locked, so neither currency settled unless both did, with no shared ledger or intermediary.",
-      "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/11/16/singapore-germany-test-cross-border-payments-to-reduce-settlement-risk",
-      "publishedAt": "2026-11-16T11:47:12.000Z"
-    },
-    {
-      "country": "GLOBAL",
-      "flag": "🌍",
-      "tag": "marche",
-      "tagLabel": "Marché",
-      "title": "Bitcoin slips after rebounding from July 14 low that triggered $2 billion of liquidations",
-      "summary": "Bitcoin (BTC) is down 1.6% since midnight UTC at around $64,300, after falling to $62,100 on Sunday, its lowest since July 14, as traders await Nvidia earnings.",
-      "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/11/16/bitcoin-slips-to-usd64-000-after-usd2-billion-weekend-flush",
-      "publishedAt": "2026-11-16T11:03:14.000Z"
     },
     {
       "country": "EU",
