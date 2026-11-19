@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-11-18T13:38:54.995Z",
+  "fetchedAt": "2026-11-19T14:04:59.955Z",
   "failed": [],
   "items": [
     {
@@ -8,55 +8,55 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin miner MARA raises $185 million in debt after selling $1 billion BTC to repay loans",
-      "summary": "The bitcoin miner is taking on borrowing tied to an Ohio power plant as it shifts more of its business toward AI infrastructure.",
+      "title": "Crypto traders vs. Wall Street: OKX’s Anthropic markets put IPO pricing to the test",
+      "summary": "The crypto exchange plans to launch tokenized Anthropic shares as its pre-IPO futures trade about 24% above the company’s $83 offering price.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/11/18/bitcoin-miner-mara-raises-usd185-million-in-debt-after-selling-usd1-billion-btc-to-repay-loans",
-      "publishedAt": "2026-11-18T12:53:34.000Z"
+      "link": "https://www.coindesk.com/markets/2026/11/19/crypto-traders-vs-wall-street-okx-s-anthropic-markets-put-ipo-pricing-to-the-test",
+      "publishedAt": "2026-11-19T13:11:31.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bullish beats revenue estimates as institutional services offset sluggish spot crypto volumes",
-      "summary": "The crypto platform reported a net loss of $576.3 million for the third quarter, compared with a gain of $18.5 million a year earlier.",
+      "title": "Trump Media wants to clear $884 million of debt without selling its bitcoin",
+      "summary": "The Truth Social owner bought back $100 million of convertible notes this week. Holders of the rest can demand cash on Nov. 30, and its bitcoin is worth just under $1 billion.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/11/18/bullish-beats-revenue-estimates-as-institutional-services-offset-sluggish-spot-crypto-volumes",
-      "publishedAt": "2026-11-18T12:41:09.000Z"
+      "link": "https://www.coindesk.com/markets/2026/11/19/trump-media-wants-to-clear-usd884-million-of-debt-without-selling-its-bitcoin",
+      "publishedAt": "2026-11-19T12:40:12.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Circle turns to DBS as banks build rival digital payment systems across Asia",
-      "summary": "The Singapore bank will let institutional clients buy and redeem USDC directly as banks across Asia develop their own blockchain payment systems.",
+      "title": "Bitcoin ETF outflows show waning crypto appetite ahead of Anthropic's Nasdaq debut",
+      "summary": "Your day-ahead look for Nov. 19, 2026",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/11/18/circle-turns-to-dbs-as-banks-build-rival-digital-payment-systems-across-asia",
-      "publishedAt": "2026-11-18T12:25:14.000Z"
+      "link": "https://www.coindesk.com/daybook-us/2026/11/19/bitcoin-etf-outflows-show-waning-crypto-appetite-ahead-of-anthropic-s-nasdaq-debut",
+      "publishedAt": "2026-11-19T12:20:39.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Blaming Anthropic’s IPO for bitcoin’s slide is 'easy to believe,' but flawed, analysts say",
-      "summary": "Your day-ahead look for Nov. 18, 2026",
+      "title": "Bitcoin holds above $63,750 but Fed rate-hike threats loom large",
+      "summary": "Bitcoin ETFs saw more than $300 million in outflows Wednesday, with attention now turning to Anthrophic's $100 billion IPO.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/daybook-us/2026/11/18/blaming-anthropic-s-ipo-for-bitcoin-s-slide-is-easy-to-believe-but-flawed-analysts-say",
-      "publishedAt": "2026-11-18T12:15:00.000Z"
+      "link": "https://www.coindesk.com/markets/2026/11/19/bitcoin-holds-above-usd63-750-but-fed-rate-hike-threats-loom-large",
+      "publishedAt": "2026-11-19T12:08:06.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin drops as Nvidia earnings report drives stock index futures higher",
-      "summary": "Bitcoin (BTC) is down 1.1% since midnight UTC at around $64,100, failing to keep pace with rising stock index futures after Nvidia beat earnings.",
+      "title": "North Korean hackers used Sky's stablecoin system, putting billions at freeze risk",
+      "summary": "Blockchain investigation traced $518 million in illicit-linked activity, including the 2025 Bybit hack, through a key reserve backing DAI and USDS tokens, putting Sky's institutional finance ambitions and open design on…",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/11/18/bitcoin-drops-as-nvidia-earnings-report-drives-stock-index-futures-higher",
-      "publishedAt": "2026-11-18T11:42:52.000Z"
+      "link": "https://www.coindesk.com/business/2026/11/19/north-korean-hackers-used-sky-s-stablecoin-system-putting-billions-at-freeze-risk",
+      "publishedAt": "2026-11-19T11:30:00.000Z"
     },
     {
       "country": "EU",
