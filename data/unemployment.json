@@ -2,7 +2,7 @@
   "indicator": "unemployment_rate",
   "unit": "%",
   "source": "OCDE — DF_IALFS_UNE_M (taux de chômage mensuel, 15 ans et plus)",
-  "fetchedAt": "2026-11-20T13:47:36.274Z",
+  "fetchedAt": "2026-11-21T13:12:42.414Z",
   "failed": [
     "NZ",
     "CH"
@@ -908,6 +908,10 @@
       {
         "period": "2026-07",
         "value": 4.7
+      },
+      {
+        "period": "2026-08",
+        "value": 4.6
       }
     ],
     "AU": [

@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-11-20T13:47:46.029Z",
+  "fetchedAt": "2026-11-21T13:12:51.932Z",
   "failed": [],
   "items": [
     {
@@ -8,55 +8,55 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Live news: Bitcoin hovers just above $61,000 as Anthropic slides 13% after Nasdaq debut",
-      "summary": "BlackRock’s bitcoin ETF saw a record $541.1 million outflow as the U.S. tech sell-off spread to Asia, sending South Korea’s Kospi down more than 5%.",
+      "title": "Ether treasury firm BTCS warns SEC its $54 million Aave loan could be liquidated",
+      "summary": "BTCS cut its reported Aave debt by about $10 million in ten days, but falling ether prices are keeping its collateral under pressure.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/tech/2026/11/20/live-news-bitcoin-hovers-just-above-usd61-000-as-anthropic-slides-13-after-nasdaq-debut",
-      "publishedAt": "2026-11-20T13:35:33.000Z"
+      "link": "https://www.coindesk.com/markets/2026/11/21/ether-treasury-firm-btcs-warns-sec-its-usd54-million-aave-loan-could-be-liquidated",
+      "publishedAt": "2026-11-21T12:30:00.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin bots pounced within seconds when researchers exposed their wallet keys",
-      "summary": "University of Liège researchers put a few dollars into deliberately vulnerable bitcoin addresses and watched rival bots race for the money within seconds.",
+      "title": "Bitcoin nodes could be stalled by repeating one ID 50,000 times. AI found the bug",
+      "summary": "Bitcoin Core shipped fixes on Friday for a bug flagged by Loupe, an open-source scanner from Block’s Spiral that uses AI agents to examine bitcoin code.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/tech/2026/11/20/bitcoin-bots-pounced-within-seconds-when-researchers-exposed-their-keys",
-      "publishedAt": "2026-11-20T13:30:22.000Z"
+      "link": "https://www.coindesk.com/markets/2026/11/21/bitcoin-nodes-could-be-stalled-by-repeating-one-id-50-000-times-ai-found-the-bug",
+      "publishedAt": "2026-11-21T06:16:42.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "ECB’s Largarde warns Europe could lose control of growing tokenized asset market",
-      "summary": "The ECB president called for common rules as the EU's new blockchain settlement system handled a 1 billion-euro ($1.1 billion) digital bond transaction.",
+      "title": "XRP falls 10% as long bets unwind and ETF assets slip below $1 billion",
+      "summary": "The token broke its previous November lows during Saturday's crypto selloff, with long positions accounting for most XRP liquidations and technical indicators showing further weakness.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/policy/2026/11/20/ecb-s-largarde-warns-europe-could-lose-control-of-growing-tokenized-asset-market",
-      "publishedAt": "2026-11-20T13:11:49.000Z"
+      "link": "https://www.coindesk.com/markets/2026/11/21/xrp-falls-10-as-long-bets-unwind-and-etf-assets-slip-below-usd1-billion",
+      "publishedAt": "2026-11-21T05:59:19.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin, stocks and gold traders getting nervous, and volatility gauges are surging",
-      "summary": "Your day-ahead look for Nov. 20, 2026",
+      "title": "Bitcoin tanks below $57,000 for the first time in two years, and its not alone",
+      "summary": "BTC's sell-off deepened on Saturday, with prices hitting two-year lows under $57,000.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/daybook-us/2026/11/20/bitcoin-stocks-and-gold-traders-getting-nervous-and-volatility-gauges-are-surging",
-      "publishedAt": "2026-11-20T12:15:08.000Z"
+      "link": "https://www.coindesk.com/markets/2026/11/21/bitcoin-tanks-below-usd57-000-for-the-first-time-in-two-years-and-its-not-alone",
+      "publishedAt": "2026-11-21T04:10:07.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin drops for third straight day as Asian tech shares slide",
-      "summary": "BlackRock’s spot bitcoin ETF recorded the largest single-day outflow since its introduction more than two years ago as investors continued to flee the sector.",
+      "title": "Kalshi races to get ahead of New York order that could shut down exchange",
+      "summary": "The U.S. prediction market firm asked a New York court to give the company a chance to argue against a pending restraining order stemming from a new court loss.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/11/20/bitcoin-drops-for-third-straight-day-as-asian-tech-shares-slide",
-      "publishedAt": "2026-11-20T11:42:02.000Z"
+      "link": "https://www.coindesk.com/policy/2026/11/20/kalshi-races-to-get-ahead-of-new-york-order-that-could-shut-down-exchange",
+      "publishedAt": "2026-11-20T22:51:14.000Z"
     },
     {
       "country": "EU",
