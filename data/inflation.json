@@ -2,7 +2,7 @@
   "indicator": "inflation_cpi_yoy",
   "unit": "%",
   "source": "OCDE — DSD_PRICES@DF_PRICES_N_CP01 (CPI, glissement annuel)",
-  "fetchedAt": "2026-11-21T13:11:43.412Z",
+  "fetchedAt": "2026-11-22T12:59:55.104Z",
   "failed": [
     "JP",
     "NZ"
