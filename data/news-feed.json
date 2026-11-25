@@ -1,6 +1,6 @@
 {
   "source": "Flux RSS publics (BCE, CoinDesk — à étendre)",
-  "fetchedAt": "2026-11-24T15:29:48.559Z",
+  "fetchedAt": "2026-11-25T15:15:49.505Z",
   "failed": [],
   "items": [
     {
@@ -8,55 +8,66 @@
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Anchorage Digital to unveil new asset-management subsidiary",
-      "summary": "The crypto custody technology firm said it will unveil a separate subsidiary called 61st Parallel Asset Management.",
+      "title": "Fed’s preferred inflation gauge lands with a December rate increase already priced in",
+      "summary": "Your day-ahead look for Nov. 25, 2026",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/business/2026/11/24/anchorage-digital-to-unveil-new-asset-management-subsidiary",
-      "publishedAt": "2026-11-24T15:06:32.000Z"
+      "link": "https://www.coindesk.com/daybook-us/2026/11/25/fed-s-preferred-inflation-gauge-lands-with-a-december-rate-increase-already-priced-in",
+      "publishedAt": "2026-11-25T12:18:46.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "South Korea proposes ending 2017 ICO ban to boost jobs and onshore crypto investment",
-      "summary": "Token issuers would have to disclose how they plan to spend investors' money and could face criminal charges for misleading buyers.",
+      "title": "Ether, DeFi fall twice as hard as bitcoin as equities selloff resumes",
+      "summary": "Bitcoin (BTC) is down 1.2% since midnight UTC as the stock selloff resumes, with ether (ETH) and DeFi tokens falling about twice as far.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/policy/2026/11/24/south-korea-proposes-ending-2017-ico-ban-to-boost-jobs-and-onshore-crypto-investment",
-      "publishedAt": "2026-11-24T14:40:53.000Z"
+      "link": "https://www.coindesk.com/markets/2026/11/25/ether-defi-fall-twice-as-hard-as-bitcoin-as-equities-selloff-resumes",
+      "publishedAt": "2026-11-25T11:57:50.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Crypto trader Ansem says his wallet was hacked as $2 million in memecoins were sold",
-      "summary": "Ansem suspects someone broke into his account on Bullpen, the trading terminal he co-founded, where the wallet's private key had been imported.",
+      "title": "Italy’s UniCredit launches six-year bitcoin certificate with gains capped at 65%",
+      "summary": "UniCredit brings bitcoin investing to its roughly 8 million retail customers in Italy, offering them a six-year product that caps the redemption value but promises to return their capital.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/markets/2026/11/24/a-wallet-linked-to-popular-crypto-trader-ansem-sold-usd2-million-in-memecoins-as-his-namesake-token-cratered",
-      "publishedAt": "2026-11-24T12:47:49.000Z"
+      "link": "https://www.coindesk.com/business/2026/11/25/italy-s-unicredit-debuts-six-year-bitcoin-certificate-with-100-capital-protection-and-65-cap",
+      "publishedAt": "2026-11-25T11:51:54.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Live updates: Bitcoin pulls back to $60,000, stock rally fades, as tariffs re-enter the picture",
-      "summary": "The Trump Administration could unveil tariff hikes against China, Japan, South Korea and other countries as soon as this week, according to a WSJ report.",
+      "title": "Gold's haven status has lost its edge over bitcoin, and the Fed's to blame",
+      "summary": "Gold has lost the risk-adjusted advantage that made it this year's haven of choice over bitcoin. Both now offer negative one-year Sharpe ratios, leaving cash yields hard to beat.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/tech/2026/11/24/live-updates-bitcoin-pulls-back-to-usd60-000-as-stock-rally-fails-to-budge-crypto",
-      "publishedAt": "2026-11-24T12:47:40.000Z"
+      "link": "https://www.coindesk.com/markets/2026/11/25/bitcoin-hasn-t-paid-its-holders-for-the-risk-it-carries-and-now-gold-is-doing-the-same",
+      "publishedAt": "2026-11-25T11:30:32.000Z"
     },
     {
       "country": "GLOBAL",
       "flag": "🌍",
       "tag": "marche",
       "tagLabel": "Marché",
-      "title": "Bitcoin drops as November spot ETF outflows increase to record $4.71 billion",
-      "summary": "Your day-ahead look for Nov. 24, 2026",
+      "title": "EU proposes $54.7 billion fund for AI, quantum startups alongside post-quantum security push",
+      "summary": "Brussels wants tech firms to grow at home. EU scale-ups raise about half the capital of San Francisco peers by year 10, an EIB study found.",
       "source": "CoinDesk",
-      "link": "https://www.coindesk.com/daybook-us/2026/11/24/bitcoin-drops-as-november-spot-etf-outflows-increase-to-record-usd4-71-billion",
-      "publishedAt": "2026-11-24T12:36:28.000Z"
+      "link": "https://www.coindesk.com/business/2026/11/25/eu-proposes-usd54-7-billion-fund-for-ai-quantum-startups-alongside-post-quantum-security-push",
+      "publishedAt": "2026-11-25T11:00:27.000Z"
+    },
+    {
+      "country": "EU",
+      "flag": "🇪🇺",
+      "tag": "bank",
+      "tagLabel": "Banque centrale",
+      "title": "Card payments edge past cash in shops; euro area consumers want both",
+      "summary": "",
+      "source": "Banque centrale européenne",
+      "link": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr261125~26d1ade228.en.html",
+      "publishedAt": "2026-11-25T10:00:00.000Z"
     },
     {
       "country": "EU",
@@ -101,17 +112,6 @@
       "source": "Banque centrale européenne",
       "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp261120~e52bcc4db2.en.html",
       "publishedAt": "2026-11-20T08:30:00.000Z"
-    },
-    {
-      "country": "EU",
-      "flag": "🇪🇺",
-      "tag": "bank",
-      "tagLabel": "Banque centrale",
-      "title": "Boris Vujčić: Financial Stability Review - November 2026",
-      "summary": "",
-      "source": "Banque centrale européenne",
-      "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp261118~86f1e8147e.en.pdf",
-      "publishedAt": "2026-11-18T09:00:00.000Z"
     }
   ]
 }
